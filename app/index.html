@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 GTA VI PlayStation 5 trophies: checklist, 7-stage platinum roadmap, missables, glitch and farming panels, launch status, and cited guides.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<noscript><p class="noscript-note">This guide needs JavaScript to load its trophy data and save your checklist. The data files are plain JSON under app/data/ and work offline.</p></noscript>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>LEONIDA PLATINUM ATLAS</h1>
+      <p class="subtitle">GTA VI trophy guide &amp; tracker — all 55 PS5 trophies, offline, with cited guides</p>
+      <p class="honesty">54 of 55 unlock methods confirmed by at least one trusted source. One trophy — Ten Pin — is still unverified and shown honestly as Unknown.</p>
+    </div>
+    <div class="progress-block" aria-live="polite">
+      <p class="progress-line"><span id="progress-text">0 / 55 earned (0%)</span></p>
+      <div class="progress-track"><div id="progress-bar" class="progress-fill" style="width:0%"></div></div>
+      <p class="progress-note">1 Platinum · 2 Gold · 6 Silver · 46 Bronze · 28 Hidden · 0 Online</p>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="Guide sections">
+    <a href="#/" data-route="checklist">Checklist</a>
+    <a href="#/roadmap" data-route="roadmap">Roadmap</a>
+    <a href="#/missables" data-route="missables">Missables</a>
+    <a href="#/glitch" data-route="glitch">Glitch &amp; Farming</a>
+    <a href="#/status" data-route="status">Launch Status</a>
+    <a href="#/planner" data-route="planner">Next Up Planner</a>
+    <a href="#/settings" data-route="settings">Settings</a>
+  </nav>
+  <div id="filters" class="filter-bar">
+    <label class="filter-field">Search
+      <input id="search" type="search" placeholder="Search trophy name or description…" autocomplete="off">
+    </label>
+    <label class="filter-field">Kind
+      <select id="kind">
+        <option value="">All kinds</option>
+        <option value="story">Story</option>
+        <option value="collectible">Collectibles</option>
+        <option value="activity">Activities</option>
+        <option value="crime">Crime</option>
+      </select>
+    </label>
+    <label class="filter-field">Grade
+      <select id="grade">
+        <option value="">All grades</option>
+        <option value="Platinum">Platinum</option>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="filter-field">Status
+      <select id="status">
+        <option value="">All trophies</option>
+        <option value="earned">Earned</option>
+        <option value="unearned">Not earned</option>
+        <option value="missable">Missable</option>
+        <option value="hidden">Hidden</option>
+      </select>
+    </label>
+    <label class="filter-check">
+      <input id="spoiler-toggle" type="checkbox" checked>
+      Spoiler guard: hide story trophy names &amp; descriptions until earned
+    </label>
+  </div>
+</header>
+<div class="layout">
+  <main id="view" class="view" tabindex="-1"><p class="loading">Loading the 55-trophy checklist…</p></main>
+  <aside id="detail" class="detail" aria-label="Trophy detail"><p class="loading">Select a trophy to see its guide, steps and sources.</p></aside>
+</div>
+<footer class="site-footer">
+  <div class="footer-actions">
+    <button id="export-btn" type="button">Export progress</button>
+    <button id="import-btn" type="button">Import progress</button>
+    <input id="import-file" type="file" accept="application/json,.json" hidden>
+    <button id="reset-btn" type="button">Reset progress</button>
+  </div>
+  <p>Sources: PowerPyx (trophy guide &amp; 100% checklist), Exophase, GameSpot, damnmodz, gamemapa, PushSquare, KeeNgamer, allblogthings, afleurdenet, vanotherlevel, dlcompare, cryptogames, gtavi-glitches, gtavibes, boostingfactory, gta6.house, insider-gaming, gamerblurb, ofzenandcomputing, Rockstar Games, Wikipedia. Every guide step in this app names its source beside it; no guide text is copied from another guide. Official trophy names and descriptions are shown as PlayStation publishes them.</p>
+  <p>Honesty note: 54 of 55 unlock methods are confirmed. Ten Pin is unverified (best lead: melee drive-by kick from a motorcycle). The Apollo Aggregates money glitch is disputed (2 sources for, 2 against) and labelled REPORTED. One non-story hidden slot is unidentified. The 25 Nov fix rumor is unverified. Research as of 21 Nov 2026, 00:30 WIB.</p>
+  <p>Unofficial fan guide. Not affiliated with Rockstar Games. No Rockstar logo, artwork, box art or game screenshots are used. Works fully offline; progress is stored only in your browser (localStorage).</p>
+</footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
