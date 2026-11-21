@@ -1,66 +1,45 @@
-// filters.js — combine kind filter + text search + spoiler setting
-// into one predicate over the trophy list, and apply the spoiler
-// masking class to the rendered rows.
+// Leonida Platinum Atlas — pure filters (Round 7, written fresh).
+export const KIND_LABELS = {
+  story: 'Story',
+  missable: 'Missable',
+  collectibles: 'Collectibles',
+  activities: 'Activities',
+  crime: 'Crime',
+};
 
-/** Kind filter values offered by the chips in #filter-bar. */
-export const KIND_FILTERS = [
-  'all',
-  'story',
-  'missable',
-  'collectibles',
-  'activities',
-  'crime',
-  'hidden',
-  'online',
-];
+export const GRADE_ORDER = ['platinum', 'gold', 'silver', 'bronze'];
 
-/** Does one trophy pass the kind filter? */
-export function matchesKind(trophy, kind) {
-  if (!kind || kind === 'all') return true;
-  if (kind === 'missable') return trophy.missable === true;
-  if (kind === 'hidden') return trophy.hidden === true;
-  if (kind === 'online') return trophy.kind === 'online';
-  return trophy.kind === kind;
+export function gradeRank(grade) {
+  const i = GRADE_ORDER.indexOf(grade);
+  return i < 0 ? 99 : i;
 }
 
-/** Does one trophy match the free-text query (name + description + guide)? */
-export function matchesSearch(trophy, query) {
-  const q = (query || '').trim().toLowerCase();
-  if (!q) return true;
-  const haystack = [trophy.name, trophy.description, trophy.guide]
-    .join(' ')
-    .toLowerCase();
-  return q.split(/\s+/).every((word) => haystack.includes(word));
+export function applyFilters(trophies, st) {
+  const q = (st.q || '').trim().toLowerCase();
+  return trophies.filter((t) => {
+    if (st.kind !== 'all' && t.kind !== st.kind) return false;
+    if (st.grade !== 'all' && t.grade !== st.grade) return false;
+    if (st.verified !== 'all' && t.verified !== st.verified) return false;
+    if (st.missableOnly && !t.missable) return false;
+    if (
+      q &&
+      !t.name.toLowerCase().includes(q) &&
+      !(t.description || '').toLowerCase().includes(q) &&
+      !(t.guide || '').toLowerCase().includes(q)
+    ) {
+      return false;
+    }
+    return true;
+  });
 }
 
-/**
- * Filter the trophy list by kind + search. Returns a new array.
- * `state` is { kind, query }.
- */
-export function applyFilters(trophies, state) {
-  return trophies.filter(
-    (t) => matchesKind(t, state.kind) && matchesSearch(t, state.query),
-  );
+export function filterCounts(trophies) {
+  const c = { all: trophies.length, missable: 0 };
+  for (const t of trophies) {
+    c[t.kind] = (c[t.kind] || 0) + 1;
+    c[t.grade] = (c[t.grade] || 0) + 1;
+    c[t.verified] = (c[t.verified] || 0) + 1;
+    if (t.missable) c.missable++;
+  }
+  return c;
 }
-
-/**
- * Is this trophy's name/description spoiler-masked right now?
- * Spoiler-safe hides STORY trophies until they are earned.
- */
-export function isSpoilerHidden(trophy, spoilerOn, isEarned) {
-  return spoilerOn === true && trophy.kind === 'story' && !isEarned;
-}
-
-/**
- * Apply (or remove) the spoiler masking class on a rendered row element.
- * Rows carry .spoiler-hidden; the stylesheet hides .tname/.tdesc inside it.
- */
-export function applySpoilerClass(rowEl, trophy, spoilerOn, isEarned) {
-  rowEl.classList.toggle(
-    'spoiler-hidden',
-    isSpoilerHidden(trophy, spoilerOn, isEarned),
-  );
-}
-
-/** The placeholder text a spoiler-masked trophy shows instead of its name. */
-export const SPOILER_PLACEHOLDER = 'Hidden story trophy — earn it to reveal';
