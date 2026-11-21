@@ -1,180 +1,202 @@
-// Leonida Platinum Atlas — wiring. Loads the three local JSON files, renders
-// the active view, and keeps the progress header in sync. URL parameters
-// pick the opening view for deep links and screenshots:
-//   ?view=checklist|roadmap|missables|eggs|glitch|launch|tracker
-//   ?detail=<trophy name>   (opens that trophy's guide pane)
-//   ?spoiler=on|off
-import { loadAll } from './data.js';
-import { loadState, saveState, toggleEarned, setCount, setSpoiler, setNote, exportFile, importFile } from './store.js';
-import { filterTrophies, filterEggs, nextUp } from './filters.js';
-import { checklistView, roadmapView, missablesView, eggsView, glitchView, launchView, trackerView } from './views.js';
+// main.js — entry point. Loads the guide data, wires the store, the
+// filters and every view, then applies the ?shot= screenshot mode.
+// ES module; every import is a relative file under app/.
 
-const viewEl = document.getElementById('view');
-const tabsEl = document.getElementById('tabs');
-const params = new URLSearchParams(location.search);
+import { loadGuideData, countCitedSteps } from './data.js';
+import { createStore } from './store.js';
+import { applySpoilerClass } from './filters.js';
+import {
+  showView,
+  renderTrophyList,
+  renderDetail,
+  renderProgress,
+  renderNextUp,
+  renderRoadmap,
+  renderGlitch,
+  renderEggs,
+} from './views.js';
 
-const data = await loadAll();
-let state = loadState();
-if (params.get('spoiler') === 'on') state.spoiler = true;
-if (params.get('spoiler') === 'off') state.spoiler = false;
+const SHOT_MODES = ['cover', 'roadmap', 'glitch', 'spoiler'];
+const COVER_TROPHY = 'Maximum Withdrawal';
+const DEFAULT_TROPHY = 'Positive Mental Attitude';
 
-const ui = {
-  view: params.get('view') || 'checklist',
-  kind: 'all',
-  grade: 'all',
-  query: '',
-  detail: params.get('detail') || null,
-  eggCategory: 'all',
-  eggStatus: 'all',
-  eggQuery: '',
-};
-if (!['checklist', 'roadmap', 'missables', 'eggs', 'glitch', 'launch', 'tracker'].includes(ui.view)) ui.view = 'checklist';
-
-function updateHeader() {
-  const earned = new Set(state.earned);
-  const total = data.trophies.length;
-  const pct = Math.round((earned.size / total) * 100);
-  document.getElementById('progressText').textContent = earned.size + ' / ' + total;
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressSub').textContent = pct + '% to platinum · 52/55 guides confirmed · 2 reported · 1 unknown (Ten Pin)';
+function $(id) {
+  return document.getElementById(id);
 }
 
-function render() {
-  updateHeader();
-  for (const b of tabsEl.querySelectorAll('button')) {
-    b.classList.toggle('active', b.dataset.view === ui.view);
-  }
-  let html = '';
-  if (ui.view === 'checklist') {
-    const filtered = filterTrophies(data.trophies, { kind: ui.kind, grade: ui.grade, query: ui.query, earned: new Set(state.earned) });
-    html = checklistView(data, state, ui, filtered);
-  } else if (ui.view === 'roadmap') {
-    html = roadmapView(data.panels);
-  } else if (ui.view === 'missables') {
-    html = missablesView(data.panels);
-  } else if (ui.view === 'eggs') {
-    const filtered = filterEggs(data.eggs, { category: ui.eggCategory, status: ui.eggStatus, query: ui.eggQuery });
-    html = eggsView(data.eggs, ui, filtered);
-  } else if (ui.view === 'glitch') {
-    html = glitchView(data.panels);
-  } else if (ui.view === 'launch') {
-    html = launchView(data.panels);
-  } else {
-    html = trackerView(data, state, nextUp(data.trophies, state));
-  }
-  viewEl.innerHTML = html;
-  bindView();
+function shotMode() {
+  const mode = new URLSearchParams(window.location.search).get('shot');
+  return SHOT_MODES.includes(mode) ? mode : null;
 }
 
-function bindView() {
-  // Row clicks open the detail pane. The checkbox inside a row gets its own
-  // listener with stopPropagation, so ticking a trophy is never swallowed
-  // by the row's re-render.
-  for (const row of viewEl.querySelectorAll('tr[data-open]')) {
-    row.addEventListener('click', () => {
-      ui.detail = row.dataset.open;
-      ui.view = 'checklist';
-      render();
-      const detail = document.getElementById('detail');
-      if (detail) detail.scrollIntoView({ block: 'nearest' });
+async function start() {
+  const { trophies, panels, eggs } = await loadGuideData();
+  const store = createStore(trophies.map((t) => t.id));
+  const citedSteps = countCitedSteps(trophies);
+
+  const listEl = $('trophy-list');
+  const detailEl = $('detail-pane');
+  const nextUpEl = $('next-up');
+  const roadmapListEl = $('roadmap-list');
+  const glitchPanelEl = $('glitch-panel');
+  const eggsListEl = $('eggs-list');
+  const searchEl = $('search');
+  const spoilerToggle = $('spoiler-toggle');
+
+  const filterState = {
+    kind: 'all',
+    query: '',
+    spoilerOn: spoilerToggle ? spoilerToggle.checked : true,
+  };
+  let selectedId = DEFAULT_TROPHY;
+  let eggKind = 'all';
+
+  function setBodySpoiler(on) {
+    document.body.classList.toggle('spoiler-on', on);
+  }
+
+  function selectedTrophy() {
+    return trophies.find((t) => t.id === selectedId) || null;
+  }
+
+  function selectTrophy(t) {
+    selectedId = t.id;
+    renderDetail(detailEl, t, store, filterState.spoilerOn);
+    renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
+  }
+
+  function refreshAll() {
+    renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
+    renderDetail(detailEl, selectedTrophy(), store, filterState.spoilerOn);
+    renderProgress(trophies, store, citedSteps);
+    renderNextUp(nextUpEl, trophies, panels, store);
+  }
+
+  function refreshAfterToggle() {
+    // A checkbox just changed earned state: progress, Next Up, the
+    // spoiler masking and the open detail may all have changed.
+    renderProgress(trophies, store, citedSteps);
+    renderNextUp(nextUpEl, trophies, panels, store);
+    renderDetail(detailEl, selectedTrophy(), store, filterState.spoilerOn);
+    listEl.querySelectorAll('.trow').forEach((row) => {
+      const t = trophies.find((x) => x.id === row.dataset.trophy);
+      if (t) applySpoilerClass(row, t, filterState.spoilerOn, store.isEarned(t.id));
     });
   }
-  for (const box of viewEl.querySelectorAll('input[data-toggle]')) {
-    box.addEventListener('click', (e) => e.stopPropagation());
-    box.addEventListener('change', () => {
-      state = toggleEarned(state, box.dataset.toggle);
-      render();
+
+  // Keep the checklist in sync when a checkbox is ticked: the store
+  // change listener runs after renderTrophyList attaches its own handler,
+  // so delegate on the list itself.
+  listEl.addEventListener('change', (event) => {
+    const box = event.target;
+    if (box && box.matches('input[type="checkbox"][data-trophy]')) {
+      refreshAfterToggle();
+    }
+  });
+
+  // Filter chips (kind).
+  document.querySelectorAll('#filter-bar .chip[data-filter]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      filterState.kind = chip.dataset.filter;
+      document.querySelectorAll('#filter-bar .chip[data-filter]').forEach((c) => {
+        c.classList.toggle('active', c === chip);
+      });
+      renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
+    });
+  });
+
+  // Free-text search (name + description + guide).
+  if (searchEl) {
+    searchEl.addEventListener('input', () => {
+      filterState.query = searchEl.value;
+      renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
     });
   }
-  for (const input of viewEl.querySelectorAll('input[data-count-for]')) {
-    input.addEventListener('change', () => {
-      state = setCount(state, input.dataset.countFor, input.value);
-      render();
+
+  // Spoiler-safe toggle.
+  if (spoilerToggle) {
+    spoilerToggle.addEventListener('change', () => {
+      filterState.spoilerOn = spoilerToggle.checked;
+      setBodySpoiler(filterState.spoilerOn);
+      refreshAll();
     });
   }
-  for (const area of viewEl.querySelectorAll('textarea[data-note-for]')) {
-    area.addEventListener('change', () => {
-      state = setNote(state, area.dataset.noteFor, area.value);
+
+  // View navigation.
+  document.querySelectorAll('.mainnav button[data-view]').forEach((btn) => {
+    btn.addEventListener('click', () => showView(btn.dataset.view));
+  });
+
+  // Easter-egg kind filters.
+  document.querySelectorAll('.egg-filters .chip[data-egg]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      eggKind = chip.dataset.egg;
+      document.querySelectorAll('.egg-filters .chip[data-egg]').forEach((c) => {
+        c.classList.toggle('active', c === chip);
+      });
+      renderEggs(eggsListEl, eggs, eggKind, 'all');
     });
+  });
+
+  // Export / import progress.
+  const exportBtn = $('export-btn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => store.exportToFile());
   }
-  const q = document.getElementById('q');
-  if (q) {
-    q.addEventListener('input', () => {
-      ui.query = q.value;
-      const pos = q.selectionStart;
-      render();
-      const q2 = document.getElementById('q');
-      if (q2) {
-        q2.focus();
-        q2.setSelectionRange(pos, pos);
-      }
-    });
-  }
-  const gradeSel = document.getElementById('gradeSel');
-  if (gradeSel) gradeSel.addEventListener('change', () => { ui.grade = gradeSel.value; render(); });
-  const spoilerToggle = document.getElementById('spoilerToggle');
-  if (spoilerToggle) spoilerToggle.addEventListener('change', () => { state = setSpoiler(state, spoilerToggle.checked); render(); });
-  for (const chip of viewEl.querySelectorAll('[data-kind]')) {
-    chip.addEventListener('click', () => { ui.kind = chip.dataset.kind; render(); });
-  }
-  const eggQ = document.getElementById('eggQ');
-  if (eggQ) {
-    eggQ.addEventListener('input', () => {
-      ui.eggQuery = eggQ.value;
-      const pos = eggQ.selectionStart;
-      render();
-      const q2 = document.getElementById('eggQ');
-      if (q2) {
-        q2.focus();
-        q2.setSelectionRange(pos, pos);
-      }
-    });
-  }
-  for (const chip of viewEl.querySelectorAll('[data-eggcat]')) {
-    chip.addEventListener('click', () => { ui.eggCategory = chip.dataset.eggcat; render(); });
-  }
-  for (const chip of viewEl.querySelectorAll('[data-eggstatus]')) {
-    chip.addEventListener('click', () => { ui.eggStatus = chip.dataset.eggstatus; render(); });
-  }
-  for (const btn of viewEl.querySelectorAll('[data-action="close-detail"]')) {
-    btn.addEventListener('click', () => { ui.detail = null; render(); });
-  }
-  for (const btn of viewEl.querySelectorAll('[data-action="open-next"]')) {
-    btn.addEventListener('click', () => { ui.detail = btn.dataset.name; ui.view = 'checklist'; render(); });
-  }
-  for (const btn of viewEl.querySelectorAll('[data-action="export"]')) {
-    btn.addEventListener('click', () => exportFile(state));
-  }
-  for (const btn of viewEl.querySelectorAll('[data-action="reset"]')) {
-    btn.addEventListener('click', () => {
-      if (confirm('Reset all progress, counts and notes?')) {
-        localStorage.removeItem('leonida-platinum-atlas-v1');
-        state = loadState();
-        render();
-      }
-    });
-  }
-  const importInput = document.getElementById('importFile');
-  if (importInput) {
-    importInput.addEventListener('change', async () => {
-      const file = importInput.files[0];
+  const importBtn = $('import-btn');
+  const importFile = $('import-file');
+  if (importBtn && importFile) {
+    importBtn.addEventListener('click', () => importFile.click());
+    importFile.addEventListener('change', async () => {
+      const file = importFile.files && importFile.files[0];
       if (!file) return;
       try {
-        state = await importFile(file);
+        const count = await store.importFromFile(file);
+        refreshAll();
+        window.alert('Imported progress for ' + count + ' trophies.');
       } catch {
-        alert('That file is not a valid progress export.');
+        window.alert('Could not import that file — it is not a valid progress export.');
       }
-      render();
+      importFile.value = '';
     });
+  }
+
+  // Static views rendered once from data.
+  renderRoadmap(roadmapListEl, panels);
+  renderGlitch(glitchPanelEl, panels);
+  renderEggs(eggsListEl, eggs, 'all', 'all');
+
+  setBodySpoiler(filterState.spoilerOn);
+  refreshAll();
+
+  // Screenshot modes (?shot=...): deterministic states for the 4 shots.
+  const mode = shotMode();
+  if (mode === 'cover') {
+    filterState.spoilerOn = false;
+    if (spoilerToggle) spoilerToggle.checked = false;
+    setBodySpoiler(false);
+    showView('tracker');
+    selectedId = COVER_TROPHY;
+    refreshAll();
+  } else if (mode === 'roadmap') {
+    showView('roadmap');
+  } else if (mode === 'glitch') {
+    showView('glitch');
+  } else if (mode === 'spoiler') {
+    filterState.spoilerOn = true;
+    if (spoilerToggle) spoilerToggle.checked = true;
+    setBodySpoiler(true);
+    showView('tracker');
+    refreshAll();
   }
 }
 
-tabsEl.addEventListener('click', (e) => {
-  const btn = e.target.closest('button[data-view]');
-  if (!btn) return;
-  ui.view = btn.dataset.view;
-  ui.detail = null;
-  render();
+start().catch((err) => {
+  const listEl = $('trophy-list');
+  if (listEl) {
+    listEl.innerHTML =
+      '<p class="view-intro" style="padding:12px">Could not load the guide data: ' +
+      String(err && err.message ? err.message : err) + '</p>';
+  }
+  console.error(err);
 });
-
-render();
