@@ -1,93 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Platinum Atlas — GTA 6 Trophy Guide</title>
-<meta name="description" content="Offline GTA 6 trophy guide and tracker: all 55 trophies, every step cited, 7-stage roadmap, missables, disputes, glitch report, easter eggs.">
-<link rel="stylesheet" href="./style.css">
+<title>LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 GTA VI PlayStation 5 trophies: cited step-by-step guides, platinum roadmap, missable flags, spoiler shield, export and import.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="title-block">
-    <h1>LEONIDA PLATINUM ATLAS</h1>
-    <p class="subtitle">GTA 6 Trophy Guide — PS5 · 55 trophies · offline · every claim cited</p>
+<header id="app-header">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">LA</div>
+    <div class="brand-text">
+      <h1>LEONIDA PLATINUM ATLAS</h1>
+      <p class="subtitle">GTA VI Trophy Guide &amp; Tracker &middot; PlayStation 5 &middot; 55 trophies &middot; offline</p>
+    </div>
   </div>
-  <div id="audit-strip" class="audit-strip" aria-label="Citation audit">Loading audit…</div>
+  <div class="stat-bar" id="stat-bar" role="status" aria-label="Ringkasan statistik panduan">
+    <div class="stat"><span class="stat-num" id="stat-trophies">55</span><span class="stat-label">trophies</span></div>
+    <div class="stat"><span class="stat-num" id="stat-claims">—</span><span class="stat-label">claims cited</span></div>
+    <div class="stat"><span class="stat-num" id="stat-twoplus">—</span><span class="stat-label">on 2+ sites</span></div>
+    <div class="stat"><span class="stat-num" id="stat-eggs">86</span><span class="stat-label">easter eggs</span></div>
+    <div class="stat"><span class="stat-num" id="stat-online">0</span><span class="stat-label">online trophies</span></div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-line"><span id="progress-text">0 / 55 earned</span><span id="progress-pct">0%</span></div>
+    <div class="progress-bar" role="progressbar" aria-label="Platinum progress" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+  <div class="audit-strip" id="audit-strip">Loading guide data…</div>
 </header>
 
-<nav class="tabs" data-view-tabs aria-label="Guide sections">
-  <button type="button" data-view-tab="checklist" class="active">Checklist</button>
-  <button type="button" data-view-tab="roadmap">Roadmap</button>
-  <button type="button" data-view-tab="missables">Missables</button>
-  <button type="button" data-view-tab="glitch">Glitch &amp; Farming</button>
-  <button type="button" data-view-tab="disputes">Disputes</button>
-  <button type="button" data-view-tab="eggs">Easter Eggs</button>
+<nav id="view-tabs" aria-label="Panduan views">
+  <button type="button" class="tab active" data-view="tracker" id="tab-tracker">Tracker</button>
+  <button type="button" class="tab" data-view="roadmap" id="tab-roadmap">Roadmap</button>
+  <button type="button" class="tab" data-view="glitch" id="tab-glitch">Glitch &amp; Farming</button>
+  <button type="button" class="tab" data-view="eggs" id="tab-eggs">Easter Eggs</button>
 </nav>
 
-<div class="controls">
-  <label>Search <input id="search" type="search" placeholder="Trophy, guide text…"></label>
-  <label>Kind
-    <select id="kind-filter">
-      <option value="all">All kinds</option>
-      <option value="story">Story</option>
-      <option value="missable">Missable</option>
-      <option value="collectibles">Collectibles</option>
-      <option value="activities">Activities</option>
-      <option value="crime">Crime</option>
-    </select>
-  </label>
-  <label>Status
-    <select id="verified-filter">
-      <option value="all">Any status</option>
-      <option value="confirmed">Confirmed</option>
-      <option value="reported">Reported</option>
-      <option value="unknown">Unknown</option>
-    </select>
-  </label>
-  <label class="check-label"><input id="missable-filter" type="checkbox"> Missable only</label>
-  <span class="grade-chips" data-grade-chips>
-    <button type="button" data-grade-chip="all" class="active">All</button>
-    <button type="button" data-grade-chip="platinum">Platinum</button>
-    <button type="button" data-grade-chip="gold">Gold</button>
-    <button type="button" data-grade-chip="silver">Silver</button>
-    <button type="button" data-grade-chip="bronze">Bronze</button>
-  </span>
-  <button type="button" id="spoiler-toggle" class="on">Spoiler shield: ON</button>
-  <button type="button" id="export-btn">Export progress</button>
-  <button type="button" id="import-btn">Import progress</button>
-  <input id="import-file" type="file" accept="application/json" hidden>
-  <span id="result-count" class="muted"></span>
-</div>
+<main id="app-main">
+  <section id="view-tracker" class="view active" aria-label="Trophy tracker">
+    <aside id="trophy-list-pane" aria-label="Daftar trophy">
+      <div class="pane-head">
+        <h2>Trophy List</h2>
+        <span class="count-badge" id="list-count">55 shown</span>
+      </div>
+      <div class="filter-block">
+        <label class="filter-label" for="search-input">Search</label>
+        <input type="search" id="search-input" placeholder="Cari nama / deskripsi trophy…" autocomplete="off">
+      </div>
+      <div class="filter-block">
+        <span class="filter-label" id="kind-label">Kind</span>
+        <div class="chip-row" id="kind-chips" role="group" aria-labelledby="kind-label">
+          <button type="button" class="chip active" data-kind="all">All</button>
+          <button type="button" class="chip" data-kind="story">Story</button>
+          <button type="button" class="chip" data-kind="missable">Missable</button>
+          <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+          <button type="button" class="chip" data-kind="activities">Activities</button>
+          <button type="button" class="chip" data-kind="crime">Crime</button>
+          <button type="button" class="chip" data-kind="hidden">Hidden</button>
+        </div>
+      </div>
+      <div class="filter-block">
+        <span class="filter-label" id="grade-label">Grade</span>
+        <div class="chip-row" id="grade-chips" role="group" aria-labelledby="grade-label">
+          <button type="button" class="chip active" data-grade="all">All grades</button>
+          <button type="button" class="chip" data-grade="platinum">Platinum</button>
+          <button type="button" class="chip" data-grade="gold">Gold</button>
+          <button type="button" class="chip" data-grade="silver">Silver</button>
+          <button type="button" class="chip" data-grade="bronze">Bronze</button>
+        </div>
+      </div>
+      <div class="filter-block toggle-block">
+        <label class="toggle" for="spoiler-toggle">
+          <input type="checkbox" id="spoiler-toggle">
+          <span class="toggle-text">Spoiler shield <small>mask story trophy names until earned</small></span>
+        </label>
+        <label class="toggle" for="earned-toggle">
+          <input type="checkbox" id="earned-toggle">
+          <span class="toggle-text">Hide earned <small>show only what is left</small></span>
+        </label>
+      </div>
+      <ul id="trophy-list" class="trophy-list"></ul>
+    </aside>
 
-<main class="layout">
-  <aside id="list-pane" class="pane left" aria-label="Trophy list">
-    <h2>Trophies</h2>
-    <ul id="trophy-list" class="trophy-list"></ul>
-  </aside>
+    <article id="trophy-detail-pane" aria-label="Panduan trophy" aria-live="polite">
+      <div id="trophy-detail" class="detail-empty">
+        <p class="empty-note">Pilih satu trophy di kiri untuk melihat panduan langkah demi langkah beserta sumbernya.</p>
+      </div>
+    </article>
 
-  <section class="pane center" aria-label="Guide detail">
-    <div id="view-checklist"><article id="detail" class="detail"></article></div>
-    <div id="view-roadmap" hidden></div>
-    <div id="view-missables" hidden></div>
-    <div id="view-glitch" hidden></div>
-    <div id="view-disputes" hidden></div>
-    <div id="view-eggs" hidden></div>
+    <aside id="progress-pane" aria-label="Progres platinum">
+      <div class="pane-head"><h2>Platinum Progress</h2></div>
+      <div class="big-count"><span id="big-earned">0</span><span class="big-of">/ 55</span></div>
+      <p class="progress-note" id="progress-note">Platinum "Vice Got a Price!" terbuka saat 54 trophy lain terkumpul.</p>
+      <div class="grade-breakdown" id="grade-breakdown"></div>
+      <div class="next-up" id="next-up">
+        <h3>Next Up</h3>
+        <ol id="next-up-list"></ol>
+      </div>
+      <div class="mini-roadmap" id="mini-roadmap">
+        <h3>Roadmap — 7 Stages</h3>
+        <ol id="mini-roadmap-list"></ol>
+      </div>
+      <div class="save-block">
+        <h3>Save</h3>
+        <div class="save-buttons">
+          <button type="button" id="export-btn">Export JSON</button>
+          <button type="button" id="import-btn">Import JSON</button>
+          <input type="file" id="import-file" accept="application/json,.json" hidden>
+          <button type="button" id="reset-btn" class="danger">Reset progress</button>
+        </div>
+        <p class="save-note">Progress tersimpan otomatis di browser (localStorage). Export untuk backup, import untuk pulihkan.</p>
+        <p class="save-status" id="save-status" role="status"></p>
+      </div>
+    </aside>
   </section>
 
-  <aside class="pane right" aria-label="Progress and planner">
-    <section id="progress" class="card"></section>
-    <section id="next-up" class="card"></section>
-    <section id="roadmap-mini" class="card"></section>
-  </aside>
+  <section id="view-roadmap" class="view" aria-label="Roadmap platinum"></section>
+  <section id="view-glitch" class="view" aria-label="Glitch dan farming"></section>
+  <section id="view-eggs" class="view" aria-label="Easter eggs"></section>
 </main>
 
-<footer>
-  <h2>Sources</h2>
-  <ul id="sources-list" class="srclist"></ul>
-  <p class="muted">Unofficial fan guide. No Rockstar artwork, logos, or game assets are used. All files are local — this page makes no network requests. Trophy names, descriptions, grades and hidden flags follow the official PlayStation 5 list; every guide step names its sources.</p>
+<footer id="app-footer">
+  <p>LEONIDA PLATINUM ATLAS — panduan offline untuk 55 trophy GTA VI (PS5). Nama &amp; deskripsi trophy apa adanya dari PlayStation; panduan ditulis dengan kata-kata sendiri dan mengutip sumbernya di tiap langkah. Bukan produk Rockstar Games; tidak memakai logo atau artwork resmi.</p>
+  <p id="footer-sources">Sources: <span id="footer-source-count">—</span></p>
 </footer>
 
-<script type="module" src="./js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
