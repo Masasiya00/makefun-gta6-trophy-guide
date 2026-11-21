@@ -1,50 +1,96 @@
-// LEONIDA PLATINUM ATLAS — the hand-in program for the gta6-trophy-guide-01
-// bounty (Node 22, standard library only). It copies this repository's app/
-// and screenshots/ into the output directory and writes
-// /output/dossier.json with the vendored make.fun library, so the scorer can
-// rebuild the same dossier byte for byte from the same files.
+// main.ts — hands the guide in: copies app/ and screenshots/ from this
+// repository into the output directory and writes /output/dossier.json
+// with buildDossier from vendor/makefun-frontend.ts. Node 22, standard
+// library only, no network, no build step.
 //
-// Two traps this program deliberately avoids, both learned the hard way in
-// earlier rounds (the grader runs as uid 65534, whose parent directory /
-// is not writable, so anything that needs a write to / fails EACCES):
-//   1. cleanOutput() only ever deletes the children of the output directory,
-//      never the directory itself. Deleting the directory would need a
-//      write to its parent, which the grader cannot do.
-//   2. The output directory is created with mkdirSync only when it does
-//      not already exist. mkdirSync({ recursive: true }) on a directory
-//      that already exists also fails EACCES without parent write access.
-// Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
-//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// Two EACCES fixes live here (they made round 5 pass):
+//  (a) cleanOutput removes only the CONTENTS of the output directory —
+//      it never removes the output directory itself;
+//  (b) mkdirSync runs only when the directory does not exist yet.
 
-import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-frontend.ts';
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const here = fileURLToPath(new URL('.', import.meta.url));
-const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const REPO_ROOT = dirname(fileURLToPath(import.meta.url));
+const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR || '/output';
 
-// Remove every child of a directory, leaving the directory itself standing.
-function cleanOutput(dir: string): void {
-  if (!existsSync(dir)) return;
-  for (const child of readdirSync(dir)) {
-    rmSync(join(dir, child), { recursive: true, force: true });
+const DOSSIER_CAPS = {
+  text_max_bytes: 163840,
+  screenshots: { max: 4, max_bytes: 262144 },
+  app_max_files: 993,
+  app_max_bytes: 50331648,
+  app_path_max_bytes: 1000,
+};
+
+/**
+ * Empty the output directory without ever deleting the directory itself.
+ * The platform may own /output (root-owned while we run as nobody), so
+ * removing the directory and recreating it fails with EACCES; removing
+ * only its entries works.
+ */
+function cleanOutput(outDir: string): void {
+  if (!existsSync(outDir)) {
+    mkdirSync(outDir, { recursive: true });
+    return;
+  }
+  for (const entry of readdirSync(outDir)) {
+    rmSync(join(outDir, entry), { recursive: true, force: true });
   }
 }
 
-if (!existsSync(out)) mkdirSync(out, { recursive: true });
-cleanOutput(out);
-cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
-if (!existsSync(join(out, 'screenshots'))) mkdirSync(join(out, 'screenshots'), { recursive: true });
-if (existsSync(join(here, 'screenshots'))) {
-  cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true });
+/** Make a directory only when it is missing (never mkdir an existing one). */
+function ensureDir(dir: string): void {
+  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 }
 
-// The scorer's own caps (reference/gate.json): only text_max_bytes shapes the
-// bytes; the others refuse an entry the scorer would refuse (more than 4
-// screenshots or one over 256 KiB; more than 993 files and directories in
-// app/ or 48 MiB of app files).
-writeFileSync(
-  join(out, 'dossier.json'),
-  buildDossier(out, { text_max_bytes: 163840, screenshots: { max: 4, max_bytes: 262144 }, app_max_files: 993, app_max_bytes: 50331648 }),
-);
+/** Copy a whole directory tree (files only, no symlinks) into dest. */
+function copyTree(src: string, dest: string): number {
+  ensureDir(dest);
+  let copied = 0;
+  for (const entry of readdirSync(src)) {
+    const from = join(src, entry);
+    const to = join(dest, entry);
+    if (statSync(from).isDirectory()) {
+      copied += copyTree(from, to);
+    } else {
+      copyFileSync(from, to);
+      copied += 1;
+    }
+  }
+  return copied;
+}
+
+/** Build the hand-in: clean output, copy app/ + screenshots/, write the dossier. */
+function build(): void {
+  cleanOutput(OUTPUT_DIR);
+  const appFiles = copyTree(join(REPO_ROOT, 'app'), join(OUTPUT_DIR, 'app'));
+  const shotFiles = copyTree(
+    join(REPO_ROOT, 'screenshots'),
+    join(OUTPUT_DIR, 'screenshots'),
+  );
+  const dossier = buildDossier(OUTPUT_DIR, DOSSIER_CAPS);
+  writeFileSync(join(OUTPUT_DIR, 'dossier.json'), dossier);
+  console.log(
+    'leonida-platinum-atlas: copied ' +
+      appFiles +
+      ' app files and ' +
+      shotFiles +
+      ' screenshots to ' +
+      OUTPUT_DIR +
+      '; dossier.json is ' +
+      dossier.length +
+      ' bytes.',
+  );
+}
+
+build();
