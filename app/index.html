@@ -1,37 +1,279 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Platinum Atlas — GTA VI Trophy Guide &amp; Tracker</title>
+<title>LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide &amp; Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="app">
 <header class="topbar">
   <div class="brand">
     <h1>LEONIDA PLATINUM ATLAS</h1>
-    <p class="sub">GTA VI trophy guide &amp; tracker — 55 trophies, 0 online, 1 missable. Research date: 21 Nov 2026.</p>
+    <p class="tagline">GTA VI — 55-trophy guide &amp; tracker · riset 21 Nov 2026 · 54/55 terkonfirmasi, 1 belum terverifikasi (Ten Pin)</p>
   </div>
-  <div class="progress" id="progressBox">
-    <div class="big" id="progressText">0 / 55</div>
-    <div class="bar"><div id="progressFill"></div></div>
-    <div class="small" id="progressSub">0% to platinum · 54/55 guides confirmed · 1 unknown (Ten Pin)</div>
+  <div class="stats">
+    <span class="stat"><strong>55/55</strong> trophies</span>
+    <span class="stat"><strong id="stat-cited">93 cited steps</strong></span>
+    <span class="stat"><strong>16 backed by 2+ sources</strong></span>
+    <span class="stat"><strong>86</strong> easter eggs / bugs / oddities</span>
+    <span class="stat"><strong>0</strong> online trophies</span>
   </div>
+  <div class="progress-wrap">
+    <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0"><span id="progress-fill"></span></div>
+    <span id="progress-text">0 / 55 trophies — 0% to Platinum</span>
+  </div>
+  <nav class="mainnav" aria-label="Views">
+    <button data-view="tracker" class="active">Tracker</button>
+    <button data-view="roadmap">Roadmap</button>
+    <button data-view="glitch">Glitch &amp; Farming</button>
+    <button data-view="eggs">Easter Eggs</button>
+  </nav>
 </header>
-<nav class="tabs" id="tabs" aria-label="Sections">
-  <button type="button" data-view="checklist" class="active">Checklist</button>
-  <button type="button" data-view="roadmap">Roadmap</button>
-  <button type="button" data-view="missables">Missables</button>
-  <button type="button" data-view="eggs">Easter Eggs, Bugs &amp; Hal Aneh</button>
-  <button type="button" data-view="glitch">Glitch &amp; Farming</button>
-  <button type="button" data-view="launch">Launch Status</button>
-  <button type="button" data-view="tracker">Tracker &amp; Next Up</button>
-</nav>
-<main id="view"></main>
-<footer class="foot">
-  <p>Guides are written in our own words; each cites its sources. Official trophy names and descriptions are shown as PlayStation publishes them. No Rockstar logo, artwork, or game screenshots are used. Works fully offline — no network requests.</p>
-  <p>Sources: PowerPyx · Exophase · GameSpot · damnmodz · gamemapa · PushSquare · KeeNgamer · allblogthings · afleurdenet · vanotherlevel · dlcompare · cryptogames · gtavibes · boostingfactory · Game8 · OutputLag · Kotaku · IGN · BuzzFeed · Insider Gaming · GamesHorizon · GameRant · GamingBible · Gamebrott · FandomWire · Tech2Geek · Undercode News · Joking Joystick · Beebom · Notebookcheck · GameWatcher · Sportskeeda · WikiGames · Games.gg · GamesFuze · DualShockers · Briefly · Dundee Culture · Men's Journal · ComingSoon.</p>
+
+<main>
+<section id="view-tracker" class="view active">
+  <div id="filter-bar">
+    <div class="chips" role="group" aria-label="Filter by kind">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="story">Story</button>
+      <button class="chip" data-filter="missable">Missable</button>
+      <button class="chip" data-filter="collectibles">Collectibles</button>
+      <button class="chip" data-filter="activities">Activities</button>
+      <button class="chip" data-filter="crime">Crime</button>
+      <button class="chip" data-filter="hidden">Hidden</button>
+    </div>
+    <input id="search" type="search" placeholder="Search trophy… (e.g. UFO, vault, meditate)" aria-label="Search trophies">
+    <label class="spoiler"><input id="spoiler-toggle" type="checkbox" checked> Spoiler-safe: hide story names until earned</label>
+  </div>
+  <div class="panes">
+    <div id="trophy-list" aria-label="Trophy checklist">
+      <label class="trow grade-platinum"><input type="checkbox" data-trophy="Vice Got a Price!"><span class="badge">PLAT</span><span class="tname">Vice Got a Price!</span><span class="tdesc">Congratulations! You're a Leonida Legend.</span><span class="tcount">1 / 55</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Just Like Paradise"><span class="badge">BRONZE</span><span class="tname">Just Like Paradise</span><span class="tdesc">Complete Gone Fishing.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Paradise Lost"><span class="badge">BRONZE</span><span class="tname">Paradise Lost</span><span class="tdesc">Complete Chapter 1.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="T**s Ass Drug Money"><span class="badge">BRONZE</span><span class="tname">T**s Ass Drug Money</span><span class="tdesc">Complete Chapter 2.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Vice City, Baby!"><span class="badge">BRONZE</span><span class="tname">Vice City, Baby!</span><span class="tdesc">Complete Chapter 3.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Top Of The World, Ma"><span class="badge">BRONZE</span><span class="tname">Top Of The World, Ma</span><span class="tdesc">Complete Chapter 4.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-gold"><input type="checkbox" data-trophy="You Gotta Know When to Get Off"><span class="badge">GOLD</span><span class="tname">You Gotta Know When to Get Off</span><span class="tdesc">Complete the final mission.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Trust"><span class="badge">BRONZE</span><span class="tname">Trust</span><span class="tdesc">Complete Breakfast Run.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Break the Bank"><span class="badge">BRONZE</span><span class="tname">Break the Bank</span><span class="tdesc">Complete The Cartel Heist.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Family Matters"><span class="badge">BRONZE</span><span class="tname">Family Matters</span><span class="tdesc">Complete Child's Play.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="DWNFALL"><span class="badge">BRONZE</span><span class="tname">DWNFALL</span><span class="tdesc">Complete Headliners.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Hi-Jacked"><span class="badge">BRONZE</span><span class="tname">Hi-Jacked</span><span class="tdesc">Complete VCIA Takedown.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Snow Storm"><span class="badge">BRONZE</span><span class="tname">Snow Storm</span><span class="tdesc">Complete Operation Savage Glory.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-gold"><input type="checkbox" data-trophy="A Long Road"><span class="badge">GOLD</span><span class="tname">A Long Road</span><span class="tdesc">Attain 100% Completion.</span><span class="tcount">100%</span></label>
+      <label class="trow grade-silver"><input type="checkbox" data-trophy="Cunning Stunts"><span class="badge">SILVER</span><span class="tname">Cunning Stunts</span><span class="tdesc">Complete 250 Stunts.</span><span class="tcount">250/397</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Master of None"><span class="badge">BRONZE</span><span class="tname">Master of None</span><span class="tdesc">Try each type of activity once.</span><span class="tcount">9/9</span></label>
+      <label class="trow grade-silver"><input type="checkbox" data-trophy="The Shootist"><span class="badge">SILVER</span><span class="tname">The Shootist</span><span class="tdesc">Earn a gold medal in all Shooting Range challenges.</span><span class="tcount">42/42</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Top Fun"><span class="badge">BRONZE</span><span class="tname">Top Fun</span><span class="tdesc">Win a Top Fun Drone Race at every location.</span><span class="tcount">14/14</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Earn Cash, Not Kudos"><span class="badge">BRONZE</span><span class="tname">Earn Cash, Not Kudos</span><span class="tdesc">Win 20 different races.</span><span class="tcount">20/40</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Baited My Tackle"><span class="badge">BRONZE</span><span class="tname">Baited My Tackle</span><span class="tdesc">Beat Cal in a fishing challenge.</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Stick Fiddler"><span class="badge">BRONZE</span><span class="tname">Stick Fiddler</span><span class="tdesc">Complete an arcade game.</span><span class="tcount">1/4</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="One Last Thing"><span class="badge">BRONZE</span><span class="tname">One Last Thing</span><span class="tdesc">Complete 50 Challenges.</span><span class="tcount">50/80</span></label>
+      <label class="trow grade-silver"><input type="checkbox" data-trophy="You WAiNKer!"><span class="badge">SILVER</span><span class="tname">You WAiNKer!</span><span class="tdesc">WAiNK It at 100 locations.</span><span class="tcount">100</span></label>
+      <label class="trow grade-silver"><input type="checkbox" data-trophy="Don't Touch My Deck"><span class="badge">SILVER</span><span class="tname">Don't Touch My Deck</span><span class="tdesc">Complete 3 Collectible Card sets.</span><span class="tcount">3/18</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Whip It Good"><span class="badge">BRONZE</span><span class="tname">Whip It Good</span><span class="tdesc">Discover 100 vehicles.</span><span class="tcount">100</span></label>
+      <label class="trow grade-bronze missable-row"><input type="checkbox" data-trophy="Positive Mental Attitude"><span class="badge">BRONZE</span><span class="tname">Positive Mental Attitude</span><span class="tdesc">Meditate at every spot across Leonida.</span><span class="tflag missable-flag">MISSABLE</span><span class="tcount">18/18</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Road to Rehabilitation"><span class="badge">BRONZE</span><span class="tname">Road to Rehabilitation</span><span class="tdesc">Complete the final mission for Andy.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="This Was No Boat Accident"><span class="badge">BRONZE</span><span class="tname">This Was No Boat Accident</span><span class="tdesc">Complete the final mission for Kenton.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="The Lone Rider"><span class="badge">BRONZE</span><span class="tname">The Lone Rider</span><span class="tdesc">Complete the final mission for Billy.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-silver"><input type="checkbox" data-trophy="Strangers &amp; Freaks"><span class="badge">SILVER</span><span class="tname">Strangers &amp; Freaks</span><span class="tdesc">Complete 8 mission strands for strangers across the state of Leonida.</span><span class="tflag hidden-flag">HIDDEN</span><span class="tcount">8/8</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Supply &amp; Demand"><span class="badge">BRONZE</span><span class="tname">Supply &amp; Demand</span><span class="tdesc">Complete the final mission for Randy.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Spin On This!"><span class="badge">BRONZE</span><span class="tname">Spin On This!</span><span class="tdesc">Complete the final mission for Tyrone.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Fair Game"><span class="badge">BRONZE</span><span class="tname">Fair Game</span><span class="tdesc">Hunt a unique animal for Bret.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Hot Together"><span class="badge">BRONZE</span><span class="tname">Hot Together</span><span class="tdesc">Lose a 4 star Wanted Level with your partner and escape the heat.</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Retail Therapy"><span class="badge">BRONZE</span><span class="tname">Retail Therapy</span><span class="tdesc">Rob 3 shops back-to-back with your partner without losing your Wanted Level.</span><span class="tcount">3/3</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Gunslinger"><span class="badge">BRONZE</span><span class="tname">Gunslinger</span><span class="tdesc">Take down 5 enemies in a single use of Combat Focus.</span><span class="tcount">5/5</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Catch Me If You Can"><span class="badge">BRONZE</span><span class="tname">Catch Me If You Can</span><span class="tdesc">Make an unscheduled departure at VCIA.</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Challenging Tank"><span class="badge">BRONZE</span><span class="tname">Challenging Tank</span><span class="tdesc">Kinda hot in these Rhinos.</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Sneakthief"><span class="badge">BRONZE</span><span class="tname">Sneakthief</span><span class="tdesc">Rob a jewelry store without being detected.</span></label>
+      <label class="trow grade-silver"><input type="checkbox" data-trophy="Maximum Withdrawal"><span class="badge">SILVER</span><span class="tname">Maximum Withdrawal</span><span class="tdesc">Rob 5 Bank Vaults and escape.</span><span class="tcount">5/8</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="A Classic Blitz Play"><span class="badge">BRONZE</span><span class="tname">A Classic Blitz Play</span><span class="tdesc">Rob an Armored Truck and escape.</span><span class="tflag bug-flag">BUG — see guide</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="The Goodtime State"><span class="badge">BRONZE</span><span class="tname">The Goodtime State</span><span class="tdesc">Explore all of Leonida.</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Pest Control"><span class="badge">BRONZE</span><span class="tname">Pest Control</span><span class="tdesc">Rob an Illegal Operation belonging to each gang.</span><span class="tcount">9/9</span></label>
+      <label class="trow grade-bronze solved-row"><input type="checkbox" data-trophy="In The Beginning…"><span class="badge">BRONZE</span><span class="tname">In The Beginning…</span><span class="tdesc">Enjoy a cocktail with a view on Ocean Beach.</span><span class="tflag hidden-flag">HIDDEN</span><span class="tflag solved-flag">SOLVED 20 NOV</span></label>
+      <label class="trow grade-bronze solved-row"><input type="checkbox" data-trophy="Capital Offense"><span class="badge">BRONZE</span><span class="tname">Capital Offense</span><span class="tdesc">Smash your way out of a vehicle showroom in classic style.</span><span class="tflag hidden-flag">HIDDEN</span><span class="tflag solved-flag">SOLVED 20 NOV</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Let’s Go Bowling"><span class="badge">BRONZE</span><span class="tname">Let’s Go Bowling</span><span class="tdesc">Follow-through at the Kolt &amp; Associates' bowling alley.</span><span class="tflag hidden-flag">HIDDEN</span><span class="tcount">3/3</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Personal Best"><span class="badge">BRONZE</span><span class="tname">Personal Best</span><span class="tdesc">A partnership with mass appeal.</span><span class="tflag hidden-flag">HIDDEN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Actions Speak Louder"><span class="badge">BRONZE</span><span class="tname">Actions Speak Louder</span><span class="tdesc">Choices made (for better or worse).</span><span class="tflag hidden-flag">HIDDEN</span><span class="tcount">500/500</span></label>
+      <label class="trow grade-bronze solved-row"><input type="checkbox" data-trophy="Bad Luck, I Guess"><span class="badge">BRONZE</span><span class="tname">Bad Luck, I Guess</span><span class="tdesc">Second time's the charm.</span><span class="tflag hidden-flag">HIDDEN</span><span class="tflag solved-flag">SOLVED 20 NOV</span></label>
+      <label class="trow grade-bronze solved-row"><input type="checkbox" data-trophy="The Truth Is Out There"><span class="badge">BRONZE</span><span class="tname">The Truth Is Out There</span><span class="tdesc">What the hell just happened?</span><span class="tflag hidden-flag">HIDDEN</span><span class="tflag solved-flag">SOLVED 20 NOV</span></label>
+      <label class="trow grade-bronze unknown-row"><input type="checkbox" data-trophy="Ten Pin"><span class="badge">BRONZE</span><span class="tname">Ten Pin</span><span class="tdesc">Bowl 'em over with a melee drive-by.</span><span class="tflag hidden-flag">HIDDEN</span><span class="tflag unknown-flag">UNKNOWN</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Dime on the Dollar"><span class="badge">BRONZE</span><span class="tname">Dime on the Dollar</span><span class="tdesc">Earn $250,000 laundering Marked Bills through your contacts.</span><span class="tcount">$250,000</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Treat Yo Self"><span class="badge">BRONZE</span><span class="tname">Treat Yo Self</span><span class="tdesc">Spend $100,000 across all shops.</span><span class="tcount">$100,000</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="Little Boxes"><span class="badge">BRONZE</span><span class="tname">Little Boxes</span><span class="tdesc">Purchase all garage properties.</span><span class="tcount">8/8</span></label>
+      <label class="trow grade-bronze"><input type="checkbox" data-trophy="On the Spot"><span class="badge">BRONZE</span><span class="tname">On the Spot</span><span class="tdesc">Register 10 vehicles to the Scooter Bros app.</span><span class="tcount">10/10</span></label>
+    </div>
+    <div id="detail-pane" aria-label="Selected trophy guide">
+      <div class="detail-head">
+        <span class="badge grade-bronze">BRONZE</span>
+        <h2 id="detail-name">Positive Mental Attitude</h2>
+        <span class="tflag missable-flag">MISSABLE — only one in the game</span>
+      </div>
+      <p class="detail-desc">Meditate at every spot across Leonida.</p>
+      <p class="detail-meta">Verified: <strong>CONFIRMED</strong> · Sources: PowerPyx · 100% overlap: <strong>No</strong> (100% needs 15/18 — this trophy needs 18) · Count: 18/18</p>
+      <div class="solved-callout">4 trophies solved 20 Nov night (PowerPyx update) — Bad Luck, I Guess · The Truth Is Out There · In The Beginning… · Capital Offense. Most guides still list them as “unknown”.</div>
+      <h3>Guide — in our own words</h3>
+      <ol class="steps">
+        <li>Chapter 1: after the mission “Down to Earth”, talk to Lucia in the kitchen in the morning and follow her to meditate on the balcony (choose “Accept”). <span class="src">Source: PowerPyx</span></li>
+        <li>Save manually BEFORE “Down to Earth” as insurance — this moment only exists in Chapter 1. <span class="src">Source: PowerPyx</span></li>
+        <li>Meditate at all 18 spots; meditating as Jason AND Lucia at the same spot counts +2. <span class="src">Source: PowerPyx</span></li>
+      </ol>
+      <p class="detail-note">Track at Progress &gt; Collections &gt; Exploration &gt; Meditations. The balcony meditation raises the counter +1 but is not marked as a Meditation Spot — it is not confirmed whether it is required; PowerPyx earned the trophy after doing it, so just do it.</p>
+      <p class="warn">WARNING: the only potentially missable trophy. No mission replay, no New Game+ — a manual save is the only safety net.</p>
+      <h3>Sources</h3>
+      <ul class="srclist"><li>PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</li></ul>
+    </div>
+    <aside id="side-pane" aria-label="Progress and planner">
+      <div class="side-card">
+        <h3>Platinum progress</h3>
+        <div class="ring" id="progress-ring" aria-hidden="true">0%</div>
+        <div class="grade-bars">
+          <div><span>Platinum</span><div class="bar"><span style="width:0%"></span></div><b>0/1</b></div>
+          <div><span>Gold</span><div class="bar"><span style="width:0%"></span></div><b>0/2</b></div>
+          <div><span>Silver</span><div class="bar"><span style="width:0%"></span></div><b>0/6</b></div>
+          <div><span>Bronze</span><div class="bar"><span style="width:0%"></span></div><b>0/46</b></div>
+        </div>
+        <p class="side-note">1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online trophies</p>
+      </div>
+      <div class="side-card">
+        <h3>Roadmap — 7 stages</h3>
+        <ol class="mini-roadmap">
+          <li>Story Ch 1–2 + Ch1 meditation</li>
+          <li>Story Ch 3–5 to credits</li>
+          <li>Strangers &amp; Freaks — 7 questlines</li>
+          <li>Partner crimes &amp; combat</li>
+          <li>Activities, races &amp; skills</li>
+          <li>Collections, scanning &amp; exploration</li>
+          <li>Robberies, fencing &amp; 100% cleanup → Platinum</li>
+        </ol>
+      </div>
+      <div class="side-card" id="next-up">
+        <h3>Next Up planner</h3>
+        <ol>
+          <li><strong>Positive Mental Attitude</strong> — do the Chapter 1 balcony meditation NOW (only missable).</li>
+          <li><strong>Just Like Paradise</strong> — finish “Gone Fishing” (Chapter 1 opener).</li>
+          <li><strong>Hot Together</strong> — after “Coffee Break”, 4-star wanted with your partner; train tunnel north of Ambrosia.</li>
+        </ol>
+      </div>
+      <div class="side-card">
+        <h3>Save your progress</h3>
+        <p>Progress saves in your browser (localStorage). Export a backup file before clearing data.</p>
+        <button id="export-btn" type="button">Export progress</button>
+        <button id="import-btn" type="button">Import progress</button>
+        <input id="import-file" type="file" accept=".json,application/json" hidden>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="view-roadmap" class="view">
+  <h2>Roadmap to Platinum — 7 stages</h2>
+  <p class="view-intro">Built from the official descriptions: story chapters and missions, collectibles and counts, in order. Total estimate ~200–300 hours (PowerPyx ~200h; PushSquare ~300h). Story alone 60–80 hours.</p>
+  <ol id="roadmap-list">
+    <li><strong>Stage 1 — Story, Chapters 1–2 + Chapter 1 meditation.</strong> Just Like Paradise · Paradise Lost · Trust · T**s Ass Drug Money · Positive Mental Attitude (do the balcony meditation — the only missable moment). ~15h.</li>
+    <li><strong>Stage 2 — Story, Chapters 3–5 to credits.</strong> Vice City, Baby! · Top Of The World, Ma · Break the Bank · Family Matters · DWNFALL · Hi-Jacked · Snow Storm · You Gotta Know When to Get Off. Key Cloner + Dye Pack Jammer unlock in Chapter 3. Save manually at the start and end of each chapter. ~45–65h.</li>
+    <li><strong>Stage 3 — Strangers &amp; Freaks, 7 questlines.</strong> Road to Rehabilitation (Andy) · This Was No Boat Accident (Kenton) · The Lone Rider (Billy) · Strangers &amp; Freaks (Kirk, Kyle, Yago, Pilot Pete) · Supply &amp; Demand (Randy) · Spin On This! (Tyrone) · Fair Game (Bret). Note: Andy/Billy/Tyrone questlines do NOT count toward Strangers &amp; Freaks. ~10–15h.</li>
+    <li><strong>Stage 4 — Partner crimes &amp; combat.</strong> Hot Together · Retail Therapy · Gunslinger · Sneakthief · A Classic Blitz Play (safest via the Chapter 4 bank-vault mission — robbing a truck directly can bug it, damnmodz) · Maximum Withdrawal · Bad Luck, I Guess · The Truth Is Out There · Ten Pin (UNKNOWN) · Catch Me If You Can · Challenging Tank. ~8–12h.</li>
+    <li><strong>Stage 5 — Activities, races &amp; skills.</strong> Master of None · The Shootist (42 golds — hardest after A Long Road; raise Focus first) · Top Fun · Earn Cash, Not Kudos · Baited My Tackle · Stick Fiddler · Personal Best (max Strength with Jason AND Lucia together) · Actions Speak Louder (500 Criminal Profile actions — avoid permanent Irredeemable). ~15–20h.</li>
+    <li><strong>Stage 6 — Collections, scanning &amp; exploration.</strong> Cunning Stunts (250/397) · One Last Thing (50/80) · You WAiNKer! (100) · Don't Touch My Deck (3/18 sets) · Whip It Good (100 vehicles) · The Goodtime State · Pest Control (1 op per gang) · In The Beginning… (Apple Martini $10, Ocean View Rooftop Bar) · Capital Offense (blue Banshee through the showroom window) · Let’s Go Bowling. ~20–30h.</li>
+    <li><strong>Stage 7 — Robberies, fencing &amp; 100% cleanup → Platinum.</strong> Dime on the Dollar ($250,000 marked bills) · Treat Yo Self ($100,000 spent) · Little Boxes (8 garages, $160,000) · On the Spot (10 vehicles) · A Long Road (100% Completion) · Vice Got a Price! Fastest legit money: 8 large bank vaults, up to $205,000 each.</li>
+  </ol>
+  <h3>Missable grid — by chapter</h3>
+  <table class="missable-grid">
+    <tr><th>Chapter</th><th>Trophy</th><th>Risk</th></tr>
+    <tr class="risk"><td>Chapter 1</td><td>Positive Mental Attitude</td><td>MISSABLE — balcony meditation only exists in Chapter 1. Save before “Down to Earth”.</td></tr>
+    <tr class="safe"><td>Chapters 2–5</td><td>All other trophies</td><td>SAFE after story — everything can be done in free-roam.</td></tr>
+    <tr class="safe"><td>Post-game</td><td>100% checklist</td><td>SAFE — nothing in the 100% checklist is missable.</td></tr>
+  </table>
+  <p class="view-intro">Save strategy (PowerPyx): manual save at the start and end of each chapter (10 saves), rotate the other 5 slots for free-roam cleanup. No mission replay, no New Game+ — chapter saves are the only safety net.</p>
+</section>
+
+<section id="view-glitch" class="view">
+  <h2>Glitch &amp; Farming</h2>
+  <div id="glitch-panel" class="panel">
+    <h3>Apollo Aggregates Red Warehouse — money glitch</h3>
+    <p class="status disputed">STATUS: DISPUTED — reported, not fully verified</p>
+    <p>Red warehouse (Apollo Aggregates, east of Hamlet, South Vice-Dale County, north of Key Lento). Loot the back-office cocaine + safe, fill two stash bags, store BOTH bags in your personal vehicle's trunk, save manually, reload — the warehouse loot respawns while the trunk contents stay. Repeat, then sell at Brian's Lockup, south-west Key Lento (keypad code 7700). About $8,640 per loop; first loop ~$11,000–$11,280.</p>
+    <p><strong>For:</strong> KeeNgamer, allblogthings (20 Nov — reported working at launch). <strong>Against:</strong> afleurdenet (“No working infinite-money glitch exists right now”), vanotherlevel (18 Nov — no outlet had reported a working money glitch). Can be patched at any time.</p>
+    <p class="warn">Never leave bags on the ground or carry them during reload — they can vanish. And NEVER enter PSN/Xbox/Rockstar credentials on “cash generator” sites — those are phishing. Legit alternative: large bank vaults, up to $205,000 per bank (8 vaults).</p>
+  </div>
+  <div class="panel">
+    <h3>Legal farming tricks (not glitches)</h3>
+    <ul>
+      <li><strong>Focus farm:</strong> loop the 5-second shooting-range drill to raise Focus (Gunslinger + The Shootist). <span class="src">Source: vanotherlevel</span></li>
+      <li><strong>Train tunnel escape:</strong> rail tunnel north of Ambrosia — police struggle on the rails, helicopters can't see you. Best for Hot Together and 4-star escapes. <span class="src">Source: PowerPyx</span></li>
+      <li><strong>Double meditation:</strong> meditate as Jason AND Lucia at the same spot = +2. <span class="src">Source: PowerPyx</span></li>
+      <li><strong>Double workout:</strong> work out with your partner — both gain Strength progress. <span class="src">Source: PowerPyx</span></li>
+      <li><strong>50% shotgun discount:</strong> clerk Andrew gives Jason (ex-military) 50% off the Fortune &amp; Son Moreland 850 ($350 instead of $700) in the Chapter 1 weapons mission — and the discount sticks if you come back later. <span class="src">Source: vanotherlevel</span></li>
+      <li><strong>Pay 'n' Spray only cleans the CAR</strong> — not your clothes or face. Losing stars is not the same as losing the description. Change clothes/hair to change the description police see. <span class="src">Source: vanotherlevel</span></li>
+      <li><strong>Adrenaline extends Combat Focus</strong> (hold L1 &gt; Triangle) — use it before Gunslinger attempts. <span class="src">Source: PowerPyx</span></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Launch status — day-one patch</h3>
+    <ul>
+      <li>Pre-release updates v01.002.000 (13 Nov, ~1.07 GB PS5 / 2.18 GB Xbox) and v01.002.001 (16 Nov, ~602.5 MB PS5 / 1.6 GB Xbox) — Rockstar published NO patch notes. Both must be installed before playing. <span class="src">Source: dlcompare (IGN, VICE)</span></li>
+      <li>PSN outage 18 Nov evening (hours before unlock): login failures, ~10,000 reports (US) + ~6,000 (UK). Fixed by Wednesday midday. Sony's side, not the game. <span class="src">Source: Guardian, Cybernews, Axios</span></li>
+      <li>0 glitched trophies (PowerPyx). No verified in-game bug list from any outlet as of 20 Nov — the game is rated very polished (Metacritic 99). <span class="src">Source: PowerPyx, cryptogames</span></li>
+      <li>Rumor “Rockstar apologised + fix 25 Nov” — UNVERIFIED, no support on any official Rockstar channel. <span class="src">Source: iGameMag</span></li>
+      <li>Frame rate: 30 FPS target, drops in dense areas; no 60 FPS mode. <span class="src">Source: VGC, PlayStation LifeStyle</span></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Disagreements — both sides shown</h3>
+    <ul>
+      <li><strong>Personal Best:</strong> PowerPyx — max Strength with Jason AND Lucia together. vs ofzenandcomputing — “story trophy, unlocks during the campaign”. We follow PowerPyx.</li>
+      <li><strong>Bad Luck, I Guess — earliest:</strong> PowerPyx — Chapter 2. vs damnmodz — after the Dye Pack Jammer (Chapter 3). Try Chapter 2; if it doesn't pop, wait for Chapter 3.</li>
+      <li><strong>Apollo glitch:</strong> KeeNgamer + allblogthings say it works. vs afleurdenet + vanotherlevel say no working money glitch exists. DISPUTED.</li>
+      <li><strong>Chapter 1 meditation required?</strong> PowerPyx — counter +1, he earned the trophy after doing it. vs unconfirmed — it isn't marked as a Meditation Spot. Do it anyway — it's safe and only available in Chapter 1.</li>
+      <li><strong>A Classic Blitz Play:</strong> PowerPyx — via the Chapter 4 bank-vault mission. vs damnmodz — robbing a truck directly can fail the trophy. Use the mission route.</li>
+      <li><strong>The Truth Is Out There trigger:</strong> PowerPyx + GameSpot — UFO abduction. vs TechTudo — the Capri ritual. Both can't be right; we follow UFO (2+ strong sources).</li>
+      <li><strong>Alien lab keypad:</strong> PowerPyx — 2134 (from the dream). vs OutputLag — try 2314, then 2341; “neither code works in every save”. The code varies per save.</li>
+      <li><strong>Time to platinum:</strong> PowerPyx — ~200 hours. vs PushSquare — ~300 hours.</li>
+      <li><strong>100% Completion:</strong> PowerPyx — “soft” requirements, ~60% true completion. vs gamemapa — weights: Story &amp; Tasks 45%, Exploration &amp; Activities 45%, Discovery 10%.</li>
+      <li><strong>Ten Pin:</strong> PowerPyx — best lead: melee drive-by kick from a motorcycle. vs no other source has proven the exact steps. UNKNOWN.</li>
+    </ul>
+  </div>
+  <div class="panel warnings">
+    <h3>Warnings — read before you play</h3>
+    <ul>
+      <li>Cheats disable trophies AND saving. Never use cheats on your platinum save.</li>
+      <li>Criminal Profile “Irredeemable” is PERMANENT — police become more aggressive (shoot on sight). Other profiles (Professional / Hardened / Violent / Psycho) are not permanent.</li>
+      <li>No mission replay, no New Game+. Manual saves are the only safety net: 15 manual slots + 1 autosave.</li>
+      <li>Rotate save slots during free-roam cleanup — don't overwrite your chapter saves (save-slot trap).</li>
+      <li>Prologue bugs reported: crashes / lost progress despite autosave, falling through the map after Lucia is tasered, one early Lucia mission softlock. Mitigation: save manually often, rotate slots.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="view-eggs" class="view">
+  <h2>Easter Eggs, Bugs &amp; Oddities — 86 items</h2>
+  <p class="view-intro">Research dated 21 Nov 2026 ~02:35 WIB — the game is 2 days old, so this list will age fast. Statuses: <strong>42 confirmed</strong> (2+ independent sources) · <strong>35 reported</strong> (1 source) · <strong>9 disputed</strong> (conflicting evidence). “Viral” is not “verified”.</p>
+  <div class="egg-filters">
+    <button class="chip active" data-egg="all">All 86</button>
+    <button class="chip" data-egg="egg">Easter Eggs (51)</button>
+    <button class="chip" data-egg="bug">Bugs (24)</button>
+    <button class="chip" data-egg="oddity">Oddities (11)</button>
+  </div>
+  <div id="eggs-list">
+    <article class="egg"><h3>Skunk Ape / Bigfoot (open-world)</h3><p class="egg-meta">EASTER EGG · CONFIRMED · PowerPyx, Kotaku, GameSpot, OutputLag, Game8</p><p>Creature crouched eating a deer carcass on the road south of Lake Cottonmouth, Grassrivers. Approach — it flees into the bushes; follow to a wooden effigy in a tree (green fog) — your character faints, a cutscene of furry feet approaches, you wake at the lake edge. Available from Chapter 1.</p></article>
+    <article class="egg"><h3>UFO abduction (The Truth Is Out There)</h3><p class="egg-meta">EASTER EGG · CONFIRMED · PowerPyx, GameSpot, OutputLag, GTAVibes</p><p>After Chapter 1, ALONE, road north-west of Starlet Motel, Kelly County, after 02:00 in-game. Find a parked car with flashing lights, follow the trail into the woods toward blue light — a UFO is lifting a woman. Help her, return to the car — the UFO returns and abducts you. Also a trophy.</p></article>
+    <article class="egg"><h3>Cameo Niko Bellic (“The Hitman”)</h3><p class="egg-meta">EASTER EGG · CONFIRMED · Kotaku, Beebom, Game8</p><p>Chapter 5 “Top of the World, Ma”, story mission “Taking Liberties”. Niko — older, grey-haired, voiced by Michael Hollick — appears in Giorgio's penthouse in 2 cutscenes. Credited as “The Hitman”. Giorgio shouts “Daddy's back, bitches!” (GTA IV's opening line).</p></article>
+    <article class="egg"><h3>Mandy — Key Lento (mystery)</h3><p class="egg-meta">ODDITY · CONFIRMED clues · Gamebrott, Tech2Geek, FandomWire, OutputLag</p><p>Clues OBSERVED (3 independent sources): a rotting finger-like object comes out of her clogged sink; her car trunk holds a meat cleaver, scissors, bleach, tape (+ acid and saws per FandomWire); her yard has disturbed ground that looks like a freshly dug grave. COMMUNITY THEORY (NOT fact): “Mandy is a psychopath/serial killer.” No confirmation from any cutscene or Rockstar — always present it as theory.</p></article>
+    <article class="egg"><h3>Influencer eaten by a python (FB Reel Michi Gaming)</h3><p class="egg-meta">EASTER EGG · DISPUTED · Facebook Reel Michi Gaming, WikiGames</p><p>DISPUTED — the Reel's own summary says “visuals match Red Dead Redemption 2 style”; commenters are split, some comparing visuals and NPC behaviour to RDR2 and questioning realism. One fan-wiki listing is not confirmation. No major outlet (GameSpot/IGN/Kotaku/PowerPyx) has reported it. Never present as a confirmed egg.</p></article>
+    <article class="egg"><h3>Two dogs mating in a driveway (FB Reel IMGX)</h3><p class="egg-meta">REPORTED MEME · authenticity questioned · Facebook Reel IMGX @imgxstudio</p><p>REPORTED MEME — at best ambient animal behaviour that went viral as a meme, not a clear easter egg. Comments explicitly question authenticity (“I'm several hours in and this doesn't happen”), some suspect AI involvement, others compare it to RDR2. Do NOT present as an official easter egg.</p></article>
+    <article class="egg"><h3>Crash / freeze / lost progress</h3><p class="egg-meta">BUG · CONFIRMED · Notebookcheck, GameWatcher, GrandTheftAutoWiki</p><p>Repeated prologue crashes, freezes, missing textures, audio issues, hours of progress lost despite autosave (autosave doesn't always trigger at certain prologue checkpoints; the save menu doesn't show autosaves — use the load menu). Mitigation: save manually often, rotate slots.</p></article>
+    <p class="view-intro">Full list of 86 items (51 eggs · 24 bugs · 11 oddities) is loaded from data/easter-eggs.json — use the filters above.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <p>LEONIDA PLATINUM ATLAS — an unofficial, offline fan guide. Not affiliated with Rockstar Games. No Rockstar logo, artwork, or game screenshots are used. Trophy names and descriptions are shown as PlayStation publishes them; all guide text is written in our own words, with sources cited beside each trophy. Sources: PowerPyx, Exophase, GameSpot, damnmodz, gamemapa, PushSquare, KeeNgamer, allblogthings, afleurdenet, vanotherlevel, dlcompare, cryptogames, gtavibes, GTAVI-Glitches. Research: 20–21 Nov 2026.</p>
+  <p>Screenshot mode: add <code>?shot=cover</code>, <code>?shot=roadmap</code>, <code>?shot=glitch</code> or <code>?shot=spoiler</code> to the URL.</p>
 </footer>
+</div>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
