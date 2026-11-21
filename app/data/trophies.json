@@ -1,4343 +1,558 @@
-{
- "trophies": [
-  {
-   "name": "Vice Got a Price!",
-   "description": "Congratulations! You're a Leonida Legend.",
-   "grade": "platinum",
-   "hidden": false,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 7,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "auto",
-   "guide": "Platinum ini jatuh dengan sendirinya begitu 54 trophy lain sudah dikantongi; tidak ada syarat tambahan, tidak butuh multiplayer, dan tidak butuh DLC.",
-   "steps": [
-    {
-     "text": "Platinum ini didapat dengan mengoleksi 54 trophy lainnya; tidak ada tugas terpisah di baliknya.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini ber-grade platinum, satu-satunya platinum di daftar 55 trophy GTA VI.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Tidak ada trophy online di GTA VI, jadi platinum bisa diraih sepenuhnya dari single-player.",
-     "src": [
-      "ppx",
-      "ig"
-     ]
-    },
-    {
-     "text": "Total ada 55 trophy: 1 platinum, 2 gold, 6 silver, dan 46 bronze.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Ada 28 trophy hidden di daftar ini, dan platinum bukan salah satunya.",
-     "src": [
-      "ppx",
-      "ig"
-     ]
-    },
-    {
-     "text": "Tidak ada trophy yang glitched menurut PowerPyx, jadi tidak ada yang menghalangi platinum secara teknis.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cerita utama memakan waktu sekitar 60 sampai 80 jam, sebelum cleanup dan 100% dimulai.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Setelah credits, free-roam terbuka dan semua trophy non-story masih bisa dikerjakan.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Just Like Paradise",
-   "description": "Complete Gone Fishing.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 1,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Misi pembuka Gone Fishing menandai awal cerita; selesaikan saja dan trophy langsung pop.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Gone Fishing\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 1, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi pembuka ini adalah misi pertama yang dimainkan, di Chapter 1.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Paradise Lost",
-   "description": "Complete Chapter 1.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 1,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Tamatkan Chapter 1 sampai akhir; chapter ini ditutup setelah misi pertama Chapter 2 dimulai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"What's in the Bag?\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 1, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Chapter 1 berakhir setelah misi pertama Chapter 2, \"What's in the Bag?\", berjalan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "T**s Ass Drug Money",
-   "description": "Complete Chapter 2.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Tamatkan Chapter 2; begitu misi pertama Chapter 3 dimulai, trophy ini sudah di tangan.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Welcome to Vice City\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 2, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Chapter 2 berakhir setelah misi pertama Chapter 3, \"Welcome to Vice City\".",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Vice City, Baby!",
-   "description": "Complete Chapter 3.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Tamatkan Chapter 3; penutupnya datang setelah dua misi pertama Chapter 4 selesai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Another Life\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 3, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Chapter 3 berakhir setelah dua misi pertama Chapter 4, \"Ocean Beach\" dan \"Another Life\".",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Top Of The World, Ma",
-   "description": "Complete Chapter 4.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Tamatkan Chapter 4, yang misi terakhirnya bernama Starting From Zero.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Starting From Zero\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 4, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi terakhir Chapter 4 adalah \"Starting From Zero\".",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "You Gotta Know When to Get Off",
-   "description": "Complete the final mission.",
-   "grade": "gold",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 5,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Selesaikan misi final di Chapter 5; ini satu-satunya trophy gold yang tersembunyi, dan setelah credits free-roam terbuka.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"misi final Chapter 5\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 5, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Setelah misi final dan credits, free-roam terbuka untuk cleanup trophy lain.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Trust",
-   "description": "Complete Breakfast Run.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Misi Breakfast Run di Chapter 2 memberi trophy ini secara otomatis saat selesai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Breakfast Run\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 2, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi \"Breakfast Run\" dimainkan di Chapter 2.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Break the Bank",
-   "description": "Complete The Cartel Heist.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Heist kartel di Chapter 3 adalah misi story biasa: selesaikan, trophy pop.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"The Cartel Heist\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 3, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi \"The Cartel Heist\" dimainkan di Chapter 3.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Family Matters",
-   "description": "Complete Child's Play.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Misi Child's Play di Chapter 4 memberi trophy ini otomatis saat selesai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Child's Play\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 4, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi \"Child's Play\" dimainkan di Chapter 4.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "DWNFALL",
-   "description": "Complete Headliners.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Misi Headliners di Chapter 4 memberi trophy ini otomatis saat selesai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Headliners\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 4, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi \"Headliners\" dimainkan di Chapter 4.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Hi-Jacked",
-   "description": "Complete VCIA Takedown.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Misi VCIA Takedown di Chapter 4 memberi trophy ini otomatis saat selesai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"VCIA Takedown\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 4, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi \"VCIA Takedown\" dimainkan di Chapter 4.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Snow Storm",
-   "description": "Complete Operation Savage Glory.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 5,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Misi Operation Savage Glory di Chapter 5 memberi trophy ini otomatis saat selesai.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka otomatis saat misi story \"Operation Savage Glory\" selesai.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi ini bagian dari Chapter 5, dan tidak ada cara lain untuk memicu trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy story tidak bisa miss: tidak ada pilihan di misi ini yang mengunci trophy ini selamanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada mission replay di GTA VI, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi \"Operation Savage Glory\" dimainkan di Chapter 5.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Misi story dimainkan sebagai Jason dan Lucia, dua protagonis yang bisa diganti sejak Chapter 2.",
-     "src": [
-      "ppx",
-      "wiki"
-     ]
-    },
-    {
-     "text": "Progress story ikut terhitung menuju checklist 100%, yang terbuka setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "A Long Road",
-   "description": "Attain 100% Completion.",
-   "grade": "gold",
-   "hidden": false,
-   "kind": "collectibles",
-   "missable": false,
-   "roadmap_stage": 7,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 100,
-    "total": 100,
-    "label": "Completion"
-   },
-   "overlap100": "auto",
-   "guide": "Raih 100% Completion dari menu Progress setelah tamat; progress selama story ikut terhitung, dan syaratnya lebih ringan dari angka mentahnya.",
-   "steps": [
-    {
-     "text": "Trophy gold ini diraih dengan mencapai 100% Completion, dan deskripsi resminya persis seperti itu.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Checklist 100% baru bisa dibuka setelah tamat, lewat Progress, lalu Stats, lalu 100% Completion.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Progress yang dibuat selama story ikut terhitung ke checklist, jadi jangan tunggu tamat untuk mulai.",
-     "src": [
-      "ppx",
-      "gm100"
-     ]
-    },
-    {
-     "text": "Persyaratan 100% disebut lunak: sekitar 60% true completion saja sudah cukup untuk angka 100% di layar.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Bobot checklist: Story & Tasks 45%, Exploration & Activities 45%, Discovery 10%.",
-     "src": [
-      "gm",
-      "gm100"
-     ]
-    },
-    {
-     "text": "Tidak ada satu pun syarat 100% yang missable; semuanya bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Roadmap PowerPyx menempatkan cleanup 100% sebagai tahap terakhir sebelum platinum.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal cara membukanya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Cunning Stunts",
-   "description": "Complete 250 Stunts.",
-   "grade": "silver",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 250,
-    "total": 397,
-    "label": "Stunts"
-   },
-   "overlap100": "auto",
-   "guide": "Selesaikan 250 dari 397 stunt yang tersebar di Leonida; kategori boleh dicampur, dan Under the Bridge adalah yang paling cepat.",
-   "steps": [
-    {
-     "text": "Trophy silver ini butuh 250 stunt selesai dari total 397 stunt di dunia game.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total 397 stunt terbagi jadi 130 Stunt Jump, 202 Under the Bridge, 40 Knife Flight, dan 25 Base Jump.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Kategori stunt boleh dicampur; tidak wajib menyelesaikan satu kategori penuh.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Under the Bridge adalah cara tercepat karena jumlahnya paling banyak, 202 titik.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Progress stunt bisa dilacak lewat Progress, Activities, Stunts, atau lewat Map, Exploration, Stunt Spots.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 300 stunt, jadi trophy ini otomatis selesai di jalan menuju 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal angka targetnya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan stunt di tahap aktivitas dan balapan, sebelum cleanup koleksi.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Master of None",
-   "description": "Try each type of activity once.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 9,
-    "total": 9,
-    "label": "Activity types"
-   },
-   "overlap100": "auto",
-   "guide": "Coba sembilan jenis aktivitas sekali saja; hampir semuanya datang sendiri saat mengerjakan trophy lain.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh mencoba sembilan jenis aktivitas, masing-masing sekali.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Sembilan jenis itu: Fishing, Hunting, Golf, Shooting Range, Pool, Basketball, Playing a Video Game, balapan, dan stunt.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Basketball dihitung saat berhasil memasukkan bola ke ring, bukan sekadar memegang bola.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Balapan dihitung dari balapan mobil, Race Challenge, atau Top Fun Drone Race.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Progress aktivitas bisa dicek lewat Touchpad, Progress, Activities.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Hampir semua jenis aktivitas ini didapat otomatis saat mengerjakan trophy lain.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal sembilan jenisnya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Untuk 100% tidak ada syarat aktivitas terpisah di luar yang sudah dihitung di sini.",
-     "src": [
-      "ppx100",
-      "gm100"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "The Shootist",
-   "description": "Earn a gold medal in all Shooting Range challenges.",
-   "grade": "silver",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 42,
-    "total": 42,
-    "label": "Gold medals"
-   },
-   "overlap100": "auto",
-   "guide": "Raih medali emas di semua 42 Shooting Range challenge di 12 lokasi; ini trophy tersulit kedua setelah A Long Road.",
-   "steps": [
-    {
-     "text": "Trophy silver ini butuh medali emas di semua 42 Shooting Range challenge.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ada 12 lokasi Shooting Range, dengan 18 challenge di Griffin dan 24 di lokasi lain.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini disebut tersulit kedua setelah A Long Road, jadi sisakan untuk tahap akhir.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Naikkan Focus dulu sebelum mencoba, karena Focus membantu akurasi menembak.",
-     "src": [
-      "ppx",
-      "val"
-     ]
-    },
-    {
-     "text": "Focus bisa naik lewat Shooting Range, Golf, Pool, memancing, dan headshot.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 42 dari 42 medali emas yang sama, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal angka 42 challenge.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan Shooting Range di tahap aktivitas, sebelum cleanup koleksi.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Top Fun",
-   "description": "Win a Top Fun Drone Race at every location.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 14,
-    "total": 14,
-    "label": "Locations"
-   },
-   "overlap100": "auto",
-   "guide": "Menangkan balapan drone Top Fun di semua 14 lokasi; total ada 42 balapan drone di dunia.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh kemenangan balapan drone Top Fun di semua 14 lokasi.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total ada 42 balapan drone Top Fun di seluruh Leonida.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PowerPyx punya panduan lokasi untuk ke-14 lokasi balapan drone ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 42 dari 42 drone time trial, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Balapan drone juga dihitung sebagai balapan untuk trophy Earn Cash, Not Kudos.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 14 lokasi.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan balapan drone di tahap aktivitas dan balapan.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Drone race bisa dicoba lagi sampai menang; tidak ada batas percobaan.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Earn Cash, Not Kudos",
-   "description": "Win 20 different races.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 20,
-    "total": 40,
-    "label": "Races won"
-   },
-   "overlap100": "auto",
-   "guide": "Menangkan 20 balapan berbeda dari 40 lokasi balapan unik; balapan mobil, Race Challenge, dan drone semuanya dihitung.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 20 kemenangan balapan berbeda dari 40 lokasi balapan unik.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Balapan mobil, Race Challenge, dan Top Fun Drone Race semuanya dihitung ke angka ini.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 30 dari 40 balapan unik dimenangkan, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Checklist 100% juga butuh 10 dari 13 Race Challenge ber-medali emas.",
-     "src": [
-      "ppx100",
-      "gm100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal angka 20 balapan.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan balapan di tahap aktivitas, sebelum cleanup koleksi.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Balapan yang sama tidak dihitung dua kali; harus 20 balapan yang berbeda.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Balapan bisa diulang sampai menang tanpa penalti trophy.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Baited My Tackle",
-   "description": "Beat Cal in a fishing challenge.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Ikuti questline memancing Cal sampai menang tantangan melawannya; semuanya dimulai dari SMS Cal setelah misi Feng Shui.",
-   "steps": [
-    {
-     "text": "Trophy ini diraih dengan mengalahkan Cal dalam sebuah tantangan memancing.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Semuanya dimulai setelah misi Chapter 1 Feng Shui, saat Cal mengirim SMS yang menandai lokasi memancing.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lokasi memancing Cal ditandai dengan ikon ungu di peta.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ikuti questline memancing Cal sampai tantangan final melawannya terbuka.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Memancing juga menaikkan Focus, yang membantu trophy Gunslinger dan The Shootist.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline Cal.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini bisa dikerjakan setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Stick Fiddler",
-   "description": "Complete an arcade game.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "auto",
-   "guide": "Tamatkan satu dari empat game arcade; tiga di antaranya bisa dimainkan dari TV rumah sejak Chapter 1.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh menamatkan satu dari empat game arcade di dunia game.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Empat game itu: Tenebrae Lux, Street Trash III, Time Jackers Rewind, dan Bang For Your Buck.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tiga game pertama bisa dimainkan di TV rumah lewat controller, sudah sejak Chapter 1.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Bang For Your Buck dimainkan di mesin arcade yang ada di dunia game.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Yang wajib adalah menamatkan semua level; tidak perlu menyelesaikan semua challenge di dalamnya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh memainkan 4 dari 4 video game, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal empat game arcade.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Game arcade bisa dimainkan kapan saja setelah tersedia, termasuk setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Road to Rehabilitation",
-   "description": "Complete the final mission for Andy.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Questline Andy, eksklusif Lucia dari Chapter 3, berisi lima quest Cellerica sampai misi finalnya.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka saat misi final untuk karakter ini selesai: \"Puff Puff Pass\".",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline ini dimulai di Chapter 3, dan bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline Andy eksklusif untuk Lucia dan dimulai lewat telepon dari Andy, lalu SMS berisi alamat rumahnya di Belville.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lima quest-nya: Climbing the Cellerichain bagian 1 sampai 3, Pay the Cellerica Fee, Peach!, Read the Label, dan Puff Puff Pass.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline-nya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "This Was No Boat Accident",
-   "description": "Complete the final mission for Kenton.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Questline Kenton soal harta karun bawah laut; ia sempat hilang setelah Chapter 1 lalu kembali di Chapter 2 dan 3.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka saat misi final untuk karakter ini selesai: \"misi final Kenton\".",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline ini dimulai di Chapter 1, dan bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline Kenton dimulai setelah misi Island Dreams, saat Kenton menelepon dan ikon hijau KR muncul di Key Lento.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Kenton memberi quest treasure diving dengan total 7 set shipwreck; cari harta dengan metal detector dan bawa kembali padanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline-nya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "The Lone Rider",
-   "description": "Complete the final mission for Billy.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Questline Billy di Thrillbilly Mudclub, Kelly County, berisi lima quest sampai Hometown Heroes.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka saat misi final untuk karakter ini selesai: \"Hometown Heroes\".",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline ini dimulai di Chapter 2, dan bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline Billy dimulai setelah misi Coffee Break, ditandai di Thrillbilly Mudclub, Kelly County.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lima quest-nya: Thrillbillies, Twist Wrist Smash Grab, Mall Rats, The Impaler, dan Hometown Heroes.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline-nya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Strangers & Freaks",
-   "description": "Complete 8 mission strands for strangers across the state of Leonida.",
-   "grade": "silver",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 8,
-    "total": 8,
-    "label": "Strands"
-   },
-   "overlap100": "separate",
-   "guide": "Selesaikan 8 strand Strangers & Freaks yang dihitung game; hati-hati, banyak questline terkenal justru TIDAK dihitung.",
-   "steps": [
-    {
-     "text": "Trophy silver ini butuh 8 mission strand Strangers & Freaks yang dihitung oleh game.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Banyak questline TIDAK dihitung, termasuk Moses, Tyrone, Yasmani, Andy, Billy, dan Eddie, meski mereka punya trophy sendiri.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Strand Kirk yang dihitung: cari Skunk Ape, cari tree effigy, dan bantu Kirk menemukan Mr. Mangrove.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Strand Kyle yang dihitung: cek McKittrick Farm, kumpulkan bahan kimia, dan cek kabar Kyle.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Strand Yago yang dihitung: ikut street race, jadi mentor Yago, balapan melawannya, dan bantu dia.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Strand Pilot Pete yang dihitung: The Last Mile dua bagian plus pengiriman paket Pete.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PowerPyx mencatat ada lebih banyak stranger yang belum ditemukan saat panduan ditulis.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Progress strand bisa dilacak lewat trophy tracker di daftar trophy.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Supply & Demand",
-   "description": "Complete the final mission for Randy.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Questline Randy berisi wishlist 16 mobil sport yang harus dicuri dan diantar ke garasinya.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka saat misi final untuk karakter ini selesai: \"misi final Randy\".",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline ini dimulai di Chapter 3, dan bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline Randy dimulai setelah misi Clonin' Keys, Makin' GS, saat Key Cloner terbuka dan Zorrusso dikirim otomatis.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Randy memberi daftar 16 mobil sport yang diinginkan; curi dari jalan, cek dengan WAiNK, lalu antar ke garasi Randy di barat Vice City.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline-nya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Spin On This!",
-   "description": "Complete the final mission for Tyrone.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Questline Tyrone, eksklusif Jason dari Chapter 3, soal menghancurkan lab Synthetic Labs sampai quest final terbuka.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka saat misi final untuk karakter ini selesai: \"Spin On This\".",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline ini dimulai di Chapter 3, dan bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline Tyrone eksklusif untuk Jason dan dimulai setelah misi Here, Kitty Kitty, saat marker ungu Synthetic Labs muncul di Vice City.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Hancurkan lab-lab itu lewat quest Take Out Kitty Litter sampai Tyrone memberi quest kedua, Spin On This.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline-nya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Positive Mental Attitude",
-   "description": "Meditate at every spot across Leonida.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "missable",
-   "missable": true,
-   "roadmap_stage": 1,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 18,
-    "total": 18,
-    "label": "Meditation spots"
-   },
-   "overlap100": "partial",
-   "guide": "Meditasi di semua 18 spot di 10 lokasi, sebagai Jason DAN Lucia di spot yang sama untuk +2; ini satu-satunya trophy yang berpotensi missable.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh meditasi di semua 18 Meditation Spot di 10 lokasi.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Meditasi sebagai Jason DAN Lucia di spot yang sama memberi +2, jadi hemat waktu sampai setengahnya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Progress meditasi bisa dilacak lewat Progress, Collections, Exploration, Meditations.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% cukup 15 dari 18 spot, sedangkan trophy butuh 18 penuh.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 18 spot.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan meditasi di tahap pertama, bersama story, karena risiko missable-nya.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Meditasi di balkon rumah Jason di Chapter 1 menambah counter +1, tapi tidak ditandai sebagai Meditation Spot.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Apakah meditasi Chapter 1 itu wajib untuk trophy belum dikonfirmasi; PowerPyx mendapat trophy setelah melakukannya.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": "Meditasi pertama di balkon rumah Jason hanya ada selama Chapter 1: setelah misi Down to Earth, bicara dengan Lucia di dapur pagi hari, ikuti ia ke balkon, lalu pilih Accept. Setelah Chapter 1 berakhir, momen ini hilang permanen. Belum dikonfirmasi apakah meditasi ini wajib untuk trophy, tapi lakukan saja saat muncul, dan simpan manual SEBELUM misi Down to Earth sebagai pengaman.",
-   "points_of_no_return": "Akhir Chapter 1 menutup momen meditasi balkon; tidak ada cara mengulang misi karena tidak ada mission replay."
-  },
-  {
-   "name": "Fair Game",
-   "description": "Hunt a unique animal for Bret.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "story",
-   "missable": false,
-   "roadmap_stage": 2,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "partial",
-   "guide": "Questline Bret Vogel, eksklusif Jason dari Chapter 2, soal berburu hewan yang ia tandai; ia memberi senapan buru unik Killtelligence SM-69.",
-   "steps": [
-    {
-     "text": "Trophy ini terbuka saat misi final untuk karakter ini selesai: \"perburuan untuk Bret\".",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline ini dimulai di Chapter 2, dan bisa diselesaikan setelah tamat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Questline Bret eksklusif untuk Jason dan dimulai setelah misi Coffee Break, lewat SMS yang menandai quest Veteran Hunted di Lummox County.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Bret memberi senapan buru unik Killtelligence SM-69 yang bisa diambil di weapon locker Ammu-Nation; ia menandai spot berburu dengan ikon ungu.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.",
-     "src": [
-      "kit",
-      "exo"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah dari cleanup 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal questline-nya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Don't Touch My Deck",
-   "description": "Complete 3 Collectible Card sets.",
-   "grade": "silver",
-   "hidden": false,
-   "kind": "collectibles",
-   "missable": false,
-   "roadmap_stage": 5,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 3,
-    "total": 18,
-    "label": "Card sets"
-   },
-   "overlap100": "auto",
-   "guide": "Lengkapi 3 dari 18 set kartu koleksi; total ada 480 kartu di dunia game.",
-   "steps": [
-    {
-     "text": "Trophy silver ini butuh 3 set kartu koleksi lengkap dari total 18 set.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total ada 480 kartu koleksi di dunia game.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PowerPyx punya panduan lokasi untuk ke-18 set kartu koleksi.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 15 dari 18 set, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 18 set kartu.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan kartu koleksi di tahap koleksi dan scanning.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Set kartu bisa dilengkapi kapan saja, termasuk setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Kartu yang sudah didapat tidak hilang saat ganti karakter.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "You WAiNKer!",
-   "description": "WAiNK It at 100 locations.",
-   "grade": "silver",
-   "hidden": false,
-   "kind": "collectibles",
-   "missable": false,
-   "roadmap_stage": 5,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 100,
-    "total": 100,
-    "label": "Locations"
-   },
-   "overlap100": "auto",
-   "guide": "Scan 100 lokasi dengan aplikasi WAiNK di HP; ada lebih dari 100 lokasi, jadi lokasi mana pun boleh.",
-   "steps": [
-    {
-     "text": "Trophy silver ini butuh 100 lokasi di-scan dengan aplikasi WAiNK di HP.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara scan: tahan D-pad Atas lalu R1 sambil mengarahkan kamera ke lokasi.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ada lebih dari 100 lokasi: 31 Landmarks, 35 Curiosities, 23 Sculptures, ditambah No Flusher Tags.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lokasi mana pun boleh dipakai; tidak ada daftar lokasi wajib untuk trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 100 lokasi WAiNK yang sama, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 100 lokasi.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan scanning WAiNK di tahap koleksi dan scanning.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "WAiNK juga dipakai untuk menemukan kendaraan, jadi scanning ganda menghemat waktu.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "One Last Thing",
-   "description": "Complete 50 Challenges.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "activities",
-   "missable": false,
-   "roadmap_stage": 4,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 50,
-    "total": 80,
-    "label": "Challenges"
-   },
-   "overlap100": "auto",
-   "guide": "Selesaikan 50 dari 80 Challenge; untuk 100% butuh 70, jadi trophy ini datang sendiri di jalan.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 50 Challenge selesai dari total 80 Challenge.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Daftar Challenge bisa dibuka lewat Progress, lalu Challenges.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 70 dari 80 Challenge, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Di akhir, pilih challenge termudah yang tersisa untuk menutup angka 50.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal angka 50 dari 80.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan challenge di tahap aktivitas, sebelum cleanup koleksi.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Challenge yang sudah selesai selama story ikut terhitung, tidak perlu diulang.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Challenge tersebar di semua jenis aktivitas, jadi kerjakan yang paling dekat dulu.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Hot Together",
-   "description": "Lose a 4 star Wanted Level with your partner and escape the heat.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "auto",
-   "guide": "Buat wanted level 4 bintang bersama partner, lalu kabur sampai keluar zona heat merah; paling mudah lewat terowongan kereta utara Ambrosia.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh lolos dari wanted level 4 bintang bersama partner, sampai keluar zona heat merah.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Paling awal bisa dicoba setelah Chapter 2 Coffee Break, saat free-roam berdua sudah terbuka.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Partner bisa dipanggil dengan menahan D-pad Kanan lalu Segitiga.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Zona heat berwarna merah berbeda dari area pencarian biru-merah yang berkedip; harus keluar dari zona merah.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara termudah: terowongan kereta di utara Ambrosia, Kelly County, karena polisi sulit mengikuti di rel dan helikopter tidak bisa melihat.",
-     "src": [
-      "ppx",
-      "val"
-     ]
-    },
-    {
-     "text": "Motor sport cepat yang memotong jalur juga bisa dipakai untuk kabur.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini sering didapat otomatis saat merampok bank vault besar, yang selalu memicu wanted 4 bintang.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal syarat 4 bintang.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Retail Therapy",
-   "description": "Rob 3 shops back-to-back with your partner without losing your Wanted Level.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Rampok 3 toko berturut-turut bersama partner sambil mempertahankan wanted level; trophy pop tertunda sekitar 30 detik setelah toko ketiga.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh merampok 3 toko berturut-turut bersama partner tanpa kehilangan wanted level.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Wanted level harus dipertahankan dalam keadaan berkedip merah-biru; jangan sampai masuk level heat merah.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Pakai rompi antipeluru plus sticky bomb dan Zombix atau Adrenaline sebagai persiapan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy pop tertunda sekitar 30 detik setelah keluar dari toko ketiga; kalau tidak pop, rampok toko keempat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tempat bagus: 3 toko perhiasan di utara Vice City, yang terbuka setelah misi Chapter 3 Yasmani's Jewelry Jobs.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Di toko perhiasan, rampok beberapa item lalu bobol brankas belakang dengan sticky bomb.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 3 toko berturut-turut.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini bisa dicoba lagi setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Whip It Good",
-   "description": "Discover 100 vehicles.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "collectibles",
-   "missable": false,
-   "roadmap_stage": 5,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 100,
-    "total": 277,
-    "label": "Vehicles"
-   },
-   "overlap100": "auto",
-   "guide": "Scan 100 kendaraan unik dengan WAiNK; tidak perlu dikendarai, cukup di-scan, dan jalan ramai adalah tempat tercepat.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 100 kendaraan unik ditemukan lewat scan WAiNK.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara scan: tahan D-pad Atas, arahkan ke kendaraan, lalu tahan R1.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Kendaraan tidak perlu dikendarai; di-scan saja sudah cukup untuk dihitung.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara tercepat: berdiri di jalan ramai dan scan semua kendaraan yang lewat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total kendaraan di dunia ada 557, dengan 277 base model.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh 200 dari 277 base model di-scan, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Progress kendaraan bisa dilacak lewat Touchpad, Progress, Vehicles.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 100 kendaraan.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Gunslinger",
-   "description": "Take down 5 enemies in a single use of Combat Focus.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Lumpuhkan 5 musuh dalam satu pemakaian Combat Focus; Focus Level 4 dan Adrenaline membuat ini jauh lebih mudah.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 5 musuh dilumpuhkan dalam SATU pemakaian Combat Focus.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Combat Focus diaktifkan dengan L3 dan R3 sambil membidik; waktu melambat hanya beberapa detik.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Persiapan: buff Focus dengan makan dan minum, lalu cuci muka atau mandi di rumah.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Konsumsi Adrenaline dengan menahan L1 lalu Segitiga untuk memperpanjang durasi Focus.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Senjata yang disarankan: assault rifle Duke 556 karena akurat dan full-auto, plus body armor.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lawan 5 musuh yang berdekatan, misalnya kriminal di Gang Operations.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini TIDAK bekerja pada tentara, polisi, dan warga sipil.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Focus punya 4 level; di Focus Level 4 trophy ini jauh lebih mudah, dan sering didapat secara natural.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Catch Me If You Can",
-   "description": "Make an unscheduled departure at VCIA.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Curi pesawat penumpang besar yang terhubung ke boarding bridge di VCIA, lalu terbang setidaknya 1 km dari bandara.",
-   "steps": [
-    {
-     "text": "Trophy ini diraih dengan mencuri pesawat penumpang besar yang terhubung ke boarding bridge di VCIA.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Pesawat yang dicuri BUKAN pesawat yang parkir di lapangan; harus yang menempel di boarding bridge.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Pesawat termudah ada di terminal E3 dan E4.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Masuk lewat pagar lapangan, naik tangga di samping boarding bridge, dan pintunya langsung ke pesawat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Di dalam pesawat, naik ke atas, masuk kokpit, mundurkan pesawat ke landasan, lalu lepas landas.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Terbang setidaknya 1 km dari bandara sampai trophy pop, dengan sedikit penundaan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Apakah trophy ini hidden belum teridentifikasi pasti; jangan jadikan status hidden-nya sebagai fakta.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal cara mencuri pesawatnya.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Challenging Tank",
-   "description": "Kinda hot in these Rhinos.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Curi tank militer Rhino di Mile Zero Air Station, lalu tembak musuh sampai trophy pop.",
-   "steps": [
-    {
-     "text": "Trophy ini diraih dengan mencuri tank militer Rhino di Mile Zero Air Station.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Mile Zero Air Station adalah pulau di barat daya peta, di Mariana County, dan tank ada di selatan pangkalan.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Masuk lewat gerbang pangkalan, atau lewat stunt jump di tenggara.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Naik tank lalu tembak musuh sampai trophy pop; kalau tidak pop, tembak meriamnya.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Apakah trophy ini hidden belum teridentifikasi pasti; jangan jadikan status hidden-nya sebagai fakta.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal lokasi tank-nya.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Tank bisa dicoba lagi setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Satu slot hidden non-story ke-16 belum teridentifikasi pasti; kandidat terkuat adalah trophy ini atau Catch Me If You Can.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Sneakthief",
-   "description": "Rob a jewelry store without being detected.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Rampok toko perhiasan tanpa ketahuan: selesaikan dulu misi Yasmani untuk membuka Snap Gun, lalu masuk lewat pintu belakang.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh merampok toko perhiasan tanpa terdeteksi sama sekali.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Selesaikan dulu misi Chapter 3 Yasmani's Jewelry Jobs, yang membuka Snap Gun dan perampokan toko perhiasan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Snap Gun membuka pintu beralarm secara diam-diam, permanen di inventory, dan tidak perlu di-equip.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Masuk lewat pintu belakang pakai Snap Gun; menendang pintu justru memicu alarm.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Di ruang belakang, cari catatan berisi kode brankas, lalu loot brankasnya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lokasi bagus: Richardson Jewelry and Diamonds di Vice City.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal syarat Snap Gun.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Toko perhiasan ditandai ikon hijau di area yang sudah terbuka.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Maximum Withdrawal",
-   "description": "Rob 5 Bank Vaults and escape.",
-   "grade": "silver",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 5,
-    "total": 8,
-    "label": "Bank Vaults"
-   },
-   "overlap100": "auto",
-   "guide": "Rampok 5 bank vault dan kabur; semuanya dimulai dari misi opsional Chapter 4, lalu bayar Yasmani $10.000 untuk tips lokasi van keamanan.",
-   "steps": [
-    {
-     "text": "Trophy silver ini butuh 5 bank vault dirampok dan kabur dengan selamat.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Semuanya dimulai dari misi opsional Chapter 4 That's Where The Money Is, saat menunggu di kafe.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ikuti van keamanan sampai berhenti di bank; penjaga membawa tas ke vault, lalu masuk saat vault terbuka.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Bawa partner saat merampok, dan tahan D-pad Kanan untuk menyerahkan satu tas padanya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Setelah quest itu, bayar Yasmani $10.000 untuk tips lokasi van keamanan, yang ditandai ikon ungu.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Merampok vault langsung memicu wanted 4 bintang; kabur dengan motor cepat lalu ganti kendaraan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ada 8 Large Bank Jobs total; trophy butuh 5, sedangkan 100% butuh 8.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Satu bank bisa memberi sampai $205.000, cara legit tercepat mengumpulkan uang endgame.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "A Classic Blitz Play",
-   "description": "Rob an Armored Truck and escape.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "reported",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "auto",
-   "guide": "Cara paling aman adalah lewat misi bank vault Chapter 4, karena merampok truk secara langsung dilaporkan bisa membuat trophy ini gagal pop.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh merampok armored truck lalu kabur dengan selamat.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara paling aman: lewat misi opsional Chapter 4 That's Where The Money Is, karena merampok vault bank besar dihitung sebagai merampok armored truck.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Cara lebih awal: blokir truk lapis baja di dekat bank di Vice City, tempel sticky bomb di pintu belakang, ledakkan, lalu kabur dari radius heat merah.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Sticky bomb tersedia di belakang toko Yasmani setelah quest-nya selesai.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PERINGATAN: trophy ini dilaporkan bisa gagal pop kalau merampok truk secara langsung.",
-     "src": [
-      "dm"
-     ]
-    },
-    {
-     "text": "Status trophy ini adalah reported, bukan confirmed, karena laporan bug dari satu sumber.",
-     "src": [
-      "dm"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% trophy ini otomatis selesai di jalan perampokan bank.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Misi bank vault yang sama juga membuka Maximum Withdrawal, jadi kerjakan keduanya berurutan.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "The Goodtime State",
-   "description": "Explore all of Leonida.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "collectibles",
-   "missable": false,
-   "roadmap_stage": 5,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Buka seluruh kabut peta Leonida; cara tercepat adalah terbang dengan pesawat ke semua area yang masih hitam.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh seluruh kabut peta Leonida dibuka.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara tercepat: terbang dengan pesawat ke semua area yang masih berkabut hitam sampai peta terlihat penuh.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Leonida punya enam region: Vice City, Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia, dan Mount Kalaga National Park.",
-     "src": [
-      "wiki",
-      "rck"
-     ]
-    },
-    {
-     "text": "Ada lima county di Leonida: Vice-Dale, Mariana, Kelly, Leonard, dan Lummox.",
-     "src": [
-      "wiki"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal syarat membuka peta.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini bisa diselesaikan setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Membuka peta juga membantu menemukan lokasi koleksi dan aktivitas lain.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada syarat jumlah lokasi tertentu; yang penting kabut peta hilang semua.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Pest Control",
-   "description": "Rob an Illegal Operation belonging to each gang.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 9,
-    "total": 9,
-    "label": "Gangs"
-   },
-   "overlap100": "auto",
-   "guide": "Rampok 1 Illegal Operation dari masing-masing 9 geng; total ada 39 operasi, dan 100% butuh semuanya.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 1 Illegal Operation dirampok dari masing-masing 9 geng.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total ada 39 Illegal Operation di dunia game.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Operasi ditandai ikon kuning di peta saat mendekat, dan banyak yang ditandai otomatis dari story.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Progress per geng bisa dilacak lewat Progress, Gangs, lalu scroll tiap geng untuk melihat jumlah operasi yang dirampok.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh semua 39 operasi, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 9 geng.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Roadmap menempatkan perampokan geng di tahap perampokan dan fencing.",
-     "src": [
-      "ppx",
-      "psq"
-     ]
-    },
-    {
-     "text": "Operasi geng bisa dirampok setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "In The Beginning…",
-   "description": "Enjoy a cocktail with a view on Ocean Beach.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Pergi ke Ocean View Rooftop Bar di Ocean Beach, beli Apple Martini $10, dan minum sambil berdiri di samping bar; trophy ini baru terpecahkan 20 Nov malam.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini diraih dengan menikmati koktail sambil memandang Ocean Beach.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Lokasinya: Ocean View Rooftop Bar di Oceanview Hotel, Ocean Beach; lewati kolam lalu naik lift ke rooftop.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Beli Apple Martini seharga $10 di bar rooftop, lalu minum sambil berdiri di samping bar.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini baru terpecahkan pada update PowerPyx 20 Nov malam; sebelumnya tercantum sebagai unknown di semua guide.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ocean View Hotel adalah hotel tempat safehouse pertama Tommy Vercetti di Vice City tahun 2002.",
-     "src": [
-      "wiki"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan sepakat soal lokasi dan minuman yang dibeli.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Bar rooftop bisa dikunjungi setelah tamat di free-roam.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Capital Offense",
-   "description": "Smash your way out of a vehicle showroom in classic style.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "reported",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Setelah mendapat Key Cloner di Chapter 3, clone kunci Banshee biru di showroom selatan Vice City lalu tabrak jendelanya.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini diraih dengan menabrak keluar dari showroom kendaraan dengan mobil curian.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Syarat awal: dapatkan Key Cloner dari misi Chapter 3 Clonin' Keys, Makin' Gs.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Pergi ke showroom kendaraan di selatan Vice City.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Clone kunci Banshee biru, yaitu Bravado Banshee, di dalam showroom.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Kendarai lurus menabrak jendela showroom, lalu terus jalan sampai trophy pop dengan sedikit penundaan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Status trophy ini di damnmodz adalah Reported, karena baru satu sumber yang menulis langkah lengkapnya.",
-     "src": [
-      "dm"
-     ]
-    },
-    {
-     "text": "PowerPyx sudah menulis langkah lengkap untuk trophy ini, sehingga statusnya naik dari unknown.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Let’s Go Bowling",
-   "description": "Follow-through at the Kolt & Associates' bowling alley.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Curi 3 barang berharga di Kingpin Bowling, Port Gellhorn; trophy pop SETELAH kabur dari polisi, bukan saat barang ketiga diambil.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini diraih di Kingpin Bowling, Port Gellhorn, yang merupakan salah satu Gang Operation.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Curi 3 barang berharga: jam mewah di kantor tenggara, shotgun unik Gutterball Moreland 850 di meja sudut timur laut, dan brankas di lorong timur laut.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Brankas diledakkan dengan sticky bomb, yang bisa dibeli dulu di Ammu-Nation.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy pop SETELAH kabur dari polisi, bukan saat barang ketiga diambil.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Misi opsional Chapter 2 Hit Kingpin Bowling menandai lokasi ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak missable: kalau tidak lengkap sekaligus, ikon perampokan respawn setelah lama dan sisanya bisa dicuri belakangan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal tiga barangnya.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Personal Best",
-   "description": "A partnership with mass appeal.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "reported",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Capai Strength MAKSIMUM dengan Jason DAN Lucia secara bersamaan; ada sumber yang menyebut ini trophy story, jadi tampilkan kedua versi.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini soal mencapai Strength maksimum dengan Jason DAN Lucia secara bersamaan.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cek Strength lewat Touchpad, Jason dan Lucia, Strength, dengan ikon hati.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Baru bisa dikerjakan setelah Chapter 2 Coffee Break, saat karakter bisa diganti.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Naikkan Strength dengan workout: beli membership fitness club, atau workout di rumah setelah story.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Selalu ajak partner saat workout; saat satu karakter workout, yang lain otomatis ikut progres, jadi progres ganda.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PERBEDAAN SUMBER: ofzenandcomputing menyebut trophy ini terbuka selama campaign sebagai trophy story.",
-     "src": [
-      "ofz"
-     ]
-    },
-    {
-     "text": "PowerPyx dan mayoritas sumber lain bilang trophy ini soal Strength maksimum, bukan story.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Status trophy ini adalah reported karena ada perbedaan antar sumber soal cara unlock-nya.",
-     "src": [
-      "ppx",
-      "ofz"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Actions Speak Louder",
-   "description": "Choices made (for better or worse).",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 500,
-    "total": 500,
-    "label": "Actions"
-   },
-   "overlap100": "separate",
-   "guide": "Lakukan 500 aksi yang memengaruhi Criminal Profile; hampir pasti didapat natural, tapi hati-hati: status Irredeemable itu permanen.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini butuh 500 aksi yang memengaruhi Criminal Profile.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Progress bisa dilacak dengan mengklik trophy di daftar trophy, yang menampilkan angka X dari 500.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Nyalakan notifikasi Criminal Profile di Settings, UI, HUD Notifications, agar tiap aksi yang memengaruhi reputasi terlihat di layar.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Profil Professional didapat dari menyelesaikan objektif dan perampokan diam-diam, menghancurkan bukti, dan kabur bersih.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Profil Hardened didapat dari melumpuhkan musuh tanpa membunuh, misalnya menembak anggota badan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Profil Violent dan Psycho didapat dari membunuh musuh, sipil, dan polisi secara berlebihan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Status Irredeemable itu PERMANEN; polisi jadi lebih agresif dan menembak di tempat.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini hampir pasti didapat natural; kalau kurang, farming tercepat adalah melindas warga atau polisi dengan mobil.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Bad Luck, I Guess",
-   "description": "Second time's the charm.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Kembali ke toko Payday Loans di Little Cuba sebagai Lucia sendirian, rampok lagi seperti di prologue, lalu kabur JALAN KAKI.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini diraih dengan merampok ulang toko Payday Loans di Little Cuba, Vice City.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Toko ini adalah toko yang dirampok Lucia di Prologue.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    },
-    {
-     "text": "Lakukan sebagai Lucia SENDIRIAN, tanpa Jason.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Rampok seperti di prologue: tujukan senjata ke teller, lalu ambil uangnya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Kabur JALAN KAKI, bukan dengan kendaraan, dan trophy pop tertunda setelah lari cukup jauh.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PERBEDAAN SUMBER: PowerPyx bilang paling awal setelah Chapter 2, saat bisa main sebagai Lucia.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "damnmodz menambahkan syarat setelah mendapat Dye Pack Jammer di Chapter 3 sebagai lead terbaik.",
-     "src": [
-      "dm"
-     ]
-    },
-    {
-     "text": "Trophy ini baru terpecahkan pada update PowerPyx 20 Nov malam.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "The Truth Is Out There",
-   "description": "What the hell just happened?",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "Event UFO acak setelah Chapter 1: sendirian ke jalan barat laut Starlet Motel setelah jam 02:00, ikuti jejak ke hutan, bantu wanita itu, lalu diculik UFO.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini diraih lewat event UFO acak berupa penculikan oleh UFO.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Pergi SENDIRIAN ke jalan barat laut Starlet Motel, Kelly County, timur Port Gellhorn, setelah jam 02:00 waktu in-game.",
-     "src": [
-      "ppx",
-      "gs"
-     ]
-    },
-    {
-     "text": "Cari mobil parkir dengan lampu berkedip di pinggir jalan; kalau tidak ada, pergi dan kembali lagi karena spawn-nya acak.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ikuti jejak pakaian ke hutan menuju cahaya biru, tempat UFO sedang mengangkat seorang wanita.",
-     "src": [
-      "ppx",
-      "gs"
-     ]
-    },
-    {
-     "text": "Bantu wanita itu dengan mengambilkan mobilnya, lalu kembali ke mobil di jalan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "UFO kembali dan menculik karaktermu, lalu trophy pop; bisa sebagai Jason atau Lucia.",
-     "src": [
-      "ppx",
-      "gs"
-     ]
-    },
-    {
-     "text": "Encounter kedua bukan trophy: setelah penculikan, perhatikan angka keypad dalam mimpi, biasanya 2134, untuk membuka lab bawah tanah.",
-     "src": [
-      "ppx",
-      "gs"
-     ]
-    },
-    {
-     "text": "Kode keypad diperdebatkan: sebagian pemain melaporkan 2314 atau 2341, jadi jangan janjikan satu angka pasti.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini baru terpecahkan pada update PowerPyx 20 Nov malam.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Ten Pin",
-   "description": "Bowl 'em over with a melee drive-by.",
-   "grade": "bronze",
-   "hidden": true,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 3,
-   "verified": "unknown",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": null,
-   "overlap100": "separate",
-   "guide": "SATU-SATUNYA trophy yang belum terverifikasi: dugaan terkuat adalah tendangan musuh saat melee drive-by dari motor, tapi belum ada yang membuktikannya.",
-   "steps": [
-    {
-     "text": "Trophy hidden ini adalah satu-satunya dari 55 trophy yang cara unlock-nya masih belum terverifikasi.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Dugaan terkuat dari PowerPyx: tendang musuh saat drive-by dengan senjata melee dari motor.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Tidak ada sumber yang membuktikan langkah pastinya per 21 Nov 2026.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Jangan karang langkah pasti untuk trophy ini; tampilkan sebagai unknown dengan best lead.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "54 dari 55 trophy sudah terkonfirmasi; hanya Ten Pin yang tersisa tanpa bukti.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Status trophy ini adalah unknown, bukan confirmed atau reported.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Kalau ada pemain yang membuktikan caranya, panduan ini harus di-update; sampai saat itu, best lead di atas adalah satu-satunya petunjuk.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi tidak memblokir A Long Road.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Dime on the Dollar",
-   "description": "Earn $250,000 laundering Marked Bills through your contacts.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 250000,
-    "total": 250000,
-    "label": "Dollars laundered"
-   },
-   "overlap100": "auto",
-   "guide": "Cuci total $250.000 marked bills lewat fence; butuh Dye Pack Jammer dari misi Chapter 3, dan Yasmani di Vice City bayar paling mahal.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh total $250.000 marked bills dicuci lewat kontak fence.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Selesaikan dulu misi Chapter 3 Credit Check, yang membuka Dye Pack Jammer untuk mencuci marked bills.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Rampok Bank dan Payday Loans untuk mendapat marked bills.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Bawa marked bills ke fence; Yasmani di Vice City bayar paling mahal.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Totalnya kumulatif $250.000; tidak harus sekaligus dalam satu transaksi.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Satu bank vault bisa memberi sampai $205.000, jadi trophy ini datang natural saat mengerjakan semua perampokan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Untuk checklist 100% butuh $250.000 marked bills yang sama, jadi trophy ini otomatis selesai di jalan 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal angka $250.000.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Treat Yo Self",
-   "description": "Spend $100,000 across all shops.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 100000,
-    "total": 100000,
-    "label": "Dollars spent"
-   },
-   "overlap100": "separate",
-   "guide": "Belanjakan total $100.000 di semua jenis toko; tercepat lewat senjata, mod mobil, dan tato yang paling mahal.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh total $100.000 dibelanjakan di semua jenis toko.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara tercepat: senjata, mod mobil, dan tato, karena ketiganya paling mahal.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Jenis toko di dunia: 14 Mod Shop, 19 Pay 'n' Spray, 24 Ammu-Nation, dan 67 Clothing Store.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ada juga 17 toko alas kaki, 18 salon rambut dan kecantikan, 11 studio tato, dan 15 toko elektronik.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total belanja bersifat kumulatif; tidak harus dalam satu toko atau satu sesi.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara cepat dapat uang untuk belanja: perampokan, terutama di Chapter 3 dan 4.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal angka $100.000.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "Little Boxes",
-   "description": "Purchase all garage properties.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 8,
-    "total": 8,
-    "label": "Garages"
-   },
-   "overlap100": "separate",
-   "guide": "Beli 8 garasi yang bisa dibeli dengan total $160.000 lewat aplikasi Vice City Real Estate di HP.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 8 garasi yang bisa dibeli, dengan total harga $160.000.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Ada 4 garasi story yang tidak dihitung ke trophy ini.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Garasi bisa dibeli setelah misi Chapter 2 Daily Driver, saat aplikasi Vice City Real Estate terinstal di HP.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Beli garasi lewat aplikasi tersebut, bukan dengan datang langsung.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Cara cepat dapat uang: perampokan, terutama di Chapter 3 dan 4.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "PowerPyx punya panduan lokasi untuk ke-12 garasi, termasuk 4 garasi story.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 8 garasi.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Trophy ini tidak tercakup checklist 100%, jadi kerjakan terpisah.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  },
-  {
-   "name": "On the Spot",
-   "description": "Register 10 vehicles to the Scooter Bros app.",
-   "grade": "bronze",
-   "hidden": false,
-   "kind": "crime",
-   "missable": false,
-   "roadmap_stage": 6,
-   "verified": "confirmed",
-   "gamerscore": null,
-   "rarity": null,
-   "counts": {
-    "target": 10,
-    "total": 10,
-    "label": "Vehicles registered"
-   },
-   "overlap100": "separate",
-   "guide": "Daftarkan 10 kendaraan curian ke aplikasi Scooter Bros lewat Moses; butuh garasi dulu karena tiap garasi menambah slot parkir.",
-   "steps": [
-    {
-     "text": "Trophy ini butuh 10 kendaraan didaftarkan ke aplikasi Scooter Bros.",
-     "src": [
-      "kit",
-      "ppx"
-     ]
-    },
-    {
-     "text": "Aplikasi Scooter Bros terinstal setelah misi Chapter 2 Moses, saat kendaraan dibawa ke Moses.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Aplikasi ini mendaftarkan kendaraan curian agar bisa dipanggil ke lokasimu.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Butuh garasi dulu, karena tiap garasi menambah slot parkir untuk kendaraan terdaftar.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Bawa kendaraan curian ke Moses di Port Gellhorn, lalu klik Respray dan Register di garasinya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Awalnya Moses hanya menerima kendaraan tanpa tracker; dari Chapter 3 bisa mendaftarkan mobil ber-tracker standar di Pay 'n' Spray mana pun.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Registrasi berbayar, jadi pakai mobil atau motor murah agar hemat.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy ini juga tercantum di daftar lengkap gamemapa dengan deskripsi resmi yang sama.",
-     "src": [
-      "gm",
-      "kit"
-     ]
-    },
-    {
-     "text": "Trophy ini berstatus confirmed karena dua panduan besar sepakat soal 10 kendaraan.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    }
-   ],
-   "missable_box": null,
-   "points_of_no_return": null
-  }
- ]
-}
+{"trophies": [
+{"name": "Vice Got a Price!", "description": "Congratulations! You're a Leonida Legend.", "grade": "platinum", "hidden": false, "kind": "story", "missable": false, "roadmap_stage": 7, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Platinum GTA VI adalah hadiah untuk menyelesaikan semua 54 trophy lain. Tidak ada jalan pintas: mainkan story sampai tamat, kerjakan questline stranger, lalu bersihkan checklist 100 persen dan trophy hitung di free-roam. Karena tidak ada trophy online dan tidak ada yang missable kecuali meditasi Chapter 1, platinum hanya soal waktu dan ketekunan.", "steps": [
+{"text": "Platinum ini pop otomatis setelah 54 trophy lain didapat.", "src": ["exo", "kit", "ppx"]},
+{"text": "Tidak perlu multiplayer atau DLC untuk platinum.", "src": ["exo", "kit", "ppx"]},
+{"text": "Tidak ada trophy online di GTA VI.", "src": ["exo", "kit"]},
+{"text": "Satu playthrough cukup; tidak ada New Game+.", "src": ["ppx", "gm"]},
+{"text": "Tidak ada trophy yang glitched menurut PowerPyx.", "src": ["ppx"]},
+{"text": "Checklist 100 persen biasanya jadi langkah terakhir sebelum platinum.", "src": ["ppx", "ppx100"]},
+{"text": "Lacak progres lewat daftar trophy di menu Progress.", "src": ["ppx", "gm"]},
+{"text": "Setelah credits, free-roam terbuka untuk cleanup trophy yang tersisa.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Just Like Paradise", "description": "Complete Gone Fishing.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 1, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story pertama yang didapat otomatis begitu misi pembuka Gone Fishing selesai. Tidak ada yang perlu dipersiapkan; cukup mainkan misi pembuka Chapter 1 sampai selesai dan trophy akan pop sendiri.", "steps": [
+{"text": "Selesaikan misi pembuka Gone Fishing di Chapter 1.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Gone Fishing adalah misi pertama dalam cerita GTA VI.", "src": ["ppx", "gm"]},
+{"text": "Tidak ada syarat tambahan selain menyelesaikan misi.", "src": ["ppx", "gm"]},
+{"text": "Misi ini memperkenalkan Jason dan Lucia sebagai pasangan protagonis.", "src": ["wiki", "ppx"]},
+{"text": "Trophy ini hidden, jadi nama dan deskripsinya tersembunyi sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 1 berlanjut ke misi-misi berikutnya.", "src": ["ppx", "ppx100"]},
+{"text": "Simpan manual di awal Chapter 1 sebagai pengaman umum.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Paradise Lost", "description": "Complete Chapter 1.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 1, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy ini menandai tamatnya Chapter 1. Chapter 1 berakhir setelah misi pertama Chapter 2, What's in the Bag, jadi jangan heran kalau trophy pop sedikit setelah chapter berganti. Sebelum Chapter 1 berakhir, pastikan meditasi balkon untuk Positive Mental Attitude sudah dilakukan.", "steps": [
+{"text": "Tamatkan Chapter 1 dengan memainkan semua misi story-nya.", "src": ["exo", "kit", "ppx"]},
+{"text": "Chapter 1 berakhir setelah misi pertama Chapter 2, What's in the Bag.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini pop otomatis saat Chapter 1 selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Lakukan meditasi balkon Chapter 1 sebelum chapter ini berakhir.", "src": ["ppx", "psq"]},
+{"text": "Misi opsional yang hilang setelah beberapa waktu tidak memengaruhi trophy ini.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Cerita GTA VI punya 5 chapter dengan durasi sekitar 60 sampai 80 jam.", "src": ["ppx", "wiki"]},
+{"text": "Tidak ada pilihan difficulty di GTA VI.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di akhir Chapter 1 sebagai pengaman.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "T**s Ass Drug Money", "description": "Complete Chapter 2.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy ini menandai tamatnya Chapter 2. Chapter 2 berakhir setelah misi pertama Chapter 3, Welcome to Vice City. Setelah misi Coffee Break di Chapter 2, Jason dan Lucia bisa free-roam berdua dan banyak trophy partner terbuka.", "steps": [
+{"text": "Tamatkan Chapter 2 dengan memainkan semua misi story-nya.", "src": ["exo", "kit", "ppx"]},
+{"text": "Chapter 2 berakhir setelah misi pertama Chapter 3, Welcome to Vice City.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini pop otomatis saat Chapter 2 selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Setelah misi Coffee Break, Jason dan Lucia bisa free-roam berdua.", "src": ["ppx", "gm"]},
+{"text": "Partner bisa dipanggil dengan tahan D-pad kanan plus segitiga.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Questline stranger seperti Billy dan Bret mulai terbuka di Chapter 2.", "src": ["ppx", "gm"]},
+{"text": "Misi Daily Driver membuka pembelian garasi lewat aplikasi real estat.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di akhir Chapter 2 sebagai pengaman.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Vice City, Baby!", "description": "Complete Chapter 3.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy ini menandai tamatnya Chapter 3. Chapter 3 berakhir setelah dua misi pertama Chapter 4, Ocean Beach dan Another Life. Chapter 3 membuka banyak sistem penting: Key Cloner, Dye Pack Jammer, dan perampokan toko perhiasan.", "steps": [
+{"text": "Tamatkan Chapter 3 dengan memainkan semua misi story-nya.", "src": ["exo", "kit", "ppx"]},
+{"text": "Chapter 3 berakhir setelah dua misi pertama Chapter 4, Ocean Beach dan Another Life.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini pop otomatis saat Chapter 3 selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi Clonin' Keys, Makin' GS membuka Key Cloner untuk mencuri mobil.", "src": ["ppx", "gm"]},
+{"text": "Misi Credit Check membuka Dye Pack Jammer untuk mencuci marked bills.", "src": ["ppx", "gm"]},
+{"text": "Misi Yasmani's Jewelry Jobs membuka perampokan toko perhiasan dan Snap Gun.", "src": ["ppx", "gm"]},
+{"text": "Questline Andy, Randy, dan Tyrone dimulai di Chapter 3.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Simpan manual di akhir Chapter 3 sebagai pengaman.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Top Of The World, Ma", "description": "Complete Chapter 4.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy ini menandai tamatnya Chapter 4, yang misi terakhirnya adalah Starting From Zero. Chapter 4 membuka misi opsional That's Where The Money Is, pengantar perampokan bank vault besar yang penting untuk Maximum Withdrawal dan A Classic Blitz Play.", "steps": [
+{"text": "Tamatkan Chapter 4 dengan memainkan semua misi story-nya.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi terakhir Chapter 4 adalah Starting From Zero.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini pop otomatis saat Chapter 4 selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi opsional Chapter 4 That's Where The Money Is membuka perampokan bank vault.", "src": ["ppx", "gm"]},
+{"text": "Ada 8 bank vault besar di dunia, dan trophy Maximum Withdrawal butuh 5.", "src": ["ppx", "gm"]},
+{"text": "Misi Child's Play, Headliners, dan VCIA Takedown juga ada di Chapter 4.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Satu bank vault bisa memberi sampai $205.000.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di akhir Chapter 4 sebagai pengaman.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "You Gotta Know When to Get Off", "description": "Complete the final mission.", "grade": "gold", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 5, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy emas ini didapat setelah menyelesaikan misi final di Chapter 5. Setelah credits, free-roam terbuka dan semua trophy yang tersisa bisa dikerjakan tanpa tekanan story. Ini juga momen ketika checklist 100 persen terbuka.", "steps": [
+{"text": "Selesaikan misi final di Chapter 5.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi final selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Setelah credits, free-roam terbuka untuk cleanup.", "src": ["ppx", "gm"]},
+{"text": "Checklist 100 persen terbuka setelah tamat di Progress, Stats.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Misi Operation Savage Glory adalah misi story Chapter 5.", "src": ["ppx", "gm"]},
+{"text": "Tidak ada New Game+, jadi semua cleanup dilakukan di save yang sama.", "src": ["ppx", "gm"]},
+{"text": "Cheat baru terbuka setelah semua misi story selesai.", "src": ["gtb", "mwd"]},
+{"text": "Jangan pakai cheat di save platinum karena cheat menonaktifkan trophy dan saving.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null}
+,
+{"name": "Trust", "description": "Complete Breakfast Run.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story otomatis untuk menyelesaikan misi Chapter 2 Breakfast Run. Tidak ada syarat khusus; mainkan misi story sampai selesai.", "steps": [
+{"text": "Selesaikan misi story Chapter 2 Breakfast Run.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi ini ada di Chapter 2, setelah Chapter 1 tamat.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "Nama trophy ini merujuk ke kata Trust yang ikonik di cerita GTA VI.", "src": ["wiki", "ppx"]},
+{"text": "Misi story tidak bisa diulang, jadi nikmati sekali jalan.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal Chapter 2 sebagai pengaman umum.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 2 berlanjut ke misi berikutnya.", "src": ["ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Break the Bank", "description": "Complete The Cartel Heist.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story otomatis untuk menyelesaikan misi Chapter 3 The Cartel Heist. Misi heist besar ini adalah salah satu set piece cerita; selesaikan saja dan trophy pop.", "steps": [
+{"text": "Selesaikan misi story Chapter 3 The Cartel Heist.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi ini ada di Chapter 3, setelah Chapter 2 tamat.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "Heist ini melibatkan kartel dan menjadi bagian besar cerita Chapter 3.", "src": ["wiki", "ppx"]},
+{"text": "Misi story tidak bisa diulang.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal Chapter 3 sebagai pengaman umum.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 3 berlanjut ke misi berikutnya.", "src": ["ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Family Matters", "description": "Complete Child's Play.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story otomatis untuk menyelesaikan misi Chapter 4 Child's Play. Mainkan misi story sampai selesai dan trophy akan pop sendiri.", "steps": [
+{"text": "Selesaikan misi story Chapter 4 Child's Play.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi ini ada di Chapter 4, setelah Chapter 3 tamat.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "Misi ini berkaitan dengan keluarga Lucia dan putra mereka, Tomas.", "src": ["wiki", "ppx"]},
+{"text": "Misi story tidak bisa diulang.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal Chapter 4 sebagai pengaman umum.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 4 berlanjut ke misi berikutnya.", "src": ["ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "DWNFALL", "description": "Complete Headliners.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story otomatis untuk menyelesaikan misi Chapter 4 Headliners. Selesaikan misi story-nya dan trophy pop dengan sendirinya.", "steps": [
+{"text": "Selesaikan misi story Chapter 4 Headliners.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi ini ada di Chapter 4, setelah Chapter 3 tamat.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "Nama DWNFALL ditulis dengan gaya khas game, tanpa huruf vokal.", "src": ["wiki", "ppx"]},
+{"text": "Misi story tidak bisa diulang.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal Chapter 4 sebagai pengaman umum.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 4 berlanjut ke misi berikutnya.", "src": ["ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Hi-Jacked", "description": "Complete VCIA Takedown.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story otomatis untuk menyelesaikan misi Chapter 4 VCIA Takedown di bandara Vice City International. Selesaikan misi story-nya dan trophy pop.", "steps": [
+{"text": "Selesaikan misi story Chapter 4 VCIA Takedown.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi ini berlangsung di VCIA, bandara internasional Vice City.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "VCIA juga lokasi trophy Catch Me If You Can di free-roam.", "src": ["ppx", "gm"]},
+{"text": "Misi story tidak bisa diulang.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal Chapter 4 sebagai pengaman umum.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 4 berlanjut ke misi berikutnya.", "src": ["ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Snow Storm", "description": "Complete Operation Savage Glory.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 5, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy story otomatis untuk menyelesaikan misi Chapter 5 Operation Savage Glory. Ini salah satu misi besar di akhir cerita; selesaikan dan trophy pop.", "steps": [
+{"text": "Selesaikan misi story Chapter 5 Operation Savage Glory.", "src": ["exo", "kit", "ppx"]},
+{"text": "Trophy ini pop otomatis saat misi selesai.", "src": ["exo", "kit", "ppx"]},
+{"text": "Misi ini ada di Chapter 5, chapter terakhir cerita.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["exo", "gm"]},
+{"text": "Tidak bisa miss karena misi story wajib dimainkan.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, cerita bergerak menuju misi final.", "src": ["ppx", "gm"]},
+{"text": "Misi story tidak bisa diulang.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal Chapter 5 sebagai pengaman umum.", "src": ["ppx", "gm"]},
+{"text": "Setelah misi ini, Chapter 5 berlanjut ke misi berikutnya.", "src": ["ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "A Long Road", "description": "Attain 100% Completion.", "grade": "gold", "hidden": false, "kind": "collectibles", "missable": false, "roadmap_stage": 7, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Trophy emas untuk mencapai 100 persen completion, dan biasanya jadi trophy terakhir sebelum platinum. Checklist terbuka setelah tamat di Progress, Stats, lalu 100% Completion. Bobotnya: story dan tugas 45 persen, eksplorasi dan aktivitas 45 persen, discovery 10 persen. Persyaratannya lunak, sekitar 60 persen true completion, dan tidak ada satu pun item yang missable.", "steps": [
+{"text": "Tamatkan story dulu karena checklist 100 persen baru terbuka setelah tamat.", "src": ["ppx", "gm100"]},
+{"text": "Buka checklist di Progress, Stats, lalu 100% Completion.", "src": ["ppx", "ppx100"]},
+{"text": "Selesaikan kategori story dan tugas yang berbobot 45 persen.", "src": ["ppx100", "gm100"]},
+{"text": "Selesaikan kategori eksplorasi dan aktivitas yang berbobot 45 persen.", "src": ["ppx100", "gm100"]},
+{"text": "Selesaikan kategori discovery yang berbobot 10 persen.", "src": ["ppx100", "gm100"]},
+{"text": "Progres selama story ikut terhitung, jadi banyak item sudah terisi sebagian.", "src": ["ppx", "gm"]},
+{"text": "Tidak ada item 100 persen yang missable; semuanya bisa dikejar setelah tamat.", "src": ["ppx", "gm100"]},
+{"text": "Persyaratan sebenarnya lunak, sekitar 60 persen true completion.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini pop saat checklist mencapai 100 persen.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null}
+,
+{"name": "Cunning Stunts", "description": "Complete 250 Stunts.", "grade": "silver", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Selesaikan 250 stunt dari total 397 yang ada: 130 Stunt Jump, 202 Under the Bridge, 40 Knife Flight, dan 25 Base Jump. Kategori boleh dicampur, dan Under the Bridge paling cepat. Lacak lewat Progress, Activities, Stunts, atau Map, Exploration, Stunt Spots. Untuk 100 persen butuh 300 stunt, jadi trophy ini otomatis selesai di jalan menuju 100 persen.", "steps": [
+{"text": "Selesaikan 250 stunt dari total 397 di dunia.", "src": ["gm", "kit", "ppx"]},
+{"text": "Total stunt terdiri dari 130 Stunt Jump, 202 Under the Bridge, 40 Knife Flight, dan 25 Base Jump.", "src": ["ppx", "psq"]},
+{"text": "Kategori boleh dicampur; Under the Bridge paling cepat.", "src": ["ppx", "ppx100"]},
+{"text": "Lacak progres di Progress, Activities, Stunts.", "src": ["ppx", "gm"]},
+{"text": "Lokasi stunt bisa dilihat di Map, Exploration, Stunt Spots.", "src": ["ppx", "psq"]},
+{"text": "Untuk 100 persen butuh 300 stunt, jadi trophy ini otomatis selesai di jalan.", "src": ["ppx", "ppx100"]},
+{"text": "Stunt bisa dikerjakan kapan saja, termasuk setelah tamat.", "src": ["ppx", "gm"]},
+{"text": "Gunakan kendaraan cepat dan peta stunt untuk efisiensi.", "src": ["ppx", "psq"]},
+{"text": "Trophy pop saat stunt ke-250 selesai.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Master of None", "description": "Try each type of activity once.", "grade": "bronze", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Coba 9 jenis aktivitas sekali: Fishing, Hunting, Golf, Shooting Range, Pool, Basketball, Playing a Video Game, balapan, dan Perform a Stunt. Lacak lewat Touchpad, Progress, Activities. Hampir semua didapat otomatis saat mengerjakan trophy lain.", "steps": [
+{"text": "Coba 9 jenis aktivitas sekali untuk membuka trophy ini.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Aktivitas yang dihitung termasuk Fishing, Hunting, dan Golf.", "src": ["ppx", "gm100"]},
+{"text": "Shooting Range, Pool, dan Basketball juga termasuk dalam 9 jenis.", "src": ["ppx", "gm"]},
+{"text": "Mainkan satu video game arcade sampai selesai satu sesi.", "src": ["ppx", "gm"]},
+{"text": "Menang satu balapan mobil, Race Challenge, atau Top Fun Drone Race.", "src": ["dm", "ppx"]},
+{"text": "Lakukan satu stunt apa saja.", "src": ["ppx", "gm"]},
+{"text": "Lacak progres di Touchpad, Progress, Activities.", "src": ["ppx", "gm100"]},
+{"text": "Hampir semua aktivitas didapat otomatis saat mengerjakan trophy lain.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat jenis aktivitas kesembilan dicoba.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "The Shootist", "description": "Earn a gold medal in all Shooting Range challenges.", "grade": "silver", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Raih medali emas di semua 42 Shooting Range challenge di 12 lokasi, dan ini trophy tersulit kedua setelah A Long Road. Tips kuncinya: naikkan Focus dulu lewat aktivitas seperti memancing, golf, dan headshot, karena Focus Level 4 membuat bidikan jauh lebih mudah. Loop shooting range 5 detik juga bisa dipakai untuk farming Focus.", "steps": [
+{"text": "Raih medali emas di semua 42 Shooting Range challenge.", "src": ["gm", "kit", "ppx"]},
+{"text": "Challenge tersebar di 12 lokasi shooting range.", "src": ["ppx", "psq"]},
+{"text": "18 challenge ada di Griffin dan 24 di lokasi lain.", "src": ["gm", "ppx"]},
+{"text": "Naikkan Focus dulu lewat Shooting Range, Golf, Pool, dan memancing.", "src": ["ppx", "val"]},
+{"text": "Focus ada 4 level; di Level 4 challenge jauh lebih mudah.", "src": ["ppx", "gm"]},
+{"text": "Loop shooting range 5 detik bisa dipakai untuk farming Focus.", "src": ["val", "ppx"]},
+{"text": "Trophy ini disebut tersulit kedua setelah A Long Road.", "src": ["ppx", "psq"]},
+{"text": "Untuk 100 persen butuh 42 dari 42 emas yang sama.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat medali emas ke-42 diraih.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Top Fun", "description": "Win a Top Fun Drone Race at every location.", "grade": "bronze", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Menang balapan drone Top Fun di semua 14 lokasi, dari total 42 balapan drone. PowerPyx punya panduan semua 14 lokasi Top Fun Drone Race. Balapan drone juga dihitung untuk Earn Cash, Not Kudos.", "steps": [
+{"text": "Menang balapan drone Top Fun di semua 14 lokasi.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Total ada 42 balapan drone di 14 lokasi.", "src": ["ppx", "psq"]},
+{"text": "PowerPyx punya panduan semua 14 lokasi Top Fun Drone Race.", "src": ["ppx", "ppx100"]},
+{"text": "Balapan drone juga dihitung untuk Earn Cash, Not Kudos.", "src": ["dm", "ppx"]},
+{"text": "Untuk 100 persen butuh 42 dari 42 Drone Time Trial.", "src": ["ppx", "ppx100"]},
+{"text": "Latih kontrol drone di lokasi yang mudah dulu.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini bisa dikerjakan setelah tamat.", "src": ["ppx", "gm"]},
+{"text": "Lacak lokasi yang sudah dimenangkan lewat peta.", "src": ["ppx", "psq"]},
+{"text": "Trophy pop saat kemenangan di lokasi ke-14 diraih.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Earn Cash, Not Kudos", "description": "Win 20 different races.", "grade": "bronze", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Menang 20 balapan berbeda dari 40 lokasi balapan unik. Balapan mobil, Race Challenge, dan Top Fun Drone Race semuanya dihitung. Untuk 100 persen butuh menang 30 dari 40 balapan unik, jadi trophy ini selesai otomatis di jalan.", "steps": [
+{"text": "Menang 20 balapan berbeda dari 40 lokasi balapan unik.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Balapan mobil, Race Challenge, dan Top Fun Drone Race semuanya dihitung.", "src": ["dm", "gm100"]},
+{"text": "Untuk 100 persen butuh menang 30 dari 40 balapan unik.", "src": ["ppx", "ppx100"]},
+{"text": "Untuk 100 persen butuh juga 10 dari 13 Race Challenge emas.", "src": ["ppx", "gm100"]},
+{"text": "Pilih balapan yang paling mudah dulu untuk 20 kemenangan awal.", "src": ["ppx", "gm"]},
+{"text": "Balapan bisa dikerjakan kapan saja, termasuk setelah tamat.", "src": ["ppx", "psq"]},
+{"text": "Trophy ini sering didapat natural saat mengerjakan Top Fun.", "src": ["ppx", "gm"]},
+{"text": "Lacak progres balapan lewat menu Progress.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat kemenangan balapan ke-20 diraih.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Baited My Tackle", "description": "Beat Cal in a fishing challenge.", "grade": "bronze", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Setelah misi Chapter 1 Feng Shui, Meet Cal, Cal mengirim SMS yang menandai lokasi memancing dengan ikon ungu. Ikuti questline memancing Cal sampai menang tantangan memancing melawannya.", "steps": [
+{"text": "Selesaikan dulu misi Chapter 1 Feng Shui, Meet Cal.", "src": ["gm", "kit", "ppx"]},
+{"text": "Cal mengirim SMS yang menandai lokasi memancing dengan ikon ungu.", "src": ["ppx", "ppx100"]},
+{"text": "Ikuti questline memancing Cal sampai tantangan final.", "src": ["ppx", "gm"]},
+{"text": "Kalahkan Cal dalam tantangan memancing.", "src": ["gm", "kit", "ppx"]},
+{"text": "Memancing juga menaikkan Focus untuk Gunslinger dan The Shootist.", "src": ["ppx", "val"]},
+{"text": "Lokasi memancing ditandai di peta setelah SMS Cal.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini bisa dikerjakan setelah tamat.", "src": ["ppx", "gm"]},
+{"text": "Fishing adalah salah satu dari 9 jenis aktivitas Master of None.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat kemenangan atas Cal diraih.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Stick Fiddler", "description": "Complete an arcade game.", "grade": "bronze", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Tamatkan 1 dari 4 game arcade: Tenebrae Lux, Street Trash III, dan Time Jackers Rewind bisa dimainkan di TV rumah lewat controller sejak Chapter 1, sementara Bang For Your Buck ada di mesin arcade di dunia. Harus tamat semua level, tapi tidak perlu semua challenge.", "steps": [
+{"text": "Tamatkan 1 dari 4 game arcade yang tersedia.", "src": ["gm", "kit", "ppx"]},
+{"text": "Tenebrae Lux, Street Trash III, dan Time Jackers Rewind bisa dimainkan di TV rumah.", "src": ["ppx", "ppx100"]},
+{"text": "Ketiga game TV itu sudah bisa dimainkan sejak Chapter 1.", "src": ["ppx", "gm"]},
+{"text": "Bang For Your Buck ada di mesin arcade di dunia.", "src": ["ppx", "gm"]},
+{"text": "Harus tamat semua level; tidak perlu semua challenge.", "src": ["ppx", "ppx100"]},
+{"text": "Tenebrae Lux punya secret ending dengan kode dari anomali ruangan.", "src": ["out", "ppx"]},
+{"text": "Untuk 100 persen butuh memainkan 4 dari 4 video game.", "src": ["ppx", "ppx100"]},
+{"text": "Pilih game yang paling mudah ditamatkan dulu.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat satu game arcade tamat.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null}
+,
+{"name": "Road to Rehabilitation", "description": "Complete the final mission for Andy.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Questline Andy, eksklusif Lucia, dimulai di Chapter 3: tunggu telepon dari Andy, lalu SMS berisi alamat rumahnya di Belville. Selesaikan 5 quest, dari Climbing the Cellerichain sampai Puff Puff Pass, dan trophy pop setelah misi final.", "steps": [
+{"text": "Questline Andy eksklusif Lucia dan dimulai di Chapter 3.", "src": ["exo", "gm", "kit", "ppx"]},
+{"text": "Tunggu telepon dari Andy, lalu SMS berisi alamat rumahnya di Belville.", "src": ["ppx", "ppx100"]},
+{"text": "Selesaikan quest Climbing the Cellerichain Part 1 sampai 3.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest Pay the Cellerica Fee.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest Peach, Join the Cellerica Initiation.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest Read the Label, Retrieve the Cellerica Van.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest final Puff Puff Pass, Meet at the Warehouse.", "src": ["ppx", "gm"]},
+{"text": "Questline ini tersedia setelah story dan bisa dikerjakan setelah tamat.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat misi final Andy selesai.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "This Was No Boat Accident", "description": "Complete the final mission for Kenton.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Questline Kenton dimulai di Chapter 1 setelah misi Island Dreams, Work for Kenton. Kenton menelepon dan memberi quest treasure diving dengan metal detector, mencari harta karun bawah laut dari 7 shipwreck. Kenton sempat tidak tersedia setelah Chapter 1, lalu kembali di Chapter 2 sampai 3; sebagai Jason, telepon Brian untuk mempercepat.", "steps": [
+{"text": "Mulai questline Kenton di Chapter 1 setelah misi Island Dreams, Work for Kenton.", "src": ["exo", "gm", "kit", "ppx"]},
+{"text": "Kenton menelepon dan menandai lokasi dengan ikon hijau KR di Key Lento.", "src": ["ppx", "ppx100"]},
+{"text": "Cari harta karun bawah laut dengan metal detector di 7 shipwreck.", "src": ["ppx", "gm"]},
+{"text": "Bawa harta yang ditemukan kembali ke Kenton.", "src": ["ppx", "gm"]},
+{"text": "Setelah set pertama, Kenton menelepon lagi untuk set berikutnya.", "src": ["ppx", "gm"]},
+{"text": "Kenton sempat tidak tersedia setelah Chapter 1, lalu kembali di Chapter 2 sampai 3.", "src": ["ppx", "ppx100"]},
+{"text": "Sebagai Jason, telepon Brian untuk mempercepat kembalinya Kenton.", "src": ["ppx", "gm"]},
+{"text": "Lacak progres di Progress, Characters, Kenton Rees.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat misi final Kenton selesai.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "The Lone Rider", "description": "Complete the final mission for Billy.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Questline Billy dimulai di Chapter 2 setelah misi Coffee Break, ditandai di Thrillbilly Mudclub, Kelly County. Selesaikan 5 quest, dari Thrillbillies sampai Hometown Heroes, termasuk mencuri Impaler di The Impaler.", "steps": [
+{"text": "Mulai questline Billy di Chapter 2 setelah misi Coffee Break.", "src": ["exo", "gm", "kit", "ppx"]},
+{"text": "Billy ditandai di Thrillbilly Mudclub, Kelly County.", "src": ["ppx", "ppx100"]},
+{"text": "Selesaikan quest Thrillbillies.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest Twist Wrist Smash Grab.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest Mall Rats.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest The Impaler dengan mencuri Impaler.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest final Hometown Heroes.", "src": ["ppx", "gm"]},
+{"text": "Questline ini bisa dikerjakan setelah tamat.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat misi final Billy selesai.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Strangers & Freaks", "description": "Complete 8 mission strands for strangers across the state of Leonida.", "grade": "silver", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Selesaikan 8 strand Strangers & Freaks yang dihitung game. Perhatian: banyak questline TIDAK dihitung, termasuk Moses, Tyrone, Yasmani, Andy, Billy, dan Eddie, karena mereka punya trophy sendiri. Yang terkonfirmasi dihitung: Kirk, Kyle, Yago, dan Pilot Pete. PowerPyx menyebut ada lebih banyak strangers yang belum ditemukan.", "steps": [
+{"text": "Selesaikan 8 strand Strangers & Freaks yang dihitung game.", "src": ["gm", "kit", "ppx"]},
+{"text": "Questline Kirk soal Skunk Ape dihitung untuk trophy ini.", "src": ["ppx", "out"]},
+{"text": "Questline Kyle di pertanian McKittrick dihitung untuk trophy ini.", "src": ["ppx", "gm"]},
+{"text": "Questline Yago soal balapan jalanan dihitung untuk trophy ini.", "src": ["ppx", "gm"]},
+{"text": "Questline Pilot Pete soal pengiriman paket dihitung untuk trophy ini.", "src": ["ppx", "gm"]},
+{"text": "Questline Moses, Tyrone, Yasmani, Andy, Billy, dan Eddie TIDAK dihitung.", "src": ["ppx", "gm"]},
+{"text": "PowerPyx menyebut ada lebih banyak strangers yang belum ditemukan.", "src": ["ppx", "ppx100"]},
+{"text": "Lacak progres lewat trophy tracker di daftar trophy.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat strand kedelapan yang dihitung selesai.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Supply & Demand", "description": "Complete the final mission for Randy.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Questline Randy, Randy's Wish List, dimulai di Chapter 3 setelah misi Clonin' Keys, Makin' GS, saat Key Cloner terbuka dan Zorrusso dikirim otomatis. Randy memberi daftar 16 mobil sport yang diinginkan; curi dari jalan, scan dengan WAiNK untuk cek wishlist, lalu antar ke garasi Randy di barat Vice City dengan ikon hijau RK.", "steps": [
+{"text": "Mulai questline Randy di Chapter 3 setelah misi Clonin' Keys, Makin' GS.", "src": ["exo", "gm", "kit", "ppx"]},
+{"text": "Key Cloner terbuka di misi itu dan Zorrusso dikirim otomatis.", "src": ["ppx", "ppx100"]},
+{"text": "Randy memberi daftar 16 mobil sport yang diinginkan.", "src": ["ppx", "gm"]},
+{"text": "Curi mobil dari jalan, sering di Vice Beach dan Ocean Beach depan hotel.", "src": ["ppx", "gm"]},
+{"text": "Scan mobil dengan WAiNK untuk cek apakah masuk wishlist Randy.", "src": ["ppx", "gm"]},
+{"text": "Antar mobil ke garasi Randy, ikon hijau RK, barat Vice City.", "src": ["ppx", "gm"]},
+{"text": "Kondisi mobil bagus memberi bayaran lebih.", "src": ["ppx", "gm"]},
+{"text": "Lacak progres di Map, Robberies, Randy's Wish List.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat misi final Randy selesai.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Spin On This!", "description": "Complete the final mission for Tyrone.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Questline Tyrone, eksklusif Jason, dimulai di Chapter 3 setelah misi Here, Kitty Kitty. Marker ungu Synthetic Labs muncul di Vice City; hancurkan lab-lab itu lewat quest Take Out Kitty Litter, lalu Tyrone memberi quest kedua Spin On This, Shut Down the Labs.", "steps": [
+{"text": "Questline Tyrone eksklusif Jason dan dimulai di Chapter 3.", "src": ["exo", "gm", "kit", "ppx"]},
+{"text": "Mulai setelah misi Here, Kitty Kitty.", "src": ["ppx", "ppx100"]},
+{"text": "Marker ungu Synthetic Labs muncul di Vice City.", "src": ["ppx", "gm"]},
+{"text": "Hancurkan lab-lab itu lewat quest Take Out Kitty Litter.", "src": ["ppx", "gm"]},
+{"text": "Setelah cukup banyak lab hancur, Tyrone memberi quest kedua.", "src": ["ppx", "gm"]},
+{"text": "Selesaikan quest Spin On This, Shut Down the Labs.", "src": ["ppx", "gm"]},
+{"text": "Questline ini bisa dikerjakan setelah tamat.", "src": ["ppx", "ppx100"]},
+{"text": "Lab yang dihancurkan dihitung progresnya di peta.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat misi final Tyrone selesai.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Positive Mental Attitude", "description": "Meditate at every spot across Leonida.", "grade": "bronze", "hidden": false, "kind": "missable", "missable": true, "roadmap_stage": 1, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Satu-satunya trophy yang berpotensi missable di GTA VI. Meditasi di semua 18 Meditation Spot di 10 lokasi; meditasi sebagai Jason DAN Lucia di spot yang sama memberi plus 2. Lacak lewat Progress, Collections, Exploration, Meditations. Untuk 100 persen cukup 15 dari 18, tapi trophy butuh semua 18. Yang paling penting: meditasi pertama di balkon rumah Jason hanya ada selama Chapter 1.", "steps": [
+{"text": "Meditasi di semua 18 Meditation Spot di 10 lokasi.", "src": ["gm", "kit", "ppx"]},
+{"text": "Meditasi sebagai Jason DAN Lucia di spot yang sama memberi plus 2.", "src": ["ppx", "ppx100"]},
+{"text": "Lacak progres di Progress, Collections, Exploration, Meditations.", "src": ["ppx", "gm"]},
+{"text": "Lakukan meditasi balkon rumah Jason selama Chapter 1, setelah misi Down to Earth.", "src": ["ppx", "psq"]},
+{"text": "Setelah misi Down to Earth, bicara dengan Lucia di dapur pagi hari dan ikuti ke balkon.", "src": ["ppx", "gm"]},
+{"text": "Pilih Accept saat Lucia mengajak meditasi di balkon.", "src": ["ppx", "psq"]},
+{"text": "Meditasi balkon menambah counter plus 1 meski tidak ditandai sebagai Meditation Spot.", "src": ["ppx", "gm"]},
+{"text": "Untuk 100 persen cukup 15 dari 18 spot, tapi trophy butuh semua 18.", "src": ["ppx", "ppx100"]},
+{"text": "Simpan manual SEBELUM misi Down to Earth sebagai pengaman.", "src": ["ppx", "psq"]}], "missable_box": {"warning": "SATU-SATUNYA TROPHY YANG BERPOTENSI MISSABLE: meditasi pertama di balkon rumah Jason hanya tersedia selama Chapter 1 dan hilang permanen setelah Chapter 1 berakhir.", "save_before": "Simpan manual SEBELUM misi Down to Earth di Chapter 1.", "strategy": "Lakukan meditasi balkon saat muncul, lalu meditasi sebagai Jason DAN Lucia di setiap spot untuk plus 2. Lacak di Progress, Collections, Exploration, Meditations."}, "points_of_no_return": ["Akhir Chapter 1 — setelah misi Down to Earth dan Chapter 1 berakhir, meditasi balkon hilang permanen"]}
+,
+{"name": "Fair Game", "description": "Hunt a unique animal for Bret.", "grade": "bronze", "hidden": true, "kind": "story", "missable": false, "roadmap_stage": 2, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Questline Bret Vogel, eksklusif Jason, dimulai di Chapter 2 setelah misi Coffee Break. SMS dari Bret menandai quest pertama Veteran Hunted, Meet Bret, di Lummox County. Bret memberi senapan buru unik Killtelligence SM-69 yang diambil di weapon locker Ammu-Nation; buru hewan yang diminta di spot bertanda ungu dan bawa ke Bret. Satu tembakan bersih memberi kondisi pristine dan bayaran lebih.", "steps": [
+{"text": "Questline Bret eksklusif Jason dan dimulai di Chapter 2.", "src": ["exo", "gm", "kit", "ppx"]},
+{"text": "Mulai setelah misi Coffee Break; SMS dari Bret menandai quest pertama.", "src": ["ppx", "ppx100"]},
+{"text": "Quest pertama adalah Veteran Hunted, Meet Bret, di Lummox County.", "src": ["ppx", "gm"]},
+{"text": "Ambil senapan buru unik Killtelligence SM-69 di weapon locker Ammu-Nation.", "src": ["ppx", "gm"]},
+{"text": "Bret menandai spot berburu dengan ikon ungu di peta.", "src": ["ppx", "gm"]},
+{"text": "Buru hewan yang diminta dan bawa ke Bret.", "src": ["ppx", "gm"]},
+{"text": "Satu tembakan bersih memberi kondisi pristine dan bayaran lebih.", "src": ["ppx", "gm"]},
+{"text": "Untuk 100 persen butuh semua 15 Target Deck Bret.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat hewan unik untuk Bret berhasil diburu.", "src": ["exo", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Don't Touch My Deck", "description": "Complete 3 Collectible Card sets.", "grade": "silver", "hidden": false, "kind": "collectibles", "missable": false, "roadmap_stage": 5, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Lengkapi 3 dari 18 set kartu koleksi, dari total 480 kartu di dunia. Untuk 100 persen butuh 15 dari 18 set. PowerPyx punya panduan semua 18 lokasi set kartu koleksi.", "steps": [
+{"text": "Lengkapi 3 dari 18 set kartu koleksi.", "src": ["gm", "kit", "ppx"]},
+{"text": "Total ada 480 kartu koleksi di dunia.", "src": ["ppx", "psq"]},
+{"text": "PowerPyx punya panduan semua 18 lokasi set kartu koleksi.", "src": ["ppx", "ppx100"]},
+{"text": "Untuk 100 persen butuh 15 dari 18 set.", "src": ["ppx", "ppx100"]},
+{"text": "Kartu tersebar di seluruh Leonida, termasuk di lokasi story.", "src": ["ppx", "gm"]},
+{"text": "Lacak set yang sudah lengkap lewat menu koleksi.", "src": ["ppx", "gm"]},
+{"text": "Kartu bisa dikumpulkan kapan saja, termasuk setelah tamat.", "src": ["ppx", "psq"]},
+{"text": "Fokus pada set yang kartunya paling mudah dijangkau dulu.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat set ketiga lengkap.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "You WAiNKer!", "description": "WAiNK It at 100 locations.", "grade": "silver", "hidden": false, "kind": "collectibles", "missable": false, "roadmap_stage": 5, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Scan 100 lokasi dengan aplikasi WAiNK di HP: tahan D-pad Atas plus R1. Ada lebih dari 100 lokasi: 31 Landmarks, 35 Curiosities, 23 Sculptures, plus No Flusher Tags. Lokasi mana pun boleh, dan untuk 100 persen butuh 100 lokasi yang sama.", "steps": [
+{"text": "Scan 100 lokasi dengan aplikasi WAiNK di HP.", "src": ["gm", "kit", "ppx"]},
+{"text": "Tekan tahan D-pad Atas plus R1 untuk memindai.", "src": ["ppx", "psq"]},
+{"text": "Ada lebih dari 100 lokasi: 31 Landmarks, 35 Curiosities, dan 23 Sculptures.", "src": ["ppx", "ppx100"]},
+{"text": "No Flusher Tags juga dihitung sebagai lokasi scan.", "src": ["ppx", "gm"]},
+{"text": "Lokasi mana pun boleh, tidak harus kategori tertentu.", "src": ["ppx", "gm"]},
+{"text": "Untuk 100 persen butuh 100 lokasi yang sama.", "src": ["ppx", "ppx100"]},
+{"text": "Scan sambil menjelajah agar progres naik natural.", "src": ["ppx", "psq"]},
+{"text": "WAiNK juga dipakai untuk scan kendaraan di Whip It Good.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat lokasi ke-100 di-scan.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "One Last Thing", "description": "Complete 50 Challenges.", "grade": "bronze", "hidden": false, "kind": "activities", "missable": false, "roadmap_stage": 4, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Selesaikan 50 dari 80 Challenge di Progress, Challenges. Untuk 100 persen butuh 70 dari 80, jadi trophy ini otomatis didapat di jalan. Pilih challenge termudah di akhir untuk menutup kekurangan.", "steps": [
+{"text": "Selesaikan 50 dari 80 Challenge.", "src": ["gm", "kit", "ppx"]},
+{"text": "Buka daftar challenge di Progress, Challenges.", "src": ["ppx", "ppx100"]},
+{"text": "Untuk 100 persen butuh 70 dari 80 challenge.", "src": ["ppx", "gm100"]},
+{"text": "Trophy ini otomatis didapat di jalan menuju 100 persen.", "src": ["ppx", "gm"]},
+{"text": "Pilih challenge termudah di akhir untuk menutup kekurangan.", "src": ["ppx", "psq"]},
+{"text": "Banyak challenge selesai natural saat mengerjakan trophy lain.", "src": ["ppx", "gm"]},
+{"text": "Challenge bisa dikerjakan kapan saja, termasuk setelah tamat.", "src": ["ppx", "gm"]},
+{"text": "Lacak progres tiap challenge di menu Progress.", "src": ["ppx", "ppx100"]},
+{"text": "Trophy pop saat challenge ke-50 selesai.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Hot Together", "description": "Lose a 4 star Wanted Level with your partner and escape the heat.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Paling awal bisa didapat setelah Chapter 2 Coffee Break, saat bisa free-roam berdua. Buat wanted level 4 bintang bersama partner, lalu kabur sampai keluar zona heat merah, bukan hanya area pencarian biru atau merah berkedip. Cara termudah: terowongan kereta di utara Ambrosia, Kelly County, karena polisi sulit mengikuti di rel dan helikopter tidak bisa melihat. Trophy ini juga otomatis didapat saat merampok bank vault besar.", "steps": [
+{"text": "Paling awal tersedia setelah Chapter 2 Coffee Break, saat bisa free-roam berdua.", "src": ["gm", "kit", "ppx"]},
+{"text": "Panggil partner dengan tahan D-pad kanan plus segitiga.", "src": ["ppx", "gm"]},
+{"text": "Buat wanted level 4 bintang bersama partner.", "src": ["ppx", "gm"]},
+{"text": "Kabur sampai keluar zona heat merah, bukan hanya area pencarian berkedip.", "src": ["ppx", "gm"]},
+{"text": "Cara termudah: terowongan kereta di utara Ambrosia, Kelly County.", "src": ["ppx", "val"]},
+{"text": "Polisi sulit mengikuti di rel dan helikopter tidak bisa melihat di terowongan.", "src": ["ppx", "val"]},
+{"text": "Motor sport cepat yang memotong jalur juga bisa dipakai.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini otomatis didapat saat merampok bank vault besar.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop setelah berhasil kabur dari heat merah.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Retail Therapy", "description": "Rob 3 shops back-to-back with your partner without losing your Wanted Level.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Setelah Chapter 2 Coffee Break, rampok 3 toko berturut-turut bersama partner sambil dikejar polisi, tanpa kehilangan wanted level. Pertahankan wanted level berkedip merah dan biru, jangan sampai masuk level heat merah. Pakai rompi antipeluru, sticky bomb, dan Zombix atau Adrenaline. Trophy pop tertunda sekitar 30 detik setelah keluar dari toko ketiga; kalau tidak pop, rampok toko keempat.", "steps": [
+{"text": "Tersedia setelah Chapter 2 Coffee Break, saat bisa free-roam berdua.", "src": ["gm", "kit", "ppx"]},
+{"text": "Rampok 3 toko berturut-turut bersama partner.", "src": ["ppx", "gm"]},
+{"text": "Pertahankan wanted level berkedip merah dan biru selama perampokan.", "src": ["ppx", "gm"]},
+{"text": "Jangan sampai masuk level heat merah.", "src": ["ppx", "gm"]},
+{"text": "Pakai rompi antipeluru, sticky bomb, dan Zombix atau Adrenaline.", "src": ["ppx", "gm"]},
+{"text": "Tempat bagus: 3 toko perhiasan di utara Vice City.", "src": ["ppx", "gm"]},
+{"text": "Toko perhiasan terbuka setelah misi Chapter 3 Yasmani's Jewelry Jobs.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop tertunda sekitar 30 detik setelah keluar toko ketiga.", "src": ["ppx", "gm"]},
+{"text": "Kalau tidak pop, rampok toko keempat.", "src": ["ppx", "gm"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Whip It Good", "description": "Discover 100 vehicles.", "grade": "bronze", "hidden": false, "kind": "collectibles", "missable": false, "roadmap_stage": 5, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Scan 100 kendaraan unik dengan WAiNK: tahan D-pad Atas, arahkan ke kendaraan, tahan R1. Tidak perlu dikendarai, scan saja cukup. Berdiri di jalan ramai dan scan semua yang lewat. Total kendaraan 557, dan untuk 100 persen butuh scan 200 dari 277 base model.", "steps": [
+{"text": "Scan 100 kendaraan unik dengan WAiNK.", "src": ["gm", "kit", "ppx"]},
+{"text": "Tahan D-pad Atas, arahkan ke kendaraan, lalu tahan R1.", "src": ["ppx", "ppx100"]},
+{"text": "Tidak perlu dikendarai; scan saja sudah cukup.", "src": ["ppx", "gm"]},
+{"text": "Berdiri di jalan ramai dan scan semua kendaraan yang lewat.", "src": ["ppx", "gm"]},
+{"text": "Total kendaraan di dunia ada 557, dari 277 base model.", "src": ["ppx", "ppx100"]},
+{"text": "Untuk 100 persen butuh scan 200 dari 277 base model.", "src": ["ppx", "gm100"]},
+{"text": "Lacak progres di Touchpad, Progress, Vehicles.", "src": ["ppx", "gm"]},
+{"text": "Scan kendaraan juga membantu wishlist Randy di Supply & Demand.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat kendaraan ke-100 di-scan.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null}
+,
+{"name": "Gunslinger", "description": "Take down 5 enemies in a single use of Combat Focus.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Combat Focus diaktifkan dengan L3 plus R3 sambil membidik. Bunuh atau lumpuhkan 5 musuh dalam SATU pemakaian, saat waktu melambat beberapa detik. Persiapan: buff Focus dengan makan, minum, dan mandi; konsumsi Adrenaline dengan tahan L1 lalu segitiga untuk memperpanjang durasi; pakai assault rifle seperti Duke 556 dan body armor; lawan 5 musuh berdekatan di Gang Operations. Tidak bekerja pada tentara, polisi, dan warga sipil. Di Focus Level 4 jauh lebih mudah.", "steps": [
+{"text": "Aktifkan Combat Focus dengan L3 plus R3 sambil membidik.", "src": ["gm", "kit", "ppx"]},
+{"text": "Lumpuhkan 5 musuh dalam SATU pemakaian Combat Focus.", "src": ["ppx", "gm"]},
+{"text": "Waktu melambat hanya beberapa detik saat Focus aktif.", "src": ["ppx", "gm"]},
+{"text": "Konsumsi Adrenaline dengan tahan L1 lalu segitiga untuk memperpanjang durasi.", "src": ["ppx", "gm"]},
+{"text": "Pakai assault rifle seperti Duke 556 yang akurat dan full-auto.", "src": ["ppx", "gm"]},
+{"text": "Lawan 5 musuh berdekatan, misalnya kriminal di Gang Operations.", "src": ["ppx", "gm"]},
+{"text": "Tidak bekerja pada tentara, polisi, dan warga sipil.", "src": ["ppx", "gm"]},
+{"text": "Focus ada 4 level; di Level 4 trophy ini jauh lebih mudah.", "src": ["ppx", "gm"]},
+{"text": "Naikkan Focus lewat Shooting Range, Golf, Pool, memancing, dan headshot.", "src": ["ppx", "val"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Catch Me If You Can", "description": "Make an unscheduled departure at VCIA.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Curi pesawat penumpang besar yang terhubung ke boarding bridge di VCIA, bukan pesawat di lapangan. Pesawat termudah ada di terminal E3 dan E4. Masuk lewat pagar lapangan, naik tangga di samping boarding bridge, masuk kokpit, mundurkan pesawat ke landasan, lepas landas, lalu terbang minimal 1 km dari bandara sampai trophy pop.", "steps": [
+{"text": "Curi pesawat penumpang besar yang terhubung ke boarding bridge di VCIA.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Bukan pesawat yang parkir di lapangan terbuka.", "src": ["ppx", "gm"]},
+{"text": "Pesawat termudah ada di terminal E3 dan E4.", "src": ["ppx", "gm"]},
+{"text": "Masuk lewat pagar lapangan dan naik tangga di samping boarding bridge.", "src": ["ppx", "gm"]},
+{"text": "Di dalam pesawat, naik ke atas dan masuk kokpit.", "src": ["ppx", "gm"]},
+{"text": "Mundurkan pesawat ke landasan lalu lepas landas.", "src": ["ppx", "gm"]},
+{"text": "Terbang minimal 1 km dari bandara sampai trophy pop.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop sedikit tertunda setelah lepas landas.", "src": ["ppx", "gm"]},
+{"text": "Status hidden trophy ini belum terverifikasi penuh.", "src": ["dm", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Challenging Tank", "description": "Kinda hot in these Rhinos.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Curi tank militer Rhino di Mile Zero Air Station, pulau di barat daya peta di Mariana County; tank ada di selatan pangkalan. Masuk lewat gerbang atau stunt jump di tenggara. Naik tank dan tembak musuh sampai trophy pop; kalau tidak pop, tembak meriamnya.", "steps": [
+{"text": "Curi tank militer Rhino di Mile Zero Air Station.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Pangkalan ini ada di pulau barat daya peta, Mariana County.", "src": ["ppx", "gm"]},
+{"text": "Tank berada di selatan pangkalan.", "src": ["ppx", "dm"]},
+{"text": "Masuk lewat gerbang atau stunt jump di tenggara.", "src": ["ppx", "gm"]},
+{"text": "Naik tank dan tembak musuh sampai trophy pop.", "src": ["ppx", "dm"]},
+{"text": "Kalau tidak pop, tembak meriam tank.", "src": ["dm", "ppx"]},
+{"text": "Siapkan rute kabur karena pangkalan dijaga militer.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini bisa dikerjakan setelah tamat.", "src": ["ppx", "gm"]},
+{"text": "Status hidden trophy ini belum terverifikasi penuh.", "src": ["dm", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Sneakthief", "description": "Rob a jewelry store without being detected.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Selesaikan dulu misi Chapter 3 Yasmani's Jewelry Jobs untuk membuka Snap Gun, lockpick pintu beralarm secara diam-diam yang permanen di inventory. Masuk lewat pintu belakang pakai Snap Gun, jangan tendang pintu karena memicu alarm. Di ruang belakang cari catatan berisi kode brankas, lalu loot brankasnya. Lokasi bagus: Richardson Jewelry and Diamonds, Vice City.", "steps": [
+{"text": "Selesaikan dulu misi Chapter 3 Yasmani's Jewelry Jobs.", "src": ["gm", "kit", "ppx"]},
+{"text": "Misi itu membuka Snap Gun untuk lockpick pintu beralarm secara diam-diam.", "src": ["ppx", "gm"]},
+{"text": "Snap Gun permanen di inventory dan tidak perlu di-equip.", "src": ["ppx", "gm"]},
+{"text": "Masuk lewat pintu belakang pakai Snap Gun.", "src": ["ppx", "gm"]},
+{"text": "Jangan tendang pintu karena itu memicu alarm.", "src": ["ppx", "gm"]},
+{"text": "Di ruang belakang cari catatan berisi kode brankas.", "src": ["ppx", "gm"]},
+{"text": "Loot brankas setelah kode ditemukan.", "src": ["ppx", "gm"]},
+{"text": "Lokasi bagus: Richardson Jewelry and Diamonds, Vice City.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat perampokan diam-diam selesai.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Maximum Withdrawal", "description": "Rob 5 Bank Vaults and escape.", "grade": "silver", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Selesaikan dulu misi opsional Chapter 4 That's Where The Money Is, Wait at the Cafe, pengantar perampokan vault bank. Ikuti van keamanan sampai berhenti di bank, masuk saat vault terbuka dan rampok, lalu kabur. Setelah quest, bayar Yasmani $10.000 untuk tips lokasi van keamanan. Merampok vault langsung memicu wanted 4 bintang, jadi kabur dengan motor cepat lalu ganti kendaraan. Ada 8 Large Bank Jobs total; trophy butuh 5 dan 100 persen butuh 8.", "steps": [
+{"text": "Selesaikan dulu misi opsional Chapter 4 That's Where The Money Is.", "src": ["gm", "kit", "ppx"]},
+{"text": "Ikuti van keamanan sampai berhenti di bank.", "src": ["ppx", "gm"]},
+{"text": "Masuk saat vault terbuka dan rampok isinya.", "src": ["ppx", "gm"]},
+{"text": "Bawa partner dan serahkan 1 tas dengan tahan D-pad kanan.", "src": ["ppx", "gm"]},
+{"text": "Bayar Yasmani $10.000 untuk tips lokasi van keamanan berikutnya.", "src": ["ppx", "ppx100"]},
+{"text": "Merampok vault langsung memicu wanted 4 bintang.", "src": ["ppx", "gm"]},
+{"text": "Kabur dengan motor cepat, lalu ganti kendaraan.", "src": ["ppx", "gm"]},
+{"text": "Ada 8 Large Bank Jobs; trophy butuh 5 dan 100 persen butuh 8.", "src": ["ppx", "ppx100"]},
+{"text": "Satu bank bisa memberi sampai $205.000.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "A Classic Blitz Play", "description": "Rob an Armored Truck and escape.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "reported", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Cara paling aman adalah lewat misi opsional Chapter 4 That's Where The Money Is, sama seperti Maximum Withdrawal, karena merampok vault bank besar dihitung sebagai merampok armored truck. Cara lebih awal: blokir truk lapis baja di dekat bank di Vice City, tempel sticky bomb di pintu belakang, ledakkan, lalu kabur. Perhatian: trophy ini dilaporkan bisa gagal pop kalau merampok truk secara langsung, jadi pakai cara bank vault.", "steps": [
+{"text": "Cara paling aman adalah lewat misi bank vault Chapter 4 That's Where The Money Is.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Merampok vault bank besar dihitung sebagai merampok armored truck.", "src": ["ppx", "dm"]},
+{"text": "Misi ini terbuka otomatis di Chapter 4, sama seperti Maximum Withdrawal.", "src": ["ppx", "gm"]},
+{"text": "Cara lebih awal: blokir truk lapis baja di dekat bank di Vice City.", "src": ["ppx", "gm"]},
+{"text": "Tempel sticky bomb di pintu belakang truk lalu ledakkan.", "src": ["ppx", "gm"]},
+{"text": "Kabur dari radius heat merah setelah merampok.", "src": ["ppx", "gm"]},
+{"text": "Sticky bomb tersedia di belakang toko Yasmani setelah quest-nya.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini dilaporkan bisa gagal kalau merampok truk secara langsung.", "src": ["dm", "ppx"]},
+{"text": "Kalau gagal pop, ulangi lewat cara bank vault.", "src": ["dm", "gm", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "The Goodtime State", "description": "Explore all of Leonida.", "grade": "bronze", "hidden": false, "kind": "collectibles", "missable": false, "roadmap_stage": 5, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Buka seluruh kabut peta Leonida. Cara tercepat: terbang dengan pesawat ke semua area berkabut hitam sampai peta terlihat penuh. Leonida punya 6 wilayah resmi: Vice City, Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia, dan Mount Kalaga National Park.", "steps": [
+{"text": "Buka seluruh kabut peta di Leonida.", "src": ["gm", "kit", "ppx"]},
+{"text": "Cara tercepat: terbang dengan pesawat ke semua area berkabut hitam.", "src": ["ppx", "gm"]},
+{"text": "Leonida punya 6 wilayah resmi yang harus dijelajahi.", "src": ["rck", "wiki"]},
+{"text": "Vice City adalah metropolis utama dengan Ocean Beach dan Little Cuba.", "src": ["rck", "wiki"]},
+{"text": "Leonida Keys adalah kepulauan tropis di selatan.", "src": ["rck", "wiki"]},
+{"text": "Grassrivers adalah rawa Everglades dengan buaya dan airboat.", "src": ["rck", "wiki"]},
+{"text": "Port Gellhorn, Ambrosia, dan Mount Kalaga melengkapi peta negara bagian.", "src": ["rck", "wiki"]},
+{"text": "Peta terbuka sebagian secara natural selama story.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat kabut terakhir di peta terbuka.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null}
+,
+{"name": "Pest Control", "description": "Rob an Illegal Operation belonging to each gang.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Rampok 1 Illegal Operation dari masing-masing 9 geng, dari total 39 operasi di dunia. Operasi ditandai ikon kuning di peta saat mendekat, dan banyak yang ditandai otomatis dari story. Lacak lewat Progress, Gangs, scroll tiap geng untuk melihat jumlah operasi yang dirampok. Untuk 100 persen butuh semua 39 operasi.", "steps": [
+{"text": "Rampok 1 Illegal Operation dari masing-masing 9 geng.", "src": ["gm", "kit", "ppx"]},
+{"text": "Total ada 39 Illegal Operation di dunia.", "src": ["ppx", "ppx100"]},
+{"text": "Operasi ditandai ikon kuning di peta saat mendekat.", "src": ["ppx", "gm"]},
+{"text": "Banyak operasi ditandai otomatis dari story.", "src": ["ppx", "gm"]},
+{"text": "Lacak progres di Progress, Gangs, tiap geng menampilkan jumlah yang dirampok.", "src": ["ppx", "psq"]},
+{"text": "Untuk 100 persen butuh semua 39 operasi.", "src": ["ppx", "ppx100"]},
+{"text": "Operasi bisa dirampok kapan saja, termasuk setelah tamat.", "src": ["ppx", "gm"]},
+{"text": "Siapkan senjata dan rompi antipeluru sebelum masuk operasi geng.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat operasi geng kesembilan dirampok.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "In The Beginning…", "description": "Enjoy a cocktail with a view on Ocean Beach.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Pergi ke Ocean View Rooftop Bar di Oceanview Hotel, Ocean Beach: lewati kolam, naik lift ke rooftop. Beli Apple Martini seharga $10 di bar rooftop dan minum sambil berdiri di samping bar. Trophy ini baru terpecahkan pada malam 20 November, setelah sebelumnya unknown di semua guide.", "steps": [
+{"text": "Pergi ke Ocean View Rooftop Bar di Oceanview Hotel, Ocean Beach.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Lewati kolam lalu naik lift ke rooftop.", "src": ["ppx", "dm"]},
+{"text": "Beli Apple Martini seharga $10 di bar rooftop.", "src": ["ppx", "ppx100"]},
+{"text": "Minum sambil berdiri di samping bar.", "src": ["ppx", "gm"]},
+{"text": "Ocean View Hotel adalah safehouse pertama Tommy Vercetti di GTA Vice City.", "src": ["gwd", "wiki"]},
+{"text": "Trophy ini baru terpecahkan pada malam 20 November 2026.", "src": ["ppx", "dm"]},
+{"text": "Sebelumnya trophy ini unknown di semua guide.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini bisa dikerjakan kapan saja setelah lokasi terbuka.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop setelah koktail diminum di rooftop.", "src": ["dm", "kit", "ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Capital Offense", "description": "Smash your way out of a vehicle showroom in classic style.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "reported", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Setelah mendapat Key Cloner di misi Chapter 3 Clonin' Keys, Makin' Gs, pergi ke showroom kendaraan di selatan Vice City. Clone kunci Banshee biru, Bravado Banshee, kendarai lurus menabrak jendela showroom, lalu terus jalan sampai trophy pop. PowerPyx sudah menulis langkah lengkap, sementara damnmodz mencatat statusnya reported dari satu sumber.", "steps": [
+{"text": "Dapatkan dulu Key Cloner di misi Chapter 3 Clonin' Keys, Makin' Gs.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Pergi ke showroom kendaraan di selatan Vice City.", "src": ["ppx", "dm"]},
+{"text": "Clone kunci Banshee biru, Bravado Banshee.", "src": ["ppx", "gm"]},
+{"text": "Kendarai lurus menabrak jendela showroom.", "src": ["ppx", "ppx100"]},
+{"text": "Terus jalan sampai trophy pop, sedikit tertunda.", "src": ["ppx", "gm"]},
+{"text": "PowerPyx sudah menulis langkah lengkap untuk trophy ini.", "src": ["ppx", "gm"]},
+{"text": "damnmodz mencatat status trophy ini reported dari satu sumber.", "src": ["dm", "ppx"]},
+{"text": "Trophy ini baru terpecahkan pada malam 20 November 2026.", "src": ["ppx", "dm"]},
+{"text": "Trophy pop setelah keluar dari showroom lewat jendela.", "src": ["dm", "kit", "ppx", "ppx100"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Let’s Go Bowling", "description": "Follow-through at the Kolt & Associates' bowling alley.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Curi 3 barang berharga di Kingpin Bowling, Port Gellhorn, salah satu Gang Operation: jam mewah di kantor tenggara, shotgun unik Gutterball Moreland 850 di meja sudut timur laut, dan brankas di lorong timur laut yang diledakkan dengan sticky bomb. Trophy pop SETELAH kabur dari polisi, bukan saat mengambil barang ketiga. Tidak missable: kalau tidak lengkap sekaligus, ikon perampokan respawn setelah lama dan kamu bisa kembali mencuri sisanya.", "steps": [
+{"text": "Pergi ke Kingpin Bowling, Port Gellhorn, salah satu Gang Operation.", "src": ["gm", "kit", "ppx"]},
+{"text": "Curi jam mewah di kantor tenggara.", "src": ["ppx", "ppx100"]},
+{"text": "Curi shotgun unik Gutterball Moreland 850 di meja sudut timur laut.", "src": ["ppx", "gm"]},
+{"text": "Ledakkan brankas di lorong timur laut dengan sticky bomb.", "src": ["ppx", "gm"]},
+{"text": "Beli sticky bomb dulu di Ammu-Nation.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop SETELAH kabur dari polisi, bukan saat ambil barang ketiga.", "src": ["ppx", "gm"]},
+{"text": "Misi opsional Chapter 2 Hit Kingpin Bowling menandai lokasi ini.", "src": ["ppx", "gm"]},
+{"text": "Tidak missable: ikon perampokan respawn setelah lama kalau belum lengkap.", "src": ["ppx", "ppx100"]},
+{"text": "Kembali dan curi sisanya kalau ada barang yang terlewat.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Personal Best", "description": "A partnership with mass appeal.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Capai Strength MAKSIMUM dengan Jason DAN Lucia secara bersamaan. Cek di Touchpad, Jason dan Lucia, Strength, ikon hati. Baru bisa setelah Chapter 2 Coffee Break, saat bisa ganti karakter. Naikkan Strength dengan workout: beli membership fitness club lewat filter Map, Activities, ikon dumbbell, atau workout di rumah setelah story. Selalu ajak partner, karena saat satu karakter workout, yang lain otomatis ikut progres. Perhatian: ofzenandcomputing menyebut trophy ini story trophy yang unlock selama campaign, berbeda dengan PowerPyx.", "steps": [
+{"text": "Capai Strength MAKSIMUM dengan Jason DAN Lucia secara bersamaan.", "src": ["gm", "kit", "ppx"]},
+{"text": "Cek Strength di Touchpad, Jason dan Lucia, ikon hati.", "src": ["ppx", "ofz"]},
+{"text": "Baru bisa setelah Chapter 2 Coffee Break, saat bisa ganti karakter.", "src": ["ppx", "gm"]},
+{"text": "Naikkan Strength dengan workout di fitness club.", "src": ["ppx", "gm"]},
+{"text": "Beli membership fitness club lewat filter Map, Activities, ikon dumbbell.", "src": ["ppx", "gm"]},
+{"text": "Workout di rumah juga bisa setelah story.", "src": ["ppx", "gm"]},
+{"text": "Selalu ajak partner: saat satu workout, yang lain otomatis ikut progres.", "src": ["ppx", "gm"]},
+{"text": "ofzenandcomputing menyebut ini story trophy yang unlock selama campaign.", "src": ["ofz", "ppx"]},
+{"text": "Mayoritas sumber sepakat trophy ini soal Strength maksimum, bukan story.", "src": ["ppx", "gm", "ofz"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Actions Speak Louder", "description": "Choices made (for better or worse).", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Lakukan 500 aksi yang memengaruhi Criminal Profile. Lacak dengan klik trophy di daftar trophy, yang menampilkan angka X dari 500. Nyalakan notifikasi di Settings, UI, HUD Notifications, Criminal Profile On, agar tiap aksi reputasi menampilkan ikon wajah iblis kecil di kanan layar. Profil yang ada: Professional, Hardened, Violent, Psycho, dan Irredeemable yang PERMANEN. Hampir pasti didapat natural; kalau kurang, farming tercepat adalah melindas warga atau polisi dengan mobil, tapi hati-hati karena profil Psycho dan Irredeemable membuat polisi menembak di tempat.", "steps": [
+{"text": "Lakukan 500 aksi yang memengaruhi Criminal Profile.", "src": ["gm", "kit", "ppx"]},
+{"text": "Lacak progres dengan klik trophy di daftar trophy, menampilkan X dari 500.", "src": ["ppx", "gm"]},
+{"text": "Nyalakan notifikasi Criminal Profile di Settings, UI, HUD Notifications.", "src": ["ppx", "gm"]},
+{"text": "Tiap aksi reputasi menampilkan ikon wajah iblis kecil di kanan layar.", "src": ["ppx", "gm"]},
+{"text": "Profil Professional didapat dari objektif dan perampokan diam-diam.", "src": ["ppx", "gm"]},
+{"text": "Profil Hardened dari melumpuhkan musuh tanpa membunuh.", "src": ["ppx", "gm"]},
+{"text": "Profil Violent dan Psycho dari membunuh musuh dan warga sipil.", "src": ["ppx", "gm"]},
+{"text": "Profil Irredeemable bersifat PERMANEN dan membuat polisi menembak di tempat.", "src": ["ppx", "gm"]},
+{"text": "Hampir pasti didapat natural selama bermain normal.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Bad Luck, I Guess", "description": "Second time's the charm.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Kembali ke toko Payday Loans di Little Cuba, Vice City, toko yang dirampok Lucia di Prologue, sebagai Lucia SENDIRIAN tanpa Jason. Rampok lagi seperti di prologue dengan menodongkan senjata ke teller dan mengambil uang, lalu kabur JALAN KAKI, bukan kendaraan. Trophy pop tertunda, jadi lari cukup jauh. Trophy ini baru terpecahkan pada malam 20 November. Ada perbedaan sumber: PowerPyx menyebut paling awal Chapter 2, damnmodz menyebut Dye Pack Jammer Chapter 3 sebagai lead terbaik.", "steps": [
+{"text": "Kembali ke toko Payday Loans di Little Cuba, Vice City.", "src": ["dm", "gm", "kit", "ppx"]},
+{"text": "Toko ini dirampok Lucia di Prologue.", "src": ["ppx", "gm"]},
+{"text": "Main sebagai Lucia SENDIRIAN, tanpa Jason.", "src": ["ppx", "dm"]},
+{"text": "Rampok lagi seperti di prologue: todongkan senjata ke teller dan ambil uang.", "src": ["ppx", "gm"]},
+{"text": "Kabur JALAN KAKI, bukan dengan kendaraan.", "src": ["ppx", "dm"]},
+{"text": "Trophy pop tertunda; lari cukup jauh dari toko.", "src": ["ppx", "gm"]},
+{"text": "PowerPyx menyebut paling awal bisa didapat setelah Chapter 2.", "src": ["ppx", "gm"]},
+{"text": "damnmodz menyebut Dye Pack Jammer Chapter 3 sebagai lead terbaik.", "src": ["dm", "ppx"]},
+{"text": "Trophy ini baru terpecahkan pada malam 20 November 2026.", "src": ["dm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null}
+,
+{"name": "The Truth Is Out There", "description": "What the hell just happened?", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Event UFO acak yang baru terpecahkan pada malam 20 November. Setelah Chapter 1, pergi SENDIRIAN ke jalan barat laut Starlet Motel, Kelly County, timur Port Gellhorn, setelah jam 02:00 waktu in-game. Cari mobil parkir dengan lampu berkedip di pinggir jalan; kalau tidak ada, pergi dan kembali lagi karena spawn-nya acak. Ikuti jejak ke hutan menuju cahaya biru, tempat UFO mengangkat seorang wanita. Bantu wanita itu dengan mengambilkan mobilnya, kembali ke mobil di jalan, dan UFO akan kembali menculik karaktermu. Bisa sebagai Jason atau Lucia. Perhatian: TechTudo mengklaim ritual Capri yang membuka trophy ini, tapi PowerPyx dan GameSpot menyebut UFO sebagai pemicunya.", "steps": [
+{"text": "Event UFO acak ini baru terpecahkan pada malam 20 November 2026.", "src": ["gs", "kit", "ppx"]},
+{"text": "Pergi SENDIRIAN ke jalan barat laut Starlet Motel, Kelly County.", "src": ["gs", "ppx"]},
+{"text": "Lokasi ini di timur Port Gellhorn, dan event terjadi setelah jam 02:00.", "src": ["gs", "ppx"]},
+{"text": "Cari mobil parkir dengan lampu berkedip di pinggir jalan.", "src": ["ppx", "gs"]},
+{"text": "Kalau tidak ada mobil, pergi dan kembali lagi karena spawn-nya acak.", "src": ["ppx", "gs"]},
+{"text": "Ikuti jejak ke hutan menuju cahaya biru, tempat UFO mengangkat seorang wanita.", "src": ["ppx", "gs"]},
+{"text": "Bantu wanita itu dengan mengambilkan mobilnya.", "src": ["ppx", "gs"]},
+{"text": "Kembali ke mobil di jalan, lalu UFO kembali dan menculik karaktermu.", "src": ["ppx", "gs"]},
+{"text": "Bisa dilakukan sebagai Jason atau Lucia.", "src": ["gs", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Ten Pin", "description": "Bowl 'em over with a melee drive-by.", "grade": "bronze", "hidden": true, "kind": "crime", "missable": false, "roadmap_stage": 3, "verified": "unknown", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Satu-satunya trophy yang masih belum terverifikasi per 21 November. Dugaan terkuat dari PowerPyx: tendang musuh saat drive-by dengan senjata melee dari motor. Tidak ada sumber yang membuktikan langkah pastinya, jadi jangan karang langkah; tampilkan trophy ini sebagai unknown dengan best lead yang jujur.", "steps": [
+{"text": "Trophy ini masih belum terverifikasi per 21 November 2026.", "src": ["gm", "kit", "ppx"]},
+{"text": "Dugaan terkuat: tendang musuh saat drive-by dengan senjata melee dari motor.", "src": ["ppx", "gm"]},
+{"text": "Tidak ada sumber yang membuktikan langkah pastinya.", "src": ["ppx", "ppx100"]},
+{"text": "Deskripsi resmi menyebut melee drive-by, jadi motor dan senjata melee adalah kuncinya.", "src": ["kit", "ppx"]},
+{"text": "Coba tendang musuh dari motor saat drive-by dengan senjata melee.", "src": ["ppx", "gm"]},
+{"text": "Trophy ini hidden sampai didapat.", "src": ["gm", "ppx"]},
+{"text": "Jangan karang langkah pasti untuk trophy ini.", "src": ["ppx", "gm"]},
+{"text": "Cek panduan terbaru karena trophy ini bisa terpecahkan kapan saja.", "src": ["ppx", "psq"]},
+{"text": "Satu-satunya trophy dari 55 yang statusnya unknown.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Dime on the Dollar", "description": "Earn $250,000 laundering Marked Bills through your contacts.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": "auto", "guide": "Selesaikan dulu misi Chapter 3 Credit Check, Meet Raul's Crew, yang membuka Dye Pack Jammer untuk mencuci marked bills. Rampok bank dan Payday Loans, bawa marked bills ke fence; Yasmani di Vice City membayar paling mahal. Total kumulatif $250.000, tidak harus sekaligus, dan didapat natural saat mengerjakan semua perampokan untuk 100 persen. Satu bank vault bisa memberi sampai $205.000.", "steps": [
+{"text": "Selesaikan dulu misi Chapter 3 Credit Check, Meet Raul's Crew.", "src": ["gm", "kit", "ppx"]},
+{"text": "Misi itu membuka Dye Pack Jammer untuk mencuci marked bills.", "src": ["ppx", "ppx100"]},
+{"text": "Rampok bank dan Payday Loans untuk mendapat marked bills.", "src": ["ppx", "gm"]},
+{"text": "Bawa marked bills ke fence untuk dicuci.", "src": ["ppx", "gm"]},
+{"text": "Yasmani di Vice City membayar paling mahal.", "src": ["ppx", "gm"]},
+{"text": "Total kumulatif $250.000, tidak harus sekaligus.", "src": ["ppx", "ppx100"]},
+{"text": "Didapat natural saat mengerjakan semua perampokan untuk 100 persen.", "src": ["ppx", "gm"]},
+{"text": "Satu bank vault bisa memberi sampai $205.000.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat total cucian mencapai $250.000.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Treat Yo Self", "description": "Spend $100,000 across all shops.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Belanjakan total $100.000 di semua jenis toko. Tercepat lewat senjata, mod mobil, dan tato yang paling mahal. Toko yang ada: 14 Mod Shop, 19 Pay 'n' Spray, 24 Ammu-Nation, 67 Clothing Store, 17 Footwear, 18 Hair and Beauty Salon, 11 Tattoo Studio, dan 15 Electronics.", "steps": [
+{"text": "Belanjakan total $100.000 di semua jenis toko.", "src": ["gm", "kit", "ppx"]},
+{"text": "Tercepat lewat senjata, mod mobil, dan tato yang paling mahal.", "src": ["ppx", "ppx100"]},
+{"text": "Ada 14 Mod Shop dan 19 Pay 'n' Spray di dunia.", "src": ["ppx", "gm"]},
+{"text": "Ada 24 Ammu-Nation dan 67 Clothing Store.", "src": ["ppx", "gm"]},
+{"text": "Ada 17 Footwear, 18 Hair and Beauty Salon, dan 11 Tattoo Studio.", "src": ["ppx", "gm"]},
+{"text": "Ada 15 toko Electronics.", "src": ["ppx", "gm"]},
+{"text": "Belanja dihitung kumulatif di semua jenis toko.", "src": ["ppx", "ppx100"]},
+{"text": "Uang tercepat didapat dari bank vault besar sampai $205.000 per bank.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat total belanja mencapai $100.000.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "Little Boxes", "description": "Purchase all garage properties.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Beli 8 garasi yang bisa dibeli dengan total $160.000; ada 4 garasi story yang tidak dihitung. Garasi bisa dibeli setelah misi Chapter 2 Daily Driver, Steal the Crawler for Moses, lewat aplikasi Vice City Real Estate di HP. Cara cepat dapat uang: perampokan, terutama Chapter 3 sampai 4.", "steps": [
+{"text": "Beli 8 garasi yang bisa dibeli dengan total $160.000.", "src": ["gm", "kit", "ppx"]},
+{"text": "Ada 4 garasi story yang tidak dihitung untuk trophy ini.", "src": ["ppx", "ppx100"]},
+{"text": "Garasi bisa dibeli setelah misi Chapter 2 Daily Driver.", "src": ["ppx", "gm"]},
+{"text": "Beli lewat aplikasi Vice City Real Estate di HP.", "src": ["ppx", "gm"]},
+{"text": "PowerPyx punya panduan semua 12 lokasi garasi.", "src": ["ppx", "ppx100"]},
+{"text": "Cara cepat dapat uang: perampokan, terutama Chapter 3 sampai 4.", "src": ["ppx", "gm"]},
+{"text": "Tiap garasi menambah slot parkir untuk kendaraan terdaftar.", "src": ["ppx", "gm"]},
+{"text": "Garasi dibutuhkan untuk mendaftarkan kendaraan di Scooter Bros.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat garasi kedelapan dibeli.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null},
+{"name": "On the Spot", "description": "Register 10 vehicles to the Scooter Bros app.", "grade": "bronze", "hidden": false, "kind": "crime", "missable": false, "roadmap_stage": 6, "verified": "confirmed", "gamerscore": null, "rarity": null, "counts": null, "overlap100": null, "guide": "Aplikasi Scooter Bros terinstal setelah misi Chapter 2 Moses, Take A Vehicle to Moses. Aplikasi ini mendaftarkan kendaraan curian agar bisa dipanggil ke lokasimu. Butuh garasi dulu, karena tiap garasi menambah slot parkir. Bawa kendaraan curian ke Moses di Port Gellhorn, klik Respray lalu Register di garasinya. Awalnya Moses hanya menerima kendaraan tanpa tracker; dari Chapter 3 bisa mendaftarkan mobil ber-tracker standar di Pay 'n' Spray mana pun. Registrasi berbayar, jadi pakai mobil atau motor murah agar hemat.", "steps": [
+{"text": "Aplikasi Scooter Bros terinstal setelah misi Chapter 2 Moses.", "src": ["gm", "kit", "ppx"]},
+{"text": "Aplikasi ini mendaftarkan kendaraan curian agar bisa dipanggil.", "src": ["ppx", "ppx100"]},
+{"text": "Butuh garasi dulu karena tiap garasi menambah slot parkir.", "src": ["ppx", "gm"]},
+{"text": "Bawa kendaraan curian ke Moses di Port Gellhorn.", "src": ["ppx", "gm"]},
+{"text": "Klik Respray lalu Register di garasi Moses.", "src": ["ppx", "gm"]},
+{"text": "Awalnya Moses hanya menerima kendaraan tanpa tracker.", "src": ["ppx", "gm"]},
+{"text": "Dari Chapter 3 bisa mendaftarkan mobil ber-tracker standar di Pay 'n' Spray.", "src": ["ppx", "gm"]},
+{"text": "Registrasi berbayar; pakai mobil atau motor murah agar hemat.", "src": ["ppx", "gm"]},
+{"text": "Trophy pop saat kendaraan kesepuluh terdaftar.", "src": ["gm", "kit", "ppx"]}], "missable_box": null, "points_of_no_return": null}
+]}
