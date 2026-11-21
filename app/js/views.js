@@ -1,25 +1,12 @@
-// views.js — every render function for the guide: the trophy checklist,
-// the selected trophy's detail pane, progress, Next Up planner, roadmap,
-// glitch & farming, and the easter-eggs list. All output is built from
-// the loaded JSON data; nothing here fetches the network.
+// Leonida Platinum Atlas — view renderers (Round 7, written fresh).
+// Every name/description that reaches the screen goes through the spoiler
+// mask here, so no view can leak a story trophy name while the shield is on.
+import { isEarned, countOf } from './store.js';
+import { KIND_LABELS, gradeRank } from './filters.js';
+import { sourceTitle } from './data.js';
 
-import { applyFilters, applySpoilerClass, SPOILER_PLACEHOLDER } from './filters.js';
-
-export const GRADE_LABELS = {
-  platinum: 'PLAT',
-  gold: 'GOLD',
-  silver: 'SILVER',
-  bronze: 'BRONZE',
-};
-
-export const VERIFIED_LABELS = {
-  confirmed: 'CONFIRMED',
-  reported: 'REPORTED',
-  unknown: 'UNKNOWN — not yet verified',
-};
-
-export function escapeHtml(value) {
-  return String(value)
+export function esc(s) {
+  return String(s ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -27,316 +14,296 @@ export function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function gradeLabel(grade) {
-  return GRADE_LABELS[grade] || grade.toUpperCase();
+export function isMasked(t, st) {
+  return !!st.spoiler && t.kind === 'story' && !isEarned(st, t.name);
 }
 
-/** Switch the visible view (tracker / roadmap / glitch / eggs). */
-export function showView(name) {
-  document.querySelectorAll('.view').forEach((section) => {
-    section.classList.toggle('active', section.id === 'view-' + name);
-  });
-  document.querySelectorAll('.mainnav button[data-view]').forEach((btn) => {
-    btn.classList.toggle('active', btn.dataset.view === name);
-  });
+export function shownName(t, st) {
+  return isMasked(t, st) ? 'Story trophy — spoiler hidden' : t.name;
 }
 
-/**
- * Render the trophy checklist rows into #trophy-list.
- * `filterState` is { kind, query, spoilerOn }; `selectedId` highlights
- * the open trophy. `onSelect` runs when a row is clicked.
- */
-export function renderTrophyList(listEl, trophies, store, filterState, onSelect, selectedId) {
-  const visible = applyFilters(trophies, filterState);
-  if (visible.length === 0) {
-    listEl.innerHTML =
-      '<p class="view-intro" style="padding:12px">No trophies match this filter' +
-      ' — try another kind or clear the search.</p>';
+export function shownDesc(t, st) {
+  if (isMasked(t, st)) return 'Description hidden — the spoiler shield is on. Earn this trophy, or turn the shield off, to reveal it.';
+  return t.description || '';
+}
+
+export function gradeBadge(t) {
+  return '<span class="badge grade-' + esc(t.grade) + '">' + esc(t.grade.toUpperCase()) + '</span>';
+}
+
+export function srcChips(src, byCode) {
+  if (!src || src.length === 0) return '<span class="src none">Source: —</span>';
+  const codes = src.map(esc).join(', ');
+  const title = byCode ? sourceTitle(src, byCode) : src.join(', ');
+  return '<span class="src" title="' + esc(title) + '">Source: ' + codes + '</span>';
+}
+
+function overlapLabel(t) {
+  if (t.overlap100 === 'auto') return 'Auto saat 100% — earned together with the Platinum';
+  if (t.overlap100 === 'separate') return 'Terpisah dari 100% — needs its own run after the Platinum path';
+  return 'Sebagian — partly counts toward 100%, partly separate';
+}
+
+function countLine(t, st) {
+  if (!t.counts) return '';
+  const have = countOf(st, t.name);
+  const label = esc(t.counts.label || 'progress');
+  return (
+    '<div class="countbox" data-countbox="' + esc(t.name) + '">' +
+    '<span class="count-label">' + label + ': <b>' + have + ' / ' + t.counts.total + '</b></span> ' +
+    '<button type="button" data-count="-1" data-name="' + esc(t.name) + '" aria-label="Decrease">−</button>' +
+    '<button type="button" data-count="1" data-name="' + esc(t.name) + '" aria-label="Increase">+</button>' +
+    '<label>Set <input type="number" min="0" max="' + t.counts.total + '" value="' + have + '" data-count-input="' + esc(t.name) + '"></label>' +
+    '</div>'
+  );
+}
+
+export function renderAudit(el, stats) {
+  el.innerHTML =
+    '<span class="audit-item"><b>AUDIT</b> ' + stats.cited + '/' + stats.total + ' claims cited</span>' +
+    '<span class="audit-item">' + stats.twoPlus + ' on 2+ sites</span>' +
+    '<span class="audit-item">' + stats.sources + ' sources</span>' +
+    '<span class="audit-item">' + stats.pages + ' pages</span>' +
+    '<span class="audit-item">' + stats.confirmed + '/' + stats.trophies + ' confirmed · ' + stats.unknown + ' unknown (Ten Pin)</span>';
+}
+
+export function renderList(el, trophies, st) {
+  if (trophies.length === 0) {
+    el.innerHTML = '<li class="empty">No trophies match these filters.</li>';
     return;
   }
-  listEl.innerHTML = '';
-  for (const t of visible) {
-    const earned = store.isEarned(t.id);
-    const row = document.createElement('label');
-    row.className = 'trow grade-' + t.grade + (t.missable ? ' missable-row' : '');
-    if (t.verified === 'unknown') row.classList.add('unknown-row');
-    row.dataset.trophy = t.id;
-    if (t.id === selectedId) row.style.background = 'var(--panel2)';
-    applySpoilerClass(row, t, filterState.spoilerOn, earned);
-
-    const check = document.createElement('input');
-    check.type = 'checkbox';
-    check.dataset.trophy = t.id;
-    check.checked = earned;
-    check.setAttribute('aria-label', 'Mark earned: ' + t.name);
-    check.addEventListener('change', () => {
-      // No stopPropagation here: the change must bubble to #trophy-list,
-      // whose delegated listener refreshes progress, Next Up and masking.
-      store.setEarned(t.id, check.checked);
-    });
-
-    const badge = document.createElement('span');
-    badge.className = 'badge';
-    badge.textContent = gradeLabel(t.grade);
-
-    const name = document.createElement('span');
-    name.className = 'tname';
-    name.textContent = t.name;
-
-    const desc = document.createElement('span');
-    desc.className = 'tdesc';
-    desc.textContent = t.description;
-
-    row.append(check, badge, name, desc);
-    if (t.missable) {
-      const flag = document.createElement('span');
-      flag.className = 'tflag missable-flag';
-      flag.textContent = 'MISSABLE';
-      row.append(flag);
-    }
-    if (t.hidden) {
-      const flag = document.createElement('span');
-      flag.className = 'tflag hidden-flag';
-      flag.textContent = 'HIDDEN';
-      row.append(flag);
-    }
-    if (t.verified === 'unknown') {
-      const flag = document.createElement('span');
-      flag.className = 'tflag unknown-flag';
-      flag.textContent = 'UNKNOWN';
-      row.append(flag);
-    }
-    if (t.counts) {
-      const count = document.createElement('span');
-      count.className = 'tcount';
-      count.textContent = t.counts;
-      row.append(count);
-    }
-    row.addEventListener('click', (event) => {
-      if (event.target === check) return;
-      onSelect(t);
-    });
-    listEl.append(row);
-  }
+  el.innerHTML = trophies
+    .map((t) => {
+      const earned = isEarned(st, t.name);
+      const sel = st.selected === t.name ? ' selected' : '';
+      const tags = [];
+      if (t.hidden) tags.push('<span class="tag">HIDDEN</span>');
+      if (t.missable) tags.push('<span class="tag miss">MISSABLE</span>');
+      if (t.verified === 'unknown') tags.push('<span class="tag unk">UNKNOWN</span>');
+      const counts = t.counts ? '<span class="mini-count">' + countOf(st, t.name) + '/' + t.counts.total + '</span>' : '';
+      return (
+        '<li><button type="button" class="trophy-row' + sel + (earned ? ' earned' : '') + '" data-select="' + esc(t.name) + '">' +
+        '<span class="check">' + (earned ? '✓' : '') + '</span>' +
+        '<span class="row-main"><span class="row-name">' + esc(shownName(t, st)) + '</span>' +
+        '<span class="row-sub">' + gradeBadge(t) + ' ' + tags.join(' ') + ' <span class="kind">' + esc(KIND_LABELS[t.kind] || t.kind) + '</span></span></span>' +
+        counts +
+        '</button></li>'
+      );
+    })
+    .join('');
 }
 
-/**
- * Render the selected trophy's full guide into #detail-pane:
- * official name, description and grade, numbered steps each with its
- * sources, the source list, verification status, missable warning and
- * the 100%-completion overlap note.
- */
-export function renderDetail(detailEl, trophy, store, spoilerOn) {
-  if (!trophy) {
-    detailEl.innerHTML =
-      '<h2>Pick a trophy</h2><p class="detail-desc">Select any trophy on ' +
-      'the left to see its guide, steps and sources.</p>';
+export function renderDetail(el, t, data, st) {
+  if (!t) {
+    el.innerHTML = '<p class="empty">Pick a trophy on the left to see its full guide.</p>';
     return;
   }
-  const earned = store.isEarned(trophy.id);
-  const masked = spoilerOn === true && trophy.kind === 'story' && !earned;
-  const shownName = masked ? SPOILER_PLACEHOLDER : trophy.name;
-  const shownDesc = masked
-    ? 'A story trophy. Earn it in-game to reveal its official description and guide.'
-    : trophy.description;
-
-  let html = '<div class="detail-head">';
-  html += '<span class="badge grade-' + trophy.grade + '">' + gradeLabel(trophy.grade) + '</span>';
-  html += '<h2 id="detail-name">' + escapeHtml(shownName) + '</h2>';
-  if (trophy.missable) html += '<span class="tflag missable-flag">MISSABLE — only one in the game</span>';
-  if (trophy.hidden) html += '<span class="tflag hidden-flag">HIDDEN</span>';
-  html += '</div>';
-  html += '<p class="detail-desc">' + escapeHtml(shownDesc) + '</p>';
-  html += '<p class="detail-meta">Verified: <strong>' +
-    escapeHtml(VERIFIED_LABELS[trophy.verified] || trophy.verified.toUpperCase()) +
-    '</strong> · Sources: ' + escapeHtml(trophy.sources.join(' · ') || '—') +
-    ' · 100% overlap: <strong>' + (trophy.overlap100 ? 'Yes' : 'No') + '</strong>' +
-    (trophy.counts ? ' · Count: ' + escapeHtml(trophy.counts) : '') +
-    ' · Earned: <strong>' + (earned ? 'Yes' : 'Not yet') + '</strong></p>';
-
-  if (masked) {
-    html += '<p class="warn">Spoiler-safe is on: this story trophy stays hidden until ' +
-      'you mark it earned. Tick its checkbox when you earn it in-game.</p>';
-    detailEl.innerHTML = html;
-    return;
-  }
-
-  if (trophy.missable) {
-    html += '<p class="warn">WARNING: the only potentially missable trophy. ' +
-      'No mission replay, no New Game+ — a manual save is the only safety net.</p>';
-  }
-  html += '<h3>Guide — in our own words</h3>';
-  if (trophy.guide) html += '<p>' + escapeHtml(trophy.guide) + '</p>';
-  if (trophy.steps.length > 0) {
-    html += '<ol class="steps">';
-    for (const step of trophy.steps) {
-      html += '<li>' + escapeHtml(step.text);
-      for (const src of step.sources) {
-        html += ' <span class="src">Source: ' + escapeHtml(src) + '</span>';
-      }
-      html += '</li>';
-    }
-    html += '</ol>';
-  }
-  html += '<h3>Sources</h3><ul class="srclist">';
-  for (const src of trophy.sources) html += '<li>' + escapeHtml(src) + '</li>';
-  html += '</ul>';
-  detailEl.innerHTML = html;
+  const earned = isEarned(st, t.name);
+  const masked = isMasked(t, st);
+  const steps = (t.steps || [])
+    .map(
+      (s, i) =>
+        '<li><span class="step-num">' + (i + 1) + '</span><span class="step-text">' + esc(s.text) + '</span> ' +
+        srcChips(s.src, data.byCode) + '</li>',
+    )
+    .join('');
+  const sources = (t.steps || [])
+    .flatMap((s) => s.src || [])
+    .filter((v, i, a) => a.indexOf(v) === i);
+  const sourceList = sources.length
+    ? '<h3>Sources for this trophy</h3><ul class="srclist">' +
+      sources
+        .map((c) => {
+          const s = data.byCode.get(c);
+          if (!s) return '<li>' + esc(c) + '</li>';
+          const pages = (s.pages || []).map((p) => esc(p.title)).join(' · ');
+          return '<li><b>' + esc(s.code) + '</b> — ' + esc(s.name) + (pages ? ' <span class="muted">(' + pages + ')</span>' : '') + '</li>';
+        })
+        .join('') +
+      '</ul>'
+    : '';
+  const missableBox = t.missable_box
+    ? '<div class="missable-box"><b>⚠ MISSABLE</b><p>' + esc(t.missable_box) + '</p>' +
+      (t.points_of_no_return ? '<p><b>Point of no return:</b> ' + esc(t.points_of_no_return) + '</p>' : '') + '</div>'
+    : t.points_of_no_return
+      ? '<div class="missable-box"><p><b>Point of no return:</b> ' + esc(t.points_of_no_return) + '</p></div>'
+      : '';
+  el.innerHTML =
+    '<div class="detail-head"><h2>' + esc(shownName(t, st)) + '</h2>' +
+    '<div class="detail-meta">' + gradeBadge(t) + ' ' +
+    (t.hidden ? '<span class="tag">HIDDEN</span>' : '') + ' ' +
+    (t.missable ? '<span class="tag miss">MISSABLE</span>' : '') + ' ' +
+    '<span class="kind">' + esc(KIND_LABELS[t.kind] || t.kind) + '</span> ' +
+    '<span class="verified v-' + esc(t.verified) + '">' + esc(t.verified) + '</span></div></div>' +
+    '<p class="desc">' + esc(shownDesc(t, st)) + '</p>' +
+    '<p class="overlap">' + esc(overlapLabel(t)) + (t.gamerscore ? ' · ' + t.gamerscore + ' Gamerscore' : '') + (t.rarity ? ' · rarity ' + esc(t.rarity) : '') + '</p>' +
+    '<div class="detail-actions"><button type="button" data-earn="' + esc(t.name) + '">' + (earned ? '✓ Earned — click to undo' : 'Mark earned') + '</button></div>' +
+    countLine(t, st) +
+    missableBox +
+    (masked
+      ? '<p class="muted">Steps hidden by the spoiler shield — earn this trophy or turn the shield off to reveal the guide.</p>'
+      : '<p class="guide">' + esc(t.guide || '') + '</p><h3>Steps — every step cited</h3><ol class="steps">' + steps + '</ol>') +
+    (masked ? '' : sourceList);
 }
 
-/** Render the header progress bar + text, the ring and the per-grade bars. */
-export function renderProgress(trophies, store, citedSteps) {
-  const { earned, total } = store.totals();
-  const pct = total === 0 ? 0 : Math.round((earned / total) * 100);
-  const fill = document.getElementById('progress-fill');
-  if (fill) fill.style.width = pct + '%';
-  const bar = document.getElementById('progress-bar');
-  if (bar) bar.setAttribute('aria-valuenow', String(earned));
-  const text = document.getElementById('progress-text');
-  if (text) text.textContent = earned + ' / ' + total + ' trophies — ' + pct + '% to Platinum';
-  const ring = document.getElementById('progress-ring');
-  if (ring) ring.textContent = pct + '%';
-  const cited = document.getElementById('stat-cited');
-  if (cited) cited.textContent = citedSteps + ' cited steps';
-
-  const bars = document.querySelector('.grade-bars');
-  if (bars) {
-    const byGrade = store.byGrade(trophies);
-    const order = ['platinum', 'gold', 'silver', 'bronze'];
-    bars.innerHTML = '';
-    for (const grade of order) {
-      const g = byGrade[grade] || { earned: 0, total: 0 };
-      const rowPct = g.total === 0 ? 0 : Math.round((g.earned / g.total) * 100);
-      const row = document.createElement('div');
-      const label = document.createElement('span');
-      label.textContent = grade.charAt(0).toUpperCase() + grade.slice(1);
-      const barWrap = document.createElement('div');
-      barWrap.className = 'bar';
-      const barFill = document.createElement('span');
-      barFill.style.width = rowPct + '%';
-      barWrap.append(barFill);
-      const count = document.createElement('b');
-      count.textContent = g.earned + '/' + g.total;
-      row.append(label, barWrap, count);
-      bars.append(row);
-    }
-  }
-}
-
-/**
- * Render Next Up: the next unearned trophies in roadmap order, with the
- * game's only missable trophy first when it is still unearned.
- */
-export function renderNextUp(nextUpEl, trophies, panels, store) {
-  const byName = new Map(trophies.map((t) => [t.name, t]));
-  const ordered = [];
-  const seen = new Set();
-  for (const stage of panels.roadmap) {
-    for (const name of stage.trophies || []) {
-      if (!seen.has(name) && byName.has(name)) {
-        seen.add(name);
-        ordered.push(byName.get(name));
-      }
-    }
-  }
+export function renderProgress(el, trophies, st) {
+  const earned = trophies.filter((t) => isEarned(st, t.name)).length;
+  const total = trophies.length;
+  const pct = total ? Math.round((earned / total) * 100) : 0;
+  const perGrade = {};
   for (const t of trophies) {
-    if (!seen.has(t.name)) {
-      seen.add(t.name);
-      ordered.push(t);
-    }
+    perGrade[t.grade] = perGrade[t.grade] || { got: 0, all: 0 };
+    perGrade[t.grade].all++;
+    if (isEarned(st, t.name)) perGrade[t.grade].got++;
   }
-  const upcoming = ordered.filter((t) => !store.isEarned(t.id));
-  upcoming.sort((a, b) => (b.missable ? 1 : 0) - (a.missable ? 1 : 0));
-  const next = upcoming.slice(0, 3);
-  const list = nextUpEl.querySelector('ol');
-  if (!list) return;
-  list.innerHTML = '';
-  if (next.length === 0) {
-    const li = document.createElement('li');
-    li.innerHTML = '<strong>Platinum earned!</strong> — every trophy is checked off.';
-    list.append(li);
-    return;
-  }
-  for (const t of next) {
-    const li = document.createElement('li');
-    const strong = document.createElement('strong');
-    strong.textContent = t.name;
-    li.append(strong);
-    li.append(document.createTextNode(' — ' + (t.missable ? 'do it NOW (only missable). ' : '') + t.description));
-    list.append(li);
-  }
+  const rows = ['platinum', 'gold', 'silver', 'bronze']
+    .map((g) => {
+      const p = perGrade[g] || { got: 0, all: 0 };
+      return '<div class="grade-row"><span class="badge grade-' + g + '">' + g.toUpperCase() + '</span><span>' + p.got + ' / ' + p.all + '</span><span class="bar"><i style="width:' + (p.all ? Math.round((p.got / p.all) * 100) : 0) + '%"></i></span></div>';
+    })
+    .join('');
+  const r = 52;
+  const circ = 2 * Math.PI * r;
+  const dash = (circ * pct) / 100;
+  el.innerHTML =
+    '<h2>Platinum progress</h2>' +
+    '<div class="ring-wrap"><svg viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Platinum progress ' + pct + ' percent">' +
+    '<circle cx="60" cy="60" r="' + r + '" fill="none" stroke="#3b2a63" stroke-width="10"/>' +
+    '<circle cx="60" cy="60" r="' + r + '" fill="none" stroke="#ff7a3d" stroke-width="10" stroke-linecap="round" stroke-dasharray="' + dash.toFixed(1) + ' ' + circ.toFixed(1) + '" transform="rotate(-90 60 60)"/>' +
+    '<text x="60" y="56" text-anchor="middle" class="ring-num">' + pct + '%</text>' +
+    '<text x="60" y="74" text-anchor="middle" class="ring-sub">' + earned + '/' + total + '</text></svg>' +
+    '<p class="muted">' + (total - earned) + ' trophies left to the Platinum. Missables first — they cannot be replayed in the same save.</p></div>' +
+    rows;
 }
 
-/** Render the 7-stage roadmap list from panels.json. */
-export function renderRoadmap(roadmapListEl, panels) {
-  roadmapListEl.innerHTML = '';
-  for (const stage of panels.roadmap) {
-    const li = document.createElement('li');
-    const head = document.createElement('strong');
-    head.textContent = 'Stage ' + stage.stage + ' — ' + stage.title + '.';
-    li.append(head);
-    const names = (stage.trophies || []).join(' · ');
-    li.append(document.createTextNode(' ' + names));
-    if (stage.note) {
-      const note = document.createElement('p');
-      note.className = 'detail-note';
-      note.textContent = stage.note;
-      li.append(note);
-    }
-    roadmapListEl.append(li);
-  }
-}
-
-/**
- * Render the glitch panel from panels.json: the Apollo Aggregates money
- * glitch (DISPUTED), its numbered steps, who says it works and who says
- * it does not, and the safety warning.
- */
-export function renderGlitch(glitchPanelEl, panels) {
-  const g = panels.glitch;
-  if (!g) return;
-  let html = '<h3>' + escapeHtml(g.title) + ' — money glitch</h3>';
-  html += '<p class="status disputed">STATUS: ' + escapeHtml(g.status) + '</p>';
-  if (g.detail) html += '<p>' + escapeHtml(g.detail) + '</p>';
-  if (Array.isArray(g.steps) && g.steps.length > 0) {
-    html += '<ol class="steps">';
-    for (const step of g.steps) html += '<li>' + escapeHtml(step) + '</li>';
-    html += '</ol>';
-  }
-  html += '<p><strong>For:</strong> ' + escapeHtml((g.pro || []).join(', ')) +
-    ' <strong>Against:</strong> ' + escapeHtml((g.contra || []).join(', ')) + '</p>';
-  if (g.warning) html += '<p class="warn">' + escapeHtml(g.warning) + '</p>';
-  glitchPanelEl.innerHTML = html;
-}
-
-/**
- * Render the easter-eggs list, filtered by kind ('all' | 'egg' | 'bug' |
- * 'oddity') and optionally by status. Each item shows its status and sources.
- */
-export function renderEggs(eggsListEl, eggs, eggKind, eggStatus) {
-  const items = eggs.items.filter((e) => {
-    if (eggKind && eggKind !== 'all' && e.kind !== eggKind) return false;
-    if (eggStatus && eggStatus !== 'all' && e.status !== eggStatus) return false;
-    return true;
+export function renderRoadmapMini(el, panels, st, data) {
+  const stages = (panels.roadmap || []).map((s) => {
+    const names = (s.trophies || []).map((n) => {
+      const t = data.byName.get(n);
+      return t ? shownName(t, st) : n;
+    });
+    return '<li><b>Stage ' + s.stage + ' — ' + esc(s.title) + '</b> <span class="muted">(' + esc(s.time || '') + ')</span><br><span class="muted">' + names.map(esc).join(', ') + '</span></li>';
   });
-  eggsListEl.innerHTML = '';
-  if (items.length === 0) {
-    eggsListEl.innerHTML = '<p class="view-intro">No items match this filter.</p>';
-    return;
-  }
-  for (const item of items) {
-    const article = document.createElement('article');
-    article.className = 'egg';
-    const title = document.createElement('h3');
-    title.textContent = item.title;
-    const meta = document.createElement('p');
-    meta.className = 'egg-meta';
-    meta.textContent =
-      item.kind.toUpperCase() + ' · ' + item.status.toUpperCase() +
-      (item.sources.length > 0 ? ' · ' + item.sources.join(', ') : '');
-    const text = document.createElement('p');
-    text.textContent = item.text;
-    article.append(title, meta, text);
-    eggsListEl.append(article);
-  }
+  el.innerHTML = '<h2>Roadmap — 7 stages</h2><ol class="mini-roadmap">' + stages.join('') + '</ol>';
+}
+
+export function renderRoadmap(el, panels, data, st) {
+  const stages = (panels.roadmap || [])
+    .map((s) => {
+      const names = (s.trophies || []).map((n) => {
+        const t = data.byName.get(n);
+        return '<li>' + esc(t ? shownName(t, st) : n) + '</li>';
+      });
+      const claims = (s.claims || [])
+        .map((c) => '<li>' + esc(c.text) + ' ' + srcChips(c.src, data.byCode) + '</li>')
+        .join('');
+      return (
+        '<section class="stage"><h3>Stage ' + s.stage + ' — ' + esc(s.title) + ' <span class="muted">(' + esc(s.time || '') + ')</span></h3>' +
+        '<ul class="stage-trophies">' + names.join('') + '</ul>' +
+        (claims ? '<ul class="claims">' + claims + '</ul>' : '') + '</section>'
+      );
+    })
+    .join('');
+  el.innerHTML = '<h2>Roadmap — 7 stages to the Platinum</h2><p class="muted">Play in stage order. Every stage claim carries its sources.</p>' + stages;
+}
+
+export function renderMissables(el, panels, data, st) {
+  const grid = ((panels.missables || {}).grid || [])
+    .map((row) => {
+      const items = (row.items || [])
+        .map((it) => {
+          const t = data.byName.get(it.trophy);
+          const name = t ? shownName(t, st) : it.trophy;
+          return (
+            '<article class="miss-item"><h4>' + esc(name) + ' <span class="risk risk-' + esc(it.risk || 'high') + '">' + esc((it.risk || 'high').toUpperCase()) + ' RISK</span></h4>' +
+            '<p>' + esc(it.text) + '</p>' + srcChips(it.src, data.byCode) + '</article>'
+          );
+        })
+        .join('');
+      return '<section class="chapter"><h3>' + esc(row.chapter) + '</h3><div class="miss-grid">' + items + '</div></section>';
+    })
+    .join('');
+  const save = ((panels.missables || {}).save_strategy || [])
+    .map((c) => '<li>' + esc(c.text) + ' ' + srcChips(c.src, data.byCode) + '</li>')
+    .join('');
+  el.innerHTML =
+    '<h2>Missables — what you can lose forever</h2>' +
+    '<p class="muted">Grid per chapter, in story order. Check the risk before every point of no return.</p>' +
+    grid +
+    (save ? '<h3>Save strategy</h3><ul class="claims">' + save + '</ul>' : '');
+}
+
+export function renderGlitch(el, panels, data) {
+  const g = panels.glitch || {};
+  const claim = (c) => '<li>' + esc(c.text) + ' ' + srcChips(c.src, data.byCode) + '</li>';
+  const claims = (g.claims || []).map(claim).join('');
+  const pro = (g.pro || []).map(claim).join('');
+  const con = (g.con || []).map(claim).join('');
+  const launch = (panels.launch_status || []).map(claim).join('');
+  const farming = (panels.farming || []).map(claim).join('');
+  const warnings = (panels.warnings || []).map(claim).join('');
+  el.innerHTML =
+    '<h2>Glitch &amp; farming</h2>' +
+    '<p><span class="tag unk">APOLLO GLITCH: ' + esc((g.status || 'reported').toUpperCase()) + '</span> <span class="muted">— debated, not confirmed. Read both sides before you try it.</span></p>' +
+    (claims ? '<ul class="claims">' + claims + '</ul>' : '') +
+    '<div class="procon"><section><h3>Pro — it works</h3><ul class="claims">' + (pro || '<li>No pro claims recorded.</li>') + '</ul></section>' +
+    '<section><h3>Con — it does not / it risks your save</h3><ul class="claims">' + (con || '<li>No con claims recorded.</li>') + '</ul></section></div>' +
+    (g.warning ? '<div class="warn-box"><b>⚠ ' + esc(g.warning) + '</b></div>' : '') +
+    (farming ? '<h3>Legal farming tricks</h3><ul class="claims">' + farming + '</ul>' : '') +
+    (warnings ? '<h3>Warnings</h3><ul class="claims">' + warnings + '</ul>' : '') +
+    (launch ? '<h3>Launch status</h3><ul class="claims">' + launch + '</ul>' : '');
+}
+
+export function renderDisputes(el, panels, data) {
+  const list = (panels.disputes || [])
+    .map((d) => {
+      const claim = (c) => '<li>' + esc(c.text) + ' ' + srcChips(c.src, data.byCode) + '</li>';
+      const pro = (d.pro || []).map(claim).join('');
+      const con = (d.con || []).map(claim).join('');
+      return (
+        '<article class="dispute"><h3>' + esc(d.topic) + ' <span class="tag">' + esc((d.status || 'open').toUpperCase()) + '</span></h3>' +
+        '<div class="procon"><section><h4>Pro</h4><ul class="claims">' + (pro || '<li>—</li>') + '</ul></section>' +
+        '<section><h4>Con</h4><ul class="claims">' + (con || '<li>—</li>') + '</ul></section></div></article>'
+      );
+    })
+    .join('');
+  el.innerHTML = '<h2>Disputes — where the guides disagree</h2><p class="muted">' + (panels.disputes || []).length + ' open disagreements, argued claim by claim with sources on both sides.</p>' + list;
+}
+
+export function renderEggs(el, eggs) {
+  const rows = eggs
+    .map(
+      (e) =>
+        '<tr><td>' + esc(e.title) + '</td><td>' + esc(e.category) + '</td><td><span class="tag">' + esc((e.status || 'reported').toUpperCase()) + '</span></td><td>' + esc(e.text) + ' ' + srcChips(e.src, null) + '</td></tr>',
+    )
+    .join('');
+  el.innerHTML =
+    '<h2>Easter eggs, bugs &amp; oddities — ' + eggs.length + ' items</h2>' +
+    '<p class="muted">Status per item: confirmed, reported, or disputed. Every item cites its source.</p>' +
+    '<table class="eggs"><thead><tr><th>Item</th><th>Type</th><th>Status</th><th>What it is</th></tr></thead><tbody>' + rows + '</tbody></table>';
+}
+
+export function renderNextUp(el, trophies, st) {
+  const sorted = [...trophies]
+    .filter((t) => !isEarned(st, t.name))
+    .sort((a, b) => (b.missable - a.missable) || (a.roadmap_stage - b.roadmap_stage) || (gradeRank(a.grade) - gradeRank(b.grade)));
+  const top = sorted.slice(0, 5);
+  el.innerHTML =
+    '<h2>Next up</h2>' +
+    (top.length === 0
+      ? '<p>Platinum earned — every trophy is checked. Leonida is yours.</p>'
+      : '<ol>' +
+        top
+          .map(
+            (t) =>
+              '<li><button type="button" data-select="' + esc(t.name) + '">' + esc(shownName(t, st)) + '</button> ' +
+              gradeBadge(t) + (t.missable ? ' <span class="tag miss">MISSABLE</span>' : '') + '</li>',
+          )
+          .join('') + '</ol>');
+}
+
+export function renderSources(el, data) {
+  el.innerHTML = data.sources
+    .map((s) => '<li><b>' + esc(s.code) + '</b> — ' + esc(s.name) + ' <span class="muted">' + esc(s.url || '') + ' · ' + (s.pages || []).length + ' pages</span></li>')
+    .join('');
 }
