@@ -1,45 +1,63 @@
-// Leonida Platinum Atlas — pure filters (Round 7, written fresh).
-export const KIND_LABELS = {
-  story: 'Story',
-  missable: 'Missable',
-  collectibles: 'Collectibles',
-  activities: 'Activities',
-  crime: 'Crime',
-};
+/* filters.js — kind / grade / search filtering and the spoiler rule. */
 
-export const GRADE_ORDER = ['platinum', 'gold', 'silver', 'bronze'];
+export const KIND_FILTERS = ["all", "story", "missable", "collectibles", "activities", "crime", "hidden"];
+export const GRADE_FILTERS = ["all", "platinum", "gold", "silver", "bronze"];
 
-export function gradeRank(grade) {
-  const i = GRADE_ORDER.indexOf(grade);
-  return i < 0 ? 99 : i;
+/* A trophy matches the kind chip: "missable" matches the missable flag,
+   "hidden" matches the hidden flag, anything else matches its kind. */
+export function matchesKind(trophy, kind) {
+  if (kind === "all") return true;
+  if (kind === "missable") return trophy.missable === true;
+  if (kind === "hidden") return trophy.hidden === true;
+  return trophy.kind === kind;
 }
 
-export function applyFilters(trophies, st) {
-  const q = (st.q || '').trim().toLowerCase();
-  return trophies.filter((t) => {
-    if (st.kind !== 'all' && t.kind !== st.kind) return false;
-    if (st.grade !== 'all' && t.grade !== st.grade) return false;
-    if (st.verified !== 'all' && t.verified !== st.verified) return false;
-    if (st.missableOnly && !t.missable) return false;
-    if (
-      q &&
-      !t.name.toLowerCase().includes(q) &&
-      !(t.description || '').toLowerCase().includes(q) &&
-      !(t.guide || '').toLowerCase().includes(q)
-    ) {
-      return false;
-    }
+export function matchesGrade(trophy, grade) {
+  if (grade === "all") return true;
+  return trophy.grade === grade;
+}
+
+export function matchesSearch(trophy, query) {
+  const q = (query || "").trim().toLowerCase();
+  if (!q) return true;
+  const haystack = `${trophy.name} ${trophy.description || ""} ${trophy.guide || ""}`.toLowerCase();
+  return haystack.includes(q);
+}
+
+/* Full filter pass over the trophy list. */
+export function applyFilters(trophies, { kind, grade, query, hideEarned, earned }) {
+  return trophies.filter((trophy) => {
+    if (!matchesKind(trophy, kind)) return false;
+    if (!matchesGrade(trophy, grade)) return false;
+    if (!matchesSearch(trophy, query)) return false;
+    if (hideEarned && earned.has(trophy.name)) return false;
     return true;
   });
 }
 
-export function filterCounts(trophies) {
-  const c = { all: trophies.length, missable: 0 };
-  for (const t of trophies) {
-    c[t.kind] = (c[t.kind] || 0) + 1;
-    c[t.grade] = (c[t.grade] || 0) + 1;
-    c[t.verified] = (c[t.verified] || 0) + 1;
-    if (t.missable) c.missable++;
-  }
-  return c;
+/* The spoiler shield masks a story trophy's name and description until it
+   is earned. Hidden trophies are masked the same way when the shield is on
+   and the trophy is still unearned. */
+export function isSpoilerMasked(trophy, { spoiler, earned }) {
+  if (!spoiler) return false;
+  if (earned.has(trophy.name)) return false;
+  if (trophy.kind === "story") return true;
+  if (trophy.hidden) return true;
+  return false;
+}
+
+/* Next Up: the earliest roadmap stage first, story before side content,
+   unearned trophies in roadmap order. */
+const KIND_ORDER = { story: 0, missable: 1, collectibles: 2, activities: 3, crime: 4 };
+
+export function nextUpTrophies(trophies, earned, limit = 5) {
+  const remaining = trophies.filter((trophy) => !earned.has(trophy.name));
+  remaining.sort((a, b) => {
+    const stageDiff = (a.roadmap_stage || 99) - (b.roadmap_stage || 99);
+    if (stageDiff !== 0) return stageDiff;
+    const kindDiff = (KIND_ORDER[a.kind] ?? 9) - (KIND_ORDER[b.kind] ?? 9);
+    if (kindDiff !== 0) return kindDiff;
+    return a.name.localeCompare(b.name);
+  });
+  return remaining.slice(0, limit);
 }
