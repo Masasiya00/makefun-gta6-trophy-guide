@@ -1,141 +1,106 @@
-// data.js — loads the four local JSON files and audits the claims.
-// Strict counting rule: a claim is any object that carries a `src` list.
-// Trophy names inside roadmap stages are NOT claims; each dispute side's
-// objects are counted on their own because each one carries its own src.
+/* data.js — fetch the four guide JSON files and count the audit numbers.
+   Strict rule: a claim is any object that carries a `src` list. Trophy
+   names listed inside a roadmap stage are NOT claims on their own; only
+   the stage's own claims array counts. A dispute panel counts once when
+   its pro/con sides are plain strings; when pro/con are arrays of claim
+   objects, each of those objects counts on its own. */
 
-const DATA_FILES = ['trophies.json', 'sources.json', 'panels.json', 'easter-eggs.json'];
-
-// The twelve main-story beats the spoiler shield hides by default.
-// Once a trophy is marked earned, its real name and description show again.
-export const SPOILER_STORY = new Set([
-  'Just Like Paradise',
-  'Paradise Lost',
-  'T**s Ass Drug Money',
-  'Vice City, Baby!',
-  'Top Of The World, Ma',
-  'You Gotta Know When to Get Off',
-  'Trust',
-  'Break the Bank',
-  'Family Matters',
-  'DWNFALL',
-  'Hi-Jacked',
-  'Snow Storm',
-]);
-
-export function isSpoilerHidden(trophy, spoilerOn, earned) {
-  if (!spoilerOn) return false;
-  if (earned) return false;
-  return trophy.kind === 'story' && SPOILER_STORY.has(trophy.name);
+export async function loadGuideData() {
+  const [trophyRes, sourceRes, panelRes, eggRes] = await Promise.all([
+    fetch("data/trophies.json"),
+    fetch("data/sources.json"),
+    fetch("data/panels.json"),
+    fetch("data/easter-eggs.json"),
+  ]);
+  const trophyDoc = await trophyRes.json();
+  const sourceDoc = await sourceRes.json();
+  const panelDoc = await panelRes.json();
+  const eggDoc = await eggRes.json();
+  const trophies = Array.isArray(trophyDoc) ? trophyDoc : trophyDoc.trophies;
+  const sources = Array.isArray(sourceDoc) ? sourceDoc : sourceDoc.sources;
+  const eggs = Array.isArray(eggDoc) ? eggDoc : eggDoc.items;
+  return { trophies, sources, panels: panelDoc, eggs };
 }
 
-export function displayName(trophy, spoilerOn, earned) {
-  return isSpoilerHidden(trophy, spoilerOn, earned) ? '??? (story trophy)' : trophy.name;
-}
-
-export function displayDescription(trophy, spoilerOn, earned) {
-  return isSpoilerHidden(trophy, spoilerOn, earned)
-    ? 'Hidden to protect the story. Mark this trophy earned to reveal it.'
-    : trophy.description;
-}
-
-export async function loadData() {
-  const out = {};
-  for (const file of DATA_FILES) {
-    const res = await fetch(`data/${file}`);
-    if (!res.ok) throw new Error(`Could not load data/${file} (${res.status})`);
-    out[file.replace('.json', '')] = await res.json();
-  }
-  return {
-    trophies: out.trophies.trophies,
-    sources: out.sources.sources,
-    panels: out.panels,
-    eggs: out['easter-eggs'].items,
-  };
-}
-
-// Gather every claim object in the dataset. Each entry keeps where it came
-// from so the audit strip and the detail views can show the same numbers.
+/* Gather every claim object ({text, src}) from all four data files. */
 export function collectAllClaims(data) {
-  const claims = [];
-  const push = (obj, where, text) => {
-    if (!obj || !Array.isArray(obj.src)) return;
-    claims.push({ src: obj.src, where, text: text ?? obj.text ?? obj.window ?? obj.trophy ?? '' });
+  const out = [];
+  const pushList = (list) => {
+    for (const item of list || []) out.push(item);
   };
-
-  for (const t of data.trophies) {
-    for (const step of t.steps || []) push(step, `trophy:${t.name}`, step.text);
+  for (const trophy of data.trophies) pushList(trophy.steps);
+  for (const stage of data.panels.roadmap || []) pushList(stage.claims);
+  const glitch = data.panels.glitch || {};
+  pushList(glitch.claims);
+  pushList(glitch.pro);
+  pushList(glitch.con);
+  pushList(data.panels.missables && data.panels.missables.save_strategy);
+  pushList(data.panels.warnings);
+  pushList(data.panels.farming);
+  pushList(data.panels.launch_status);
+  for (const row of (data.panels.missables && data.panels.missables.grid) || []) {
+    pushList(row.items);
   }
-  const p = data.panels;
-  for (const stage of p.roadmap || []) {
-    for (const c of stage.claims || []) push(c, `roadmap:stage ${stage.stage}`, c.text);
+  for (const dispute of data.panels.disputes || []) {
+    const proIsList = Array.isArray(dispute.pro);
+    const conIsList = Array.isArray(dispute.con);
+    if (proIsList || conIsList) {
+      if (proIsList) pushList(dispute.pro);
+      if (conIsList) pushList(dispute.con);
+    } else if (dispute.src) {
+      /* Pro/con are plain strings: the panel itself is the single claim. */
+      out.push(dispute);
+    }
   }
-  for (const c of p.glitch?.claims || []) push(c, 'glitch', c.text);
-  for (const c of p.glitch?.pro || []) push(c, 'glitch:pro', c.text);
-  for (const c of p.glitch?.con || []) push(c, 'glitch:con', c.text);
-  for (const chapter of p.missables?.grid || []) {
-    for (const item of chapter.items || []) push(item, `missables:${chapter.chapter}`, `${item.trophy} — ${item.window}`);
-  }
-  for (const c of p.missables?.save_strategy || []) push(c, 'missables:save strategy', c.text);
-  for (const c of p.warnings || []) push(c, 'warnings', c.text);
-  for (const c of p.farming || []) push(c, 'farming', c.text);
-  for (const c of p.launch_status || []) push(c, 'launch status', c.text);
-  for (const d of p.disputes || []) {
-    for (const c of d.pro || []) push(c, `dispute:${d.topic}:pro`, c.text);
-    for (const c of d.con || []) push(c, `dispute:${d.topic}:con`, c.text);
-  }
-  for (const egg of data.eggs || []) push(egg, `egg:${egg.title}`, egg.text);
-  return claims;
+  pushList(data.eggs);
+  return out;
 }
 
+/* Audit numbers for the header strip: total claims, how many cite a
+   source at all, and how many cite two or more sources. */
 export function computeAudit(data) {
   const claims = collectAllClaims(data);
-  const total = claims.length;
-  const cited = claims.filter((c) => c.src.length >= 1).length;
-  const twoPlus = claims.filter((c) => c.src.length >= 2).length;
-  const pages = data.sources.reduce((n, s) => n + (s.pages ? s.pages.length : 0), 0);
-  const steps = data.trophies.reduce((n, t) => n + (t.steps ? t.steps.length : 0), 0);
-  const stepTwoPlus = data.trophies.reduce(
-    (n, t) => n + (t.steps || []).filter((s) => s.src && s.src.length >= 2).length, 0);
-  const eggsTwoPlus = (data.eggs || []).filter((e) => e.src && e.src.length >= 2).length;
-  return {
-    total, cited, twoPlus,
-    sources: data.sources.length,
-    pages,
-    steps, stepTwoPlus,
-    eggs: data.eggs.length, eggsTwoPlus,
-    disputes: (data.panels.disputes || []).length,
-    trophies: data.trophies.length,
-  };
+  let cited = 0;
+  let twoPlus = 0;
+  for (const claim of claims) {
+    const src = claim.src || [];
+    if (src.length > 0) cited += 1;
+    if (src.length >= 2) twoPlus += 1;
+  }
+  return { total: claims.length, cited, twoPlus, sources: data.sources.length };
 }
 
-// ---- lookups ---------------------------------------------------------------
-
-export function sourceByCode(data, code) {
-  return data.sources.find((s) => s.code === code) || null;
+export function sourceNameByCode(data) {
+  const map = new Map();
+  for (const source of data.sources) map.set(source.code, source);
+  return map;
 }
 
-export function sourceName(data, code) {
-  const s = sourceByCode(data, code);
-  return s ? s.name : code;
+export function sourceUrlByCode(data) {
+  const map = new Map();
+  for (const source of data.sources) map.set(source.code, source.url);
+  return map;
 }
 
+/* Display label for a source code: the source name, or the bare code. */
+export function sourceLabel(code, nameByCode) {
+  const source = nameByCode.get(code);
+  return source ? source.name : code;
+}
+
+/* Trophy helpers used by the views. */
 export function trophyByName(data, name) {
-  return data.trophies.find((t) => t.name === name) || null;
+  return data.trophies.find((trophy) => trophy.name === name) || null;
 }
 
-export function disputesForTrophy(data, name) {
-  const needle = name.toLowerCase();
-  return (data.panels.disputes || []).filter((d) => d.topic.toLowerCase().includes(needle));
+export function trophiesForStage(data, stage) {
+  return data.trophies.filter((trophy) => trophy.roadmap_stage === stage);
 }
 
-export function gradeLabel(grade) {
-  return grade.charAt(0).toUpperCase() + grade.slice(1);
-}
-
-export function escapeHtml(s) {
-  return String(s ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+export function gradeCounts(data) {
+  const counts = { platinum: 0, gold: 0, silver: 0, bronze: 0 };
+  for (const trophy of data.trophies) {
+    if (Object.hasOwn(counts, trophy.grade)) counts[trophy.grade] += 1;
+  }
+  return counts;
 }
