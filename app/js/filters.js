@@ -1,54 +1,66 @@
-// Pure filters for the trophy list and the easter-egg list. No DOM here,
-// so the rules are easy to test: kind, grade, earned state, hidden flag,
-// free-text search, category and verification status.
-export function filterTrophies(list, opts) {
-  const q = (opts.query || '').trim().toLowerCase();
-  return list.filter((t) => {
-    if (opts.kind && opts.kind !== 'all') {
-      if (opts.kind === 'missable' && !t.missable) return false;
-      if (opts.kind === 'hidden' && !t.hidden) return false;
-      if (opts.kind === 'earned' && !opts.earned.has(t.name)) return false;
-      if (opts.kind === 'remaining' && opts.earned.has(t.name)) return false;
-      if (opts.kind === 'online') return false; // GTA VI has 0 online trophies.
-      if (!['missable', 'hidden', 'earned', 'remaining', 'online'].includes(opts.kind) && t.filterKind !== opts.kind) return false;
-    }
-    if (opts.grade && opts.grade !== 'all' && t.grade !== opts.grade) return false;
-    if (q) {
-      const hay = (t.name + ' ' + t.description + ' ' + t.guide).toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
+// filters.js — combine kind filter + text search + spoiler setting
+// into one predicate over the trophy list, and apply the spoiler
+// masking class to the rendered rows.
+
+/** Kind filter values offered by the chips in #filter-bar. */
+export const KIND_FILTERS = [
+  'all',
+  'story',
+  'missable',
+  'collectibles',
+  'activities',
+  'crime',
+  'hidden',
+  'online',
+];
+
+/** Does one trophy pass the kind filter? */
+export function matchesKind(trophy, kind) {
+  if (!kind || kind === 'all') return true;
+  if (kind === 'missable') return trophy.missable === true;
+  if (kind === 'hidden') return trophy.hidden === true;
+  if (kind === 'online') return trophy.kind === 'online';
+  return trophy.kind === kind;
 }
 
-export function filterEggs(list, opts) {
-  const q = (opts.query || '').trim().toLowerCase();
-  return list.filter((e) => {
-    if (opts.category && opts.category !== 'all' && e.category !== opts.category) return false;
-    if (opts.status && opts.status !== 'all' && e.status !== opts.status) return false;
-    if (q) {
-      const hay = (e.title + ' ' + e.location + ' ' + e.description).toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
+/** Does one trophy match the free-text query (name + description + guide)? */
+export function matchesSearch(trophy, query) {
+  const q = (query || '').trim().toLowerCase();
+  if (!q) return true;
+  const haystack = [trophy.name, trophy.description, trophy.guide]
+    .join(' ')
+    .toLowerCase();
+  return q.split(/\s+/).every((word) => haystack.includes(word));
 }
 
-// The Next Up pick: the first unearned trophy in roadmap order, preferring
-// counted trophies the player has already started (closest to done first).
-export function nextUp(list, state) {
-  const earned = new Set(state.earned);
-  const open = list.filter((t) => !earned.has(t.name));
-  if (open.length === 0) return null;
-  const started = open.filter((t) => t.count && (state.counts[t.name] || 0) > 0);
-  if (started.length > 0) {
-    started.sort((a, b) => {
-      const pa = (state.counts[a.name] || 0) / a.count.target;
-      const pb = (state.counts[b.name] || 0) / b.count.target;
-      return pb - pa;
-    });
-    return started[0];
-  }
-  const byStage = [...open].sort((a, b) => (a.stage - b.stage) || (a.name < b.name ? -1 : 1));
-  return byStage[0];
+/**
+ * Filter the trophy list by kind + search. Returns a new array.
+ * `state` is { kind, query }.
+ */
+export function applyFilters(trophies, state) {
+  return trophies.filter(
+    (t) => matchesKind(t, state.kind) && matchesSearch(t, state.query),
+  );
 }
+
+/**
+ * Is this trophy's name/description spoiler-masked right now?
+ * Spoiler-safe hides STORY trophies until they are earned.
+ */
+export function isSpoilerHidden(trophy, spoilerOn, isEarned) {
+  return spoilerOn === true && trophy.kind === 'story' && !isEarned;
+}
+
+/**
+ * Apply (or remove) the spoiler masking class on a rendered row element.
+ * Rows carry .spoiler-hidden; the stylesheet hides .tname/.tdesc inside it.
+ */
+export function applySpoilerClass(rowEl, trophy, spoilerOn, isEarned) {
+  rowEl.classList.toggle(
+    'spoiler-hidden',
+    isSpoilerHidden(trophy, spoilerOn, isEarned),
+  );
+}
+
+/** The placeholder text a spoiler-masked trophy shows instead of its name. */
+export const SPOILER_PLACEHOLDER = 'Hidden story trophy — earn it to reveal';
