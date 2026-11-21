@@ -1,991 +1,111 @@
-{
- "roadmap": [
-  {
-   "stage": 1,
-   "title": "Story + meditasi Chapter 1",
-   "time": "60-80 jam story",
-   "trophies": [
-    "Just Like Paradise",
-    "Paradise Lost",
-    "T**s Ass Drug Money",
-    "Vice City, Baby!",
-    "Top Of The World, Ma",
-    "You Gotta Know When to Get Off",
-    "Trust",
-    "Break the Bank",
-    "Family Matters",
-    "DWNFALL",
-    "Hi-Jacked",
-    "Snow Storm",
-    "Positive Mental Attitude"
-   ],
-   "claims": [
-    {
-     "text": "Cerita utama GTA VI terdiri dari 5 chapter dan memakan waktu sekitar 60 sampai 80 jam.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Semua 12 trophy story terbuka otomatis saat misi terkait selesai; tidak ada yang missable.",
-     "src": [
-      "ppx",
-      "ig"
-     ]
-    },
-    {
-     "text": "Meditasi di balkon rumah Jason di Chapter 1 hanya ada selama Chapter 1, jadi lakukan saat muncul.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Simpan manual di awal dan akhir tiap chapter karena tidak ada mission replay.",
-     "src": [
-      "ppx",
-      "val"
-     ]
-    }
-   ]
-  },
-  {
-   "stage": 2,
-   "title": "Stranger questlines",
-   "time": "Setelah Chapter 2-3",
-   "trophies": [
-    "Road to Rehabilitation",
-    "This Was No Boat Accident",
-    "The Lone Rider",
-    "Strangers & Freaks",
-    "Supply & Demand",
-    "Spin On This!",
-    "Fair Game"
-   ],
-   "claims": [
-    {
-     "text": "Ada 7 trophy dari questline stranger, termasuk 6 questline final dan 1 trophy 8 strand.",
-     "src": [
-      "ppx",
-      "kit"
-     ]
-    },
-    {
-     "text": "Questline Andy eksklusif untuk Lucia dan questline Tyrone serta Bret eksklusif untuk Jason.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Banyak questline terkenal TIDAK dihitung untuk Strangers & Freaks, termasuk Andy, Billy, dan Tyrone.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Semua pemberi quest terkait trophy kembali tersedia setelah story selesai.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  },
-  {
-   "stage": 3,
-   "title": "Partner crimes",
-   "time": "Setelah Chapter 2",
-   "trophies": [
-    "Hot Together",
-    "Retail Therapy",
-    "Gunslinger",
-    "Catch Me If You Can",
-    "Challenging Tank",
-    "Personal Best",
-    "Actions Speak Louder",
-    "The Truth Is Out There"
-   ],
-   "claims": [
-    {
-     "text": "Trophy partner crime paling awal terbuka setelah Chapter 2 Coffee Break, saat free-roam berdua tersedia.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Hot Together sering didapat otomatis saat merampok bank vault besar yang memicu wanted 4 bintang.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Combat Focus punya 4 level, dan di Level 4 trophy Gunslinger jauh lebih mudah.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Event UFO untuk The Truth Is Out There hanya muncul setelah Chapter 1 dan setelah jam 02:00.",
-     "src": [
-      "ppx",
-      "gs"
-     ]
-    }
-   ]
-  },
-  {
-   "stage": 4,
-   "title": "Aktivitas dan balapan",
-   "time": "Cleanup menengah",
-   "trophies": [
-    "Cunning Stunts",
-    "Master of None",
-    "The Shootist",
-    "Top Fun",
-    "Earn Cash, Not Kudos",
-    "Baited My Tackle",
-    "Stick Fiddler",
-    "One Last Thing"
-   ],
-   "claims": [
-    {
-     "text": "Ada 397 stunt di dunia game, dan trophy Cunning Stunts butuh 250 di antaranya.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "The Shootist butuh medali emas di semua 42 Shooting Range challenge di 12 lokasi.",
-     "src": [
-      "ppx",
-      "gm"
-     ]
-    },
-    {
-     "text": "Ada 14 lokasi Top Fun Drone Race dengan total 42 balapan drone.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Trophy aktivitas ini hampir semuanya otomatis selesai di jalan menuju 100% Completion.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    }
-   ]
-  },
-  {
-   "stage": 5,
-   "title": "Koleksi dan scanning",
-   "time": "Cleanup menengah",
-   "trophies": [
-    "Don't Touch My Deck",
-    "You WAiNKer!",
-    "Whip It Good",
-    "The Goodtime State"
-   ],
-   "claims": [
-    {
-     "text": "Ada 18 set kartu koleksi dengan total 480 kartu di dunia game.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "WAiNK bisa dipakai untuk scan lokasi dan kendaraan; ada lebih dari 100 lokasi scan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Total kendaraan ada 557, dengan 277 base model yang dihitung untuk 100%.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Membuka seluruh kabut peta paling cepat dilakukan dengan terbang memakai pesawat.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  },
-  {
-   "stage": 6,
-   "title": "Perampokan dan fencing",
-   "time": "Chapter 3-4 ke atas",
-   "trophies": [
-    "Sneakthief",
-    "Maximum Withdrawal",
-    "A Classic Blitz Play",
-    "Pest Control",
-    "In The Beginning…",
-    "Capital Offense",
-    "Let’s Go Bowling",
-    "Bad Luck, I Guess",
-    "Dime on the Dollar",
-    "Treat Yo Self",
-    "Little Boxes",
-    "On the Spot"
-   ],
-   "claims": [
-    {
-     "text": "Ada 8 Large Bank Jobs total; trophy Maximum Withdrawal butuh 5 dan 100% butuh 8.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Satu bank vault bisa memberi sampai $205.000, cara legit tercepat mengumpulkan uang endgame.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Dye Pack Jammer terbuka dari misi Chapter 3 Credit Check dan wajib untuk mencuci marked bills.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Garasi yang bisa dibeli ada 8 dengan total harga $160.000.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  },
-  {
-   "stage": 7,
-   "title": "100% checklist cleanup dan Platinum",
-   "time": "Setelah tamat",
-   "trophies": [
-    "A Long Road",
-    "Vice Got a Price!",
-    "Ten Pin"
-   ],
-   "claims": [
-    {
-     "text": "Checklist 100% terbuka setelah tamat lewat Progress, Stats, 100% Completion.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Bobot checklist: Story & Tasks 45%, Exploration & Activities 45%, Discovery 10%.",
-     "src": [
-      "gm",
-      "gm100"
-     ]
-    },
-    {
-     "text": "Tidak ada satu pun syarat 100% yang missable.",
-     "src": [
-      "ppx",
-      "ppx100"
-     ]
-    },
-    {
-     "text": "Platinum jatuh begitu 54 trophy lain dikantongi; tidak butuh multiplayer atau DLC.",
-     "src": [
-      "ppx",
-      "ig"
-     ]
-    }
-   ]
-  }
- ],
- "missables": {
-  "grid": [
-   {
-    "chapter": "Chapter 1",
-    "items": [
-     {
-      "trophy": "Positive Mental Attitude",
-      "risk": "missable",
-      "text": "Meditasi balkon rumah Jason hanya ada selama Chapter 1, setelah misi Down to Earth.",
-      "src": [
-       "ppx"
-      ]
-     },
-     {
-      "trophy": "Just Like Paradise",
-      "risk": "safe",
-      "text": "Misi pembuka Gone Fishing otomatis; tidak bisa miss.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Paradise Lost",
-      "risk": "safe",
-      "text": "Tamatkan Chapter 1; otomatis saat chapter berakhir.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     }
-    ]
-   },
-   {
-    "chapter": "Chapter 2",
-    "items": [
-     {
-      "trophy": "T**s Ass Drug Money",
-      "risk": "safe",
-      "text": "Tamatkan Chapter 2; otomatis saat chapter berakhir.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Trust",
-      "risk": "safe",
-      "text": "Misi Breakfast Run otomatis; tidak bisa miss.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Let’s Go Bowling",
-      "risk": "safe",
-      "text": "Kingpin Bowling bisa diulang; ikon perampokan respawn kalau belum lengkap.",
-      "src": [
-       "ppx"
-      ]
-     }
-    ]
-   },
-   {
-    "chapter": "Chapter 3",
-    "items": [
-     {
-      "trophy": "Vice City, Baby!",
-      "risk": "safe",
-      "text": "Tamatkan Chapter 3; otomatis saat chapter berakhir.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Break the Bank",
-      "risk": "safe",
-      "text": "Misi The Cartel Heist otomatis; tidak bisa miss.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Bad Luck, I Guess",
-      "risk": "safe",
-      "text": "Rampok ulang Payday Loans bisa dilakukan kapan saja setelah Chapter 2 atau 3.",
-      "src": [
-       "ppx",
-       "dm"
-      ]
-     }
-    ]
-   },
-   {
-    "chapter": "Chapter 4",
-    "items": [
-     {
-      "trophy": "Top Of The World, Ma",
-      "risk": "safe",
-      "text": "Tamatkan Chapter 4; otomatis saat chapter berakhir.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Maximum Withdrawal",
-      "risk": "safe",
-      "text": "Bank vault bisa dirampok setelah tamat; tidak ada batas waktu.",
-      "src": [
-       "ppx"
-      ]
-     }
-    ]
-   },
-   {
-    "chapter": "Chapter 5",
-    "items": [
-     {
-      "trophy": "You Gotta Know When to Get Off",
-      "risk": "safe",
-      "text": "Misi final otomatis; tidak bisa miss.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     },
-     {
-      "trophy": "Snow Storm",
-      "risk": "safe",
-      "text": "Misi Operation Savage Glory otomatis; tidak bisa miss.",
-      "src": [
-       "ppx",
-       "kit"
-      ]
-     }
-    ]
-   }
-  ],
-  "save_strategy": [
-   {
-    "text": "GTA VI punya 15 slot save manual ditambah 1 autosave.",
-    "src": [
-     "ppx"
-    ]
-   },
-   {
-    "text": "Simpan manual di awal dan akhir tiap chapter: 10 save untuk pengaman chapter.",
-    "src": [
-     "ppx"
-    ]
-   },
-   {
-    "text": "Putar 5 slot sisanya untuk cleanup free-roam setelah tamat.",
-    "src": [
-     "ppx"
-    ]
-   },
-   {
-    "text": "Tidak ada mission replay, jadi save chapter adalah satu-satunya pengaman kalau ada yang terlewat.",
-    "src": [
-     "ppx"
-    ]
-   },
-   {
-    "text": "Hati-hati menimpa save; putar slot save saat cleanup free-roam.",
-    "src": [
-     "val"
-    ]
-   },
-   {
-    "text": "Simpan manual berkala juga melindungi dari crash dan hilang progres di prologue.",
-    "src": [
-     "nbk",
-     "gwt"
-    ]
-   }
-  ]
- },
- "glitch": {
-  "status": "REPORTED",
-  "claims": [
-   {
-    "text": "Glitch uang Apollo Aggregates adalah glitch uang terbesar yang diperdebatkan saat ini.",
-    "src": [
-     "kee",
-     "abt"
-    ]
-   },
-   {
-    "text": "Lokasinya gudang merah Apollo Aggregates, timur Hamlet, South Vice-Dale County, utara Key Lento.",
-    "src": [
-     "kee",
-     "abt"
-    ]
-   },
-   {
-    "text": "Hasilnya sekitar $8.640 per putaran, dan putaran pertama sekitar $11.000 sampai $11.280.",
-    "src": [
-     "kee",
-     "abt"
-    ]
-   },
-   {
-    "text": "Loot dijual ke Brian's Lockup, barat daya Key Lento, dengan kode keypad 7700.",
-    "src": [
-     "kee",
-     "abt"
-    ]
-   }
-  ],
-  "pro": [
-   {
-    "text": "KeeNgamer melaporkan glitch ini bekerja di versi launch, dengan langkah save dan reload yang detail.",
-    "src": [
-     "kee"
-    ]
-   },
-   {
-    "text": "allblogthings juga melaporkan glitch ini bekerja, dengan hasil putaran pertama sekitar $11.000.",
-    "src": [
-     "abt"
-    ]
-   },
-   {
-    "text": "Cara kerjanya: loot gudang respawn saat save di-load, sementara barang di bagasi kendaraan tetap ada.",
-    "src": [
-     "kee",
-     "abt"
-    ]
-   },
-   {
-    "text": "Syaratnya kendaraan pribadi dengan bagasi, paling baik dari Chapter 2.",
-    "src": [
-     "kee"
-    ]
-   }
-  ],
-  "con": [
-   {
-    "text": "afleurdenet menyatakan tidak ada infinite-money glitch yang bekerja saat ini.",
-    "src": [
-     "afl"
-    ]
-   },
-   {
-    "text": "afleurdenet memperingatkan sebagian besar video glitch uang adalah palsu, memakai footage GTA Online lama.",
-    "src": [
-     "afl"
-    ]
-   },
-   {
-    "text": "vanotherlevel mencatat sampai 18 Nov belum ada outlet yang melaporkan working money glitch atau duplication glitch.",
-    "src": [
-     "val"
-    ]
-   },
-   {
-    "text": "Banyak situs cash generator adalah phishing; jangan pernah memasukkan kredensial PSN, Xbox, atau Rockstar ke situs pihak ketiga.",
-    "src": [
-     "afl"
-    ]
-   }
-  ],
-  "warning": "REPORTED — belum terverifikasi penuh, 2 sumber pro vs 2 sumber kontra, dan bisa di-patch kapan saja. Jangan andalkan glitch ini untuk platinum; cara legit seperti bank vault sampai $205.000 per bank selalu tersedia."
- },
- "launch_status": [
-  {
-   "text": "GTA VI resmi rilis 19 November 2026 untuk PlayStation 5 dan Xbox Series X|S.",
-   "src": [
-    "rck",
-    "wiki"
-   ]
-  },
-  {
-   "text": "Dua update pra-rilis terbit tanpa patch notes: v01.002.000 tanggal 13 Nov dan v01.002.001 tanggal 16 Nov.",
-   "src": [
-    "dlc"
-   ]
-  },
-  {
-   "text": "Update 13 Nov berukuran sekitar 1,07 GB di PS5 dan 2,18 GB di Xbox.",
-   "src": [
-    "dlc"
-   ]
-  },
-  {
-   "text": "Update 16 Nov berukuran sekitar 602,5 MB di PS5 dan 1,6 GB di Xbox.",
-   "src": [
-    "dlc"
-   ]
-  },
-  {
-   "text": "PSN sempat outage pada malam 18 Nov, jam sebelum unlock, dengan puncak sekitar 10.000 laporan di AS dan 6.000 di UK.",
-   "src": [
-    "dlc"
-   ]
-  },
-  {
-   "text": "PSN outage itu teratasi pada Rabu siang dan merupakan masalah sisi Sony, bukan bug game.",
-   "src": [
-    "dlc"
-   ]
-  },
-  {
-   "text": "Per 18 sampai 20 Nov belum ada daftar bug in-game terverifikasi dari outlet mana pun; game dinilai sangat polished.",
-   "src": [
-    "cg"
-   ]
-  },
-  {
-   "text": "Rumor Rockstar minta maaf dan fix tanggal 25 Nov tidak punya dukungan di kanal resmi Rockstar.",
-   "src": [
-    "dlc",
-    "cg"
-   ]
-  }
- ],
- "disputes": [
-  {
-   "topic": "Personal Best",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx: trophy ini soal mencapai Strength maksimum dengan Jason DAN Lucia bersamaan.",
-     "src": [
-      "ppx"
-     ]
-    },
-    {
-     "text": "Strength bisa dinaikkan lewat workout di fitness club atau di rumah setelah story.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "ofzenandcomputing menyebut trophy ini sebagai story trophy yang terbuka selama campaign.",
-     "src": [
-      "ofz"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Bad Luck, I Guess — earliest chapter",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx: paling awal setelah Chapter 2, saat bisa main sebagai Lucia.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "damnmodz: setelah mendapat Dye Pack Jammer di Chapter 3 sebagai lead terbaik.",
-     "src": [
-      "dm"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Apollo money glitch",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "KeeNgamer melaporkan glitch Apollo Aggregates bekerja di versi launch.",
-     "src": [
-      "kee"
-     ]
-    },
-    {
-     "text": "allblogthings juga melaporkan glitch ini bekerja dengan hasil sekitar $11.000 di putaran pertama.",
-     "src": [
-      "abt"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "afleurdenet: tidak ada infinite-money glitch yang bekerja saat ini.",
-     "src": [
-      "afl"
-     ]
-    },
-    {
-     "text": "vanotherlevel: sampai 18 Nov belum ada outlet yang melaporkan working money glitch.",
-     "src": [
-      "val"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Meditasi Chapter 1 wajib atau tidak",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx mendapat trophy setelah melakukan meditasi balkon Chapter 1, jadi lakukan saja.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "Meditasi balkon menambah counter +1 tapi tidak ditandai sebagai Meditation Spot, jadi status wajibnya belum jelas.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "A Classic Blitz Play — cara aman vs cepat",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "Cara aman: lewat misi bank vault Chapter 4, yang dihitung sebagai merampok armored truck.",
-     "src": [
-      "ppx",
-      "dm"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "Cara cepat merampok truk langsung dilaporkan bisa membuat trophy gagal pop.",
-     "src": [
-      "dm"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "The Truth Is Out There — pemicu trophy",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx dan GameSpot: pemicu adalah penculikan UFO di Kelly County setelah jam 02:00.",
-     "src": [
-      "ppx",
-      "gs"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "TechTudo via Cut.pro mengklaim ritual Capri membuka trophy yang sama; keduanya tidak bisa benar bersamaan.",
-     "src": [
-      "grt"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Kode keypad lab alien",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx dan walkthrough YouTube: kode dari mimpi biasanya 2134.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "OutputLag: coba 2314 dulu lalu 2341; tidak ada satu kode yang bekerja di semua save.",
-     "src": [
-      "out"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Durasi story",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx: cerita utama sekitar 60 sampai 80 jam.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "Riset GTA VI asli: durasi cerita sekitar 50 sampai 60 jam menurut reviewer.",
-     "src": [
-      "wiki"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Waktu platinum",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PushSquare menyebut platinum memakan waktu sekitar 300 jam.",
-     "src": [
-      "psq"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "PowerPyx menyebut angka sekitar 200 jam untuk platinum.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "100% Completion — seberapa berat",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx: syarat 100% lunak, sekitar 60% true completion.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "gamemapa: bobot checklist terbagi 45% story, 45% eksplorasi, dan 10% discovery.",
-     "src": [
-      "gm",
-      "gm100"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Hidden slot ke-16 non-story",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "28 trophy hidden terkonfirmasi: 12 story dan 16 non-story.",
-     "src": [
-      "ppx",
-      "ig"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "Hanya 15 non-story hidden yang teridentifikasi pasti; slot ke-16 belum teridentifikasi, kandidatnya Catch Me If You Can atau Challenging Tank.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  },
-  {
-   "topic": "Ten Pin",
-   "status": "disputed",
-   "pro": [
-    {
-     "text": "PowerPyx: dugaan terkuat adalah tendangan musuh saat melee drive-by dari motor.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ],
-   "con": [
-    {
-     "text": "Tidak ada sumber yang membuktikan langkah pastinya per 21 Nov 2026.",
-     "src": [
-      "ppx"
-     ]
-    }
-   ]
-  }
- ],
- "warnings": [
-  {
-   "text": "Cheat menonaktifkan trophy DAN saving; jangan pakai cheat di save platinum.",
-   "src": [
-    "ppx",
-    "gm"
-   ]
-  },
-  {
-   "text": "Status Criminal Profile Irredeemable itu PERMANEN; polisi jadi lebih agresif dan menembak di tempat.",
-   "src": [
-    "ppx",
-    "gm"
-   ]
-  },
-  {
-   "text": "Tidak ada mission replay dan tidak ada New Game+ di GTA VI.",
-   "src": [
-    "ppx"
-   ]
-  },
-  {
-   "text": "Daftar cheat baru terbuka setelah credits, menurut GamesFuze.",
-   "src": [
-    "ppx"
-   ]
-  },
-  {
-   "text": "Tidak ada trophy online; semua 55 trophy bisa diraih dari single-player.",
-   "src": [
-    "ppx",
-    "ig"
-   ]
-  },
-  {
-   "text": "0 trophy glitched menurut PowerPyx; tidak ada laporan trophy yang tidak bisa pop.",
-   "src": [
-    "ppx"
-   ]
-  }
- ],
- "farming": [
-  {
-   "text": "Loop shooting range 5 detik menaikkan Focus dengan cepat, berguna untuk Gunslinger dan The Shootist.",
-   "src": [
-    "val"
-   ]
-  },
-  {
-   "text": "Terowongan kereta utara Ambrosia adalah tempat kabur terbaik dari wanted 4 bintang; helikopter tidak bisa melihat ke dalam.",
-   "src": [
-    "ppx",
-    "val"
-   ]
-  },
-  {
-   "text": "Berdiri di jalan ramai dan scan kendaraan yang lewat menyelesaikan Whip It Good secara natural.",
-   "src": [
-    "ppx"
-   ]
-  },
-  {
-   "text": "Meditasi sebagai Jason DAN Lucia di spot yang sama memberi +2 dan hemat waktu 50%.",
-   "src": [
-    "ppx"
-   ]
-  },
-  {
-   "text": "Workout bareng partner memberi progres Strength ganda untuk Personal Best.",
-   "src": [
-    "ppx"
-   ]
-  },
-  {
-   "text": "Bank vault besar memberi sampai $205.000 per bank; ada 8 vault total.",
-   "src": [
-    "ppx"
-   ]
-  },
-  {
-   "text": "Diskon senjata pertama: clerk Andrew memberi diskon 50% untuk shotgun Fortune & Son Moreland 850, dari $700 jadi $350, karena Jason ex-militer.",
-   "src": [
-    "val"
-   ]
-  },
-  {
-   "text": "Pay 'n' Spray hanya membersihkan mobil dari deskripsi polisi, bukan pakaian atau wajahmu.",
-   "src": [
-    "val"
-   ]
-  },
-  {
-   "text": "Ganti pakaian dan rambut mengubah deskripsi yang dilihat polisi.",
-   "src": [
-    "val"
-   ]
-  },
-  {
-   "text": "Adrenaline memperpanjang durasi Combat Focus untuk Gunslinger.",
-   "src": [
-    "ppx"
-   ]
-  }
- ]
+{"roadmap": [
+{"stage": 1, "title": "Story + meditasi Chapter 1", "time": "60-80 jam story", "trophies": ["Just Like Paradise", "Paradise Lost", "Positive Mental Attitude"], "claims": [
+{"text": "Cerita GTA VI punya 5 chapter dan durasi sekitar 60 sampai 80 jam, dengan 12 trophy story yang pop otomatis.", "src": ["ppx", "wiki"]},
+{"text": "Meditasi pertama di balkon rumah Jason hanya tersedia selama Chapter 1 dan berpotensi missable, jadi lakukan saat muncul.", "src": ["ppx", "psq"]},
+{"text": "Chapter 1 berakhir setelah misi pertama Chapter 2, What's in the Bag, dan trophy Paradise Lost pop di titik itu.", "src": ["ppx", "gm"]},
+{"text": "Tidak ada mission replay, jadi simpan manual di awal dan akhir tiap chapter sebagai pengaman.", "src": ["ppx", "gm"]}]},
+{"stage": 2, "title": "Stranger questlines", "time": "Setelah Chapter 2-3", "trophies": ["T**s Ass Drug Money", "Trust", "Road to Rehabilitation", "This Was No Boat Accident", "The Lone Rider", "Strangers & Freaks", "Supply & Demand", "Spin On This!", "Fair Game"], "claims": [
+{"text": "Tujuh questline stranger memberi trophy final masing-masing: Andy, Kenton, Billy, Randy, Tyrone, dan Bret, plus trophy Strangers & Freaks untuk 8 strand.", "src": ["ppx", "gm"]},
+{"text": "Questline Kirk soal Skunk Ape dihitung untuk Strangers & Freaks, begitu juga questline Kyle dan Yago.", "src": ["ppx", "out"]},
+{"text": "Banyak questline tidak dihitung untuk Strangers & Freaks, termasuk Moses, Tyrone, Yasmani, Andy, Billy, dan Eddie.", "src": ["ppx"]},
+{"text": "Semua pemberi quest terkait trophy kembali tersedia setelah story, jadi questline stranger aman dikerjakan setelah tamat.", "src": ["ppx", "gm"]}]},
+{"stage": 3, "title": "Partner crimes", "time": "Setelah Chapter 2", "trophies": ["Vice City, Baby!", "Break the Bank", "Hot Together", "Retail Therapy", "Gunslinger", "Catch Me If You Can", "Challenging Tank", "In The Beginning…", "Personal Best", "Actions Speak Louder", "The Truth Is Out There", "Ten Pin"], "claims": [
+{"text": "Setelah misi Chapter 2 Coffee Break, Jason dan Lucia bisa free-roam berdua dan partner bisa dipanggil dengan tahan D-pad kanan plus segitiga.", "src": ["ppx", "gm"]},
+{"text": "Hot Together paling mudah di terowongan kereta utara Ambrosia, karena polisi sulit mengikuti di rel dan helikopter tidak bisa melihat.", "src": ["ppx", "val"]},
+{"text": "Retail Therapy butuh merampok 3 toko berturut-turut sambil mempertahankan wanted level, dan trophy pop tertunda sekitar 30 detik setelah keluar toko ketiga.", "src": ["ppx", "gm"]},
+{"text": "Event UFO penculikan untuk The Truth Is Out There baru bisa terjadi setelah Chapter 1, sendirian, setelah jam 02:00 di jalan barat laut Starlet Motel.", "src": ["gs", "ppx"]}]},
+{"stage": 4, "title": "Aktivitas dan balapan", "time": "Cleanup menengah", "trophies": ["Top Of The World, Ma", "Family Matters", "DWNFALL", "Hi-Jacked", "Cunning Stunts", "Master of None", "The Shootist", "Top Fun", "Earn Cash, Not Kudos", "Baited My Tackle", "Stick Fiddler", "One Last Thing"], "claims": [
+{"text": "Cunning Stunts butuh 250 stunt dari total 397, dan Under the Bridge adalah kategori paling cepat untuk mengejar target.", "src": ["ppx", "psq"]},
+{"text": "The Shootist butuh medali emas di semua 42 Shooting Range challenge di 12 lokasi, dan jadi trophy tersulit kedua setelah A Long Road.", "src": ["ppx", "gm"]},
+{"text": "Master of None butuh mencoba 9 jenis aktivitas sekali, dan hampir semuanya didapat otomatis saat mengerjakan trophy lain.", "src": ["ppx", "gm100"]},
+{"text": "Top Fun butuh menang balapan drone di semua 14 lokasi, dan balapan drone juga dihitung untuk Earn Cash, Not Kudos.", "src": ["ppx", "dm"]}]}
+,
+{"stage": 5, "title": "Koleksi dan scanning", "time": "Cleanup menengah", "trophies": ["You Gotta Know When to Get Off", "Snow Storm", "Don't Touch My Deck", "You WAiNKer!", "Whip It Good", "The Goodtime State"], "claims": [
+{"text": "Don't Touch My Deck butuh melengkapi 3 dari 18 set kartu koleksi, dari total 480 kartu di dunia.", "src": ["ppx", "psq"]},
+{"text": "You WAiNKer! butuh scan 100 lokasi dengan aplikasi WAiNK di HP, dan ada lebih dari 100 lokasi yang tersedia.", "src": ["ppx", "gm"]},
+{"text": "Whip It Good butuh scan 100 kendaraan unik dengan WAiNK; tidak perlu dikendarai, cukup di-scan dari jalan ramai.", "src": ["ppx", "gm"]},
+{"text": "The Goodtime State butuh membuka seluruh kabut peta, paling cepat dengan terbang pesawat ke semua area berkabut hitam.", "src": ["ppx", "rck"]}]},
+{"stage": 6, "title": "Perampokan dan fencing", "time": "Chapter 3-4 ke atas", "trophies": ["Sneakthief", "Maximum Withdrawal", "A Classic Blitz Play", "Pest Control", "Capital Offense", "Let’s Go Bowling", "Bad Luck, I Guess", "Dime on the Dollar", "Treat Yo Self", "Little Boxes", "On the Spot"], "claims": [
+{"text": "Maximum Withdrawal butuh merampok 5 dari 8 bank vault besar, dan satu bank bisa memberi sampai $205.000.", "src": ["ppx", "gm"]},
+{"text": "Dime on the Dollar butuh mencuci total kumulatif $250.000 marked bills lewat fence, dan Yasmani di Vice City membayar paling mahal.", "src": ["ppx", "gm"]},
+{"text": "Pest Control butuh merampok 1 Illegal Operation dari masing-masing 9 geng, dari total 39 operasi.", "src": ["ppx", "psq"]},
+{"text": "Little Boxes butuh membeli 8 garasi yang bisa dibeli dengan total $160.000, lewat aplikasi Vice City Real Estate di HP.", "src": ["ppx", "gm"]}]},
+{"stage": 7, "title": "100% checklist cleanup dan Platinum", "time": "Setelah tamat", "trophies": ["Vice Got a Price!", "A Long Road"], "claims": [
+{"text": "Checklist 100% terbuka setelah tamat di Progress, Stats, lalu 100% Completion, dengan bobot story 45 persen, eksplorasi 45 persen, dan discovery 10 persen.", "src": ["ppx100", "gm100"]},
+{"text": "A Long Road butuh 100% checklist, tapi persyaratan sebenarnya lunak, sekitar 60 persen true completion.", "src": ["ppx", "gm100"]},
+{"text": "Banyak trophy otomatis selesai saat mengerjakan 100 persen, termasuk Cunning Stunts, The Shootist, dan You WAiNKer!.", "src": ["ppx", "gm"]},
+{"text": "Platinum Vice Got a Price! pop setelah 54 trophy lain didapat, tanpa perlu multiplayer atau DLC.", "src": ["exo", "kit", "ppx"]}]}
+],
+"missables": {"grid": [
+{"chapter": "Chapter 1", "items": [{"trophy": "Positive Mental Attitude", "window": "Meditasi balkon rumah Jason, hanya selama Chapter 1", "src": ["gm", "kit", "ppx", "ppx100", "psq"]}, {"trophy": "This Was No Boat Accident", "window": "Questline Kenton tidak tersedia sementara setelah Chapter 1", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}, {"trophy": "Misi opsional", "window": "Banyak misi opsional hilang setelah beberapa waktu", "src": ["gm", "kit", "ppx"]}]},
+{"chapter": "Chapter 2", "items": [{"trophy": "Fair Game", "window": "Questline Bret dimulai setelah misi Coffee Break", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}, {"trophy": "Baited My Tackle", "window": "Questline memancing Cal dimulai setelah misi Feng Shui", "src": ["gm", "kit", "ppx", "ppx100"]}, {"trophy": "Misi opsional", "window": "Banyak misi opsional hilang setelah beberapa waktu", "src": ["gm", "kit", "ppx"]}]},
+{"chapter": "Chapter 3", "items": [{"trophy": "Road to Rehabilitation", "window": "Questline Andy, eksklusif Lucia, dimulai Chapter 3", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}, {"trophy": "Supply & Demand", "window": "Questline Randy dimulai setelah misi Clonin' Keys, Makin' GS", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}, {"trophy": "Spin On This!", "window": "Questline Tyrone, eksklusif Jason, dimulai Chapter 3", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}]},
+{"chapter": "Chapter 4", "items": [{"trophy": "Maximum Withdrawal", "window": "Misi opsional Chapter 4 That's Where The Money Is", "src": ["gm", "kit", "ppx", "ppx100"]}, {"trophy": "A Classic Blitz Play", "window": "Misi opsional Chapter 4 yang sama membuka perampokan truk", "src": ["dm", "gm", "kit", "ppx", "ppx100"]}]},
+{"chapter": "Chapter 5", "items": [{"trophy": "Snow Storm", "window": "Misi story Chapter 5 Operation Savage Glory", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}, {"trophy": "You Gotta Know When to Get Off", "window": "Misi final di Chapter 5, setelah credits free-roam terbuka", "src": ["exo", "gm", "kit", "ppx", "ppx100"]}]}
+],
+"save_strategy": [
+{"text": "Game menyediakan 15 slot save manual plus 1 autosave, dan tidak ada mission replay atau New Game+.", "src": ["ppx", "gm"]},
+{"text": "Simpan manual di awal dan akhir tiap chapter, total 10 save, sebagai pengaman utama platinum.", "src": ["ppx", "gm"]},
+{"text": "Putar 5 slot save sisanya untuk cleanup free-roam, jangan menimpa save awal chapter.", "src": ["ppx", "val"]},
+{"text": "Simpan manual SEBELUM misi Down to Earth di Chapter 1 sebagai pengaman meditasi balkon yang berpotensi missable.", "src": ["ppx", "psq"]},
+{"text": "Autosave tidak selalu terpicu di prologue dan menu save tidak menampilkan autosave, jadi jangan andalkan autosave saja.", "src": ["nbk", "gwt"]},
+{"text": "Hati-hati menimpa save saat cleanup; putar slot save secara berkala agar selalu ada titik kembali.", "src": ["ppx", "val"]}]},
+"glitch": {"status": "REPORTED", "claims": [
+{"text": "Gudang merah Apollo Aggregates di timur Hamlet dilaporkan bisa di-loot berulang dengan save dan reload.", "src": ["kee", "abt"]},
+{"text": "Caranya: ambil kokain dan buka brankas, simpan kedua stash bag di bagasi kendaraan pribadi, save, lalu load save itu agar loot gudang respawn.", "src": ["kee", "abt"]},
+{"text": "Hasil yang dilaporkan sekitar $8.640 per putaran, dengan putaran pertama sekitar $11.000 sampai $11.280.", "src": ["kee", "abt"]},
+{"text": "Loot dijual ke Brian's Lockup di barat daya Key Lento dengan kode keypad 7700.", "src": ["kee", "abt"]}],
+"pro": [
+{"text": "KeeNgamer melaporkan glitch ini bekerja di versi launch dan memberi langkah lengkap.", "src": ["kee"]},
+{"text": "allblogthings melaporkan hasil yang sama, sekitar $11.000 pada putaran pertama.", "src": ["abt"]},
+{"text": "Cara ini memakai mekanik save dan reload biasa, tanpa tool pihak ketiga.", "src": ["kee", "abt"]},
+{"text": "Gudang dan kendaraan pribadi tersedia sejak Chapter 2, jadi bisa dicoba lebih awal.", "src": ["kee", "abt"]}],
+"con": [
+{"text": "afleurdenet menyatakan tidak ada infinite-money glitch yang bekerja saat ini.", "src": ["afl"]},
+{"text": "vanotherlevel menyatakan per 18 November belum ada outlet yang melaporkan money glitch yang bekerja.", "src": ["val"]},
+{"text": "Sebagian besar video glitch uang adalah palsu, memakai footage GTA Online lama atau situs phishing cash generator.", "src": ["afl", "val"]},
+{"text": "Glitch seperti ini bisa di-patch kapan saja tanpa pemberitahuan, seperti dua update diam-diam sebelum rilis.", "src": ["afl", "dlc"]}],
+"warning": "REPORTED — belum terverifikasi penuh, 2 sumber pro vs 2 sumber kontra; hati-hati scam/phishing yang mengatasnamakan glitch ini"},
+"launch_status": [
+{"text": "GTA VI rilis 19 November 2026 untuk PlayStation 5 dan Xbox Series X dan S, tanpa versi PC yang diumumkan.", "src": ["rck", "wiki"]},
+{"text": "Harga Standard Edition $79,99 dan Ultimate Edition $99,99 di Amerika Serikat.", "src": ["wiki", "rck"]},
+{"text": "Pre-load dibuka 10 November 2026 dan game butuh penyimpanan sampai 212 GB.", "src": ["wiki", "dlc"]},
+{"text": "Dua update pra-rilis terinstal sebelum main, v01.002.000 dan v01.002.001, tanpa patch notes apa pun dari Rockstar.", "src": ["dlc", "cg"]},
+{"text": "PSN sempat outage pada malam 18 November sebelum unlock, dengan ribuan laporan gagal login dan download.", "src": ["dlc", "cg"]},
+{"text": "Game menargetkan 30 FPS di semua konsol termasuk PS5 Pro, tanpa mode 60 FPS.", "src": ["wiki", "cg"]},
+{"text": "Metacritic PS5 mencatat 99 dari 100 dari 153 ulasan kritikus, dengan nol ulasan mixed atau negatif.", "src": ["wiki", "igm"]},
+{"text": "Per 21 November belum ada daftar known-issues resmi atau patch notes day-one dari Rockstar.", "src": ["cg", "gtg"]}],
+"disputes": [
+{"topic": "Personal Best", "status": "disputed", "pro": [{"text": "PowerPyx menyebut Personal Best butuh Strength maksimum Jason DAN Lucia secara bersamaan.", "src": ["ppx", "gm"]}, {"text": "Strength bisa dinaikkan lewat workout di fitness club atau di rumah, dan workout berdua memberi progres ganda.", "src": ["ppx", "gm"]}], "con": [{"text": "ofzenandcomputing menyebut Personal Best sebagai story trophy yang unlock selama campaign.", "src": ["ofz"]}]},
+{"topic": "Bad Luck, I Guess — earliest chapter", "status": "disputed", "pro": [{"text": "PowerPyx menyebut trophy ini paling awal bisa didapat setelah Chapter 2, saat bisa main sebagai Lucia.", "src": ["ppx", "gm"]}, {"text": "Caranya kembali ke Payday Loans di Little Cuba sebagai Lucia sendirian, rampok lagi, lalu kabur jalan kaki.", "src": ["ppx", "dm"]}], "con": [{"text": "damnmodz menambahkan Dye Pack Jammer di Chapter 3 sebagai lead terbaik untuk membuka trophy ini.", "src": ["dm"]}]},
+{"topic": "Apollo money glitch", "status": "disputed", "pro": [{"text": "KeeNgamer dan allblogthings melaporkan glitch gudang Apollo bekerja di versi launch.", "src": ["kee", "abt"]}, {"text": "Hasil yang dilaporkan sekitar $8.640 per putaran setelah save dan reload.", "src": ["kee", "abt"]}], "con": [{"text": "afleurdenet dan vanotherlevel menyatakan belum ada money glitch yang bekerja.", "src": ["afl", "val"]}, {"text": "Banyak video glitch uang memakai footage GTA Online lama atau situs phishing.", "src": ["afl", "val"]}]},
+{"topic": "Meditasi Chapter 1 wajib atau tidak", "status": "disputed", "pro": [{"text": "PowerPyx yang mengerjakan meditasi balkon Chapter 1 mendapat trophy Positive Mental Attitude.", "src": ["ppx", "psq"]}, {"text": "Meditasi itu menambah counter plus 1, jadi lakukan saja saat muncul.", "src": ["ppx", "gm"]}], "con": [{"text": "Meditasi balkon tidak ditandai sebagai Meditation Spot, jadi belum dikonfirmasi apakah wajib untuk trophy.", "src": ["ppx", "psq"]}]},
+{"topic": "A Classic Blitz Play — cara aman vs cepat", "status": "disputed", "pro": [{"text": "Cara paling aman adalah lewat misi bank vault Chapter 4 That's Where The Money Is, yang dihitung sebagai perampokan armored truck.", "src": ["ppx", "dm"]}, {"text": "Merampok vault bank besar juga memicu wanted 4 bintang yang membantu Hot Together.", "src": ["ppx", "gm"]}], "con": [{"text": "damnmodz melaporkan trophy ini bisa gagal pop kalau merampok truk lapis baja secara langsung.", "src": ["dm"]}]},
+{"topic": "The Truth Is Out There — pemicu trophy", "status": "disputed", "pro": [{"text": "PowerPyx dan GameSpot menyebut penculikan UFO di Kelly County sebagai pemicu trophy.", "src": ["gs", "ppx"]}, {"text": "Event UFO terjadi setelah Chapter 1, sendirian, setelah jam 02:00 di jalan barat laut Starlet Motel.", "src": ["gs", "ppx"]}], "con": [{"text": "TechTudo mengklaim menyelesaikan ritual Capri yang membuka trophy yang sama.", "src": ["ctp", "grt"]}]}
+,
+{"topic": "Kode keypad lab alien", "status": "disputed", "pro": [{"text": "PowerPyx dan walkthrough YouTube menyebut kode 2134 yang terlihat dalam mimpi setelah penculikan.", "src": ["ppx", "yt"]}, {"text": "Kode itu membuka lift ke basement lab bawah tanah di South Point Airfield.", "src": ["ppx", "out"]}], "con": [{"text": "OutputLag menyarankan coba 2314 dulu lalu 2341, karena tidak ada satu kode yang bekerja di semua save.", "src": ["out"]}, {"text": "Kode kemungkinan berbeda tiap save karena angka dalam mimpi berbeda tiap pemain.", "src": ["out", "spo"]}]},
+{"topic": "Durasi story", "status": "disputed", "pro": [{"text": "PowerPyx menyebut durasi cerita sekitar 60 sampai 80 jam.", "src": ["ppx", "gm"]}, {"text": "Reviewer IGN butuh 120 jam sampai credits dan belum melihat seluruh peta.", "src": ["wiki", "igm"]}], "con": [{"text": "Riset pra-rilis menyebut durasi cerita utama sekitar 50 sampai 60 jam.", "src": ["wiki", "rck"]}]},
+{"topic": "Waktu platinum", "status": "disputed", "pro": [{"text": "Roadmap PowerPyx menempatkan platinum setelah tamat plus cleanup 100 persen yang panjang.", "src": ["ppx", "ppx100"]}, {"text": "The Shootist dan A Long Road disebut sebagai trophy tersulit dan paling memakan waktu.", "src": ["ppx", "gm"]}], "con": [{"text": "Belum ada laporan pemain yang menyelesaikan platinum per 21 November, jadi total jam belum terverifikasi.", "src": ["ppx", "exo"]}, {"text": "Estimasi jam sangat bergantung pada seberapa banyak cleanup dikerjakan selama story.", "src": ["ppx", "gm100"]}]},
+{"topic": "100% Completion — seberapa berat", "status": "disputed", "pro": [{"text": "Checklist 100 persen mencakup puluhan kategori, dari 39 gang operation sampai 300 stunt dan 70 challenge.", "src": ["ppx100", "gm100"]}, {"text": "Persyaratan sebenarnya lunak, sekitar 60 persen true completion, menurut PowerPyx.", "src": ["ppx", "gm100"]}], "con": [{"text": "Beberapa target 100 persen lebih rendah dari target trophy, misalnya meditasi 15 dari 18 dan stunt 300 dari 397.", "src": ["ppx100", "gm100"]}, {"text": "Tidak ada satu pun item 100 persen yang missable, jadi semuanya bisa dikejar setelah tamat.", "src": ["ppx", "gm100"]}]},
+{"topic": "Hidden slot ke-16 non-story", "status": "disputed", "pro": [{"text": "Total trophy hidden adalah 28, yaitu 12 story dan 16 non-story menurut konsensus sumber.", "src": ["dm", "exo"]}], "con": [{"text": "Hanya 15 trophy non-story yang terkonfirmasi hidden dari sumber yang dibaca.", "src": ["dm", "gm"]}, {"text": "Kandidat terkuat untuk slot ke-16 adalah Catch Me If You Can atau Challenging Tank, tapi belum terverifikasi.", "src": ["dm", "ppx"]}]},
+{"topic": "Ten Pin", "status": "disputed", "pro": [{"text": "Dugaan terkuat PowerPyx adalah tendang musuh saat drive-by dengan senjata melee dari motor.", "src": ["ppx", "gm"]}], "con": [{"text": "Tidak ada sumber yang membuktikan langkah pasti Ten Pin per 21 November, jadi trophy ini masih unknown.", "src": ["ppx", "psq"]}, {"text": "Jangan karang langkah untuk Ten Pin; tampilkan sebagai best lead yang belum terverifikasi.", "src": ["ppx", "gm"]}]}
+],
+"warnings": [
+{"text": "Cheat menonaktifkan trophy DAN saving, jadi jangan pakai cheat di save platinum.", "src": ["ppx", "gm"]},
+{"text": "Status Criminal Profile Irredeemable bersifat permanen dan membuat polisi lebih agresif, menembak di tempat.", "src": ["ppx", "gm"]},
+{"text": "Jangan percaya klaim glitch tanpa verifikasi; banyak video glitch uang memakai footage GTA Online lama atau situs phishing.", "src": ["afl", "val"]},
+{"text": "Jangan pernah memasukkan kredensial PSN, Xbox, atau Rockstar ke situs cash generator pihak ketiga.", "src": ["afl", "val"]},
+{"text": "Tidak ada trophy yang glitched menurut PowerPyx, tapi A Classic Blitz Play bisa gagal pop kalau merampok truk langsung.", "src": ["ppx", "dm"]},
+{"text": "Crash dan hilang progres dilaporkan di prologue meski ada autosave, jadi save manual berkala itu wajib.", "src": ["nbk", "gwt"]}],
+"farming": [
+{"text": "Bank vault besar adalah cara legit tercepat dapat uang: sampai $205.000 per bank dari 8 vault.", "src": ["ppx", "gm"]},
+{"text": "Fencing lewat Randy's Wish List membayar paling mahal untuk mobil sport yang dicuri.", "src": ["ppx", "gm"]},
+{"text": "Perampokan Chapter 3 sampai 4 bernilai tinggi dan membuka fence serta tips lokasi van keamanan.", "src": ["ppx", "gm"]},
+{"text": "Loop shooting range 5 detik menaikkan Focus dengan cepat untuk Gunslinger dan The Shootist.", "src": ["val", "ppx"]},
+{"text": "Meditasi sebagai Jason DAN Lucia di spot yang sama memberi plus 2 dan menghemat waktu 50 persen.", "src": ["ppx", "gm"]},
+{"text": "Workout bareng partner memberi progres Strength ganda untuk Personal Best.", "src": ["ppx", "gm"]},
+{"text": "Scan kendaraan dari jalan ramai menyelesaikan Whip It Good dan 200 scan untuk 100 persen secara natural.", "src": ["ppx", "gm"]},
+{"text": "Terowongan kereta utara Ambrosia adalah rute kabur terbaik dari wanted 4 bintang.", "src": ["ppx", "val"]},
+{"text": "Adrenaline memperpanjang durasi Combat Focus dan membantu Gunslinger.", "src": ["ppx", "gm"]},
+{"text": "Diskon 50 persen shotgun di misi senjata Chapter 1 ditahan kalau kamu kembali nanti ke toko yang sama.", "src": ["val", "ppx"]}]
 }
