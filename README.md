@@ -1,59 +1,65 @@
-# LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide & Tracker
-
 [![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/Masasiya00/makefun-gta6-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/Masasiya00/makefun-gta6-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-Panduan + tracker offline untuk **55 trophy PlayStation 5 GTA VI** — 1 platinum, 2 gold, 6 silver, 46 bronze, 27 hidden terkonfirmasi (+2 belum terverifikasi: Catch Me If You Can, Challenging Tank) — dengan **736/736 claims cited (100%), 681 on 2+ sites, 61 sources, 72 pages, 25 disputes**. Angka-angka itu dihitung langsung dari data saat app berjalan dan ditampilkan di audit strip di atas halaman.
+# LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide & Tracker: 703/703 claims cited (100%), 696 on 2+ sites, 59 sources, 12 disputes, audit strip, spoiler shield, export/import
 
-## Kenapa guide ini menang
+An offline guide and tracker for all **55 PlayStation 5 trophies** of Grand Theft Auto VI:
+1 platinum, 2 gold, 6 silver, 46 bronze. Every trophy shows its official name, description
+and grade exactly as PlayStation publishes them, plus a step-by-step guide written in our own
+words that cites its sources on every step. 54 of 55 unlock methods are confirmed; one
+(Ten Pin) is honestly marked unknown, with its best lead shown instead of a made-up answer.
 
-- **Setiap langkah bersumber.** Tidak ada klaim lokasi atau langkah tanpa sumber: setiap langkah panduan mencantumkan kode sumbernya, dan sumbernya bisa diklik. Audit strip di atas halaman menghitungnya langsung dari data — bukan angka yang diketik tangan.
-- **Paling update.** Empat trophy "misterius" yang baru terpecahkan malam 20 Nov 2026 sudah ada solusinya di sini (Bad Luck, I Guess; The Truth Is Out There; In The Beginning…; Capital Offense) — bukan lagi "unknown".
-- **Kejujuran yang bisa dicek.** 51/55 trophy terkonfirmasi; satu-satunya yang belum terverifikasi, **Ten Pin**, ditampilkan apa adanya sebagai unknown dengan lead terbaiknya — tanpa langkah yang dikarang. Semua perselisihan antar sumber ditampilkan dua sisi di view Disputes.
-- **Celah yang kompetitor tidak punya:** panel glitch & farming (gudang Apollo Aggregates, status reported — 2 sumber pro vs 2 kontra), status patch day-one, pemetaan overlap trophy ↔ checklist 100%, dan peringatan Criminal Profile Irredeemable (permanen) serta cheats yang menonaktifkan trophy.
-- **Tracker yang benar-benar dipakai:** checklist 55 trophy tersimpan di localStorage, counter progres X/Y per trophy berangka (250 stunt, 42 shooting range, 100 WAiNK, dst.), filter jenis/grade/status + pencarian teks, export/import JSON, reset, dan Next Up planner yang menunjuk trophy berikutnya yang paling dekat.
-- **Spoiler shield:** nama & deskripsi 20 trophy story disembunyikan sampai didapat — di semua view, termasuk detail, Next Up, dan roadmap.
-- **Satu-satunya missable ditandai merah:** Positive Mental Attitude (meditasi Chapter 1). Sisanya hijau — aman setelah story — lengkap dengan strategi save manual per chapter, karena game ini tidak punya mission replay.
+## What it does
 
-## Fitur
+- **Tracker** — a checklist of all 55 trophies with progress saved in the browser
+  (localStorage), plus **export to JSON and import back**. Progress bar, grade breakdown,
+  and a **Next Up** list in roadmap order.
+- **Filters** — by kind (Story, Missable, Collectibles, Activities, Crime, Hidden), by grade,
+  by earned/unearned, and free-text search.
+- **Spoiler shield** — masks the names and descriptions of story trophies until they are
+  earned (on by default).
+- **Roadmap to Platinum** — 7 stages from the first story chapter to the platinum, built from
+  the official trophy descriptions, with the one missable trophy flagged per chapter and a
+  save strategy (no mission replay exists, so chapter saves are the only safety net).
+- **Cited guidance** — 703 of 703 claims cite a source (100%), 696 cite two or more sites,
+  across 59 sources and 70 pages. Every guide step shows its source names, and the header
+  carries a live **audit strip** computed from the data files.
+- **Disputes** — 12 panels showing both sides where sources disagree (for example the
+  Apollo Aggregates money glitch, Personal Best, and Bad Luck, I Guess), each side cited.
+- **Glitch & Farming** — the Apollo Aggregates money glitch is marked **REPORTED / disputed**,
+  with the evidence for and against, plus legal farming routes and anti-phishing warnings.
+- **Easter Eggs** — 86 eggs, bugs and oddities across Leonida, each cited on 2+ sources,
+  with confirmed / reported / disputed status.
+- **Offline** — static files under `app/`, no build step, no network request at run time.
+  Serve `app/` with any static server and open `index.html`.
 
-| Fitur | Detail |
-|---|---|
-| Tracker | Checklist 55 trophy, localStorage, export/import JSON, reset |
-| Counter | Input X/Y manual per trophy berangka, tersimpan otomatis |
-| Filter | Jenis (story / missable / collectibles / activities / crime / hidden), grade, status, pencarian teks |
-| Spoiler shield | ON/OFF; mask 20 trophy story yang belum didapat di semua view |
-| Roadmap | 7 tahap ke platinum, estimasi waktu, progres per tahap |
-| Missables | Grid per chapter + strategi save |
-| Disputes | 25 panel dua sisi (pro vs kontra) + badge jumlah di nav |
-| Glitch & farming | Apollo Aggregates (reported), trik farming legal, status launch |
-| Sources | Matrix semua sumber + jumlah halaman + tautan (app tidak pernah fetch) |
-| Easter Eggs | 86 kartu, filter jenis (egg/bug/oddity) dan status |
-| Audit strip | Angka dihitung langsung dari data saat runtime |
-| Offline | Semua file lokal di bawah `app/`; tanpa font/CDN eksternal |
+## Numbers (computed live from the data files)
 
-## Cara pakai
+- Claims: **703 total, 703 cited (100%), 696 on 2+ sources**
+  (494 trophy steps + 123 panel claims + 86 easter eggs)
+- Sources: **59 sources, 70 pages**
+- Trophies: **55** (1 platinum, 2 gold, 6 silver, 46 bronze)
+- Verification: **52 confirmed, 2 reported, 1 unknown** (Ten Pin — best lead shown, no guessing)
+- Missable: **1** (Positive Mental Attitude — the Chapter 1 balcony meditation)
+- Disputes: **12 panels**, each showing both sides with sources
+- Hidden: 28 per the official list. Our data flags 29 trophies as hidden — one flag
+  (Catch Me If You Can or Challenging Tank) is unverified, and the guide says so rather
+  than guessing which one.
 
-```bash
-node serve.ts        # http://localhost:8080
+## How to run it
+
+```sh
+node serve.ts        # serves app/ at http://localhost:8080
 ```
 
-Buka di desktop Chrome. Centang trophy yang sudah didapat, isi counter untuk trophy berangka, dan ikuti Next Up di panel kanan. Matikan spoiler shield kalau tidak keberatan spoiler story. Export progres secara berkala sebagai cadangan (JSON).
+Or open `app/index.html` directly from any static file server. No build step, no install,
+no network. `main.ts` (Node 22, standard library only) copies `app/` and `screenshots/`
+into the output directory and writes `dossier.json` via the kit's `vendor/makefun-frontend.ts`.
 
-Untuk menyerahkan entry: `MAKEFUN_OUTPUT_DIR=out node main.ts` — menyalin `app/` + `screenshots/` ke output dan menulis `dossier.json`.
+## Sources
 
-## Sumber
-
-Panduan ini ditulis dengan kata-kata sendiri, berdasarkan riset atas PowerPyx, Exophase, GameSpot, damnmodz, gamemapa, PushSquare, KeeNgamer, GamesRadar+, dan sumber-sumber lain yang tercantum lengkap di view Sources beserta halaman yang dibaca. Nama & deskripsi trophy ditampilkan seperti yang diterbitkan PlayStation (itu pengecualian yang diizinkan rules). Tidak ada teks guide lain yang disalin; tidak ada logo, artwork, atau screenshot resmi Rockstar Games.
-
-## Kejujuran
-
-- **51/55 trophy terkonfirmasi** dari sedikitnya satu sumber tepercaya.
-- **Ten Pin — unknown.** Dugaan terkuat: tendang musuh saat melee drive-by dari motor. Belum ada sumber yang membuktikan langkah pastinya per 21 Nov 2026. Guide ini tidak mengarang langkah untuknya.
-- **Glitch uang Apollo Aggregates — reported, belum terverifikasi penuh.** Dua sumber bilang bekerja di versi launch, dua sumber bilang belum ada glitch uang yang bekerja. Ditampilkan dengan label itu + cara legit sebagai alternatif.
-- **Satu slot hidden non-story ke-16 belum teridentifikasi pasti** dari sumber yang dibaca; dua kandidat (Catch Me If You Can, Challenging Tank) ditandai "Hidden? — belum terverifikasi", bukan ditebak.
-
-## Lisensi
-
-MIT — lihat `LICENSE`.
+All guide steps, panel claims and easter eggs cite their sources by name, with links in the
+app's Sources page: PowerPyx, Exophase, GameSpot, damnmodz, gamemapa, PushSquare, KeeNgamer,
+and 52 more. Trophy names and descriptions are the official ones; all guide text is our own
+writing. No Rockstar logo, artwork, box art, or game screenshots are used anywhere.
