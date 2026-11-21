@@ -1,83 +1,135 @@
-// Progress store for Leonida Platinum Atlas. One localStorage key holds the
-// whole save: earned trophy names, manual counts for counted trophies, the
-// spoiler setting, and free-text notes. Export writes it as a JSON file;
-// import reads such a file back. Nothing leaves the browser.
-const KEY = 'leonida-platinum-atlas-v1';
+// store.js — earned-trophy checklist saved in localStorage, with
+// export-to-file and import-from-file so progress survives a browser wipe.
 
-function blank() {
-  return { earned: [], counts: {}, spoiler: true, notes: {} };
-}
+export const STORAGE_KEY = 'tla-progress-v2';
+export const EXPORT_FILENAME = 'leonida-platinum-atlas-progress.json';
 
-export function loadState() {
+function readRaw() {
   try {
-    const raw = localStorage.getItem(KEY);
-    if (!raw) return blank();
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
     const parsed = JSON.parse(raw);
-    return {
-      earned: Array.isArray(parsed.earned) ? parsed.earned : [],
-      counts: parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {},
-      spoiler: parsed.spoiler !== false,
-      notes: parsed.notes && typeof parsed.notes === 'object' ? parsed.notes : {},
-    };
+    if (!parsed || typeof parsed !== 'object') return {};
+    return parsed;
   } catch {
-    return blank();
+    return {};
   }
 }
 
-export function saveState(state) {
-  localStorage.setItem(KEY, JSON.stringify(state));
+function writeRaw(state) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // Storage full or unavailable (private mode): progress stays in memory.
+  }
 }
 
-export function earnedSet(state) {
-  return new Set(state.earned);
-}
+/** Create the progress store. `validIds` is the set of trophy names. */
+export function createStore(validIds) {
+  const known = new Set(validIds);
+  let earned = new Set();
 
-export function toggleEarned(state, name) {
-  const set = earnedSet(state);
-  if (set.has(name)) set.delete(name);
-  else set.add(name);
-  state.earned = [...set];
-  saveState(state);
-  return state;
-}
+  function load() {
+    const raw = readRaw();
+    earned = new Set(
+      Object.keys(raw).filter((id) => known.has(id) && raw[id] === true),
+    );
+  }
 
-export function setCount(state, name, value) {
-  const n = Math.max(0, Math.floor(Number(value) || 0));
-  state.counts[name] = n;
-  saveState(state);
-  return state;
-}
+  load();
 
-export function setSpoiler(state, on) {
-  state.spoiler = !!on;
-  saveState(state);
-  return state;
-}
+  return {
+    /** Is this trophy marked earned? */
+    isEarned(id) {
+      return earned.has(id);
+    },
 
-export function setNote(state, name, text) {
-  state.notes[name] = String(text || '');
-  saveState(state);
-  return state;
-}
+    /** Mark a trophy earned (true) or not earned (false). Persists. */
+    setEarned(id, value) {
+      if (!known.has(id)) return;
+      if (value) earned.add(id);
+      else earned.delete(id);
+      this.save();
+    },
 
-export function exportFile(state) {
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'leonida-platinum-atlas-progress.json';
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-}
+    /** Toggle a trophy's earned state. Returns the new state. */
+    toggle(id) {
+      const next = !earned.has(id);
+      this.setEarned(id, next);
+      return next;
+    },
 
-export async function importFile(file) {
-  const text = await file.text();
-  const parsed = JSON.parse(text);
-  const state = {
-    earned: Array.isArray(parsed.earned) ? parsed.earned : [],
-    counts: parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {},
-    spoiler: parsed.spoiler !== false,
-    notes: parsed.notes && typeof parsed.notes === 'object' ? parsed.notes : {},
+    /** All earned trophy ids, in the order the guide lists them. */
+    earnedIds() {
+      return [...known].filter((id) => earned.has(id));
+    },
+
+    /** { earned, total } over the whole list. */
+    totals() {
+      return { earned: earned.size, total: known.size };
+    },
+
+    /** { earned, total } per grade: platinum / gold / silver / bronze. */
+    byGrade(trophies) {
+      const out = {};
+      for (const t of trophies) {
+        const g = t.grade;
+        if (!out[g]) out[g] = { earned: 0, total: 0 };
+        out[g].total += 1;
+        if (earned.has(t.id)) out[g].earned += 1;
+      }
+      return out;
+    },
+
+    /** Persist the current set. */
+    save() {
+      const state = {};
+      for (const id of earned) state[id] = true;
+      writeRaw(state);
+    },
+
+    /** Serialisable snapshot for export. */
+    snapshot() {
+      return {
+        app: 'leonida-platinum-atlas',
+        version: 2,
+        exportedAt: new Date().toISOString(),
+        earned: this.earnedIds(),
+      };
+    },
+
+    /** Replace progress from a parsed export object. Returns count applied. */
+    restore(data) {
+      const list = Array.isArray(data) ? data : data && data.earned;
+      if (!Array.isArray(list)) return 0;
+      earned = new Set(list.filter((id) => known.has(id)));
+      this.save();
+      return earned.size;
+    },
+
+    /** Download the progress snapshot as a JSON file. */
+    exportToFile() {
+      const blob = new Blob([JSON.stringify(this.snapshot(), null, 2)], {
+        type: 'application/json',
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = EXPORT_FILENAME;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    },
+
+    /**
+     * Read progress back from a File picked in the import input.
+     * Resolves to the number of trophies restored, rejects on bad JSON.
+     */
+    async importFromFile(file) {
+      const text = await file.text();
+      const data = JSON.parse(text);
+      return this.restore(data);
+    },
   };
-  saveState(state);
-  return state;
 }
