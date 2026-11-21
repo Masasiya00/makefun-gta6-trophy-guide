@@ -1,202 +1,178 @@
-// main.js — entry point. Loads the guide data, wires the store, the
-// filters and every view, then applies the ?shot= screenshot mode.
-// ES module; every import is a relative file under app/.
+// Leonida Platinum Atlas — wiring (Round 7, written fresh).
+// Boots the data, renders every pane, and wires every control.
+// URL ?shot=cover|roadmap|glitch|spoiler picks the screenshot state.
+import { loadData, auditStats } from './data.js';
+import { loadState, saveState, toggleEarned, setCount, countOf, exportState, importState, isEarned } from './store.js';
+import { applyFilters, filterCounts } from './filters.js';
+import * as V from './views.js';
 
-import { loadGuideData, countCitedSteps } from './data.js';
-import { createStore } from './store.js';
-import { applySpoilerClass } from './filters.js';
-import {
-  showView,
-  renderTrophyList,
-  renderDetail,
-  renderProgress,
-  renderNextUp,
-  renderRoadmap,
-  renderGlitch,
-  renderEggs,
-} from './views.js';
+const params = new URLSearchParams(location.search);
+const shot = params.get('shot');
+let data;
+let state;
+let stats;
 
-const SHOT_MODES = ['cover', 'roadmap', 'glitch', 'spoiler'];
-const COVER_TROPHY = 'Maximum Withdrawal';
-const DEFAULT_TROPHY = 'Positive Mental Attitude';
+const $ = (id) => document.getElementById(id);
 
-function $(id) {
-  return document.getElementById(id);
+function currentTrophy() {
+  return data.byName.get(state.selected) || null;
 }
 
-function shotMode() {
-  const mode = new URLSearchParams(window.location.search).get('shot');
-  return SHOT_MODES.includes(mode) ? mode : null;
+function renderAll() {
+  const counts = filterCounts(data.trophies);
+  document.querySelectorAll('[data-grade-chip]').forEach((b) => {
+    const g = b.dataset.gradeChip;
+    b.textContent = (g === 'all' ? 'All' : g[0].toUpperCase() + g.slice(1)) + ' (' + (counts[g] || 0) + ')';
+    b.classList.toggle('active', state.grade === g);
+  });
+  $('kind-filter').value = state.kind;
+  $('verified-filter').value = state.verified;
+  $('missable-filter').checked = state.missableOnly;
+  $('search').value = state.q;
+  $('spoiler-toggle').textContent = state.spoiler ? 'Spoiler shield: ON' : 'Spoiler shield: OFF';
+  $('spoiler-toggle').classList.toggle('on', state.spoiler);
+  document.querySelectorAll('[data-view-tab]').forEach((b) => b.classList.toggle('active', state.view === b.dataset.viewTab));
+  const filtered = applyFilters(data.trophies, state);
+  $('result-count').textContent = filtered.length + ' of ' + data.trophies.length + ' trophies';
+  V.renderAudit($('audit-strip'), stats);
+  V.renderList($('trophy-list'), filtered, state);
+  V.renderDetail($('detail'), currentTrophy(), data, state);
+  V.renderProgress($('progress'), data.trophies, state);
+  V.renderRoadmapMini($('roadmap-mini'), data.panels, state, data);
+  V.renderNextUp($('next-up'), data.trophies, state);
+  V.renderRoadmap($('view-roadmap'), data.panels, data, state);
+  V.renderMissables($('view-missables'), data.panels, data, state);
+  V.renderGlitch($('view-glitch'), data.panels, data);
+  V.renderDisputes($('view-disputes'), data.panels, data);
+  V.renderEggs($('view-eggs'), data.eggs);
+  V.renderSources($('sources-list'), data);
+  for (const v of ['checklist', 'roadmap', 'missables', 'glitch', 'disputes', 'eggs']) {
+    $('view-' + v).hidden = state.view !== v;
+  }
+  document.querySelector('.layout').classList.toggle('no-list', state.view !== 'checklist');
+  saveState(state);
 }
 
-async function start() {
-  const { trophies, panels, eggs } = await loadGuideData();
-  const store = createStore(trophies.map((t) => t.id));
-  const citedSteps = countCitedSteps(trophies);
-
-  const listEl = $('trophy-list');
-  const detailEl = $('detail-pane');
-  const nextUpEl = $('next-up');
-  const roadmapListEl = $('roadmap-list');
-  const glitchPanelEl = $('glitch-panel');
-  const eggsListEl = $('eggs-list');
-  const searchEl = $('search');
-  const spoilerToggle = $('spoiler-toggle');
-
-  const filterState = {
-    kind: 'all',
-    query: '',
-    spoilerOn: spoilerToggle ? spoilerToggle.checked : true,
-  };
-  let selectedId = DEFAULT_TROPHY;
-  let eggKind = 'all';
-
-  function setBodySpoiler(on) {
-    document.body.classList.toggle('spoiler-on', on);
+function pickDefaultSelected() {
+  if (shot === 'spoiler') {
+    const story = data.trophies.find((t) => t.kind === 'story' && !isEarned(state, t.name));
+    if (story) return story.name;
   }
-
-  function selectedTrophy() {
-    return trophies.find((t) => t.id === selectedId) || null;
+  if (shot === 'cover') {
+    // The cover shows a guide with cited steps, so pick the trophy with the
+    // most steps and lift the spoiler shield for this capture.
+    let best = null;
+    for (const t of data.trophies) {
+      if (!best || (t.steps || []).length > (best.steps || []).length) best = t;
+    }
+    if (best) return best.name;
   }
+  const plat = data.trophies.find((t) => t.grade === 'platinum');
+  if (plat) return plat.name;
+  return data.trophies.length ? data.trophies[0].name : null;
+}
 
-  function selectTrophy(t) {
-    selectedId = t.id;
-    renderDetail(detailEl, t, store, filterState.spoilerOn);
-    renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
+async function boot() {
+  data = await loadData();
+  stats = auditStats(data);
+  state = loadState();
+  if (shot === 'roadmap') state.view = 'roadmap';
+  else if (shot === 'glitch') state.view = 'glitch';
+  else if (shot === 'spoiler') {
+    state.view = 'checklist';
+    state.spoiler = true;
+  } else {
+    // Cover capture: steps must be visible, so the shield is off here.
+    state.view = 'checklist';
+    if (shot === 'cover') state.spoiler = false;
   }
+  if (!state.selected || !data.byName.has(state.selected)) state.selected = pickDefaultSelected();
+  renderAll();
 
-  function refreshAll() {
-    renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
-    renderDetail(detailEl, selectedTrophy(), store, filterState.spoilerOn);
-    renderProgress(trophies, store, citedSteps);
-    renderNextUp(nextUpEl, trophies, panels, store);
-  }
-
-  function refreshAfterToggle() {
-    // A checkbox just changed earned state: progress, Next Up, the
-    // spoiler masking and the open detail may all have changed.
-    renderProgress(trophies, store, citedSteps);
-    renderNextUp(nextUpEl, trophies, panels, store);
-    renderDetail(detailEl, selectedTrophy(), store, filterState.spoilerOn);
-    listEl.querySelectorAll('.trow').forEach((row) => {
-      const t = trophies.find((x) => x.id === row.dataset.trophy);
-      if (t) applySpoilerClass(row, t, filterState.spoilerOn, store.isEarned(t.id));
-    });
-  }
-
-  // Keep the checklist in sync when a checkbox is ticked: the store
-  // change listener runs after renderTrophyList attaches its own handler,
-  // so delegate on the list itself.
-  listEl.addEventListener('change', (event) => {
-    const box = event.target;
-    if (box && box.matches('input[type="checkbox"][data-trophy]')) {
-      refreshAfterToggle();
+  document.querySelector('[data-view-tabs]').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-view-tab]');
+    if (!b) return;
+    state.view = b.dataset.viewTab;
+    renderAll();
+  });
+  $('search').addEventListener('input', (e) => {
+    state.q = e.target.value;
+    renderAll();
+  });
+  $('kind-filter').addEventListener('change', (e) => {
+    state.kind = e.target.value;
+    renderAll();
+  });
+  $('verified-filter').addEventListener('change', (e) => {
+    state.verified = e.target.value;
+    renderAll();
+  });
+  $('missable-filter').addEventListener('change', (e) => {
+    state.missableOnly = e.target.checked;
+    renderAll();
+  });
+  document.querySelector('[data-grade-chips]').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-grade-chip]');
+    if (!b) return;
+    state.grade = b.dataset.gradeChip;
+    renderAll();
+  });
+  $('spoiler-toggle').addEventListener('click', () => {
+    state.spoiler = !state.spoiler;
+    renderAll();
+  });
+  document.body.addEventListener('click', (e) => {
+    const sel = e.target.closest('[data-select]');
+    if (sel) {
+      state.selected = sel.dataset.select;
+      state.view = 'checklist';
+      renderAll();
+      return;
+    }
+    const earn = e.target.closest('[data-earn]');
+    if (earn) {
+      toggleEarned(state, earn.dataset.earn);
+      renderAll();
+      return;
+    }
+    const cnt = e.target.closest('[data-count]');
+    if (cnt) {
+      const name = cnt.dataset.name;
+      setCount(state, name, countOf(state, name) + Number(cnt.dataset.count));
+      renderAll();
     }
   });
-
-  // Filter chips (kind).
-  document.querySelectorAll('#filter-bar .chip[data-filter]').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      filterState.kind = chip.dataset.filter;
-      document.querySelectorAll('#filter-bar .chip[data-filter]').forEach((c) => {
-        c.classList.toggle('active', c === chip);
-      });
-      renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
-    });
+  document.body.addEventListener('change', (e) => {
+    const input = e.target.closest('[data-count-input]');
+    if (input) {
+      setCount(state, input.dataset.countInput, input.value);
+      renderAll();
+    }
   });
-
-  // Free-text search (name + description + guide).
-  if (searchEl) {
-    searchEl.addEventListener('input', () => {
-      filterState.query = searchEl.value;
-      renderTrophyList(listEl, trophies, store, filterState, selectTrophy, selectedId);
-    });
-  }
-
-  // Spoiler-safe toggle.
-  if (spoilerToggle) {
-    spoilerToggle.addEventListener('change', () => {
-      filterState.spoilerOn = spoilerToggle.checked;
-      setBodySpoiler(filterState.spoilerOn);
-      refreshAll();
-    });
-  }
-
-  // View navigation.
-  document.querySelectorAll('.mainnav button[data-view]').forEach((btn) => {
-    btn.addEventListener('click', () => showView(btn.dataset.view));
+  $('export-btn').addEventListener('click', () => {
+    const blob = new Blob([exportState(state)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'leonida-platinum-atlas-progress.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
   });
-
-  // Easter-egg kind filters.
-  document.querySelectorAll('.egg-filters .chip[data-egg]').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      eggKind = chip.dataset.egg;
-      document.querySelectorAll('.egg-filters .chip[data-egg]').forEach((c) => {
-        c.classList.toggle('active', c === chip);
-      });
-      renderEggs(eggsListEl, eggs, eggKind, 'all');
-    });
+  $('import-btn').addEventListener('click', () => $('import-file').click());
+  $('import-file').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      state = importState(await file.text());
+      if (!state.selected || !data.byName.has(state.selected)) state.selected = pickDefaultSelected();
+      renderAll();
+    } catch {
+      alert('That file is not a Leonida Atlas export.');
+    }
+    e.target.value = '';
   });
-
-  // Export / import progress.
-  const exportBtn = $('export-btn');
-  if (exportBtn) {
-    exportBtn.addEventListener('click', () => store.exportToFile());
-  }
-  const importBtn = $('import-btn');
-  const importFile = $('import-file');
-  if (importBtn && importFile) {
-    importBtn.addEventListener('click', () => importFile.click());
-    importFile.addEventListener('change', async () => {
-      const file = importFile.files && importFile.files[0];
-      if (!file) return;
-      try {
-        const count = await store.importFromFile(file);
-        refreshAll();
-        window.alert('Imported progress for ' + count + ' trophies.');
-      } catch {
-        window.alert('Could not import that file — it is not a valid progress export.');
-      }
-      importFile.value = '';
-    });
-  }
-
-  // Static views rendered once from data.
-  renderRoadmap(roadmapListEl, panels);
-  renderGlitch(glitchPanelEl, panels);
-  renderEggs(eggsListEl, eggs, 'all', 'all');
-
-  setBodySpoiler(filterState.spoilerOn);
-  refreshAll();
-
-  // Screenshot modes (?shot=...): deterministic states for the 4 shots.
-  const mode = shotMode();
-  if (mode === 'cover') {
-    filterState.spoilerOn = false;
-    if (spoilerToggle) spoilerToggle.checked = false;
-    setBodySpoiler(false);
-    showView('tracker');
-    selectedId = COVER_TROPHY;
-    refreshAll();
-  } else if (mode === 'roadmap') {
-    showView('roadmap');
-  } else if (mode === 'glitch') {
-    showView('glitch');
-  } else if (mode === 'spoiler') {
-    filterState.spoilerOn = true;
-    if (spoilerToggle) spoilerToggle.checked = true;
-    setBodySpoiler(true);
-    showView('tracker');
-    refreshAll();
-  }
 }
 
-start().catch((err) => {
-  const listEl = $('trophy-list');
-  if (listEl) {
-    listEl.innerHTML =
-      '<p class="view-intro" style="padding:12px">Could not load the guide data: ' +
-      String(err && err.message ? err.message : err) + '</p>';
-  }
-  console.error(err);
+boot().catch((err) => {
+  document.getElementById('detail').innerHTML =
+    '<p class="empty">Could not load the guide data. Serve the app/ folder over HTTP (see serve.ts) and reload. ' + V.esc(err.message) + '</p>';
 });
