@@ -1,236 +1,276 @@
-// main.js — bootstrap: loads data, wires the panes, routes pages and
-// ?shot= presets (the four screenshot compositions).
+/* main.js — boot the guide: load the data, wire the filters, the
+   tracker and the views, and handle the ?shot= demo presets. */
 
-import { loadData, computeAudit } from './data.js';
+import { loadGuideData, computeAudit } from "./data.js";
 import {
-  loadState, saveState, toggleEarned, setCount,
-  addNextUp, removeNextUp, moveNextUp,
-  downloadExport, importJson, resetState,
-} from './store.js';
-import * as views from './views.js';
+  loadEarned,
+  saveEarned,
+  toggleEarned,
+  clearEarned,
+  loadSettings,
+  saveSettings,
+  exportProgress,
+  parseImportedProgress,
+  importProgressSet,
+  setDemoEarned,
+} from "./store.js";
+import { applyFilters, nextUpTrophies } from "./filters.js";
+import {
+  renderTrophyList,
+  renderTrophyDetail,
+  renderProgressPane,
+  renderRoadmapView,
+  renderGlitchView,
+  renderEggsView,
+  escapeHtml,
+} from "./views.js";
+
+const state = {
+  data: null,
+  earned: new Set(),
+  settings: { spoiler: false, hideEarned: false },
+  kind: "all",
+  grade: "all",
+  query: "",
+  selectedName: null,
+  view: "tracker",
+  eggFilter: "all",
+};
 
 const $ = (id) => document.getElementById(id);
 
-const els = {
-  list: $('trophy-list'),
-  count: $('list-count'),
-  progress: $('progress-block'),
-  center: $('center-content'),
-  audit: $('audit-card'),
-  auditMini: $('audit-mini'),
-  roadmapMini: $('roadmap-mini'),
-  nextUp: $('nextup-card'),
-  foot: $('foot-audit'),
-  spoilerToggle: $('spoiler-toggle'),
-};
-
-let data = null;
-let audit = null;
-let state = loadState();
-let eggFilter = '';
-
-// Demo overlay for ?shot= presets: what the screenshots show. It is merged
-// into the view state at render time and NEVER written to localStorage, so
-// a screenshot preset can never pollute the user's real checklist.
-const demo = { earned: {}, nextUp: [] };
-
-function viewState() {
+function activeFilters() {
   return {
-    ...state,
-    earned: { ...state.earned, ...demo.earned },
-    nextUp: state.nextUp.length ? state.nextUp : demo.nextUp,
-    filters: state.filters,
+    kind: state.kind,
+    grade: state.grade,
+    query: state.query,
+    hideEarned: state.settings.hideEarned,
+    earned: state.earned,
   };
 }
 
-function renderAll() {
-  const vs = viewState();
-  views.renderList(data, vs, els);
-  views.renderAudit(data, vs, audit, els);
-  views.renderNextUp(data, vs, els);
-  renderCenter(vs);
-  els.spoilerToggle.textContent = `Spoiler shield: ${state.spoiler ? 'ON' : 'OFF'}`;
-  els.spoilerToggle.setAttribute('aria-pressed', String(state.spoiler));
-  document.querySelectorAll('#pagenav button').forEach((b) => {
-    b.classList.toggle('active', b.dataset.page === state.page);
+function refreshTracker() {
+  const shown = applyFilters(state.data.trophies, activeFilters());
+  $("list-count").textContent = `${shown.length} shown`;
+  renderTrophyList($("trophy-list"), shown, {
+    earned: state.earned,
+    spoiler: state.settings.spoiler,
+    selectedName: state.selectedName,
+  });
+  const picked = state.data.trophies.find((t) => t.name === state.selectedName) || null;
+  renderTrophyDetail($("trophy-detail"), picked, state.data, {
+    earned: state.earned,
+    spoiler: state.settings.spoiler,
+  });
+  renderProgressPane(state, state.data);
+  drawNextUp();
+}
+
+function drawNextUp() {
+  const list = $("next-up-list");
+  if (!list) return;
+  const next = nextUpTrophies(state.data.trophies, state.earned, 5);
+  if (next.length === 0) {
+    list.innerHTML = `<li>Semua trophy sudah didapat — platinum milikmu!</li>`;
+    return;
+  }
+  list.innerHTML = next
+    .map(
+      (trophy) =>
+        `<li><button type="button" data-next="${escapeHtml(trophy.name)}">${escapeHtml(trophy.name)}</button> <span class="tag kind-${escapeHtml(trophy.kind)}">${escapeHtml(trophy.kind)}</span></li>`
+    )
+    .join("");
+  list.querySelectorAll("[data-next]").forEach((button) => {
+    button.addEventListener("click", () => pickTrophy(button.getAttribute("data-next")));
   });
 }
 
-function renderCenter(vs) {
-  const s = vs || viewState();
-  switch (state.page) {
-    case 'roadmap': views.renderRoadmap(data, els); break;
-    case 'missables': views.renderMissables(data, els); break;
-    case 'glitch': views.renderGlitch(data, els); break;
-    case 'launch': views.renderLaunch(data, els); break;
-    case 'disputes': views.renderDisputes(data, els); break;
-    case 'eggs': views.renderEggs(data, s, els, eggFilter); break;
-    case 'sources': views.renderSources(data, els); break;
-    case 'settings': views.renderSettings(data, s, els, audit); break;
-    default: views.renderDetail(data, s, els);
+function pickTrophy(name) {
+  state.selectedName = name;
+  showView("tracker");
+  refreshTracker();
+  const detail = $("trophy-detail-pane");
+  if (detail) detail.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function showView(view) {
+  state.view = view;
+  document.querySelectorAll("#view-tabs .tab").forEach((tab) => {
+    tab.classList.toggle("active", tab.getAttribute("data-view") === view);
+  });
+  document.querySelectorAll("#app-main .view").forEach((section) => {
+    section.classList.toggle("active", section.id === `view-${view}`);
+  });
+  if (view === "roadmap") {
+    renderRoadmapView($("view-roadmap"), state.data, state, pickTrophy);
+  } else if (view === "glitch") {
+    renderGlitchView($("view-glitch"), state.data);
+  } else if (view === "eggs") {
+    renderEggsView($("view-eggs"), state.data, {
+      eggFilter: state.eggFilter,
+      onEggFilter: (filter) => {
+        state.eggFilter = filter;
+        renderEggsView($("view-eggs"), state.data, {
+          eggFilter: state.eggFilter,
+          onEggFilter: (next) => {
+            state.eggFilter = next;
+            showView("eggs");
+          },
+        });
+      },
+    });
   }
 }
 
-function setPage(page) {
-  state.page = page;
-  saveState(state);
-  renderAll();
+function paintHeader(audit) {
+  $("stat-claims").textContent = String(audit.cited);
+  $("stat-twoplus").textContent = String(audit.twoPlus);
+  $("stat-eggs").textContent = String(state.data.eggs.length);
+  $("stat-trophies").textContent = String(state.data.trophies.length);
+  const pct = audit.total === 0 ? 0 : Math.round((audit.cited / audit.total) * 100);
+  $("audit-strip").innerHTML =
+    `<strong>Audit strip:</strong> ${audit.cited}/${audit.total} claims cited (${pct}%), ` +
+    `${audit.twoPlus} on 2+ sites, ${audit.sources} sources. ` +
+    `Setiap langkah panduan mengutip sumbernya — klaim tanpa sumber tidak dihitung.`;
+  const names = state.data.sources.map((s) => s.name).join(", ");
+  $("footer-source-count").textContent = `${audit.sources} sources — ${names}`;
 }
 
-// ?shot= presets used for the four screenshots. They only change what is
-// shown in this session, through the demo overlay; the saved checklist is
-// never rewritten by a shot.
 function applyShotPreset() {
-  const shot = new URLSearchParams(location.search).get('shot');
+  const params = new URLSearchParams(window.location.search);
+  const shot = params.get("shot");
   if (!shot) return;
-  if (shot === '01-cover') {
-    state.page = 'guide';
-    state.selected = 'Positive Mental Attitude';
-    // Demo progress shown in-memory for the cover composition only.
-    const demoEarned = ['Just Like Paradise', 'Paradise Lost', 'Positive Mental Attitude',
-      'T**s Ass Drug Money', 'Trust', 'Road to Rehabilitation', 'This Was No Boat Accident',
-      'The Lone Rider', 'Strangers & Freaks', 'Supply & Demand', 'Spin On This!',
-      'Fair Game', 'Vice City, Baby!', 'Break the Bank'];
-    for (const n of demoEarned) demo.earned[n] = true;
-    demo.nextUp = ['Top Of The World, Ma', 'Family Matters', 'DWNFALL'];
-  } else if (shot === '02-roadmap') {
-    state.page = 'roadmap';
-  } else if (shot === '03-glitch') {
-    state.page = 'glitch';
-  } else if (shot === '04-spoiler') {
-    state.page = 'guide';
-    state.spoiler = true;
-    state.selected = 'Just Like Paradise';
-    demo.nextUp = ['Positive Mental Attitude', 'T**s Ass Drug Money', 'Trust'];
+  /* Deterministic screenshot states: demo progress lives in memory
+     only, never in localStorage, so shots are reproducible. */
+  const demoNames = state.data.trophies.slice(0, 13).map((t) => t.name);
+  if (shot === "01-cover") {
+    setDemoEarned(demoNames);
+    state.earned = loadEarned();
+    state.selectedName = "Positive Mental Attitude";
+    showView("tracker");
+  } else if (shot === "02-roadmap") {
+    setDemoEarned(demoNames);
+    state.earned = loadEarned();
+    showView("roadmap");
+  } else if (shot === "03-glitch") {
+    setDemoEarned([]);
+    state.earned = loadEarned();
+    showView("glitch");
+  } else if (shot === "04-spoiler") {
+    setDemoEarned(demoNames);
+    state.earned = loadEarned();
+    state.settings.spoiler = true;
+    $("spoiler-toggle").checked = true;
+    state.selectedName = "Road to Rehabilitation";
+    showView("tracker");
   }
+  refreshTracker();
 }
 
 function wireEvents() {
-  // Left pane: search + filters.
-  $('search').addEventListener('input', (e) => {
-    state.filters.query = e.target.value;
-    saveState(state);
-    views.renderList(data, state, els);
-  });
-  $('filter-kind').addEventListener('change', (e) => {
-    state.filters.kind = e.target.value; saveState(state);
-    views.renderList(data, state, els);
-  });
-  $('filter-grade').addEventListener('change', (e) => {
-    state.filters.grade = e.target.value; saveState(state);
-    views.renderList(data, state, els);
-  });
-  $('filter-status').addEventListener('change', (e) => {
-    state.filters.status = e.target.value; saveState(state);
-    views.renderList(data, state, els);
-  });
-  // Restore saved filter values into the controls.
-  $('search').value = state.filters.query || '';
-  $('filter-kind').value = state.filters.kind || '';
-  $('filter-grade').value = state.filters.grade || '';
-  $('filter-status').value = state.filters.status || '';
-
-  // Page nav.
-  $('pagenav').addEventListener('click', (e) => {
-    const btn = e.target.closest('button[data-page]');
-    if (btn) setPage(btn.dataset.page);
+  document.querySelectorAll("#view-tabs .tab").forEach((tab) => {
+    tab.addEventListener("click", () => showView(tab.getAttribute("data-view")));
   });
 
-  // Spoiler toggle (header).
-  els.spoilerToggle.addEventListener('click', () => {
-    state.spoiler = !state.spoiler;
-    saveState(state);
-    renderAll();
+  document.querySelectorAll("#kind-chips .chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      state.kind = chip.getAttribute("data-kind");
+      document.querySelectorAll("#kind-chips .chip").forEach((c) => c.classList.toggle("active", c === chip));
+      refreshTracker();
+    });
   });
 
-  // Export / import (header + right pane).
-  const doExport = () => { downloadExport(state); setIoStatus('Exported your progress as JSON.'); };
-  $('export-btn').addEventListener('click', doExport);
-  $('export-btn-2').addEventListener('click', doExport);
-  const doImport = async (file) => {
+  document.querySelectorAll("#grade-chips .chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      state.grade = chip.getAttribute("data-grade");
+      document.querySelectorAll("#grade-chips .chip").forEach((c) => c.classList.toggle("active", c === chip));
+      refreshTracker();
+    });
+  });
+
+  $("search-input").addEventListener("input", (event) => {
+    state.query = event.target.value;
+    refreshTracker();
+  });
+
+  $("spoiler-toggle").addEventListener("change", (event) => {
+    state.settings.spoiler = event.target.checked;
+    saveSettings(state.settings);
+    refreshTracker();
+  });
+
+  $("earned-toggle").addEventListener("change", (event) => {
+    state.settings.hideEarned = event.target.checked;
+    saveSettings(state.settings);
+    refreshTracker();
+  });
+
+  /* Trophy list: a checkbox toggles earned, a row click opens the guide. */
+  $("trophy-list").addEventListener("click", (event) => {
+    const row = event.target.closest(".trophy-row");
+    if (!row) return;
+    const name = row.getAttribute("data-trophy");
+    if (event.target.matches('input[type="checkbox"]')) {
+      state.earned = toggleEarned(state.earned, name);
+      refreshTracker();
+      return;
+    }
+    pickTrophy(name);
+  });
+  $("trophy-list").addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const row = event.target.closest(".trophy-row");
+    if (!row) return;
+    event.preventDefault();
+    pickTrophy(row.getAttribute("data-trophy"));
+  });
+
+  $("export-btn").addEventListener("click", () => {
+    const count = exportProgress(state.earned);
+    $("save-status").textContent = `Exported ${count} earned trophies to JSON.`;
+  });
+  $("import-btn").addEventListener("click", () => $("import-file").click());
+  $("import-file").addEventListener("change", async (event) => {
+    const file = event.target.files[0];
     if (!file) return;
     const text = await file.text();
-    const res = importJson(state, text);
-    setIoStatus(res.message);
-    renderAll();
-  };
-  $('import-file').addEventListener('change', (e) => doImport(e.target.files[0]));
-  $('import-file-2').addEventListener('change', (e) => doImport(e.target.files[0]));
-
-  // Delegated clicks across list + center + right pane.
-  document.addEventListener('click', (e) => {
-    const li = e.target.closest('li[data-name]');
-    const earnBox = e.target.closest('input[data-earn]');
-    const nextBtn = e.target.closest('[data-nextup]');
-    const rmBtn = e.target.closest('[data-remove-nextup]');
-    const upBtn = e.target.closest('[data-move-up]');
-    const downBtn = e.target.closest('[data-move-down]');
-    const countInput = e.target.closest('input[data-count]');
-    const eggBtn = e.target.closest('[data-egg-filter]');
-    const settingsSpoiler = e.target.closest('#settings-spoiler');
-    const settingsExport = e.target.closest('#settings-export');
-    const settingsReset = e.target.closest('#settings-reset');
-
-    if (earnBox) {
-      e.stopPropagation();
-      toggleEarned(state, earnBox.dataset.earn);
-      renderAll();
+    const parsed = parseImportedProgress(text);
+    if (!parsed) {
+      $("save-status").textContent = "Import gagal: file bukan progress JSON yang valid.";
       return;
     }
-    if (nextBtn) { addNextUp(state, nextBtn.dataset.nextup); renderAll(); return; }
-    if (rmBtn) { removeNextUp(state, rmBtn.dataset.removeNextup); renderAll(); return; }
-    if (upBtn) { moveNextUp(state, upBtn.dataset.moveUp, -1); renderAll(); return; }
-    if (downBtn) { moveNextUp(state, downBtn.dataset.moveDown, 1); renderAll(); return; }
-    if (eggBtn) { eggFilter = eggBtn.dataset.eggFilter; renderCenter(); return; }
-    if (settingsSpoiler) { state.spoiler = !state.spoiler; saveState(state); renderAll(); return; }
-    if (settingsExport) { doExport(); return; }
-    if (settingsReset) {
-      if (window.confirm('Reset all progress? This clears your earned trophies, counts and Next Up list.')) {
-        state = resetState();
-        renderAll();
-      }
-      return;
-    }
-    if (countInput) return; // typing in the count box is handled below
-    if (li) {
-      state.selected = li.dataset.name;
-      state.page = 'guide';
-      saveState(state);
-      renderAll();
-    }
+    const known = new Set(state.data.trophies.map((t) => t.name));
+    const valid = new Set([...parsed].filter((name) => known.has(name)));
+    state.earned = importProgressSet(valid);
+    $("save-status").textContent = `Imported ${valid.size} earned trophies.`;
+    refreshTracker();
   });
-
-  // Count tracker inputs + settings import file input (delegated, survives re-render).
-  document.addEventListener('change', (e) => {
-    const countInput = e.target.closest('input[data-count]');
-    if (countInput) {
-      setCount(state, countInput.dataset.count, countInput.value);
-      renderAll();
-      return;
-    }
-    if (e.target.id === 'settings-import') doImport(e.target.files[0]);
+  $("reset-btn").addEventListener("click", () => {
+    if (!window.confirm("Reset semua progres tracker?")) return;
+    state.earned = clearEarned();
+    $("save-status").textContent = "Progress direset.";
+    refreshTracker();
   });
-}
-
-function setIoStatus(msg) {
-  const el = $('io-status');
-  if (el) el.textContent = msg;
-  const el2 = $('settings-io-status');
-  if (el2) el2.textContent = msg;
 }
 
 async function boot() {
-  try {
-    data = await loadData();
-  } catch (err) {
-    els.center.innerHTML = `<p>Could not load the guide data: ${err.message}</p>`;
-    return;
-  }
-  audit = computeAudit(data);
-  if (!state.selected) state.selected = data.trophies[0]?.name || null;
-  applyShotPreset();
+  state.data = await loadGuideData();
+  state.earned = loadEarned();
+  state.settings = loadSettings();
+  $("spoiler-toggle").checked = state.settings.spoiler;
+  $("earned-toggle").checked = state.settings.hideEarned;
+  const audit = computeAudit(state.data);
+  paintHeader(audit);
   wireEvents();
-  renderAll();
+  applyShotPreset();
+  if (!state.selectedName) {
+    state.selectedName = state.data.trophies[0].name;
+  }
+  refreshTracker();
 }
 
-boot();
+boot().catch((error) => {
+  const strip = $("audit-strip");
+  if (strip) strip.textContent = `Gagal memuat data panduan: ${error.message}`;
+  console.error(error);
+});
