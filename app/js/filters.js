@@ -1,63 +1,92 @@
-/* filters.js — kind / grade / search filtering and the spoiler rule. */
+// filters.js — filtering, searching and spoiler masking for the trophy list.
+// The spoiler shield masks the name and description of every un-earned story
+// trophy, in every view, until it is earned. Masking happens here, in one
+// place, so no view can leak a story trophy's name by accident.
 
-export const KIND_FILTERS = ["all", "story", "missable", "collectibles", "activities", "crime", "hidden"];
-export const GRADE_FILTERS = ["all", "platinum", "gold", "silver", "bronze"];
-
-/* A trophy matches the kind chip: "missable" matches the missable flag,
-   "hidden" matches the hidden flag, anything else matches its kind. */
-export function matchesKind(trophy, kind) {
-  if (kind === "all") return true;
-  if (kind === "missable") return trophy.missable === true;
-  if (kind === "hidden") return trophy.hidden === true;
-  return trophy.kind === kind;
+/** The 20 story trophies are the ones whose kinds include "story". */
+export function isStoryTrophy(trophy) {
+  return (trophy.kinds ?? []).includes('story');
 }
 
-export function matchesGrade(trophy, grade) {
-  if (grade === "all") return true;
-  return trophy.grade === grade;
+/** Is this trophy's name/description hidden by the spoiler shield right now? */
+export function isSpoilerMasked(trophy, state) {
+  return state.spoilerShield && isStoryTrophy(trophy) && !state.earned.includes(trophy.id);
 }
 
-export function matchesSearch(trophy, query) {
-  const q = (query || "").trim().toLowerCase();
-  if (!q) return true;
-  const haystack = `${trophy.name} ${trophy.description || ""} ${trophy.guide || ""}`.toLowerCase();
-  return haystack.includes(q);
+/** Display name: "???" while masked, the official name otherwise. */
+export function displayName(trophy, state) {
+  return isSpoilerMasked(trophy, state) ? '???' : trophy.name;
 }
 
-/* Full filter pass over the trophy list. */
-export function applyFilters(trophies, { kind, grade, query, hideEarned, earned }) {
-  return trophies.filter((trophy) => {
-    if (!matchesKind(trophy, kind)) return false;
-    if (!matchesGrade(trophy, grade)) return false;
-    if (!matchesSearch(trophy, query)) return false;
-    if (hideEarned && earned.has(trophy.name)) return false;
+/** Display description: a spoiler note while masked, the official text otherwise. */
+export function displayDescription(trophy, state) {
+  return isSpoilerMasked(trophy, state)
+    ? 'Nama & deskripsi disembunyikan spoiler shield — dapatkan trophy ini dulu, atau matikan shield.'
+    : trophy.description;
+}
+
+/**
+ * Filter the trophy list. opts: { kind, grade, status, query }.
+ * kind: 'all' | 'story' | 'missable' | 'collectibles' | 'activities' | 'crime' | 'hidden'
+ * grade: 'all' | 'platinum' | 'gold' | 'silver' | 'bronze'
+ * status: 'all' | 'earned' | 'unearned'
+ * query: free text matched against name + description + guide.
+ */
+export function applyFilters(trophies, state, opts) {
+  const q = (opts.query ?? '').trim().toLowerCase();
+  return trophies.filter((t) => {
+    if (opts.kind !== 'all') {
+      if (opts.kind === 'hidden') {
+        if (!t.hidden) return false;
+      } else if (!(t.kinds ?? []).includes(opts.kind)) {
+        return false;
+      }
+    }
+    if (opts.grade !== 'all' && t.grade !== opts.grade) return false;
+    const earned = state.earned.includes(t.id);
+    if (opts.status === 'earned' && !earned) return false;
+    if (opts.status === 'unearned' && earned) return false;
+    if (q) {
+      const hay = `${t.name} ${t.description} ${t.guide}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
     return true;
   });
 }
 
-/* The spoiler shield masks a story trophy's name and description until it
-   is earned. Hidden trophies are masked the same way when the shield is on
-   and the trophy is still unearned. */
-export function isSpoilerMasked(trophy, { spoiler, earned }) {
-  if (!spoiler) return false;
-  if (earned.has(trophy.name)) return false;
-  if (trophy.kind === "story") return true;
-  if (trophy.hidden) return true;
-  return false;
+/** Sort: platinum first, then gold, silver, bronze; within a grade, by stage then name. */
+export function sortTrophies(trophies) {
+  const rank = { platinum: 0, gold: 1, silver: 2, bronze: 3 };
+  return [...trophies].sort(
+    (a, b) => rank[a.grade] - rank[b.grade] || (a.stage ?? 99) - (b.stage ?? 99) || a.name.localeCompare(b.name),
+  );
 }
 
-/* Next Up: the earliest roadmap stage first, story before side content,
-   unearned trophies in roadmap order. */
-const KIND_ORDER = { story: 0, missable: 1, collectibles: 2, activities: 3, crime: 4 };
+/** Count earned trophies per grade, for the progress breakdown. */
+export function gradeProgress(trophies, state) {
+  const out = {};
+  for (const t of trophies) {
+    out[t.grade] = out[t.grade] ?? { total: 0, earned: 0 };
+    out[t.grade].total++;
+    if (state.earned.includes(t.id)) out[t.grade].earned++;
+  }
+  return out;
+}
 
-export function nextUpTrophies(trophies, earned, limit = 5) {
-  const remaining = trophies.filter((trophy) => !earned.has(trophy.name));
-  remaining.sort((a, b) => {
-    const stageDiff = (a.roadmap_stage || 99) - (b.roadmap_stage || 99);
-    if (stageDiff !== 0) return stageDiff;
-    const kindDiff = (KIND_ORDER[a.kind] ?? 9) - (KIND_ORDER[b.kind] ?? 9);
-    if (kindDiff !== 0) return kindDiff;
-    return a.name.localeCompare(b.name);
+/** The next trophy to chase: lowest roadmap stage first, then count progress, then grade. */
+export function nextUp(trophies, state) {
+  const remaining = trophies.filter((t) => !state.earned.includes(t.id));
+  if (remaining.length === 0) return null;
+  const rank = { platinum: 3, gold: 2, silver: 1, bronze: 0 };
+  const scored = remaining.map((t) => {
+    let score = (t.stage ?? 99) * 100;
+    if (t.counts) {
+      const have = state.counts[t.id] ?? 0;
+      score -= Math.round((have / t.counts.total) * 40);
+    }
+    score += rank[t.grade] ?? 0;
+    return { trophy: t, score };
   });
-  return remaining.slice(0, limit);
+  scored.sort((a, b) => a.score - b.score);
+  return scored[0].trophy;
 }
