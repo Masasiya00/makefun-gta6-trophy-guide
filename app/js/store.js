@@ -1,132 +1,138 @@
-/* store.js — earned progress in localStorage, plus export / import.
-   Nothing here touches the network. The state is the user's own
-   checklist; a demo override (used only by ?shot= screenshots) keeps
-   demo progress out of localStorage entirely. */
+// store.js — the checklist lives in localStorage, with JSON export/import.
+// This module never touches the network. The state belongs to the user alone.
 
-const PROGRESS_KEY = "leonida-platinum-atlas-progress-v1";
-const SETTINGS_KEY = "leonida-platinum-atlas-settings-v1";
+const STORAGE_KEY = 'gta6-trophy-guide-v1';
 
-/* Demo override: when set, loadEarned / saveEarned use this in-memory
-   set instead of localStorage, so screenshots never pollute real data. */
-let demoEarned = null;
-
-export function setDemoEarned(names) {
-  demoEarned = new Set(names || []);
+export function defaultState() {
+  return {
+    earned: {},        // trophy name -> true
+    counts: {},        // trophy name -> current number
+    nextUp: [],        // trophy names, in planner order
+    spoiler: true,     // spoiler shield starts ON
+    page: 'guide',
+    selected: null,    // selected trophy name
+    filters: { kind: '', grade: '', status: '', query: '' },
+  };
 }
 
-export function isDemoMode() {
-  return demoEarned !== null;
-}
-
-export function loadEarned() {
-  if (demoEarned !== null) return new Set(demoEarned);
+export function loadState() {
   try {
-    const raw = localStorage.getItem(PROGRESS_KEY);
-    if (!raw) return new Set();
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(parsed.filter((name) => typeof name === "string"));
-  } catch {
-    return new Set();
-  }
-}
-
-export function saveEarned(earned) {
-  if (demoEarned !== null) {
-    demoEarned = new Set(earned);
-    return;
-  }
-  try {
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify([...earned].sort()));
-  } catch {
-    /* Storage full or blocked: progress still lives in memory. */
-  }
-}
-
-export function isEarned(earned, trophyName) {
-  return earned.has(trophyName);
-}
-
-export function toggleEarned(earned, trophyName) {
-  const next = new Set(earned);
-  if (next.has(trophyName)) next.delete(trophyName);
-  else next.add(trophyName);
-  saveEarned(next);
-  return next;
-}
-
-export function clearEarned() {
-  demoEarned = null;
-  try {
-    localStorage.removeItem(PROGRESS_KEY);
-  } catch {
-    /* ignore */
-  }
-  return new Set();
-}
-
-/* Settings: spoiler shield on/off, hide-earned on/off. */
-export function loadSettings() {
-  const defaults = { spoiler: false, hideEarned: false };
-  try {
-    const raw = localStorage.getItem(SETTINGS_KEY);
-    if (!raw) return defaults;
-    const parsed = JSON.parse(raw);
+    const fresh = defaultState();
     return {
-      spoiler: parsed.spoiler === true,
-      hideEarned: parsed.hideEarned === true,
+      ...fresh,
+      ...parsed,
+      earned: { ...(parsed.earned || {}) },
+      counts: { ...(parsed.counts || {}) },
+      nextUp: Array.isArray(parsed.nextUp) ? parsed.nextUp : [],
+      filters: { ...fresh.filters, ...(parsed.filters || {}) },
     };
   } catch {
-    return defaults;
+    return defaultState();
   }
 }
 
-export function saveSettings(settings) {
+export function saveState(state) {
   try {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
-    /* ignore */
+    // Storage full or blocked (private mode): the checklist still works
+    // for this session, it simply will not survive a reload.
   }
 }
 
-/* Download the earned list as a JSON file for backup. */
-export function exportProgress(earned) {
+export function toggleEarned(state, name) {
+  if (state.earned[name]) delete state.earned[name];
+  else state.earned[name] = true;
+  saveState(state);
+}
+
+export function setCount(state, name, value) {
+  const n = Math.max(0, Math.floor(Number(value) || 0));
+  state.counts[name] = n;
+  saveState(state);
+}
+
+export function earnedCount(state, trophies) {
+  return trophies.filter((t) => state.earned[t.name]).length;
+}
+
+export function addNextUp(state, name) {
+  if (!state.nextUp.includes(name)) state.nextUp.push(name);
+  saveState(state);
+}
+
+export function removeNextUp(state, name) {
+  state.nextUp = state.nextUp.filter((n) => n !== name);
+  saveState(state);
+}
+
+export function moveNextUp(state, name, dir) {
+  const from = state.nextUp.indexOf(name);
+  const to = from + dir;
+  if (from < 0 || to < 0 || to >= state.nextUp.length) return;
+  const [moved] = state.nextUp.splice(from, 1);
+  state.nextUp.splice(to, 0, moved);
+  saveState(state);
+}
+
+export function exportJson(state) {
   const payload = {
-    app: "LEONIDA PLATINUM ATLAS",
+    app: 'gta6-trophy-guide',
     version: 1,
     exported_at: new Date().toISOString(),
-    earned: [...earned].sort(),
+    earned: Object.keys(state.earned).filter((k) => state.earned[k]),
+    counts: state.counts,
+    nextUp: state.nextUp,
+    spoiler: state.spoiler,
   };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = "leonida-platinum-atlas-progress.json";
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  return payload.earned.length;
+  return JSON.stringify(payload, null, 2);
 }
 
-/* Read an imported file back into an earned set. Accepts our own export
-   shape ({earned: [...]}) or a bare array of trophy names. Returns null
-   when the file is not a shape we recognise. */
-export function parseImportedProgress(text) {
+export function downloadExport(state) {
+  const blob = new Blob([exportJson(state)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'gta6-trophy-progress.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// Returns { ok, message } — never throws on bad input.
+export function importJson(state, text) {
   let parsed;
   try {
     parsed = JSON.parse(text);
   } catch {
-    return null;
+    return { ok: false, message: 'That file is not valid JSON.' };
   }
-  const names = Array.isArray(parsed) ? parsed : parsed.earned;
-  if (!Array.isArray(names)) return null;
-  const cleaned = names.filter((name) => typeof name === "string");
-  if (cleaned.length === 0 && names.length > 0) return null;
-  return new Set(cleaned);
+  if (!parsed || typeof parsed !== 'object') {
+    return { ok: false, message: 'That file is not a progress export.' };
+  }
+  const earned = {};
+  for (const name of Array.isArray(parsed.earned) ? parsed.earned : []) {
+    if (typeof name === 'string') earned[name] = true;
+  }
+  state.earned = earned;
+  state.counts = {};
+  if (parsed.counts && typeof parsed.counts === 'object') {
+    for (const [k, v] of Object.entries(parsed.counts)) {
+      if (typeof k === 'string' && Number.isFinite(Number(v))) state.counts[k] = Math.max(0, Math.floor(Number(v)));
+    }
+  }
+  state.nextUp = Array.isArray(parsed.nextUp)
+    ? parsed.nextUp.filter((n) => typeof n === 'string') : [];
+  if (typeof parsed.spoiler === 'boolean') state.spoiler = parsed.spoiler;
+  saveState(state);
+  return { ok: true, message: `Imported ${Object.keys(earned).length} earned trophies.` };
 }
 
-export function importProgressSet(earned) {
-  saveEarned(earned);
-  return new Set(earned);
+export function resetState() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+  return defaultState();
 }
