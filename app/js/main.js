@@ -1,151 +1,180 @@
-// Wires the app: tabs + hash routing, filters, checklist, detail pane, Next Up,
-// Easter Eggs section, settings (spoiler, export/import/reset).
+// Leonida Platinum Atlas — wiring. Loads the three local JSON files, renders
+// the active view, and keeps the progress header in sync. URL parameters
+// pick the opening view for deep links and screenshots:
+//   ?view=checklist|roadmap|missables|eggs|glitch|launch|tracker
+//   ?detail=<trophy name>   (opens that trophy's guide pane)
+//   ?spoiler=on|off
 import { loadAll } from './data.js';
-import { loadState, saveState, toggleEarned, setCount, exportFile, importFile } from './store.js';
+import { loadState, saveState, toggleEarned, setCount, setSpoiler, setNote, exportFile, importFile } from './store.js';
 import { filterTrophies, filterEggs, nextUp } from './filters.js';
-import {
-  renderHeader, renderList, renderDetail, renderRoadmap, renderMissables,
-  renderGlitch, renderEggs, renderSources, spoilerMasked,
-} from './views.js';
+import { checklistView, roadmapView, missablesView, eggsView, glitchView, launchView, trackerView } from './views.js';
 
-const TABS = ['checklist', 'roadmap', 'missables', 'glitch', 'eggs', 'settings'];
-const { trophies, trophyMeta, panels, eggs } = await loadAll();
+const viewEl = document.getElementById('view');
+const tabsEl = document.getElementById('tabs');
+const params = new URLSearchParams(location.search);
+
+const data = await loadAll();
 let state = loadState();
-let selectedId = 2;
-let filterOpts = { q: '', kind: 'all', grade: 'all', status: 'all', missableOnly: false, hiddenOnly: false };
-let eggOpts = { q: '', category: 'all', status: 'all' };
+if (params.get('spoiler') === 'on') state.spoiler = true;
+if (params.get('spoiler') === 'off') state.spoiler = false;
 
-function showTab(name) {
-  if (!TABS.includes(name)) name = 'checklist';
-  for (const t of TABS) {
-    document.getElementById('panel-' + t).classList.toggle('hidden', t !== name);
-    document.querySelector(`#tabs button[data-tab="${t}"]`).classList.toggle('active', t === name);
+const ui = {
+  view: params.get('view') || 'checklist',
+  kind: 'all',
+  grade: 'all',
+  query: '',
+  detail: params.get('detail') || null,
+  eggCategory: 'all',
+  eggStatus: 'all',
+  eggQuery: '',
+};
+if (!['checklist', 'roadmap', 'missables', 'eggs', 'glitch', 'launch', 'tracker'].includes(ui.view)) ui.view = 'checklist';
+
+function updateHeader() {
+  const earned = new Set(state.earned);
+  const total = data.trophies.length;
+  const pct = Math.round((earned.size / total) * 100);
+  document.getElementById('progressText').textContent = earned.size + ' / ' + total;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressSub').textContent = pct + '% to platinum · 52/55 guides confirmed · 2 reported · 1 unknown (Ten Pin)';
+}
+
+function render() {
+  updateHeader();
+  for (const b of tabsEl.querySelectorAll('button')) {
+    b.classList.toggle('active', b.dataset.view === ui.view);
   }
-  if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
-}
-
-function refreshAll() {
-  renderHeader(trophies, state, trophyMeta);
-  const shown = filterTrophies(trophies, state, filterOpts);
-  document.getElementById('countLine').textContent =
-    `Showing ${shown.length} of ${trophies.length} trophies — ${state.earned.length} earned.`;
-  renderList(
-    document.getElementById('trophyList'), shown, state,
-    (id) => { selectedId = id; refreshDetail(); refreshListOnly(); },
-    (id) => { toggleEarned(state, id); refreshAll(); },
-    selectedId,
-  );
-  refreshDetail();
-  renderRoadmap(panels, trophies, state);
-  const ups = nextUp(trophies, state, 3);
-  document.getElementById('nextUp').innerHTML =
-    ups.length === 0
-      ? '<b>Next Up:</b> all 55 trophies earned — Vice Got a Price! is yours.'
-      : '<b>Next Up:</b> ' + ups.map((t) => {
-        const label = spoilerMasked(t, state) ? 'Hidden story trophy' : t.name;
-        const extra = t.counts ? ` (${state.counts[t.id] || 0}/${t.counts.target} ${t.counts.label})` : '';
-        return `${label}${extra}`;
-      }).join(' · ');
-}
-
-function refreshListOnly() {
-  const shown = filterTrophies(trophies, state, filterOpts);
-  renderList(
-    document.getElementById('trophyList'), shown, state,
-    (id) => { selectedId = id; refreshDetail(); refreshListOnly(); },
-    (id) => { toggleEarned(state, id); refreshAll(); },
-    selectedId,
-  );
-}
-
-function refreshDetail() {
-  const t = trophies.find((x) => x.id === selectedId) || trophies[0];
-  renderDetail(
-    document.getElementById('detail'), t, state, panels,
-    (id, value) => { setCount(state, id, value); refreshAll(); },
-    (id) => { toggleEarned(state, id); refreshAll(); },
-  );
-}
-
-function refreshEggs() {
-  renderEggs(filterEggs(eggs, eggOpts));
-}
-
-// Tabs + hash routing.
-document.getElementById('tabs').addEventListener('click', (ev) => {
-  const btn = ev.target.closest('button[data-tab]');
-  if (btn) showTab(btn.dataset.tab);
-});
-window.addEventListener('hashchange', () => showTab(location.hash.slice(1)));
-
-// Checklist filters.
-const bind = (id, key) => document.getElementById(id).addEventListener('input', (ev) => {
-  filterOpts[key] = ev.target.value;
-  refreshAll();
-});
-bind('q', 'q');
-bind('kind', 'kind');
-bind('grade', 'grade');
-bind('status', 'status');
-document.getElementById('missableOnly').addEventListener('change', (ev) => {
-  filterOpts.missableOnly = ev.target.checked;
-  refreshAll();
-});
-document.getElementById('hiddenOnly').addEventListener('change', (ev) => {
-  filterOpts.hiddenOnly = ev.target.checked;
-  refreshAll();
-});
-
-// Spoiler guard (two checkboxes kept in sync).
-function setSpoiler(on) {
-  state.spoiler = on;
-  saveState(state);
-  document.getElementById('spoiler').checked = on;
-  document.getElementById('spoiler2').checked = on;
-  refreshAll();
-}
-document.getElementById('spoiler').addEventListener('change', (ev) => setSpoiler(ev.target.checked));
-document.getElementById('spoiler2').addEventListener('change', (ev) => setSpoiler(ev.target.checked));
-
-// Easter Eggs filters.
-document.getElementById('eggCat').addEventListener('change', (ev) => { eggOpts.category = ev.target.value; refreshEggs(); });
-document.getElementById('eggStatus').addEventListener('change', (ev) => { eggOpts.status = ev.target.value; refreshEggs(); });
-document.getElementById('eggQ').addEventListener('input', (ev) => { eggOpts.q = ev.target.value; refreshEggs(); });
-
-// Settings: export / import / reset.
-document.getElementById('exportBtn').addEventListener('click', () => {
-  exportFile(state);
-  document.getElementById('saveMsg').textContent = 'Progress exported as JSON.';
-});
-document.getElementById('importFile').addEventListener('change', async (ev) => {
-  const file = ev.target.files[0];
-  if (!file) return;
-  try {
-    state = await importFile(file);
-    document.getElementById('spoiler').checked = state.spoiler;
-    document.getElementById('spoiler2').checked = state.spoiler;
-    document.getElementById('saveMsg').textContent = `Imported ${state.earned.length} earned trophies.`;
-    refreshAll();
-  } catch (err) {
-    document.getElementById('saveMsg').textContent = 'Import failed: ' + err.message;
+  let html = '';
+  if (ui.view === 'checklist') {
+    const filtered = filterTrophies(data.trophies, { kind: ui.kind, grade: ui.grade, query: ui.query, earned: new Set(state.earned) });
+    html = checklistView(data, state, ui, filtered);
+  } else if (ui.view === 'roadmap') {
+    html = roadmapView(data.panels);
+  } else if (ui.view === 'missables') {
+    html = missablesView(data.panels);
+  } else if (ui.view === 'eggs') {
+    const filtered = filterEggs(data.eggs, { category: ui.eggCategory, status: ui.eggStatus, query: ui.eggQuery });
+    html = eggsView(data.eggs, ui, filtered);
+  } else if (ui.view === 'glitch') {
+    html = glitchView(data.panels);
+  } else if (ui.view === 'launch') {
+    html = launchView(data.panels);
+  } else {
+    html = trackerView(data, state, nextUp(data.trophies, state));
   }
-});
-document.getElementById('resetBtn').addEventListener('click', () => {
-  if (!window.confirm('Reset all progress? This clears every tick and count.')) return;
-  state = { earned: [], counts: {}, spoiler: true, notes: {} };
-  saveState(state);
-  document.getElementById('spoiler').checked = true;
-  document.getElementById('spoiler2').checked = true;
-  document.getElementById('saveMsg').textContent = 'Progress reset.';
-  refreshAll();
+  viewEl.innerHTML = html;
+  bindView();
+}
+
+function bindView() {
+  // Row clicks open the detail pane. The checkbox inside a row gets its own
+  // listener with stopPropagation, so ticking a trophy is never swallowed
+  // by the row's re-render.
+  for (const row of viewEl.querySelectorAll('tr[data-open]')) {
+    row.addEventListener('click', () => {
+      ui.detail = row.dataset.open;
+      ui.view = 'checklist';
+      render();
+      const detail = document.getElementById('detail');
+      if (detail) detail.scrollIntoView({ block: 'nearest' });
+    });
+  }
+  for (const box of viewEl.querySelectorAll('input[data-toggle]')) {
+    box.addEventListener('click', (e) => e.stopPropagation());
+    box.addEventListener('change', () => {
+      state = toggleEarned(state, box.dataset.toggle);
+      render();
+    });
+  }
+  for (const input of viewEl.querySelectorAll('input[data-count-for]')) {
+    input.addEventListener('change', () => {
+      state = setCount(state, input.dataset.countFor, input.value);
+      render();
+    });
+  }
+  for (const area of viewEl.querySelectorAll('textarea[data-note-for]')) {
+    area.addEventListener('change', () => {
+      state = setNote(state, area.dataset.noteFor, area.value);
+    });
+  }
+  const q = document.getElementById('q');
+  if (q) {
+    q.addEventListener('input', () => {
+      ui.query = q.value;
+      const pos = q.selectionStart;
+      render();
+      const q2 = document.getElementById('q');
+      if (q2) {
+        q2.focus();
+        q2.setSelectionRange(pos, pos);
+      }
+    });
+  }
+  const gradeSel = document.getElementById('gradeSel');
+  if (gradeSel) gradeSel.addEventListener('change', () => { ui.grade = gradeSel.value; render(); });
+  const spoilerToggle = document.getElementById('spoilerToggle');
+  if (spoilerToggle) spoilerToggle.addEventListener('change', () => { state = setSpoiler(state, spoilerToggle.checked); render(); });
+  for (const chip of viewEl.querySelectorAll('[data-kind]')) {
+    chip.addEventListener('click', () => { ui.kind = chip.dataset.kind; render(); });
+  }
+  const eggQ = document.getElementById('eggQ');
+  if (eggQ) {
+    eggQ.addEventListener('input', () => {
+      ui.eggQuery = eggQ.value;
+      const pos = eggQ.selectionStart;
+      render();
+      const q2 = document.getElementById('eggQ');
+      if (q2) {
+        q2.focus();
+        q2.setSelectionRange(pos, pos);
+      }
+    });
+  }
+  for (const chip of viewEl.querySelectorAll('[data-eggcat]')) {
+    chip.addEventListener('click', () => { ui.eggCategory = chip.dataset.eggcat; render(); });
+  }
+  for (const chip of viewEl.querySelectorAll('[data-eggstatus]')) {
+    chip.addEventListener('click', () => { ui.eggStatus = chip.dataset.eggstatus; render(); });
+  }
+  for (const btn of viewEl.querySelectorAll('[data-action="close-detail"]')) {
+    btn.addEventListener('click', () => { ui.detail = null; render(); });
+  }
+  for (const btn of viewEl.querySelectorAll('[data-action="open-next"]')) {
+    btn.addEventListener('click', () => { ui.detail = btn.dataset.name; ui.view = 'checklist'; render(); });
+  }
+  for (const btn of viewEl.querySelectorAll('[data-action="export"]')) {
+    btn.addEventListener('click', () => exportFile(state));
+  }
+  for (const btn of viewEl.querySelectorAll('[data-action="reset"]')) {
+    btn.addEventListener('click', () => {
+      if (confirm('Reset all progress, counts and notes?')) {
+        localStorage.removeItem('leonida-platinum-atlas-v1');
+        state = loadState();
+        render();
+      }
+    });
+  }
+  const importInput = document.getElementById('importFile');
+  if (importInput) {
+    importInput.addEventListener('change', async () => {
+      const file = importInput.files[0];
+      if (!file) return;
+      try {
+        state = await importFile(file);
+      } catch {
+        alert('That file is not a valid progress export.');
+      }
+      render();
+    });
+  }
+}
+
+tabsEl.addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-view]');
+  if (!btn) return;
+  ui.view = btn.dataset.view;
+  ui.detail = null;
+  render();
 });
 
-// Static sections.
-renderMissables(panels);
-renderGlitch(panels);
-renderSources(panels);
-document.getElementById('spoiler').checked = state.spoiler;
-document.getElementById('spoiler2').checked = state.spoiler;
-refreshAll();
-refreshEggs();
-showTab(location.hash.slice(1) || 'checklist');
+render();

@@ -3,155 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide &amp; Tracker</title>
+<title>Leonida Platinum Atlas — GTA VI Trophy Guide &amp; Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
+<header class="topbar">
   <div class="brand">
     <h1>LEONIDA PLATINUM ATLAS</h1>
-    <p class="tagline">GTA VI trophy guide &amp; tracker — 55 trophies, cited guides, roadmap, spoiler guard. Fully offline.</p>
+    <p class="sub">GTA VI trophy guide &amp; tracker — 55 trophies, 0 online, 1 missable. Research date: 21 Nov 2026.</p>
   </div>
-  <div class="progress-box" id="progressBox">
-    <div class="big" id="progressBig">0 / 55 earned</div>
-    <div class="bar"><div class="fill" id="progressFill" style="width:0%"></div></div>
-    <div class="sub" id="progressSub">Platinum progress: 0%</div>
-    <div class="facts" id="headerFacts"></div>
+  <div class="progress" id="progressBox">
+    <div class="big" id="progressText">0 / 55</div>
+    <div class="bar"><div id="progressFill"></div></div>
+    <div class="small" id="progressSub">0% to platinum · 54/55 guides confirmed · 1 unknown (Ten Pin)</div>
   </div>
 </header>
-
 <nav class="tabs" id="tabs" aria-label="Sections">
-  <button type="button" data-tab="checklist" class="active">Checklist</button>
-  <button type="button" data-tab="roadmap">Roadmap</button>
-  <button type="button" data-tab="missables">Missables</button>
-  <button type="button" data-tab="glitch">Glitch &amp; Farming</button>
-  <button type="button" data-tab="eggs">Easter Eggs, Bugs &amp; Weird</button>
-  <button type="button" data-tab="settings">Settings &amp; Save</button>
+  <button type="button" data-view="checklist" class="active">Checklist</button>
+  <button type="button" data-view="roadmap">Roadmap</button>
+  <button type="button" data-view="missables">Missables</button>
+  <button type="button" data-view="eggs">Easter Eggs, Bugs &amp; Hal Aneh</button>
+  <button type="button" data-view="glitch">Glitch &amp; Farming</button>
+  <button type="button" data-view="launch">Launch Status</button>
+  <button type="button" data-view="tracker">Tracker &amp; Next Up</button>
 </nav>
-
-<section class="panel" id="panel-checklist">
-  <div class="controls">
-    <label>Search <input id="q" type="search" placeholder="Trophy name or guide text…" autocomplete="off"></label>
-    <label>Kind
-      <select id="kind">
-        <option value="all">All kinds</option>
-        <option value="story">Story</option>
-        <option value="stranger">Strangers</option>
-        <option value="crime">Crime</option>
-        <option value="activities">Activities</option>
-        <option value="collectibles">Collectibles</option>
-        <option value="misc">Misc</option>
-      </select>
-    </label>
-    <label>Grade
-      <select id="grade">
-        <option value="all">All grades</option>
-        <option value="platinum">Platinum</option>
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
-        <option value="bronze">Bronze</option>
-      </select>
-    </label>
-    <label>Status
-      <select id="status">
-        <option value="all">Earned + unearned</option>
-        <option value="earned">Earned only</option>
-        <option value="unearned">Unearned only</option>
-      </select>
-    </label>
-    <label class="chk"><input id="missableOnly" type="checkbox"> Missable only</label>
-    <label class="chk"><input id="hiddenOnly" type="checkbox"> Hidden only</label>
-    <label class="chk"><input id="spoiler" type="checkbox" checked> Spoiler guard (hide story trophies until earned)</label>
-  </div>
-  <p class="count-line" id="countLine"></p>
-  <div class="nextup" id="nextUp"></div>
-  <div class="layout">
-    <div class="list" id="trophyList" role="list"></div>
-    <aside class="detail" id="detail" aria-live="polite"></aside>
-  </div>
-</section>
-
-<section class="panel hidden" id="panel-roadmap">
-  <h2>Roadmap to the platinum — 7 stages</h2>
-  <p class="lede">Story 60–80 hours (PowerPyx); reviewers report 50–60 hours for the story. Platinum estimates differ: about 200 hours (PowerPyx) vs about 300 hours (PushSquare). There is no mission replay and no New Game+ — save at the start and end of every chapter.</p>
-  <div class="roadmap-progress" id="roadmapProgress"></div>
-  <ol class="roadmap" id="roadmapList"></ol>
-  <h3>Trophy ↔ 100% checklist mapping</h3>
-  <div class="overlap" id="overlapBox"></div>
-</section>
-
-<section class="panel hidden" id="panel-missables">
-  <h2>Missables — chapter grid</h2>
-  <p class="lede">Only ONE trophy can be missed. Everything else can be finished in free roam after the story.</p>
-  <div class="miss-grid" id="missGrid"></div>
-  <h3>Save strategy</h3>
-  <div class="warn" id="saveStrategy"></div>
-  <h3>Warnings that protect your platinum</h3>
-  <div id="warningsBox"></div>
-</section>
-
-<section class="panel hidden" id="panel-glitch">
-  <h2>Glitch &amp; Farming</h2>
-  <p class="lede" id="glitchStatus"></p>
-  <div id="glitchList"></div>
-  <h3>Disagreement panels — both sides, honestly</h3>
-  <div id="disagreeList"></div>
-  <h3>Launch status — 20 Nov 2026</h3>
-  <ul class="launch" id="launchList"></ul>
-</section>
-
-<section class="panel hidden" id="panel-eggs">
-  <h2>Easter Eggs, Bugs &amp; Hal Aneh</h2>
-  <p class="lede">The game is 2 days old. Nothing here is officially confirmed by Rockstar. “There is a video of it” is not the same as “it is proven.” Status: <b>confirmed</b> = 2+ independent sources; <b>reported</b> = 1 source; <b>disputed</b> = conflicting sources or doubtful evidence.</p>
-  <div class="controls">
-    <label>Category
-      <select id="eggCat">
-        <option value="all">All categories</option>
-        <option value="easter-egg">Easter Eggs</option>
-        <option value="bug">Bugs</option>
-        <option value="weird">Hal Aneh</option>
-      </select>
-    </label>
-    <label>Status
-      <select id="eggStatus">
-        <option value="all">All statuses</option>
-        <option value="confirmed">Confirmed</option>
-        <option value="reported">Reported</option>
-        <option value="disputed">Disputed</option>
-      </select>
-    </label>
-    <label>Search <input id="eggQ" type="search" placeholder="Name, place, or reference…" autocomplete="off"></label>
-  </div>
-  <p class="count-line" id="eggCount"></p>
-  <div class="egg-list" id="eggList"></div>
-</section>
-
-<section class="panel hidden" id="panel-settings">
-  <h2>Settings &amp; Save</h2>
-  <p class="lede">Progress lives in this browser's localStorage. Export a JSON backup before clearing browser data — import it back any time.</p>
-  <div class="settings-grid">
-    <div>
-      <h3>Progress file</h3>
-      <p><button id="exportBtn" type="button">Export progress (JSON)</button></p>
-      <p><label class="import-label">Import progress <input id="importFile" type="file" accept="application/json"></label></p>
-      <p><button id="resetBtn" type="button">Reset all progress</button></p>
-      <p id="saveMsg" class="save-msg"></p>
-    </div>
-    <div>
-      <h3>Spoiler guard</h3>
-      <p><label class="chk"><input id="spoiler2" type="checkbox" checked> Hide story trophy names + descriptions until earned</label></p>
-      <p class="muted">With the guard on, the 12 story trophies show as “Hidden story trophy” until you tick them earned. The 4th screenshot of this guide shows the guard ON.</p>
-      <h3>Sources</h3>
-      <ul class="sources" id="sourcesList"></ul>
-    </div>
-  </div>
-  <p class="muted">Rarity: Exophase, 20 Nov 2026 — early player base, floor 0.01%; numbers move fast in launch week. Xbox total: 1,000G. 0 online trophies. 28 hidden trophies (12 story + 16 non-story; 1 non-story slot is still unidentified — see Catch Me If You Can / Challenging Tank).</p>
-</section>
-
-<footer>
-  <p>LEONIDA PLATINUM ATLAS — an unofficial fan guide. GTA VI, Grand Theft Auto and Rockstar are trademarks of their owners. No Rockstar logo, artwork, box art or game screenshots are used. Guide text is written in our own words; official trophy names and descriptions are shown as-is. Sources are linked next to each guide step and open only when clicked — this app makes no network requests.</p>
+<main id="view"></main>
+<footer class="foot">
+  <p>Guides are written in our own words; each cites its sources. Official trophy names and descriptions are shown as PlayStation publishes them. No Rockstar logo, artwork, or game screenshots are used. Works fully offline — no network requests.</p>
+  <p>Sources: PowerPyx · Exophase · GameSpot · damnmodz · gamemapa · PushSquare · KeeNgamer · allblogthings · afleurdenet · vanotherlevel · dlcompare · cryptogames · gtavibes · boostingfactory · Game8 · OutputLag · Kotaku · IGN · BuzzFeed · Insider Gaming · GamesHorizon · GameRant · GamingBible · Gamebrott · FandomWire · Tech2Geek · Undercode News · Joking Joystick · Beebom · Notebookcheck · GameWatcher · Sportskeeda · WikiGames · Games.gg · GamesFuze · DualShockers · Briefly · Dundee Culture · Men's Journal · ComingSoon.</p>
 </footer>
-
 <script type="module" src="js/main.js"></script>
 </body>
 </html>

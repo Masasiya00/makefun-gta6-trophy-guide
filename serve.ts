@@ -1,82 +1,64 @@
-// serve.ts — a small static server for local development only.
-//
-// Serves this repository's app/ folder on http://localhost:8080
-// (`node serve.ts --port 9000` for another port) so the guide can be
-// tried in desktop Chrome exactly as a static host would serve it.
-// Node 22, standard library only; it reads files from disk, sends the
-// MIME type a browser needs, and refuses any path that escapes app/.
-// It is a dev convenience, not a server for the internet.
+// A tiny static server for app/ (Node 22, standard library only), so the guide can be run locally without a
+// build step: `node serve.ts` serves app/ on http://localhost:8080 (`--port <n>` for another port). It sends the MIME
+// types a browser needs, refuses any path outside app/, and otherwise does nothing clever: this is a development
+// convenience, not a web server for the internet.
+import { createReadStream, statSync } from 'node:fs';
+import { createServer } from 'node:http';
+import { extname, join, normalize, resolve, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-import { readFileSync, statSync } from "node:fs";
-import { createServer } from "node:http";
-import { extname, join, normalize, resolve, sep } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const appRoot = resolve(fileURLToPath(new URL("./app", import.meta.url)));
-
+const root = resolve(fileURLToPath(new URL('./app', import.meta.url)));
 const args = process.argv.slice(2);
-const portFlag = args.indexOf("--port");
-const wanted = portFlag === -1 ? 8080 : Number(args[portFlag + 1]);
-const port = Number.isInteger(wanted) && wanted > 0 && wanted < 65536 ? wanted : 8080;
+const portIndex = args.indexOf('--port');
+const requested = portIndex === -1 ? 8080 : Number(args[portIndex + 1]);
+const port = Number.isInteger(requested) && requested > 0 && requested < 65536 ? requested : 8080;
 
-const MIME_TYPES: Record<string, string> = {
-  ".html": "text/html; charset=utf-8",
-  ".js": "text/javascript; charset=utf-8",
-  ".mjs": "text/javascript; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".png": "image/png",
-  ".jpg": "image/jpeg",
-  ".jpeg": "image/jpeg",
-  ".svg": "image/svg+xml",
-  ".ico": "image/x-icon",
-  ".woff2": "font/woff2",
+const MIME: Record<string, string> = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
+  '.webmanifest': 'application/manifest+json',
 };
 
-/** Resolve a request path to a file inside app/, or null when forbidden. */
-function resolveInsideApp(requestPath: string): string | null {
-  const decoded = decodeURIComponent(requestPath);
-  const withIndex = decoded.endsWith("/") ? decoded + "index.html" : decoded;
-  const file = resolve(join(appRoot, normalize(withIndex)));
-  if (file !== appRoot && !file.startsWith(appRoot + sep)) return null;
-  return file;
-}
-
 createServer((request, response) => {
-  const url = new URL(request.url ?? "/", "http://localhost");
-  // Browsers ask for /favicon.ico on their own; there is no icon file in
-  // this guide, so answer "no content" instead of a 404 that would show
-  // up as a console error on every load.
-  if (url.pathname === "/favicon.ico") {
-    response.writeHead(204).end();
-    return;
-  }
-  let file: string | null = null;
+  const url = new URL(request.url ?? '/', 'http://localhost');
+  let pathname: string;
   try {
-    file = resolveInsideApp(url.pathname);
+    pathname = decodeURIComponent(url.pathname);
   } catch {
-    response.writeHead(400).end("bad request");
+    response.writeHead(400).end('bad request');
     return;
   }
-  if (file === null) {
-    response.writeHead(403).end("forbidden");
+  if (pathname.endsWith('/')) pathname += 'index.html';
+  const file = resolve(join(root, normalize(pathname)));
+  if (file !== root && !file.startsWith(root + sep)) {
+    response.writeHead(403).end('forbidden');
     return;
   }
-  let body: Buffer;
+  let size: number;
   try {
-    if (!statSync(file).isFile()) throw new Error("not a file");
-    body = readFileSync(file);
+    const stats = statSync(file);
+    if (!stats.isFile()) throw new Error('not a file');
+    size = stats.size;
   } catch {
-    response.writeHead(404).end("not found");
+    response.writeHead(404).end('not found');
     return;
   }
   response.writeHead(200, {
-    "content-type": MIME_TYPES[extname(file).toLowerCase()] ?? "application/octet-stream",
-    "content-length": body.length,
-    "cache-control": "no-store",
+    'content-type': MIME[extname(file).toLowerCase()] ?? 'application/octet-stream',
+    'content-length': size,
+    'cache-control': 'no-store',
   });
-  response.end(body);
-}).listen(port, "127.0.0.1", () => {
-  console.log(`LEONIDA PLATINUM ATLAS is on http://localhost:${port}`);
-  console.log(`Serving ${appRoot} (offline — no network requests are made)`);
+  createReadStream(file).pipe(response);
+}).listen(port, '127.0.0.1', () => {
+  console.log(`app/ is on http://localhost:${port}`);
 });

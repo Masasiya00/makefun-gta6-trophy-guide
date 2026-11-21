@@ -1,5 +1,7 @@
-// Local progress store: earned trophies, per-trophy count trackers, spoiler setting.
-// One localStorage key, one JSON object, export/import as a file.
+// Progress store for Leonida Platinum Atlas. One localStorage key holds the
+// whole save: earned trophy names, manual counts for counted trophies, the
+// spoiler setting, and free-text notes. Export writes it as a JSON file;
+// import reads such a file back. Nothing leaves the browser.
 const KEY = 'leonida-platinum-atlas-v1';
 
 function blank() {
@@ -11,7 +13,12 @@ export function loadState() {
     const raw = localStorage.getItem(KEY);
     if (!raw) return blank();
     const parsed = JSON.parse(raw);
-    return { ...blank(), ...parsed, earned: Array.isArray(parsed.earned) ? parsed.earned : [] };
+    return {
+      earned: Array.isArray(parsed.earned) ? parsed.earned : [],
+      counts: parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {},
+      spoiler: parsed.spoiler !== false,
+      notes: parsed.notes && typeof parsed.notes === 'object' ? parsed.notes : {},
+    };
   } catch {
     return blank();
   }
@@ -21,27 +28,36 @@ export function saveState(state) {
   localStorage.setItem(KEY, JSON.stringify(state));
 }
 
-export function isEarned(state, id) {
-  return state.earned.includes(id);
+export function earnedSet(state) {
+  return new Set(state.earned);
 }
 
-export function toggleEarned(state, id) {
-  const i = state.earned.indexOf(id);
-  if (i >= 0) state.earned.splice(i, 1);
-  else state.earned.push(id);
+export function toggleEarned(state, name) {
+  const set = earnedSet(state);
+  if (set.has(name)) set.delete(name);
+  else set.add(name);
+  state.earned = [...set];
   saveState(state);
   return state;
 }
 
-export function getCount(state, id) {
-  return typeof state.counts[id] === 'number' ? state.counts[id] : 0;
+export function setCount(state, name, value) {
+  const n = Math.max(0, Math.floor(Number(value) || 0));
+  state.counts[name] = n;
+  saveState(state);
+  return state;
 }
 
-export function setCount(state, id, value) {
-  const n = Math.max(0, Math.floor(Number(value) || 0));
-  state.counts[id] = n;
+export function setSpoiler(state, on) {
+  state.spoiler = !!on;
   saveState(state);
-  return n;
+  return state;
+}
+
+export function setNote(state, name, text) {
+  state.notes[name] = String(text || '');
+  saveState(state);
+  return state;
 }
 
 export function exportFile(state) {
@@ -50,13 +66,18 @@ export function exportFile(state) {
   a.href = URL.createObjectURL(blob);
   a.download = 'leonida-platinum-atlas-progress.json';
   a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
 export async function importFile(file) {
-  const parsed = JSON.parse(await file.text());
-  if (!parsed || !Array.isArray(parsed.earned)) throw new Error('Not a Leonida Platinum Atlas progress file.');
-  const next = { ...blank(), ...parsed };
-  saveState(next);
-  return next;
+  const text = await file.text();
+  const parsed = JSON.parse(text);
+  const state = {
+    earned: Array.isArray(parsed.earned) ? parsed.earned : [],
+    counts: parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {},
+    spoiler: parsed.spoiler !== false,
+    notes: parsed.notes && typeof parsed.notes === 'object' ? parsed.notes : {},
+  };
+  saveState(state);
+  return state;
 }

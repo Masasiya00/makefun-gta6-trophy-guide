@@ -1,51 +1,54 @@
-// Pure filtering for the trophy checklist and the Easter Eggs / Bugs / Weird list.
-export function filterTrophies(trophies, state, opts) {
-  const q = (opts.q || '').trim().toLowerCase();
-  return trophies.filter((t) => {
-    if (opts.kind !== 'all' && t.kind !== opts.kind) return false;
-    if (opts.grade !== 'all' && t.grade !== opts.grade) return false;
-    const earned = state.earned.includes(t.id);
-    if (opts.status === 'earned' && !earned) return false;
-    if (opts.status === 'unearned' && earned) return false;
-    if (opts.missableOnly && !t.missable) return false;
-    if (opts.hiddenOnly && t.hidden !== true) return false;
+// Pure filters for the trophy list and the easter-egg list. No DOM here,
+// so the rules are easy to test: kind, grade, earned state, hidden flag,
+// free-text search, category and verification status.
+export function filterTrophies(list, opts) {
+  const q = (opts.query || '').trim().toLowerCase();
+  return list.filter((t) => {
+    if (opts.kind && opts.kind !== 'all') {
+      if (opts.kind === 'missable' && !t.missable) return false;
+      if (opts.kind === 'hidden' && !t.hidden) return false;
+      if (opts.kind === 'earned' && !opts.earned.has(t.name)) return false;
+      if (opts.kind === 'remaining' && opts.earned.has(t.name)) return false;
+      if (opts.kind === 'online') return false; // GTA VI has 0 online trophies.
+      if (!['missable', 'hidden', 'earned', 'remaining', 'online'].includes(opts.kind) && t.filterKind !== opts.kind) return false;
+    }
+    if (opts.grade && opts.grade !== 'all' && t.grade !== opts.grade) return false;
     if (q) {
-      const hay = [t.name, t.description, ...(t.steps || [])].join(' ').toLowerCase();
+      const hay = (t.name + ' ' + t.description + ' ' + t.guide).toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
   });
 }
 
-export function filterEggs(items, opts) {
-  const q = (opts.q || '').trim().toLowerCase();
-  return items.filter((it) => {
-    if (opts.category !== 'all' && it.category !== opts.category) return false;
-    if (opts.status !== 'all' && it.status !== opts.status) return false;
+export function filterEggs(list, opts) {
+  const q = (opts.query || '').trim().toLowerCase();
+  return list.filter((e) => {
+    if (opts.category && opts.category !== 'all' && e.category !== opts.category) return false;
+    if (opts.status && opts.status !== 'all' && e.status !== opts.status) return false;
     if (q) {
-      const hay = [it.name, it.location, it.description, it.reference || '', it.theory || ''].join(' ').toLowerCase();
+      const hay = (e.title + ' ' + e.location + ' ' + e.description).toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
   });
 }
 
-// Next Up: the closest unearned trophies — count trophies nearest their target
-// first, then the earliest roadmap stage.
-export function nextUp(trophies, state, n = 3) {
-  const open = trophies.filter((t) => !state.earned.includes(t.id));
-  const scored = open.map((t) => {
-    let score = t.stage * 10;
-    // With the spoiler guard on, a masked story trophy is useless as a
-    // "next up" hint — push it behind the trophies whose names are visible.
-    if (state.spoiler && t.kind === 'story' && t.id !== 1) score += 50;
-    if (t.counts) {
-      const have = state.counts[t.id] || 0;
-      const ratio = Math.min(1, have / t.counts.target);
-      score -= ratio * 9;
-    }
-    return { t, score };
-  });
-  scored.sort((a, b) => a.score - b.score);
-  return scored.slice(0, n).map((s) => s.t);
+// The Next Up pick: the first unearned trophy in roadmap order, preferring
+// counted trophies the player has already started (closest to done first).
+export function nextUp(list, state) {
+  const earned = new Set(state.earned);
+  const open = list.filter((t) => !earned.has(t.name));
+  if (open.length === 0) return null;
+  const started = open.filter((t) => t.count && (state.counts[t.name] || 0) > 0);
+  if (started.length > 0) {
+    started.sort((a, b) => {
+      const pa = (state.counts[a.name] || 0) / a.count.target;
+      const pb = (state.counts[b.name] || 0) / b.count.target;
+      return pb - pa;
+    });
+    return started[0];
+  }
+  const byStage = [...open].sort((a, b) => (a.stage - b.stage) || (a.name < b.name ? -1 : 1));
+  return byStage[0];
 }
