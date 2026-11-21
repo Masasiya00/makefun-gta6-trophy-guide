@@ -1,781 +1,88 @@
-{
-  "researched": "21 Nov 2026 ~02:35 WIB",
-  "items": [
-    {
-      "id": "E1",
-      "title": "Skunk Ape / Bigfoot",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Road south of Lake Cottonmouth, Grassrivers (east of the lake toward Gambit Bay, south of Hamlet)",
-      "description": "A tall, hairy creature crouches over a deer carcass on the road. Approach and it flees into the bushes; follow it to a wooden effigy in a tree (green mist) and your character faints as hairy feet approach in a cutscene, waking up at the lake's edge. Findable from Chapter 1. The San Andreas urban legend is a real creature this time — the Florida cryptid known as the Skunk Ape.",
-      "sources": [{"name": "PowerPyx", "url": "https://www.powerpyx.com/gta-6-bigfoot-sasquatch-easter-egg-location/"}, {"name": "Kotaku", "url": "https://kotaku.com/"}]
-    },
-    {
-      "id": "E2",
-      "title": "Kirk & Mr. Mangrove (Skunk Ape questline)",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Skeeter's Bar, Hamlet — read the flyer, then call Kirk (461-555-0139)",
-      "description": "Read the 'Have You Seen Skunk Ape???' flyer at Skeeter's Bar and call Kirk to start three night missions: Skunk Apeology 101, Search for Tree Effigies (three effigies in Pelican Valley) and Help Kirk Find Mr. Mangrove (Advanced Skunk Apeonomics, helicopter and tranquiliser darts). The twist: Mr. Mangrove is Harry Sherrick, missing for ten years and deformed by swamp spores. At the end you choose whether to shoot him (Kirk pays $10,000 plus the unique Mister Mangrove Laird 350 tranquiliser rifle) or not (Kirk dies). Counts toward the Strangers & Freaks trophy.",
-      "sources": [{"name": "PowerPyx", "url": "https://www.powerpyx.com/gta-6-bigfoot-sasquatch-easter-egg-location/"}, {"name": "GTAVibes", "url": "https://www.gtavibes.com/guides/gta-6-easter-eggs-bigfoot-secrets"}]
-    },
-    {
-      "id": "E3",
-      "title": "UFO abduction (The Truth Is Out There)",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Road north-west of the Starlet Motel, Kelly County (east of Port Gellhorn), after 02:00, alone",
-      "description": "After Chapter 1, go alone to this road after 02:00 in-game. Find a parked car with flashing lights (if there is none, leave and return — the spawn is random), follow the clothing trail into the woods toward a blue light, and a UFO is lifting a woman. Help her (agree to fetch her car), return to the car on the road, and the UFO returns and abducts your character. Works as Jason or Lucia, and pops the trophy The Truth Is Out There. A nod to the Mount Chiliad UFO of GTA V and to the X-Files.",
-      "sources": [{"name": "PowerPyx", "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/"}, {"name": "GameSpot", "url": "https://www.gamespot.com/articles/gta-6-has-aliens-and-heres-how-to-find-them/"}]
-    },
-    {
-      "id": "E4",
-      "title": "Alien prisoner in an underground lab",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "South Point Airfield, Hamlet — radio tower, hatch on the roof, lift to the basement",
-      "description": "After the abduction (E3), your character dreams — note the number above the keypad in the dream (usually 2134). Go to the South Point Airfield radio tower, climb to the roof, enter the hatch, go down, enter the code, and ride the lift to the basement. Press the panel buttons until all lights are green, take the milk bottle from the table, put it in the capsule, and a small grey alien appears — carry it out before the poison gas, and outside a UFO comes to collect it and destroys a government vehicle. An alternative location is named as an 'Abandoned Site' north-east of Lake Cottonmouth. The keypad code itself is disputed (see the disputed items).",
-      "sources": [{"name": "PowerPyx", "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/"}, {"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E5",
-      "title": "Literal Easter egg on the radio tower",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Tallest radio/TV tower, South Vice-Dale County / Vice City — about a 6–7 minute climb",
-      "description": "Climb the tallest radio tower (roughly six to seven minutes) to find a bird's nest at the top holding a painted Easter egg — a literal easter egg. Take it and throw it from the top, and a cutscene shows it landing on the windscreen of a car below, driven by a real-estate agent (or shady lawyer, per GameSpot). The only egg whose name is literal. Found by X user @xGarbett.",
-      "sources": [{"name": "Kotaku", "url": "https://kotaku.com/"}, {"name": "GameSpot", "url": "https://www.gamespot.com/articles/gta-6-has-aliens-and-heres-how-to-find-them/"}]
-    },
-    {
-      "id": "E6",
-      "title": "Giant mutant crab / Crab Lab",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Abandoned research station south-west of Pelican Valley, Grassrivers (by boat, north of Key Lento)",
-      "description": "Turn on the power (circuit breaker outside) and go in: a locked computer (password 'CLEAVES', carved into a floorboard), a note reading 'SAFE CODE = DOUBLE SUCCESS' and a clipboard in the back shack reading 'SUCCESS = 0036' — the safe code is 0072 (about $1,070–$1,098). While at the computer, a giant mutant crab drops from above and attacks. The boathouse (code 0212) holds the Crabshack VF5 SMG, a $10,000 bag and a jet ski to escape on. A nod to the E3 2006 'giant enemy crabs' meme.",
-      "sources": [{"name": "GamesHorizon", "url": "https://gameshorizon.com/guides/gta-6-monster-crab-easter-egg-guide/"}, {"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}]
-    },
-    {
-      "id": "E7",
-      "title": "Cool Dog / Lucky Dog (jet-ski rescue dog)",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Far out at sea, e.g. Gambit Bay or off Vice City — get stranded swimming",
-      "description": "Swim or get stranded far out at sea and a dog wearing goggles arrives on a jet ski to rescue you, carrying you to an island full of other dogs — with cash and free sunglasses as a reward. Supposedly it also leads to a hidden money stash. Do not leave before the reward is given. In-game name: 'Cool Dog'.",
-      "sources": [{"name": "Insider Gaming", "url": "https://insider-gaming.com/every-easter-egg-gta-6-locations/"}, {"name": "Game8", "url": "https://cloudfront-test.game8.co/games/GTA-6/archives/638651"}]
-    },
-    {
-      "id": "E8",
-      "title": "Dexter Morgan's apartment",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Washington Island, east Vice City — Trinity Apartments, 2nd floor, near the Pay 'N' Spray",
-      "description": "A replica of Dexter's home from the TV series Dexter. On the roof there is a 'kill kit' (syringes, knife, duct tape, rope) in a toolbox, and a boat like his 'Slice of Life' is moored nearby. You cannot enter the apartment itself. First spotted in the 'An Extended Look' trailer (around 18:49, Lucia parachuting).",
-      "sources": [{"name": "Insider Gaming", "url": "https://insider-gaming.com/every-easter-egg-gta-6-locations/"}, {"name": "IGN via GTA6-Life", "url": "https://gta6-life.com/en/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E9",
-      "title": "Brian O'Conner's Mitsubishi Eclipse",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Inside a villa garage on Vespucci Island, Rialto Islands",
-      "description": "A lime-green car with side graphics, a tall rear wing and a 'Terada Tires' decal — Brian O'Conner's Eclipse from The Fast and the Furious (2001), a tribute to Paul Walker. It can be stolen and registered at a Pay 'n' Spray as a permanent vehicle. In-game model: Maibatsu Penumbra FF; the plate reads 'HAD YOU'.",
-      "sources": [{"name": "Insider Gaming", "url": "https://insider-gaming.com/every-easter-egg-gta-6-locations/"}, {"name": "GamesRadar+ via GTA6-Life", "url": "https://gta6-life.com/en/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E10",
-      "title": "Michael De Santa's boat",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Outside Jason's house in the Leonida Keys",
-      "description": "Board the boat outside Jason's house and check the GPS screen behind the wheel: it still shows the map of Los Santos (GTA V), not Leonida — the same boat stolen from Michael in GTA V.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "Game8", "url": "https://cloudfront-test.game8.co/games/GTA-6/archives/638651"}]
-    },
-    {
-      "id": "E11",
-      "title": "Arthur Morgan's cowboy hat",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Yard sale south of Port Gellhorn, Kelly County (north-west of the Dirt Merchants mod shop, above the race track)",
-      "description": "A brown 'Genuine Cowboy Hat' for $35, sitting on a guitar case on a sofa at a yard sale — Arthur Morgan's hat from Red Dead Redemption 2. Usable by Jason and Lucia, from Chapter 2. Stock can change, so check again if it is not there.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E12",
-      "title": "Tony the talking parrot",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Behind Three Sheets Liquor, Key Lento — after the mission about Shirley's house",
-      "description": "After the Shirley's house mission (Salt Squid Rum), return to the shop: a red parrot in a cage in the back yard gives hints about a stash ('Generator… Generator') — a vent near the generator holds about $1,200–$1,384, plus a safe inside the shop (about $971). The exact amounts vary between sources. A nod to Tony, Ken Rosenberg's parrot in GTA: San Andreas.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "GamesHorizon", "url": "https://gameshorizon.com/guides/gta-6-exotic-animals-front-secret-stash-location/"}]
-    },
-    {
-      "id": "E13",
-      "title": "Niko Bellic cameo ('The Hitman')",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Chapter 5, 'Top of the World, Ma' — story mission Taking Liberties, Giorgio's penthouse",
-      "description": "Late in the story, Niko Bellic — older, grey-haired, voiced by Michael Hollick — appears in Giorgio's penthouse in two cutscenes: threatening Giorgio, then returning to collect a shipment after the Coast Guard heist. Giorgio shouts 'Daddy's back, bitches!' (GTA IV's opening line) and the 'Soviet Connection' theme plays. Rockstar's credits list him as 'The Hitman'. Not a hidden egg — part of the late story — but the biggest cameo in the game.",
-      "sources": [{"name": "Kotaku", "url": "https://kotaku.com/gta-6-has-a-surprising-late-game-cameo-that-knocked-me-on-my-ass-2000758623"}, {"name": "Beebom", "url": "https://beebom.com/gta-6-niko-bellic/"}]
-    },
-    {
-      "id": "E14",
-      "title": "Mount Chiliad bar conversation",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Bar next to the meeting spot, early in the story (when Donnie calls you to meet him and Brian)",
-      "description": "Two NPCs at a table discuss the madness at Mount Chiliad, San Andreas — including a hidden bunker under the mountain holding a jetpack. A dialogue nod to the Mount Chiliad mystery of GTA V / GTA Online. No Chiliad puzzle has been solved in GTA VI yet.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E15",
-      "title": "Belville conspiracy house ('IT'S A SIMULATION')",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Belville, Leonard County — break into the garage",
-      "description": "A house whose photo mysteriously appeared in GTA: San Andreas Definitive Edition (2021) turns out to be a real location in GTA VI. Break into its garage to find a conspiracy board: the resident knows he lives in a video game — he cannot buy a ticket to Los Santos, cannot leave Leonida, sees many doppelgangers (repeated NPC models), finds buildings he cannot enter, and notes the crime surge. A wall mind-map reads 'IT'S A SIMULATION' in red. Found by Jared from the GTA mapping community. The strongest meta egg in the game.",
-      "sources": [{"name": "Undercode News", "url": "https://undercodenews.com/gta-6-easter-egg-finally-confirms-a-five-year-old-fan-theory-and-rockstar-is-having-fun-with-the-community-video/"}, {"name": "VGC", "url": "https://www.videogameschronicle.com/"}]
-    },
-    {
-      "id": "E16",
-      "title": "Fabien LaRouche in a magazine",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Body Copy magazine (bodybuilding) — one copy is in the gym Jason uses",
-      "description": "The Body Copy magazine carries an article called 'Twilight Tantra' about Fabien LaRouche, the yoga instructor from GTA V, now teaching at the Dwindle Wood Retirement Community in Waning Sands.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "Game8", "url": "https://cloudfront-test.game8.co/games/GTA-6/archives/638651"}]
-    },
-    {
-      "id": "E17",
-      "title": "'ASS MAN' plate (Seinfeld)",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "On the back plate of an Imponte Phoenix — the red Phoenix appears in the Chapter 1 mission Unwanted Attention",
-      "description": "A Leonida plate reading ASS MAN on the back of an Imponte Phoenix. A reference to Seinfeld, episode 'The Fusilli Jerry', where Cosmo Kramer holds the ASSMAN plate.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E18",
-      "title": "Love Fist & V-Rock",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Love Fist sticker in the world; Jason wears a V-Rock logo T-shirt",
-      "description": "A Love Fist sticker (the fictional Vice City rock band) appears in the world, and Jason wears a T-shirt with the V-Rock logo (the Vice City rock radio station). Both are callbacks to GTA: Vice City.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "LibertyCity", "url": "https://libertycity.net/articles/gta-6/7187-gta-6-secrets-and-paschals.html"}]
-    },
-    {
-      "id": "E19",
-      "title": "'Petty Forever' sticker (Tom Petty)",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "On the door of Uncle Jack's liquor store",
-      "description": "A sticker reading 'Petty Forever' on the door of Uncle Jack's liquor store — a nod to Tom Petty, whose songs feature on the classic-rock station V-Rock.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "LibertyCity", "url": "https://libertycity.net/articles/gta-6/7187-gta-6-secrets-and-paschals.html"}]
-    },
-    {
-      "id": "E20",
-      "title": "Tom Everett memoir / Liberty City 2008 book",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "A readable book in Jason's house",
-      "description": "A book in Jason's house: the memoir of Tom Everett, bodyguard of Gracie Ancelotti in Liberty City and Alderney, who survived because he was sick on the day a gunman killed five of Gracie's guards. Another book mentions events from 2008, the year of GTA IV — a reference to Niko Bellic's kidnapping of Gracie.",
-      "sources": [{"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}, {"name": "Games.gg", "url": "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-easter-eggs-and-secrets-known-clues/"}]
-    },
-    {
-      "id": "E21",
-      "title": "Wade Hebert on the 'Final Act' podcast",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "True-crime podcast 'Final Act' (host Reagan Carter), available from free-roam",
-      "description": "One episode of the Final Act podcast covers the deaths of Floyd and Debra (GTA V): Wade says he was 'at the titty bar' that day, and Reagan shows a photo of three men in a restaurant — Wade names Michael De Santa and Franklin Clinton, and calls the third man his 'best friend' without naming him (Trevor).",
-      "sources": [{"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E22",
-      "title": "'Rad Dads Redemption Tour' poster",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Notice board outside Three Sheets Liquor, Key Lento",
-      "description": "A flyer with a skull on the notice board: the 'Rad Dads Redemption Tour' — a play on the name Red Dead Redemption.",
-      "sources": [{"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E23",
-      "title": "'New Austin' plate",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Random cars in Leonida traffic",
-      "description": "A random car plate reading 'New Austin', with a cactus and desert-sunset design — a reference to the Red Dead Redemption state of New Austin.",
-      "sources": [{"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}, {"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}]
-    },
-    {
-      "id": "E24",
-      "title": "Grand Senora Desert & Grapeseed postcards",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Inside a trailer at a burnt-out fishing property",
-      "description": "A wall of photos inside the trailer holds postcards reading 'Grand Senora Desert: A Great Place To Get Lost' and 'Greetings From Grapeseed' — both places from GTA V's San Andreas.",
-      "sources": [{"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "E25",
-      "title": "'Wind Chimes' ringtone",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Phone settings — ringtones",
-      "description": "The 'Wind Chimes' ringtone is available in the phone settings — the same ringtone Michael De Santa used in GTA V.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "Games.gg", "url": "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-easter-eggs-and-secrets-known-clues/"}]
-    },
-    {
-      "id": "E26",
-      "title": "Freddie's bunker (Freddie Gibbs)",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "West of North Leonard County — find it via a Snapmatic post about a fortified compound",
-      "description": "A fortified compound west of North Leonard County. Enter via the watchtower and over the barn roof; watch for mines and drones. Freddie is inside recording a podcast and preparing for the apocalypse, and there is a storm warning on the news. Choose 'stay with Freddie' and the reward is a Dubster plus $5,000. A pre-release rumour (HipHopGamer / PC Gamer) now confirmed in-game by two guides.",
-      "sources": [{"name": "GTA6VC", "url": "https://gta6vcity.com/en/articles/gta6-easter-eggs/"}, {"name": "LeonidaInteractive", "url": "https://leonidainteractive.com/wiki/secrets/freddies-bunker/"}]
-    },
-    {
-      "id": "E27",
-      "title": "'RX-Men' comic",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "A comic found in the world",
-      "description": "A comic called 'RX-Men' — a parody of X-Men with drug-themed superheroes and a villain named Dr. Placebo.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}, {"name": "ComicBook.com", "url": "https://www.comicbook.com/"}]
-    },
-    {
-      "id": "E28",
-      "title": "Kyle the 'Red Hulk'",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Strangers & Freaks side quest — meet Kyle McKittrick at the giant strawberry farm (Lucia knew him first)",
-      "description": "Help Kyle with his farm and collect chemicals for him — then Kyle eats a strange strawberry and mutates into a giant red monster, rampaging: throwing NPCs at a helicopter (which falls), flipping cars, immune to bullets. Jason calms him down ('Buddy'), with a choice to hug him or not. Found live by IShowSpeed after about 23 hours of play. A Marvel Red Hulk nod (the helicopter scene echoes Captain America: Brave New World). Whether hugging him makes him appear again later is not confirmed.",
-      "sources": [{"name": "Men's Journal", "url": "https://www.mensjournal.com/entertainment/gta-6-has-a-red-hulk-in-surprising-marvel-easter-egg-side-mission"}, {"name": "Kotaku", "url": "https://kotaku.com/"}]
-    },
-    {
-      "id": "E29",
-      "title": "Capri demon / satanic ritual",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Abandoned building in Capri, south of Tortoise Lake (north of Capri, near the railway)",
-      "description": "Inside the abandoned building: a bloody pentagram on the floor, candles and a ritual journal. Knock out an NPC nearby (construction site to the left), drag the body onto the pentagram — the room goes dark, candles light, and your partner calls from upstairs (a hallucination: your partner possessed, another character as a demon). Return to the pentagram and the NPC rises as a demon — only fire kills it (Molotov or petrol in the room; bullets and explosions do not work). Note: TechTudo claims this ritual opens the trophy The Truth Is Out There, which contradicts PowerPyx (UFO) — see the disputed items.",
-      "sources": [{"name": "GameRant", "url": "https://gamerant.com/gta-6-demon-location-pentagram-sacrifice-exorcist/"}, {"name": "Cut.pro (via TechTudo)", "url": "https://cut.pro/en/blog/gta-6-capri-warehouse-mystery-ritual-2026"}]
-    },
-    {
-      "id": "E30",
-      "title": "Ocean View Hotel",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Ocean Beach, Vice Beach, Vice-Dale County",
-      "description": "The hotel where Tommy Vercetti had his first safehouse in Vice City (2002). It appears in Trailer 1 (0:33) and Trailer 2 (bar and outdoor pool). Its rooftop bar is also the location of the trophy In The Beginning… (Apple Martini, $10).",
-      "sources": [{"name": "LibertyCity", "url": "https://libertycity.net/articles/gta-6/7187-gta-6-secrets-and-paschals.html"}, {"name": "GTA Wiki", "url": "https://gta.fandom.com/wiki/Ocean_View_Hotel_(HD_Universe)"}]
-    },
-    {
-      "id": "E31",
-      "title": "Tenebrae Lux — secret ending",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "Black-and-white puzzle game on the JoySystem console in Jason's house",
-      "description": "Beyond the locked door in Tenebrae Lux: a phone in the bunker asks for a 6-digit code, found from anomalies in rooms marked with October dates (a wrong clock, a photo with an extra person, a phone ringing a different number of times) — the code differs per save. Finish it and the door at the end of the pier opens, and you wake in a dark cabin with a developer desk and two monitors. A meta game-inside-a-game.",
-      "sources": [{"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}, {"name": "Games.gg", "url": "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-easter-eggs-and-secrets-known-clues/"}]
-    },
-    {
-      "id": "E32",
-      "title": "'Weird Al' Yankovic — radio host",
-      "category": "easter-egg",
-      "status": "confirmed",
-      "location": "The '80s hits radio station",
-      "description": "'Weird Al' Yankovic hosts his own '80s hits station on GTA VI's radio. His name appears on Rockstar's official cast list (6,000 names, published 19 Nov), alongside Bad Bunny.",
-      "sources": [{"name": "Kotaku", "url": "https://kotaku.com/"}, {"name": "GamesRecon", "url": "https://www.gamesrecon.com/is-niko-bellic-in-gta-6-curiosity-answered"}]
-    }
-    ,
-    {
-      "id": "RE1",
-      "title": "Sam Houser cameo?",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Unknown",
-      "description": "Sam Houser, Rockstar's co-founder, is allegedly in the game. One source only, and it is explicitly marked 'allegedly' — Rockstar has not confirmed it. Do not upgrade this without a second piece of evidence.",
-      "sources": [{"name": "Kotaku", "url": "https://kotaku.com/"}]
-    },
-    {
-      "id": "RE2",
-      "title": "Fat merman",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "A small island in Gambit Bay",
-      "description": "A fat merman sunbathing on a small island in Gambit Bay. One source only, and no exact location is given.",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}]
-    },
-    {
-      "id": "RE3",
-      "title": "Meteorite",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Mountain peak in Lummox County (WikiGames) / south-east slope of Mount Kalaga National Park, near a camp (Sportskeeda)",
-      "description": "A meteorite on a mountain peak, still glowing; you can take a shard of it. The two sources do not agree on the location (Lummox vs Mount Kalaga), so they cannot be merged into one certain claim. The Mount Kalaga version is near a camp with a phone lying on the ground that holds a UFO-abduction recording.",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}, {"name": "Sportskeeda", "url": "https://hindi3.sportskeeda.com/gta/are-aliens-gta-6"}]
-    },
-    {
-      "id": "RE4",
-      "title": "Beached whale that can explode",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Beach area in Leonida",
-      "description": "A beached whale (cetacean stranding) that can explode. One source only — a nod to the famous exploding whale of GTA V.",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}]
-    },
-    {
-      "id": "RE5",
-      "title": "White tiger in a cage",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Unknown — a locked animal cage",
-      "description": "A rare white tiger in a locked animal cage. One source only, no location given.",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}]
-    },
-    {
-      "id": "RE6",
-      "title": "Animal jumpscare in the trunk",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Car trunks — loot one carelessly",
-      "description": "Loot a car trunk carelessly and a pet sleeping inside can attack and kill you. One source only. Similar to the separate python-in-the-trunk report (see the oddities).",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}]
-    },
-    {
-      "id": "RE7",
-      "title": "Cat attacks when you steal its car",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Steal a car that has a cat inside",
-      "description": "Steal a car with a cat inside and a cutscene plays of the cat attacking your character; it can be thrown out of the car. Two sources, but both are thin (a list and a countdown video), so it stays reported.",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}, {"name": "YouTube — 16 Easter Eggs You Might Have Missed", "url": "https://www.youtube.com/watch?v=hT6ctsc1Kts"}]
-    },
-    {
-      "id": "RE8",
-      "title": "Saw-style kidnapper",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Unknown — no location or method given",
-      "description": "Mentioned only in a GamingBible headline about the pentagon demon and a Saw-style kidnapper, with no location or method in the readable excerpt. No details are invented here.",
-      "sources": [{"name": "GamingBible", "url": "https://www.gamingbible.com/news/gta-6-pentagon-demon-saw-style-kidnapper-scariest-hidden-secrets-481607-20261120"}]
-    },
-    {
-      "id": "RE9",
-      "title": "'Gator Face' / Florida Joker mission",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "On trial on TV, then met in free-roam outside a bar in Leonard County",
-      "description": "A face-tattooed criminal ('Gator Face') is on trial on TV, then met in free-roam outside a bar in Leonard County, with a stranger mission to find his stolen pet python. One source, and a questionable AI-content site. The trailer-1 Florida Joker is confirmed (Beebom), but this 'Gator Face' mission is not.",
-      "sources": [{"name": "EsportPort", "url": "https://esportport.com/gta-6-in-game-social-media-mechanics-parody-tiktok-reels-florida-joker/"}]
-    },
-    {
-      "id": "RE10",
-      "title": "UFO article in the news app",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "The phone's news app",
-      "description": "The phone's news app shows a UFO article. One source only.",
-      "sources": [{"name": "Games.gg", "url": "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-easter-eggs-and-secrets-known-clues/"}]
-    },
-    {
-      "id": "RE11",
-      "title": "Mount Chiliad eye truck artwork",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "On the outside of a truck",
-      "description": "Conspiracy eye artwork (Mount Chiliad) on the outside of a truck. One source only.",
-      "sources": [{"name": "Games.gg", "url": "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-easter-eggs-and-secrets-known-clues/"}]
-    },
-    {
-      "id": "RE12",
-      "title": "Influencer vlogging at the top of the tower",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Top of the radio tower (E5) — sometimes",
-      "description": "While climbing the radio tower (E5), an influencer is sometimes vlogging at the top. If she is there, the parachute cannot be used to get down (even if she is removed) — you have to climb back down. One source; related to E5.",
-      "sources": [{"name": "Game8", "url": "https://cloudfront-test.game8.co/games/GTA-6/archives/638651"}]
-    },
-    {
-      "id": "RE13",
-      "title": "Police react when filmed",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Wherever police are making an arrest",
-      "description": "Police who are arresting someone react when the player films them. One source only.",
-      "sources": [{"name": "Games.gg", "url": "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-easter-eggs-and-secrets-known-clues/"}]
-    },
-    {
-      "id": "D1",
-      "title": "Influencer eaten by a python (Facebook Reel)",
-      "category": "easter-egg",
-      "status": "disputed",
-      "location": "Facebook Reel, Michi Gaming, 20 Nov 2026 (reel 1988665145441723, 7,036 likes)",
-      "description": "The claim: 'Easter egg: influencer eaten by a python!!' — a clip of a woman influencer taking a selfie in a swamp, then a giant python grabs her leg and swallows her, while her selfie stick chokes the snake to death. Why disputed: the reel's own summary says the visuals match Red Dead Redemption 2 style; commenters are split, with some recognising GTA 6 gameplay and others comparing the visuals and NPC behaviour to RDR2 (the same Rockstar assets) and questioning the realism. WikiGames lists it as an easter egg without verification — one fan-wiki is not confirmation. No major outlet (GameSpot, IGN, Kotaku, PowerPyx) has reported this egg. Shown ONLY as disputed, never as a confirmed GTA 6 egg.",
-      "sources": [{"name": "Facebook Reel — Michi Gaming", "url": "https://www.facebook.com/share/r/18rktbKFVi/"}, {"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}]
-    },
-    {
-      "id": "D2",
-      "title": "Two dogs mating in a driveway (Facebook Reel)",
-      "category": "easter-egg",
-      "status": "reported",
-      "location": "Facebook Reel, IMGX, 19 Nov 2026 (reel 1076172468775137, 6,722 likes)",
-      "description": "The reel shows two dogs mating in a house driveway, captioned 'Not even 5 mins into the game' / 'haven't even played for 10min btw'. Framing: this is at most viral ambient-animal behaviour turned into a meme, NOT a clear easter egg. Commenters explicitly questioned its authenticity — 'I'm several hours in and this doesn't happen' — some suspect AI involvement, and others compare it to RDR2. The tone of the comments is sarcastic entertainment, not confirmation. Shown as a reported meme, not as an official easter egg.",
-      "sources": [{"name": "Facebook Reel — IMGX", "url": "https://www.facebook.com/share/r/1LGgUEgY47/"}]
-    },
-    {
-      "id": "D3",
-      "title": "Bigfoot: 'hunt him, kill him, then you turn into a frog'",
-      "category": "easter-egg",
-      "status": "disputed",
-      "location": "BuzzFeed, quoting X users",
-      "description": "BuzzFeed writes: 'According to X users, there's a secret mission where you can hunt him down and kill him... and then you turn into a frog?' — with BuzzFeed's own question mark. The verified Kirk questline (E2) ends with a shoot-or-don't choice and NO frog transformation in any PowerPyx or OutputLag guide. Probably a misread, an X joke, or a mix-up with another mechanic (spore/hallucination effects). Do not present it as the outcome of Kirk's questline.",
-      "sources": [{"name": "BuzzFeed", "url": "https://www.buzzfeed.com/mariamsharia/gta-6-easter-eggs-players-have-already-found"}]
-    },
-    {
-      "id": "D4",
-      "title": "Alien lab keypad code: 2134 vs 2314 vs 2341",
-      "category": "easter-egg",
-      "status": "disputed",
-      "location": "Alien lab keypad (see E4)",
-      "description": "The alien egg itself is confirmed; the NUMBER is not. PowerPyx and YouTube walkthroughs say 2134 (read from the dream). OutputLag says try 2314, then 2341 — 'neither code works in every save' (the code differs per save / per dream). In the guide: the code is shown in your own dream (usually 2134; some players report 2314/2341) — never promise one fixed number.",
-      "sources": [{"name": "PowerPyx", "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/"}, {"name": "OutputLag", "url": "https://outputlag.com/guides/gta-6-easter-eggs/"}]
-    },
-    {
-      "id": "D5",
-      "title": "Trigger for 'The Truth Is Out There': UFO vs Capri ritual",
-      "category": "easter-egg",
-      "status": "disputed",
-      "location": "Trophy trigger — two competing claims",
-      "description": "PowerPyx (+ GameSpot, 20 Nov): the trigger is the UFO abduction (E3). TechTudo (via Cut.pro): completing the Capri ritual (E29) opens the same trophy. Both cannot be true for one trophy. Until a third source tests both, the UFO route is the main one (2+ strong sources) and the ritual is an unverified alternative claim — neither is written here as certain.",
-      "sources": [{"name": "PowerPyx", "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/"}, {"name": "Cut.pro (via TechTudo)", "url": "https://cut.pro/en/blog/gta-6-capri-warehouse-mystery-ritual-2026"}]
-    },
-    {
-      "id": "D6",
-      "title": "'Not every car can be stolen'",
-      "category": "easter-egg",
-      "status": "disputed",
-      "location": "Viral clip of a player sitting in a car that will not move",
-      "description": "A viral clip shows a player sitting in a car that will not move. HappyGamer itself writes 'Treat these as unconfirmed' — it could be a car needing the Key Cloner, a tracked car, or a momentary bug. No guide has replicated it. Listed here and under Bugs, because the claim straddles both.",
-      "sources": [{"name": "HappyGamer", "url": "https://happygamer.com/gta-6-launch-night-psn-ps5-update-sales-176014/"}]
-    },
-    {
-      "id": "B1",
-      "title": "NPCs walk into walls",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Various buildings and interiors",
-      "description": "Pedestrians and NPCs walk into walls and get stuck. Minor, not game-breaking.",
-      "sources": [{"name": "Sydney Morning Herald review (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "B2",
-      "title": "Clipping through walls / sofas",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Police station (MichaelDoesLife); general",
-      "description": "Jason and a police officer clip into each other, get sucked into a wall or sofa, and roll around for several seconds until the officer is knocked out and Jason is free.",
-      "sources": [{"name": "YouTube — MichaelDoesLife (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}, {"name": "iGameMag", "url": "https://igamemag.com/gta-6-reviews/"}]
-    },
-    {
-      "id": "B3",
-      "title": "Falling through the map (prologue)",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Prologue — Lucia is tased by police while stealing a scooter (scripted, she is always caught)",
-      "description": "After being tased, the scooter's weight makes Lucia clip through the ground and fall below Leonida until the game returns her to the police. If it does not return her: restart and replay the mission. The most frequently reported bug.",
-      "sources": [{"name": "X @BaylenLatona (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}, {"name": "GameWatcher", "url": "https://www.gamewatcher.com/gta-6-launches-to-reports-of-bugs-and-review-bias"}]
-    },
-    {
-      "id": "B4",
-      "title": "Crash / freeze / lost progress",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Prologue and general, PS5 + Xbox",
-      "description": "Repeated crashes in the prologue, freezes, missing textures, audio problems, and hours of progress lost even though autosave exists — autosave does not always trigger in the prologue or at certain checkpoints, and the save menu does not show the autosave (use the load menu). Mitigation: save manually often and rotate save slots.",
-      "sources": [{"name": "Notebookcheck", "url": "https://www.notebookcheck.net/GTA-6-PS5-and-Xbox-crashes-are-losing-hours-of-progress-despite-autosave-system.1453724.0.html"}, {"name": "GameWatcher", "url": "https://www.gamewatcher.com/gta-6-launches-to-reports-of-bugs-and-review-bias"}]
-    },
-    {
-      "id": "B5",
-      "title": "Missing airplane door animation",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Mission 'Gone Fishing' — Donnie's rescue plane",
-      "description": "There is no door-opening animation: Jason clips straight through the plane's body into the pilot's seat.",
-      "sources": [{"name": "X @rathor7_ (via Sportskeeda)", "url": "https://tech.sportskeeda.com/gaming-news/all-gta-6-bugs-glitches-found-far"}]
-    },
-    {
-      "id": "B6",
-      "title": "Frame-rate drop (target 30 FPS)",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Dense areas and while driving; all consoles, including PS5 Pro",
-      "description": "Target is 30 FPS, dropping in dense areas; there is no 60 FPS / performance mode. Not a pure bug — a performance limitation — but listed because it is the most common player complaint.",
-      "sources": [{"name": "VGC", "url": "https://www.videogameschronicle.com/"}, {"name": "PlayStation LifeStyle", "url": "https://www.playstationlifestyle.net/"}]
-    },
-    {
-      "id": "B7",
-      "title": "Softlock in an early Lucia mission",
-      "category": "bug",
-      "status": "confirmed",
-      "location": "Early Lucia mission — after leaving the bank",
-      "description": "After leaving the bank early in Lucia's story, the mission cannot be completed and progress stalls. Reported workaround: reload an earlier checkpoint or save. No statement from Rockstar.",
-      "sources": [{"name": "Reddit megathread r/GTA6 & r/GTA (via GameWatcher)", "url": "https://www.gamewatcher.com/gta-6-launches-to-reports-of-bugs-and-review-bias"}]
-    }
-    ,
-    {
-      "id": "RB1",
-      "title": "Floating coffee cup",
-      "category": "bug",
-      "status": "reported",
-      "location": "Safehouse, when switching between Jason and Lucia",
-      "description": "A coffee cup floats in the air when switching characters. One source (a review).",
-      "sources": [{"name": "Shacknews review (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB2",
-      "title": "Cosmetic pop-in (clothing)",
-      "category": "bug",
-      "status": "reported",
-      "location": "General gameplay",
-      "description": "Brief clothing pop-in on Jason and Lucia. Seen in the pre-release patch; unclear whether it is still in the launch patch.",
-      "sources": [{"name": "GosuGamers review (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB3",
-      "title": "Boat appears stuck to a bridge",
-      "category": "bug",
-      "status": "reported",
-      "location": "While driving with Jason and Cal",
-      "description": "A boat suddenly appears tilted against a bridge, almost onto the road, then returns to position.",
-      "sources": [{"name": "Streamer JasonTheWeen (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB4",
-      "title": "NPCs do not react to a boat collision",
-      "category": "bug",
-      "status": "reported",
-      "location": "Mission 'Gone Fishing' — Jason rams a boat full of people with a speedboat",
-      "description": "The NPCs do not react and the boat does not collide or capsize.",
-      "sources": [{"name": "Twitch Windpress (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB5",
-      "title": "Plane flies through a building (anti-crash)",
-      "category": "bug",
-      "status": "reported",
-      "location": "Jump out of a plane before it crashes",
-      "description": "The plane does not explode — it flies through the building ahead while Jason parachutes to safety.",
-      "sources": [{"name": "Windpress (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB6",
-      "title": "Falling from a plane without damage",
-      "category": "bug",
-      "status": "reported",
-      "location": "Jason jumps from a moving plane without a parachute while chased by police",
-      "description": "He survives with no damage (not a cheat). The plane itself still explodes.",
-      "sources": [{"name": "KICK streamer Neon (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB7",
-      "title": "Slingshot glitch, GTA IV style",
-      "category": "bug",
-      "status": "reported",
-      "location": "Hit a tree or bush with a car",
-      "description": "The car is flung far across the map (like the GTA IV swing glitch, but lighter); the car is wrecked.",
-      "sources": [{"name": "X @TheCanadianGTR (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB8",
-      "title": "'Phone to Shadow Realm'",
-      "category": "bug",
-      "status": "reported",
-      "location": "Wedge Jason between a car and a fence, then open the phone",
-      "description": "Jason clips through the map and falls into a black void. Requires a game restart. Save manually before trying it.",
-      "sources": [{"name": "X @FACELESS (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB9",
-      "title": "'PS1' graphics / missing textures",
-      "category": "bug",
-      "status": "reported",
-      "location": "Intro, before the prologue",
-      "description": "Vehicle and NPC pop-in, world textures missing — like the Cyberpunk 2077 1.0 launch. One report; possibly a failed asset stream.",
-      "sources": [{"name": "X @Raeedxa (via Beebom)", "url": "https://beebom.com/gta-6-bugs-tracker/"}]
-    },
-    {
-      "id": "RB10",
-      "title": "NPCs swim sideways",
-      "category": "bug",
-      "status": "reported",
-      "location": "Leonida's waters",
-      "description": "NPCs swimming sideways in the water.",
-      "sources": [{"name": "Streamer RRaenee (via HappyGamer)", "url": "https://happygamer.com/gta-6-launch-night-psn-ps5-update-sales-176014/"}]
-    },
-    {
-      "id": "RB11",
-      "title": "VRR on Xbox unlocks frame rate",
-      "category": "bug",
-      "status": "reported",
-      "location": "Xbox Series X|S with a VRR TV",
-      "description": "Turning on VRR reportedly unlocks the frame rate above 30 FPS. May change with a patch; Rockstar has not commented.",
-      "sources": [{"name": "HappyGamer", "url": "https://happygamer.com/gta-6-launch-night-psn-ps5-update-sales-176014/"}]
-    },
-    {
-      "id": "RB12",
-      "title": "PS5 error CE-108255-1",
-      "category": "bug",
-      "status": "reported",
-      "location": "On starting the game (PS5)",
-      "description": "A generic game error; reportedly gone after installing the 602 MB update.",
-      "sources": [{"name": "HappyGamer", "url": "https://happygamer.com/gta-6-launch-night-psn-ps5-update-sales-176014/"}]
-    },
-    {
-      "id": "RB13",
-      "title": "Cheats locked until the story ends",
-      "category": "bug",
-      "status": "reported",
-      "location": "Progress menu",
-      "description": "Cheats reportedly only appear in the Progress menu after all story missions are finished; while a cheat is active you cannot save and trophies do not pop during that session. Rockstar has not published an official cheat list, and the count (about 61) is unverified.",
-      "sources": [{"name": "GTA BOOM (via GTABay)", "url": "https://www.gtabay.com/en/guides/gta-6-cheats-unlock-after-story"}, {"name": "Eurogamer (via MaxWanted)", "url": "https://maxwanted.com/gta-6-cheats/"}]
-    },
-    {
-      "id": "DB1",
-      "title": "'Not every car can be stolen' (bug version)",
-      "category": "bug",
-      "status": "disputed",
-      "location": "Viral clip of a car that will not move",
-      "description": "Same claim as D6, listed under Bugs too: a viral clip of a player sitting in a car that will not move. HappyGamer writes 'Treat these as unconfirmed' — it could be a car needing the Key Cloner, a tracked car, or a momentary bug. No guide has replicated it.",
-      "sources": [{"name": "HappyGamer", "url": "https://happygamer.com/gta-6-launch-night-psn-ps5-update-sales-176014/"}]
-    },
-    {
-      "id": "DB2",
-      "title": "Rumor: 'Rockstar apologised + fix on 25 Nov'",
-      "category": "bug",
-      "status": "disputed",
-      "location": "A viral X post",
-      "description": "A widely shared X post claims Rockstar apologised and will fix things on 25 Nov. There is NO support for it on any official Rockstar channel (Newswire or support) as of 21 Nov. Treat it as a rumour.",
-      "sources": [{"name": "iGameMag", "url": "https://igamemag.com/gta-6-reviews/"}]
-    },
-    {
-      "id": "DB3",
-      "title": "Accusation that JasonTheWeen's crash was 'staged'",
-      "category": "bug",
-      "status": "disputed",
-      "location": "Notebookcheck, on one streamer's crash clip",
-      "description": "Notebookcheck writes that 'JasonTheWeen critics believe the ordeal was staged to attract attention.' Crashes and lost progress in general remain CONFIRMED (B4, many sources); only the accusation about one specific clip is disputed. Do not use it to discredit other crash reports.",
-      "sources": [{"name": "Notebookcheck", "url": "https://www.notebookcheck.net/GTA-6-PS5-and-Xbox-crashes-are-losing-hours-of-progress-despite-autosave-system.1453724.0.html"}]
-    },
-    {
-      "id": "DB4",
-      "title": "Apollo Aggregates money glitch (reference)",
-      "category": "bug",
-      "status": "disputed",
-      "location": "Red warehouse east of Hamlet",
-      "description": "The save/reload loot-respawn money glitch at the Apollo Aggregates warehouse. Full panel in the Glitch & Farming tab. DISPUTED: 2 sources for (KeeNgamer, allblogthings) vs 2 against (afleurdenet, vanotherlevel). Shown as reported, never as confirmed.",
-      "sources": [{"name": "KeeNgamer (pro)", "url": "https://www.keengamer.com/articles/guides/gta-6-unlimited-money-glitch-guide/"}, {"name": "afleurdenet (contra)", "url": "https://afleurdenet.com/gta-6-best-starter-car-and-fast-money-guide-2026-launch-day-mechanics-legit-exploits-and-scam-warnings/"}]
-    },
-    {
-      "id": "W1",
-      "title": "Mandy — Key Lento (mystery)",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Brian Heder's rental house, Key Lento, Leonida Keys — early Chapter 1 mission 'Pipework'",
-      "description": "Brian sends Jason to collect rent. Observed clues, reported by players: (a) while Jason fixes a clogged sink pipe, a rotting human finger comes out — Mandy panics, snatches it ('Oops! Forgot about that.') and hurries Jason out; (b) her car trunk holds a meat cleaver, scissors, bleach chemicals and duct tape (FandomWire adds acid and several saws); (c) her yard has a patch of disturbed ground that looks like a freshly dug grave (Gamebrott: covered with dry cement); (d) Mandy flirts with Jason relentlessly (bikini, claims they were 'almost married' — a version Jason does not acknowledge), admits breaking the tap on purpose so Jason would come, and stalks him via Snapmatic. COMMUNITY THEORY — NOT FACT: 'Mandy is a psychopath / serial killer.' There is no confirmation from any cutscene or from Rockstar — Gamebrott itself writes that there is no further direct explanation from cutscenes or Rockstar. Always present it as theory.",
-      "sources": [{"name": "Gamebrott", "url": "https://gamebrott.com/mandy-gta-6/"}, {"name": "FandomWire", "url": "https://fandomwire.com/gta-6-hidden-detail-why-you-shouldnt-trust-mandy/"}, {"name": "Tech2Geek", "url": "https://www.tech2geek.net/is-mandy-a-serial-killer-in-gta-6-the-strange-clues-players-found/"}]
-    },
-    {
-      "id": "W2",
-      "title": "Polar bear escapes from a truck",
-      "category": "oddity",
-      "status": "confirmed",
-      "location": "Random event on the highway",
-      "description": "Animal activists stop a truck carrying a polar bear in a cage, open the back door shouting 'Let her out!' — and the bear comes out and attacks them (several killed or mauled). Another variant: an orca freed by activists throws an activist into the air. Kotaku: the bear escapes while being transported to a zoo; if the event happens after you know the hunter, the hunter will buy the dead bear.",
-      "sources": [{"name": "Kotaku", "url": "https://kotaku.com/?p=2000758435"}, {"name": "Briefly", "url": "https://briefly.co/anchor/Video_games/story/most-bonkers-moments-in-grand-theft-auto-6---including-illegal-furries"}]
-    },
-    {
-      "id": "W3",
-      "title": "'Furry illegal' in Leonida",
-      "category": "oddity",
-      "status": "confirmed",
-      "location": "All of Leonida",
-      "description": "Being a furry (anthropomorphic animal costume) is illegal in Leonida: police can shoot on sight ('No Paws Laws'); there is an in-game news article 'Governor Declares Leonida Furry-Free'; even saying the memes 'Uwu / Rawr xD / hewwo' can get you arrested. There is a 'furry rebels' hideout on Starfish Island (IGN via GTA6-Life). A parody of Florida and internet culture.",
-      "sources": [{"name": "WikiGames", "url": "https://wikigames.net/grand-theft-auto-vi-easter-eggs/"}, {"name": "IGN via GTA6-Life", "url": "https://gta6-life.com/en/in-brief/"}]
-    },
-    {
-      "id": "RW1",
-      "title": "Mandy's locked room",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Mandy's house, Key Lento",
-      "description": "One room in her house is locked tight — Jason cannot enter it at all. Suspected to be connected to the Mandy mystery (W1), but its contents are unknown. One source. Do not invent what is inside.",
-      "sources": [{"name": "Gamebrott", "url": "https://gamebrott.com/mandy-gta-6/"}]
-    },
-    {
-      "id": "RW2",
-      "title": "UFO abduction recording on a phone",
-      "category": "oddity",
-      "status": "reported",
-      "location": "A camp on the south-east trail toward the top of Mount Kalaga National Park",
-      "description": "A phone lies on the ground near a bicycle. It can be picked up and played: a recording of an NPC being abducted by a UFO while screaming for someone by name (probably a sibling, who had warned them not to go there). Related to the meteorite report (R-E3) on the same slope.",
-      "sources": [{"name": "Sportskeeda", "url": "https://hindi3.sportskeeda.com/gta/are-aliens-gta-6"}]
-    },
-    {
-      "id": "RW3",
-      "title": "Orca throws an activist",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Offshore / animal truck",
-      "description": "Activists free an orca, and the orca throws an activist into the air. A viral X clip; one source chain.",
-      "sources": [{"name": "Briefly / ameriledger", "url": "https://ameriledger.gigglelo.com/blog/the-most-bizarre-encounters-and-bonkers-moments-in-grand-theft-auto-6"}]
-    },
-    {
-      "id": "RW4",
-      "title": "Python in the car trunk",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Random car trunk",
-      "description": "A python jumps out of a car trunk when the player tries to steal the car: 'F***ing snake tried to eat me when opening a trunk in GTA 6.' Related to the trunk-jumpscare report (R-E6).",
-      "sources": [{"name": "ameriledger (X clip)", "url": "https://ameriledger.gigglelo.com/blog/the-most-bizarre-encounters-and-bonkers-moments-in-grand-theft-auto-6"}]
-    },
-    {
-      "id": "RW5",
-      "title": "Extreme NPC road rage",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Leonida's roads",
-      "description": "Bump an NPC's car and the NPC chases you for a long time, then rams you to stop you, gets out and attacks you. A far bigger reaction than in GTA V.",
-      "sources": [{"name": "DualShockers", "url": "https://www.dualshockers.com/most-unhinged-npc-interactions-in-gta-6/"}]
-    },
-    {
-      "id": "RW6",
-      "title": "'Spooning Cal'",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Jason's house, early in the game",
-      "description": "Cal comes over to install the JoyStation, they drink all night, and in the morning they wake up sleeping cuddled together (spooning) in the bedroom. A scripted story moment, not a systemic behaviour.",
-      "sources": [{"name": "DualShockers", "url": "https://www.dualshockers.com/most-unhinged-npc-interactions-in-gta-6/"}]
-    },
-    {
-      "id": "RW7",
-      "title": "Bert 'trousers down'",
-      "category": "oddity",
-      "status": "reported",
-      "location": "Next to Mandy's house",
-      "description": "Bert — a character described as representing the nonsensical right wing — appears next to Mandy's house with his trousers down, 'flashing the renters'. The source gives no further detail.",
-      "sources": [{"name": "DualShockers", "url": "https://www.dualshockers.com/most-unhinged-npc-interactions-in-gta-6/"}]
-    },
-    {
-      "id": "RW8",
-      "title": "Dundee polar bear (1878) reference?",
-      "category": "oddity",
-      "status": "reported",
-      "location": "The polar-bear event (W2)",
-      "description": "Dundee Culture links the polar-bear event (W2) to the story of Bruin, a polar bear that escaped and roamed Dundee in 1878. An inference by a local site — possibly coincidence. Kept as a reported reference theory.",
-      "sources": [{"name": "Dundee Culture", "url": "https://www.dundeeculture.com/post/did-grand-theft-auto-vi-just-reference-dundee-s-famous-polar-bear"}]
-    }
-  ]
-}
+{"items": [
+{"kind": "egg", "sources": ["PowerPyx", "Kotaku", "GameSpot", "OutputLag", "Game8"], "status": "confirmed", "text": "Makhluk jongkok makan bangkai rusa di jalan selatan Danau Cottonmouth, Grassrivers (timur danau arah Gambit Bay / selatan Hamlet). Dekati dia — dia lari ke semak; ikuti sampai effigy kayu di pohon (kabut hijau) — karakter pingsan, cutscene kaki berbulu mendekat, lalu bangun di tepi danau. Bisa sejak Chapter 1. Rujukan ke cryptid Florida \"Skunk Ape\" dan urban legend Bigfoot GTA San Andreas.", "title": "Skunk Ape / Bigfoot (open-world)"},
+{"kind": "egg", "sources": ["PowerPyx", "OutputLag", "GTAVibes", "GamesFuze"], "status": "confirmed", "text": "Baca flyer \"Have You Seen Skunk Ape???\" di Skeeter's Bar, Hamlet, lalu hubungi Kirk (461-555-0139). Tiga misi malam: Skunk Apeology 101, Search for Tree Effigies (3 effigy di Pelican Valley), Help Kirk Find Mr. Mangrove (helikopter + dart bius). Twist: Mr. Mangrove adalah Harry Sherrick, hilang 10 tahun, cacat oleh spora rawa. Akhir: tembak dia (Kirk bayar $10.000 + senapan bius unik Mister Mangrove Laird 350) atau tidak (Kirk mati). Menghitung untuk trophy Strangers & Freaks.", "title": "Kirk & Mr. Mangrove (questline Skunk Ape)"},
+{"kind": "egg", "sources": ["PowerPyx", "GameSpot", "OutputLag", "GTAVibes"], "status": "confirmed", "text": "Setelah Chapter 1, SENDIRIAN, jalan barat laut Starlet Motel, Kelly County (timur Port Gellhorn), setelah jam 02:00. Cari mobil parkir lampu berkedip, ikuti jejak pakaian ke hutan menuju cahaya biru — UFO sedang mengangkat seorang wanita. Bantu dia, kembali ke mobil — UFO kembali dan menculik karaktermu. Ini juga trophy \"The Truth Is Out There\".", "title": "UFO abduction (The Truth Is Out There)"},
+{"kind": "egg", "sources": ["PowerPyx", "OutputLag", "Sportskeeda"], "status": "confirmed", "text": "Setelah penculikan UFO, karakter bermimpi — perhatikan angka di keypad dalam mimpi (biasanya 2134; sebagian pemain melaporkan 2314/2341 — kode berbeda tiap save). Pergi ke South Point Airfield, Hamlet: menara radio, naik ke atap, masuk hatch, turun, masukkan kode, lift ke basement. Tekan tombol panel sampai lampu hijau, ambil botol susu di meja, masukkan ke kapsul — alien kecil abu-abu muncul. Bawa kabur; di luar alien dijemput UFO. Kode keypadnya sendiri DISPUTED — jangan janjikan satu angka pasti.", "title": "Alien tawanan di lab bawah tanah"},
+{"kind": "egg", "sources": ["X @xGarbett", "Kotaku", "GameSpot", "BuzzFeed", "Game8", "OutputLag"], "status": "confirmed", "text": "Panjat menara radio/TV tertinggi (South Vice-Dale County / Vice City), sekitar 6–7 menit. Sarang burung di puncak berisi telur Paskah bercat. Ambil dan lempar dari atas — cutscene telur jatuh ke kaca depan mobil pria di bawah (agen real estate / pengacara licik, menurut GameSpot). Satu-satunya telur yang namanya harfiah.", "title": "Telur Paskah harfiah di menara radio"},
+{"kind": "egg", "sources": ["GamesHorizon", "Polygon", "BuzzFeed"], "status": "confirmed", "text": "Pos penelitian terbengkalai di barat daya Pelican Valley, Grassrivers (naik perahu, utara Key Lento). Nyalakan power (circuit breaker di luar), masuk: komputer terkunci (password \"CLEAVES\", terukir di papan lantai kamar), catatan komputer \"SAFE CODE = DOUBLE SUCCESS\", clipboard di shack belakang \"SUCCESS = 0036\" — kode brankas 0072 (+~$1.070–$1.098). Saat di komputer, kepiting mutan raksasa jatuh dari atas dan menyerang. Boathouse kode 0212: SMG Crabshack VF5 + tas $10.000 + jet ski kabur. Rujukan meme E3 2006 \"giant enemy crabs\".", "title": "Kepiting mutan raksasa / Crab Lab"},
+{"kind": "egg", "sources": ["Insider Gaming", "Game8", "BuzzFeed", "Kotaku", "OutputLag"], "status": "confirmed", "text": "Berenang atau terdampar jauh di laut (mis. Gambit Bay / lepas Vice City). Anjing bergoggle naik jet ski datang menyelamatkan, membawa ke pulau penuh anjing lain — hadiah uang tunai + kacamata hitam gratis; kabarnya menuntun ke stash uang tersembunyi. Jangan pergi sebelum hadiah diberikan. Nama resmi di game: \"Cool Dog\".", "title": "Cool Dog / Lucky Dog (anjing jet ski)"},
+{"kind": "egg", "sources": ["Insider Gaming", "Game8", "BuzzFeed", "IGN"], "status": "confirmed", "text": "Washington Island, timur Vice City — kompleks Trinity Apartments, lantai 2, dekat Pay 'N' Spray dan Vice Beach Top Fun Drones. Replika rumah Dexter (serial TV Dexter); di atap ada \"kill kit\" (jarum suntik, pisau, lakban, tali) di toolbox; perahu mirip \"Slice of Life\" tertambat di dekatnya. Tidak bisa masuk ke dalam apartemen. Pertama terlihat di trailer \"An Extended Look\" (~18:49, parasut Lucia).", "title": "Apartemen Dexter Morgan"},
+{"kind": "egg", "sources": ["Insider Gaming", "Game8", "BuzzFeed", "IGN", "GamesRadar+", "VICE", "Jalopnik"], "status": "confirmed", "text": "Di dalam garasi villa di Vespucci Island, Rialto Islands. Mobil hijau lime, grafis samping, sayap belakang tinggi, decal \"Terada Tires\". Bisa dicuri dan didaftarkan di Pay 'n' Spray jadi kendaraan permanen. Rujukan The Fast and the Furious (2001), Paul Walker; plat in-game \"HAD YOU\". Model in-game: Maibatsu Penumbra FF.", "title": "Mitsubishi Eclipse Brian O'Conner"},
+{"kind": "egg", "sources": ["BuzzFeed", "Game8", "Games.gg"], "status": "confirmed", "text": "Di luar rumah Jason di Leonida Keys. Naik ke kapal, cek layar GPS di belakang kemudi: masih menampilkan peta Los Santos (GTA V), bukan Leonida. Rujukan misi GTA V — kapal Michael dicuri.", "title": "Kapal Michael De Santa (GTA V)"},
+{"kind": "egg", "sources": ["BuzzFeed", "Game8", "OutputLag"], "status": "confirmed", "text": "Yard sale di Port Gellhorn selatan, Kelly County (barat laut Dirt Merchants mod shop, di atas trek balap; topi di atas gitar case di sofa). Dijual sebagai \"Genuine Cowboy Hat\" cokelat, $35, dari Chapter 2. Bisa dipakai Jason dan Lucia. Stok bisa berubah — cek ulang. Rujukan Red Dead Redemption 2, Arthur Morgan.", "title": "Topi koboi Arthur Morgan"},
+{"kind": "egg", "sources": ["BuzzFeed", "Kotaku", "GamesHorizon", "GTA6.house"], "status": "confirmed", "text": "Belakang Three Sheets Liquor, Key Lento (Exotic Animals Front / \"Strange Noises\"). Setelah misi rum Shirley (Salt Squid Rum), kembali ke toko: beo merah di kandang di halaman belakang memberi petunjuk stash (\"Generator… Generator\") — vent di dekat generator berisi ~$1.200–$1.384 + brankas di toko (~$971). Jumlah uang bervariasi antar sumber — loot acak/bertingkat. Rujukan Tony, beo Ken Rosenberg di GTA: San Andreas.", "title": "Tony si burung beo bicara"},
+{"kind": "egg", "sources": ["Kotaku", "Beebom", "Game8", "GamesRadar+", "IGN"], "status": "confirmed", "text": "Chapter 5 \"Top of the World, Ma\", misi story \"Taking Liberties\". Giorgio (shipping magnate) berurusan dengan kartel; Niko — tua, berambut abu-abu — muncul di penthouse Giorgio dalam 2 cutscene: mengancam Giorgio, lalu kembali mengambil kiriman setelah heist Coast Guard berhasil. Suara asli Michael Hollick; di credits Rockstar tertulis \"The Hitman\". Giorgio meneriakkan \"Daddy's back, bitches!\" (line pembuka GTA IV) + tema \"Soviet Connection\". Bukan easter egg tersembunyi — bagian story akhir, tapi ini cameo terbesar game.", "title": "Cameo Niko Bellic (\"The Hitman\")"},
+{"kind": "egg", "sources": ["BuzzFeed", "OutputLag", "IGN"], "status": "confirmed", "text": "Awal story, saat Donnie memanggilmu bertemu dia dan Brian: masuk bar di sebelah. Dua NPC di meja membahas kegilaan di Mount Chiliad, San Andreas — termasuk bunker tersembunyi di bawah gunung berisi jetpack. Nod dialog saja — belum ada puzzle Chiliad yang terpecahkan di GTA VI.", "title": "Obrolan bar Mount Chiliad"},
+{"kind": "egg", "sources": ["Undercode News", "Joking Joystick", "VGC", "IGN", "PC Gamer", "Kotaku", "Sportskeeda"], "status": "confirmed", "text": "Belville, Leonard County. Rumah yang fotonya muncul misterius di GTA: San Andreas Definitive Edition (2021) — ternyata lokasi nyata di GTA VI. Bobol garasinya: papan konspirasi — penghuni sadar dia hidup di video game: tidak bisa beli tiket ke Los Santos, tidak bisa keluar Leonida, banyak doppelganger (NPC model berulang), gedung tak bisa dimasuki, lonjakan kejahatan. Mind map di dinding garasi bertuliskan \"IT'S A SIMULATION\" merah. Ditemukan oleh Jared (komunitas mapping GTA, Discord). Telur meta terkuat.", "title": "Rumah konspirator Belville (\"IT'S A SIMULATION\")"},
+{"kind": "egg", "sources": ["BuzzFeed", "Game8", "OutputLag"], "status": "confirmed", "text": "Majalah \"Body Copy\" (majalah binaraga) — satu ada di gym yang dipakai Jason. Artikel \"Twilight Tantra\" tentang instruktur yoga GTA V, kini mengajar di Dwindle Wood Retirement Community, Waning Sands. Rujukan GTA V — Fabien LaRouche, instruktur yoga Amanda.", "title": "Fabien LaRouche di majalah"},
+{"kind": "egg", "sources": ["BuzzFeed", "OutputLag", "GTA6VC"], "status": "confirmed", "text": "Plat belakang mobil Imponte Phoenix (mudah dilihat: Phoenix merah di misi Chapter 1 \"Unwanted Attention\"). Plat Leonida bertuliskan ASS MAN. Rujukan Seinfeld, episode \"The Fusilli Jerry\" (plat ASSMAN Cosmo Kramer).", "title": "Plat \"ASS MAN\" (Seinfeld)"},
+{"kind": "egg", "sources": ["BuzzFeed", "LibertyCity"], "status": "confirmed", "text": "Stiker Love Fist (band rock fiktif Vice City) di dunia game; Jason memakai kaos logo V-Rock (stasiun radio rock Vice City). Rujukan GTA: Vice City — band Love Fist, radio V-Rock.", "title": "Love Fist & V-Rock"},
+{"kind": "egg", "sources": ["BuzzFeed", "LibertyCity"], "status": "confirmed", "text": "Stiker di pintu toko minuman Uncle Jack's. Rujukan Tom Petty — 7 lagu di stasiun rock klasik V-Rock.", "title": "Stiker \"Petty Forever\" (Tom Petty)"},
+{"kind": "egg", "sources": ["OutputLag", "Games.gg", "GamesFuze"], "status": "confirmed", "text": "Buku yang bisa dibaca di rumah Jason: Tom Everett, bodyguard Gracie Ancelotti di Liberty City dan Alderney, selamat karena sakit di hari penembak membunuh 5 penjaga Gracie. Buku lain menyebut peristiwa 2008 (tahun GTA IV). Rujukan GTA IV — misi penculikan Gracie Ancelotti oleh Niko Bellic.", "title": "Memoar Tom Everett / buku Liberty City 2008"},
+{"kind": "egg", "sources": ["OutputLag"], "status": "confirmed", "text": "Podcast true-crime \"Final Act\" (host Reagan Carter), tersedia sejak free roam. Satu episode membahas kematian Floyd dan Debra (GTA V): Wade bilang dia \"di titty bar\" hari itu; Reagan menunjukkan foto 3 pria di restoran — Wade menyebut Michael De Santa dan Franklin Clinton, menyebut orang ketiga \"sahabatnya\" tanpa nama (Trevor). Rujukan GTA V — Wade Hebert, Floyd dan Debra.", "title": "Wade Hebert di podcast \"Final Act\""},
+{"kind": "egg", "sources": ["OutputLag"], "status": "confirmed", "text": "Papan pengumuman di luar Three Sheets Liquor, Key Lento — flyer tengkorak \"Rad Dads Redemption Tour\". Plesetan nama Red Dead Redemption.", "title": "Poster \"Rad Dads Redemption Tour\""},
+{"kind": "egg", "sources": ["OutputLag", "WikiGames"], "status": "confirmed", "text": "Plat depan/belakang mobil acak di lalu lintas Leonida: plat New Austin bergambar kaktus dan matahari terbenam gurun. Rujukan Red Dead Redemption — negara bagian New Austin.", "title": "Plat \"New Austin\""},
+{"kind": "egg", "sources": ["OutputLag"], "status": "confirmed", "text": "Di dalam trailer di properti memancing yang terbakar: dinding foto berisi kartu pos \"Grand Senora Desert: A Great Place To Get Lost\" dan \"Greetings From Grapeseed\". Rujukan GTA V — Grand Senora Desert, Grapeseed (San Andreas).", "title": "Kartu pos Grand Senora Desert & Grapeseed"},
+{"kind": "egg", "sources": ["BuzzFeed", "Games.gg", "WikiGames"], "status": "confirmed", "text": "Pengaturan HP: ringtone \"Wind Chimes\" bisa dipilih — ringtone yang sama dipakai Michael De Santa di GTA V.", "title": "Ringtone \"Wind Chimes\""},
+{"kind": "egg", "sources": ["GTA6VC", "LeonidaInteractive"], "status": "confirmed", "text": "Sisi barat North Leonard County (tengah utara-selatan). Cari postingan Snapmatic tentang compound berbenteng. Masuk via menara pengawas ke atap barn; hati-hati ranjau dan drone; Freddie merekam podcast dan bersiap kiamat; ada peringatan badai di berita. Pilih \"stay with Freddie\" — hadiah Dubster + $5.000. Rujukan rapper Freddie Gibbs (dikreditkan sebagai \"Freddie\"). Rumor pra-rilis kini terkonfirmasi in-game oleh 2 panduan.", "title": "Bunker Freddie (Freddie Gibbs)"},
+{"kind": "egg", "sources": ["BuzzFeed", "ComicBook.com"], "status": "confirmed", "text": "Komik parodi X-Men: superhero bertema obat-obatan, villain \"Dr. Placebo\".", "title": "Komik \"RX-Men\""},
+{"kind": "egg", "sources": ["Men's Journal", "Kotaku", "ComingSoon", "All.gg"], "status": "confirmed", "text": "Side quest Strangers & Freaks: temui Kyle McKittrick di pertanian stroberi raksasa (Lucia lebih dulu). Bantu ladangnya, kumpulkan bahan kimia — Kyle makan stroberi aneh lalu bermutasi jadi monster merah raksasa, mengamuk: melempar NPC ke helikopter (jatuh), membalik mobil, kebal tembakan. Jason menenangkannya (\"Buddy\") — pilihan peluk dia atau tidak. Ditemukan live oleh IShowSpeed (~23 jam main, ~51% story). Rujukan Marvel Red Hulk — adegan helikopter mirip Captain America: Brave New World. Apakah \"peluk\" membuatnya muncul lagi nanti — BELUM terkonfirmasi.", "title": "Kyle si \"Red Hulk\""},
+{"kind": "egg", "sources": ["GameRant", "GamingBible", "Cut.pro", "TechTudo"], "status": "confirmed", "text": "Gedung terbengkalai di Capri, selatan Tortoise Lake (utara Capri, dekat rel). Di dalam: pentagram berdarah di lantai + lilin + jurnal ritual. Pingsankan NPC di dekatnya (konstruksi di kiri), seret tubuhnya ke pentagram — ruangan gelap, lilin menyala, partner memanggil dari kamar atas (halusinasi: partner kerasukan, karakter lain versi iblis) — kembali ke pentagram, NPC bangkit sebagai iblis — hanya api yang membunuhnya (Molotov / bensin di ruangan; peluru dan ledakan tidak mempan). Klaim TechTudo bahwa ritual ini membuka trophy \"The Truth Is Out There\" BERTENTANGAN dengan PowerPyx (UFO) — lihat panel disagreement.", "title": "Ritual setan / iblis Capri"},
+{"kind": "egg", "sources": ["LibertyCity", "GTA Wiki"], "status": "confirmed", "text": "Ocean Beach, Vice Beach, Vice-Dale County. Hotel tempat safehouse pertama Tommy Vercetti di Vice City (2002). Terlihat di trailer 1 (0:33) dan trailer 2 (bar dan kolam outdoor). Rooftop bar-nya adalah lokasi trophy \"In The Beginning…\" (Apple Martini $10).", "title": "Ocean View Hotel"},
+{"kind": "egg", "sources": ["OutputLag", "Games.gg"], "status": "confirmed", "text": "Game puzzle hitam-putih di konsol JoySystem rumah Jason. Selain pintu terkunci: telepon di bunker minta kode 6 digit dari anomali di ruangan bertanda tanggal Oktober (jam salah, foto ada orang ekstra, telepon berdering beda jumlah) — kode berbeda tiap save. Selesaikan — pintu di ujung pier terbuka, bangun di kabin gelap dengan meja developer + 2 monitor.", "title": "Tenebrae Lux — secret ending"},
+{"kind": "egg", "sources": ["Kotaku", "GamesRecon"], "status": "confirmed", "text": "\"Weird Al\" Yankovic punya stasiun hits '80-an sendiri di radio GTA VI. Namanya ada di daftar cast resmi Rockstar (6.000 nama, terbit 19 Nov).", "title": "\"Weird Al\" Yankovic — host radio"},
+{"kind": "egg", "sources": ["Kotaku"], "status": "reported", "text": "Tidak diketahui pasti — \"diduga\" muncul di game. Satu sumber + eksplisit \"allegedly\" (Rockstar tidak mengonfirmasi). JANGAN naikkan status tanpa bukti kedua.", "title": "Sam Houser (cameo?)"},
+{"kind": "egg", "sources": ["WikiGames"], "status": "reported", "text": "Pulau kecil di Gambit Bay — merman gemuk berjemur di bawah matahari. Satu sumber (WikiGames). Lokasi persis tidak diberikan.", "title": "Merman gemuk"},
+{"kind": "egg", "sources": ["WikiGames", "Sportskeeda"], "status": "reported", "text": "Puncak gunung di Lummox County (WikiGames) / lereng tenggara Mount Kalaga National Park dekat camp + HP tergeletak berisi rekaman penculikan UFO (Sportskeeda). Meteorit masih membara; bisa ambil serpihannya. Lokasi dua sumber tidak sama persis (Lummox vs Mount Kalaga) — belum bisa digabung jadi 1 klaim pasti.", "title": "Meteorit (Lummox / Mount Kalaga)"},
+{"kind": "egg", "sources": ["WikiGames"], "status": "reported", "text": "Area pantai Leonida — paus terdampar (cetacean stranding). Satu sumber. Rujukan paus meledak GTA V.", "title": "Paus terdampar yang bisa meledak"},
+{"kind": "egg", "sources": ["WikiGames"], "status": "reported", "text": "Harimau putih langka di kandang hewan yang terkunci. Satu sumber; lokasi tidak diberikan.", "title": "Harimau putih di kandang"},
+{"kind": "egg", "sources": ["WikiGames"], "status": "reported", "text": "Looting bagasi mobil sembarangan — hewan peliharaan yang tidur di dalam bisa menyerang dan membunuh. Satu sumber. Mirip klaim terpisah (ular piton di bagasi).", "title": "Jumpscare hewan di bagasi"},
+{"kind": "egg", "sources": ["WikiGames", "YouTube"], "status": "reported", "text": "Curi mobil yang ada kucingnya — cutscene kucing menyerang karakter; bisa dilempar keluar. 2 sumber tapi keduanya tipis (daftar + video countdown). Tetap REPORTED.", "title": "Kucing menyerang saat curi mobil"},
+{"kind": "egg", "sources": ["GamingBible"], "status": "reported", "text": "Disebut di headline GamingBible (\"pentagon demon and Saw-style kidnapper\") — tanpa detail lokasi/cara di cuplikan yang terbaca. Satu sumber, tanpa detail. Jangan tulis detail yang tidak ada.", "title": "Penculik gaya Saw"},
+{"kind": "egg", "sources": ["EsportPort"], "status": "reported", "text": "Penjahat bertato wajah (\"Gator Face\") — sidang pengadilan di TV, lalu ditemui di free-roam di luar bar di Leonard County, misi stranger: cari piton peliharaannya yang dicuri. Satu sumber, situs konten-AI yang meragukan. Trailer-1 Florida Joker TERKONFIRMASI, tapi misi \"Gator Face\" ini belum.", "title": "\"Gator Face\" / Florida Joker"},
+{"kind": "egg", "sources": ["Games.gg"], "status": "reported", "text": "Aplikasi berita di HP menampilkan artikel UFO. Satu sumber.", "title": "Artikel berita UFO di HP"},
+{"kind": "egg", "sources": ["Games.gg"], "status": "reported", "text": "Truk dengan artwork konspirasi bermata (Chiliad) di eksterior. Satu sumber.", "title": "Truk bergambar mata Mount Chiliad"},
+{"kind": "egg", "sources": ["Game8"], "status": "reported", "text": "Saat panjat menara radio, kadang ada influencer vlogging di puncak — kalau dia ada, parasut tidak bisa dipakai turun (meski dia disingkirkan), harus panjat turun. Satu sumber; terkait telur menara radio.", "title": "Influencer vlogging di puncak menara"},
+{"kind": "egg", "sources": ["Games.gg"], "status": "reported", "text": "Polisi yang sedang menangkap orang bereaksi saat pemain merekam mereka. Satu sumber.", "title": "Polisi merespons saat difilmkan"},
+{"kind": "egg", "sources": ["Facebook Reel Michi Gaming", "WikiGames"], "status": "disputed", "text": "DISPUTED — Reel Facebook Michi Gaming (20 Nov 2026): influencer perempuan selfie di rawa, piton raksasa menarik kakinya dan menelannya; tongkat selfie-nya menyangkut dan mencekik ular sampai mati. Kenapa disputed: ringkasan Reel-nya sendiri menyebut \"visuals match Red Dead Redemption 2 style\"; komentator terbelah — sebagian mengenali sebagai gameplay GTA 6, sebagian membandingkan visual dan perilaku NPC dengan RDR2 dan mempertanyakan realisme. WikiGames mencantumkannya tanpa verifikasi — satu sumber fan-wiki bukan konfirmasi. Tidak ada outlet besar (GameSpot/IGN/Kotaku/PowerPyx) yang melaporkan telur ini. Jangan pernah sajikan sebagai telur yang sudah pasti.", "title": "Influencer dimakan ular piton (Reel FB Michi Gaming)"},
+{"kind": "egg", "sources": ["Facebook Reel IMGX @imgxstudio"], "status": "reported", "text": "REPORTED MEME — Reel Facebook IMGX (19 Nov 2026): dua anjing kawin di driveway rumah, teks \"Not even 5 mins into the game\". Keaslian dipertanyakan: BUKAN easter egg yang jelas — paling banter perilaku hewan ambient yang viral sebagai meme. Komentar mempertanyakan autentisitas secara eksplisit (\"I'm several hours in and this doesn't happen\"), ada yang menduga keterlibatan AI, dan ada yang membandingkannya dengan RDR2. Nada komentar: sarkastik / hiburan, bukan konfirmasi. JANGAN disajikan sebagai easter egg resmi.", "title": "Dua anjing kawin di driveway (Reel FB IMGX)"},
+{"kind": "egg", "sources": ["BuzzFeed"], "status": "disputed", "text": "DISPUTED — BuzzFeed: \"According to X users, there's a secret mission where you can hunt him down and kill him... and then you turn into a frog?\" — dengan tanda tanya dari BuzzFeed sendiri. Questline Kirk yang terverifikasi berakhir dengan pilihan tembak/tidak — TIDAK ADA transformasi katak di panduan PowerPyx/OutputLag mana pun. Kemungkinan salah baca / lelucon X / campur dengan mekanik lain (efek spora/halusinasi). Jangan tulis sebagai hasil questline Kirk.", "title": "Bigfoot: \"buru dia, bunuh dia, lalu kamu berubah jadi katak\""},
+{"kind": "egg", "sources": ["PowerPyx", "OutputLag"], "status": "disputed", "text": "DISPUTED (detail di dalam telur CONFIRMED) — PowerPyx dan walkthrough YouTube: 2134 (dari mimpi). OutputLag: coba 2314 dulu, lalu 2341 — \"neither code works in every save\" (kode berbeda tiap save / berbeda tiap mimpi). Telur alien-nya CONFIRMED; angkanya yang tidak bisa dipatok satu. Di guide: tulis \"kode terlihat dalam mimpi (biasanya 2134; sebagian pemain melaporkan 2314/2341)\" — jangan janjikan satu angka pasti.", "title": "Kode keypad lab alien: 2134 vs 2314 vs 2341"},
+{"kind": "egg", "sources": ["PowerPyx", "GameSpot", "TechTudo"], "status": "disputed", "text": "DISPUTED (tautan trophy-nya) — PowerPyx (+ GameSpot, 20 Nov): pemicu trophy \"The Truth Is Out There\" adalah penculikan UFO. TechTudo (via Cut.pro): menyelesaikan ritual Capri membuka trophy yang sama. Keduanya tidak bisa benar bersamaan untuk satu trophy. Sampai ada sumber ketiga yang menguji keduanya: tampilkan UFO sebagai pemicu utama (2+ sumber kuat) dan ritual Capri sebagai klaim alternatif yang belum terverifikasi — JANGAN tulis keduanya sebagai pasti.", "title": "Pemicu trophy \"The Truth Is Out There\": UFO vs ritual Capri"},
+{"kind": "egg", "sources": ["HappyGamer"], "status": "disputed", "text": "DISPUTED — HappyGamer: klip viral pemain duduk di mobil yang tidak mau jalan. HappyGamer sendiri menulis \"Treat these as unconfirmed\" — bisa jadi mobil butuh Key Cloner, mobil ber-tracker, atau bug sesaat. Belum ada panduan yang mereplikasi.", "title": "\"Tidak semua mobil bisa dicuri\""},
+{"kind": "bug", "sources": ["Sydney Morning Herald", "Beebom"], "status": "confirmed", "text": "Berbagai gedung/interior: pejalan kaki/NPC berjalan ke tembok dan nyangkut. Minor, tidak game-breaking.", "title": "NPC jalan menabrak tembok"},
+{"kind": "bug", "sources": ["YouTube MichaelDoesLife", "Beebom", "Sportskeeda", "iGameMag"], "status": "confirmed", "text": "Kantor polisi: Jason dan polisi saling clip lalu tersedot ke dinding/sofa, berguling beberapa detik sampai polisi KO dan Jason bebas.", "title": "Clip tembus dinding / sofa"},
+{"kind": "bug", "sources": ["X @BaylenLatona", "Beebom", "Sportskeeda", "iGameMag", "GameWatcher"], "status": "confirmed", "text": "Prologue — Lucia ditaser polisi saat mencuri skuter (sequence scripted, pasti ketangkap). Setelah ditaser, bobot skuter membuat Lucia clip tembus tanah — jatuh di bawah Leonida sampai game mengembalikan ke polisi. Kalau tidak kembali: restart dan ulang misi. Bug paling sering dilaporkan.", "title": "Jatuh tembus peta (prologue)"},
+{"kind": "bug", "sources": ["Notebookcheck", "GameWatcher", "GrandTheftAutoWiki"], "status": "confirmed", "text": "Prologue dan umum, PS5 + Xbox: crash berulang di prologue, freeze, tekstur hilang, audio bermasalah, progres hilang berjam-jam meski ada autosave (autosave tidak selalu terpicu di prologue/checkpoint tertentu; menu save tidak menampilkan autosave — harus lewat menu load). Mitigasi: save manual berkala, putar slot save.", "title": "Crash / freeze / hilang progres"},
+{"kind": "bug", "sources": ["X @rathor7_", "Sportskeeda"], "status": "confirmed", "text": "Misi \"Gone Fishing\" — pesawat penyelamatan Donnie: tidak ada animasi buka pintu; Jason langsung clip menembus badan pesawat ke kursi pilot.", "title": "Animasi pintu pesawat hilang (Gone Fishing)"},
+{"kind": "bug", "sources": ["VGC", "PlayStation LifeStyle", "iGameMag"], "status": "confirmed", "text": "Area padat / saat mengemudi; semua konsol, termasuk PS5 Pro. Target 30 FPS, turun di area padat; tidak ada mode 60 FPS / performance mode. Bukan bug murni — keterbatasan performa; tetap dicantumkan karena keluhan pemain terbanyak.", "title": "Frame-rate drop (target 30 FPS)"},
+{"kind": "bug", "sources": ["Reddit r/GTA6 & r/GTA", "GameWatcher", "iGameMag", "GrandTheftAutoWiki"], "status": "confirmed", "text": "Misi awal Lucia — setelah keluar dari bank, misi tidak bisa diselesaikan, progres terhenti. Workaround yang dilaporkan: reload checkpoint/save lebih awal. Tanpa pernyataan Rockstar.", "title": "Softlock misi awal Lucia"},
+{"kind": "bug", "sources": ["Shacknews", "Beebom"], "status": "reported", "text": "Safehouse, saat switch Jason ke Lucia: satu cangkir kopi melayang.", "title": "Objek melayang (cangkir kopi)"},
+{"kind": "bug", "sources": ["GosuGamers", "Beebom"], "status": "reported", "text": "Gameplay umum: pop-in singkat pada pakaian Jason dan Lucia. Pre-release patch; belum jelas masih ada di patch launch.", "title": "Cosmetic pop-in (pakaian)"},
+{"kind": "bug", "sources": ["JasonTheWeen", "Beebom"], "status": "reported", "text": "Saat mengemudi dengan Jason dan Cal: kapal tiba-tiba muncul miring menempel jembatan, hampir naik ke jalan, lalu kembali ke posisi.", "title": "Kapal pop-in menempel jembatan"},
+{"kind": "bug", "sources": ["Twitch Windpress", "Beebom"], "status": "reported", "text": "Misi \"Gone Fishing\" — Jason menabrak perahu berisi orang dengan speedboat: NPC tidak bereaksi, perahu tidak tabrakan/terbalik.", "title": "NPC tak bereaksi ditabrak perahu"},
+{"kind": "bug", "sources": ["Windpress", "Beebom"], "status": "reported", "text": "Lompat keluar pesawat sebelum menabrak: pesawat tidak meledak — menembus gedung di depan sementara Jason terjun payung selamat.", "title": "Pesawat menembus gedung (anti-crash)"},
+{"kind": "bug", "sources": ["KICK Neon", "Beebom", "X @MoreBRS"], "status": "reported", "text": "Jason lompat dari pesawat bergerak tanpa parasut saat dikejar polisi: selamat tanpa damage (bukan cheat). Pesawatnya tetap meledak.", "title": "Jatuh dari pesawat tanpa damage"},
+{"kind": "bug", "sources": ["X @TheCanadianGTR", "Beebom"], "status": "reported", "text": "Tabrak pohon/semak dengan mobil: mobil terlempar jauh melintasi peta (seperti swingset glitch GTA IV, tapi lebih ringan); mobil rusak total.", "title": "Glitch ketapel ala GTA IV"},
+{"kind": "bug", "sources": ["X @FACELESS", "Beebom"], "status": "reported", "text": "Sempitkan Jason antara mobil dan pagar, lalu buka HP: clip tembus peta, jatuh ke kehampaan hitam. Harus restart game. Save manual dulu sebelum mencoba.", "title": "\"Phone to Shadow Realm\""},
+{"kind": "bug", "sources": ["X @Raeedxa", "Beebom"], "status": "reported", "text": "Intro, sebelum prologue: pop-in kendaraan dan NPC, tekstur dunia hilang — mirip launch Cyberpunk 2077 1.0. Satu laporan; kemungkinan streaming aset gagal load.", "title": "Grafis \"PS1\" / tekstur hilang"},
+{"kind": "bug", "sources": ["RRaenee", "HappyGamer"], "status": "reported", "text": "Perairan Leonida: karakter berenang menyamping (sideways).", "title": "NPC berenang miring"},
+{"kind": "bug", "sources": ["HappyGamer"], "status": "reported", "text": "Xbox Series X|S + TV VRR: menyalakan VRR kabarnya membuka frame rate di atas 30 FPS. Bisa diubah patch; Rockstar belum berkomentar.", "title": "VRR Xbox membuka frame rate"},
+{"kind": "bug", "sources": ["HappyGamer"], "status": "reported", "text": "Saat start game (PS5): error game umum; dilaporkan hilang setelah install update 602 MB.", "title": "PS5 error CE-108255-1"},
+{"kind": "bug", "sources": ["GTA BOOM", "Eurogamer"], "status": "reported", "text": "Menu Progress: cheat kabarnya baru muncul di menu Progress setelah semua misi story selesai; cheat aktif = tidak bisa save dan trophy tidak pop selama sesi itu. Rockstar belum menerbitkan daftar cheat resmi. Jumlah cheat (~61) BELUM terverifikasi.", "title": "Cheat terkunci sampai tamat"},
+{"kind": "bug", "sources": ["X", "iGameMag"], "status": "disputed", "text": "DISPUTED (rumor) — postingan X yang beredar luas mengklaim Rockstar minta maaf + fix 25 Nov. TIDAK ADA dukungan di kanal resmi Rockstar (Newswire/support) per 21 Nov. Anggap rumor.", "title": "\"Rockstar minta maaf + fix 25 Nov\""},
+{"kind": "bug", "sources": ["Notebookcheck"], "status": "disputed", "text": "DISPUTED (tuduhan, bukan fakta) — Notebookcheck: \"JasonTheWeen critics believe the ordeal was staged to attract attention.\" Crash dan hilang progres secara umum tetap CONFIRMED (banyak sumber); yang disputed hanya tuduhan bahwa satu klip tertentu direkayasa. Jangan pakai tuduhan ini untuk mendiskreditkan laporan crash lain.", "title": "Crash JasonTheWeen \"staged\"?"},
+{"kind": "bug", "sources": ["KeeNgamer", "allblogthings", "afleurdenet", "vanotherlevel"], "status": "disputed", "text": "DISPUTED — Apollo Aggregates money glitch: 2 sumber pro (KeeNgamer, allblogthings) vs 2 kontra (afleurdenet, vanotherlevel). Lihat panel Glitch & Farming di guide utama. JANGAN ubah jadi confirmed. Tampilkan sebagai \"reported, belum terverifikasi penuh, bisa di-patch kapan saja\".", "title": "Apollo Aggregates money glitch"},
+{"kind": "bug", "sources": ["damnmodz"], "status": "disputed", "text": "DILAPORKAN (1 sumber) — trophy \"A Classic Blitz Play\" bisa gagal pop kalau merampok truk lapis baja secara langsung. Cara aman: lewat misi bank vault Chapter 4 \"That's Where The Money Is…\". Lihat guide trophy-nya.", "title": "\"A Classic Blitz Play\" bisa gagal"},
+{"kind": "oddity", "sources": ["Gamebrott", "Tech2Geek", "FandomWire", "OutputLag"], "status": "confirmed", "text": "Rumah sewa Brian Heder, Key Lento, Leonida Keys. Misi awal Chapter 1 \"Pipework\": Brian menyuruh Jason menagih uang sewa. PETUNJUK TERAMATI (CONFIRMED — 3 sumber independen): (a) saat Jason memperbaiki pipa wastafel tersumbat, keluar benda mirip jari manusia membusuk — Mandy panik, merebutnya (\"Oops! Forgot about that.\") dan buru-buru mengusir Jason; (b) bagasi mobilnya berisi pisau pemotong daging, gunting, bahan kimia pemutih, lakban (+ menurut FandomWire: asam dan beberapa gergaji); (c) halaman ada bekas galian yang tampak seperti kuburan baru digali (Gamebrott: ditutup semen kering); (d) Mandy menggoda Jason habis-habisan (bikini, klaim mereka \"hampir menikah\" — versi yang tidak diakui Jason), mengaku sengaja merusak alat agar Jason datang, dan stalking via Snapmatic. TEORI KOMUNITAS (BUKAN FAKTA): \"Mandy psikopat/pembunuh berantai.\" Tidak ada konfirmasi dari cutscene maupun Rockstar — Gamebrott sendiri menulis \"tidak ada penjelasan lebih detail secara langsung dari cutscene ataupun Rockstar\". Sajikan SELALU sebagai teori.", "title": "Mandy — Key Lento (misteri)"},
+{"kind": "oddity", "sources": ["Kotaku", "Briefly", "YouTube"], "status": "confirmed", "text": "Random event di jalan raya: aktivis hewan menghentikan truk berisi beruang kutub dalam kandang, membuka pintu belakang sambil berteriak \"Let her out!\" — beruang keluar dan langsung menyerang mereka (beberapa tewas/dicabik). Varian lain: orca yang dibebaskan melempar aktivis ke udara. Kotaku: beruang kabur saat diangkut ke kebun binatang; kalau event terjadi setelah kenal pemburu, pemburu mau membeli beruang mati itu.", "title": "Beruang kutub kabur dari truk"},
+{"kind": "oddity", "sources": ["WikiGames", "Briefly", "IGN"], "status": "confirmed", "text": "Seluruh Leonida: jadi furry (kostum hewan antropomorfik) adalah ilegal — polisi bisa menembak di tempat (\"No Paws Laws\"); ada artikel berita in-game \"Governor Declares Leonida Furry-Free\"; mengucapkan meme \"Uwu / Rawr xD / hewwo\" saja bisa ditangkap. Ada hideout \"furry rebels\" di Starfish Island (IGN via GTA6-Life). Parodi Florida + kultur internet.", "title": "\"Furry ilegal\" di Leonida"},
+{"kind": "oddity", "sources": ["Gamebrott"], "status": "reported", "text": "Rumah Mandy, Key Lento: satu kamar di rumahnya terkunci rapat — Jason tidak bisa masuk sama sekali. Diduga terkait misteri Mandy, tapi isinya tidak diketahui. Satu sumber. JANGAN karang isinya.", "title": "Kamar terkunci Mandy"},
+{"kind": "oddity", "sources": ["Sportskeeda"], "status": "reported", "text": "Camp di jalur tenggara menuju puncak Mount Kalaga National Park: HP tergeletak di tanah dekat sepeda — bisa diambil dan diputar: rekaman NPC diculik UFO sambil berteriak memanggil nama (kemungkinan saudaranya, yang sudah memperingatkannya jangan ke lokasi itu). Terkait meteorit di lereng yang sama.", "title": "Rekaman penculikan UFO di HP"},
+{"kind": "oddity", "sources": ["Briefly"], "status": "reported", "text": "Lepas pantai / truk hewan: aktivis membebaskan orca — orca melempar aktivis ke udara. Klip viral X; satu rantai sumber.", "title": "Orca melempar aktivis"},
+{"kind": "oddity", "sources": ["ameriledger"], "status": "reported", "text": "Bagasi mobil acak: piton melompat keluar dari bagasi saat pemain mencoba mencuri mobil: \"F***ing snake tried to eat me when opening a trunk in GTA 6.\" Terkait jumpscare hewan di bagasi.", "title": "Ular piton di bagasi mobil"},
+{"kind": "oddity", "sources": ["DualShockers"], "status": "reported", "text": "Jalanan Leonida: senggol mobil NPC — NPC mengejarmu lama, lalu menabrakkan mobilnya untuk menghentikanmu, turun dan menyerangmu. Reaksi jauh lebih besar dari GTA V.", "title": "NPC road-rage ekstrem"},
+{"kind": "oddity", "sources": ["DualShockers"], "status": "reported", "text": "Rumah Jason, awal game: Cal datang memasang JoyStation, mereka minum semalaman — bangun pagi mendapati mereka tidur berpelukan (spooning) di kamar. Momen story/scripted, bukan sistemik.", "title": "\"Spooning Cal\""},
+{"kind": "oddity", "sources": ["DualShockers"], "status": "reported", "text": "Sebelah rumah Mandy: Bert — karakter yang digambarkan sebagai representasi sayap kanan yang tidak masuk akal — muncul di sebelah rumah Mandy dengan celana melorot, \"flashing the renters\". Detail tidak lengkap di sumber yang terbaca.", "title": "Bert \"with his pants down\""},
+{"kind": "oddity", "sources": ["Dundee Culture"], "status": "reported", "text": "Dundee Culture mengaitkan event beruang kutub dengan kisah Bruin, beruang kutub yang kabur dan berkeliaran di Dundee tahun 1878. Inferensi situs lokal — kemungkinan kebetulan. Tetap REPORTED sebagai teori referensi.", "title": "Referensi beruang kutub Dundee (1878)?"}
+]}
