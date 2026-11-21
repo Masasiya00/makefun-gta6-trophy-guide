@@ -1,275 +1,206 @@
-/* main.js — boot the guide: load data, wire filters, tracker, views. */
+// main.js — bootstrap for the Leonida Platinum Atlas.
+// Loads the data, restores saved progress, wires the filters, the spoiler
+// shield, export/import and the hash-routed views (tracker, roadmap,
+// missables, disputes, glitch, sources, easter eggs).
 
-import { loadGuideData, computeAudit } from "./data.js";
+import { auditStats, loadGuideData } from './data.js';
+import { applyFilters } from './filters.js';
+import { downloadFile, exportState, getCount, loadState, parseImport, resetProgress, saveState, setCount, toggleEarned } from './store.js';
 import {
-  loadEarned,
-  saveEarned,
-  toggleEarned,
-  clearEarned,
-  loadSettings,
-  saveSettings,
-  exportProgress,
-  parseImportedProgress,
-  importProgressSet,
-  setDemoEarned,
-} from "./store.js";
-import { applyFilters, nextUpTrophies } from "./filters.js";
-import {
+  renderAuditStrip,
+  renderDetail,
+  renderDisputes,
+  renderEggs,
+  renderMissables,
+  renderProgress,
+  renderRoadmap,
+  renderSources,
   renderTrophyList,
-  renderTrophyDetail,
-  renderProgressPane,
-  renderRoadmapView,
-  renderGlitchView,
-  renderEggsView,
-  escapeHtml,
-} from "./views.js";
+} from './views.js';
 
-const state = {
-  data: null,
-  earned: new Set(),
-  settings: { spoiler: false, hideEarned: false },
-  kind: "all",
-  grade: "all",
-  query: "",
-  selectedName: null,
-  view: "tracker",
-  eggFilter: "all",
+const VIEWS = ['tracker', 'roadmap', 'missables', 'disputes', 'sources', 'eggs'];
+const VIEW_TITLES = {
+  tracker: 'Tracker',
+  roadmap: 'Roadmap',
+  missables: 'Missables',
+  disputes: 'Disputes',
+  sources: 'Sources',
+  eggs: 'Easter Eggs',
 };
 
-const $ = (id) => document.getElementById(id);
-
-function currentFilters() {
-  return {
-    kind: state.kind,
-    grade: state.grade,
-    query: state.query,
-    hideEarned: state.settings.hideEarned,
-    earned: state.earned,
-  };
+/** Read the view from the URL hash (#roadmap etc.), defaulting to tracker. */
+function viewFromHash() {
+  const v = location.hash.replace('#', '').split('/')[0];
+  return VIEWS.includes(v) ? v : 'tracker';
 }
 
-function refreshTracker() {
-  const filtered = applyFilters(state.data.trophies, currentFilters());
-  $("list-count").textContent = `${filtered.length} shown`;
-  renderTrophyList($("trophy-list"), filtered, {
-    earned: state.earned,
-    spoiler: state.settings.spoiler,
-    selectedName: state.selectedName,
-  });
-  const selected = state.data.trophies.find((t) => t.name === state.selectedName) || null;
-  renderTrophyDetail($("trophy-detail"), selected, state.data, {
-    earned: state.earned,
-    spoiler: state.settings.spoiler,
-  });
-  renderProgressPane(state, state.data);
-  renderNextUp();
-}
+async function boot() {
+  const data = await loadGuideData();
+  const trophies = data.trophies.trophies;
+  const state = loadState();
+  const stats = auditStats(data);
 
-function renderNextUp() {
-  const list = $("next-up-list");
-  if (!list) return;
-  const next = nextUpTrophies(state.data.trophies, state.earned, 5);
-  if (next.length === 0) {
-    list.innerHTML = `<li>Semua trophy sudah didapat — platinum milikmu!</li>`;
-    return;
-  }
-  list.innerHTML = next
-    .map(
-      (trophy) =>
-        `<li><button type="button" data-next="${escapeHtml(trophy.name)}">${escapeHtml(trophy.name)}</button> <span class="tag kind-${escapeHtml(trophy.kind)}">${escapeHtml(trophy.kind)}</span></li>`
-    )
-    .join("");
-  list.querySelectorAll("[data-next]").forEach((button) => {
-    button.addEventListener("click", () => selectTrophy(button.getAttribute("data-next")));
-  });
-}
+  const $ = (id) => document.getElementById(id);
+  const auditEl = $('audit-strip');
+  const listEl = $('trophy-list');
+  const detailEl = $('detail-pane');
+  const progressEl = $('progress-rail');
+  const viewEl = $('view-pane');
+  const filterForm = $('filters');
 
-function selectTrophy(name) {
-  state.selectedName = name;
-  switchView("tracker");
-  refreshTracker();
-  const detail = $("trophy-detail-pane");
-  if (detail) detail.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+  const filters = { kind: 'all', grade: 'all', status: 'all', query: '' };
+  let selectedId = state.selectedId ?? trophies[0]?.id ?? null;
 
-function switchView(view) {
-  state.view = view;
-  document.querySelectorAll("#view-tabs .tab").forEach((tab) => {
-    tab.classList.toggle("active", tab.getAttribute("data-view") === view);
-  });
-  document.querySelectorAll("#app-main .view").forEach((section) => {
-    section.classList.toggle("active", section.id === `view-${view}`);
-  });
-  if (view === "roadmap") {
-    renderRoadmapView($("view-roadmap"), state.data, state, selectTrophy);
-  } else if (view === "glitch") {
-    renderGlitchView($("view-glitch"), state.data);
-  } else if (view === "eggs") {
-    renderEggsView($("view-eggs"), state.data, {
-      eggFilter: state.eggFilter,
-      onEggFilter: (filter) => {
-        state.eggFilter = filter;
-        renderEggsView($("view-eggs"), state.data, {
-          eggFilter: state.eggFilter,
-          onEggFilter: (next) => {
-            state.eggFilter = next;
-            switchView("eggs");
-          },
-        });
-      },
+  renderAuditStrip(data, auditEl);
+  $('dispute-badge').textContent = String(stats.disputeCount);
+
+  // Header counts, computed from the data — never hard-coded (hidden = 27
+  // confirmed; +2 unverified candidates are named in the README).
+  const gradeCount = (g) => trophies.filter((t) => t.grade === g).length;
+  $('header-counts').textContent =
+    `${gradeCount('platinum')} Platinum · ${gradeCount('gold')} Gold · ${gradeCount('silver')} Silver · ${gradeCount('bronze')} Bronze · ${stats.hiddenTotal} Hidden`;
+
+  /** Re-render the tracker panes (list + detail + progress) from current state. */
+  function renderTracker() {
+    const filtered = applyFilters(trophies, state, filters);
+    $('list-count').textContent = `${filtered.length}/${trophies.length} trophy`;
+    $('earned-count').textContent = `${state.earned.length}/${trophies.length} didapat`;
+    renderTrophyList(filtered, state, listEl, selectedId, (id) => {
+      selectedId = id;
+      state.selectedId = id;
+      saveState(state);
+      renderTracker();
+    });
+    const selected = trophies.find((t) => t.id === selectedId) ?? null;
+    renderDetail(selected, data, state, detailEl, (id, value, total) => {
+      setCount(state, id, value, total);
+      renderTracker();
+    });
+    renderProgress(trophies, state, progressEl, (id) => {
+      selectedId = id;
+      state.selectedId = id;
+      saveState(state);
+      renderTracker();
     });
   }
-}
 
-function renderHeaderStats(audit) {
-  $("stat-claims").textContent = String(audit.cited);
-  $("stat-twoplus").textContent = String(audit.twoPlus);
-  $("stat-eggs").textContent = String(state.data.eggs.length);
-  $("stat-trophies").textContent = String(state.data.trophies.length);
-  const pct = audit.total === 0 ? 0 : Math.round((audit.cited / audit.total) * 100);
-  $("audit-strip").innerHTML =
-    `<strong>Audit strip:</strong> ${audit.cited}/${audit.total} claims cited (${pct}%), ` +
-    `${audit.twoPlus} on 2+ sites, ${audit.sources} sources. ` +
-    `Setiap langkah panduan mengutip sumbernya — klaim tanpa sumber tidak dihitung.`;
-  const names = state.data.sources.map((s) => s.name).join(", ");
-  $("footer-source-count").textContent = `${audit.sources} sources — ${names}`;
-}
-
-function applyShotMode() {
-  const params = new URLSearchParams(window.location.search);
-  const shot = params.get("shot");
-  if (!shot) return;
-  /* Deterministic screenshot states: demo progress lives in memory only,
-     never in localStorage, so shots are reproducible. */
-  const demoNames = state.data.trophies.slice(0, 13).map((t) => t.name);
-  if (shot === "01-cover") {
-    setDemoEarned(demoNames);
-    state.earned = loadEarned();
-    state.selectedName = "Positive Mental Attitude";
-    switchView("tracker");
-  } else if (shot === "02-roadmap") {
-    setDemoEarned(demoNames);
-    state.earned = loadEarned();
-    switchView("roadmap");
-  } else if (shot === "03-glitch") {
-    setDemoEarned([]);
-    state.earned = loadEarned();
-    switchView("glitch");
-  } else if (shot === "04-spoiler") {
-    setDemoEarned(demoNames);
-    state.earned = loadEarned();
-    state.settings.spoiler = true;
-    $("spoiler-toggle").checked = true;
-    state.selectedName = "Road to Rehabilitation";
-    switchView("tracker");
-  }
-  refreshTracker();
-}
-
-function wireEvents() {
-  document.querySelectorAll("#view-tabs .tab").forEach((tab) => {
-    tab.addEventListener("click", () => switchView(tab.getAttribute("data-view")));
-  });
-
-  document.querySelectorAll("#kind-chips .chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      state.kind = chip.getAttribute("data-kind");
-      document.querySelectorAll("#kind-chips .chip").forEach((c) => c.classList.toggle("active", c === chip));
-      refreshTracker();
+  /** Re-render the active secondary view (roadmap, missables, ...). */
+  function renderView() {
+    const view = state.view;
+    document.querySelectorAll('.nav-tab').forEach((tab) => {
+      tab.classList.toggle('active', tab.dataset.view === view);
+      tab.setAttribute('aria-current', tab.dataset.view === view ? 'page' : 'false');
     });
-  });
-
-  document.querySelectorAll("#grade-chips .chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      state.grade = chip.getAttribute("data-grade");
-      document.querySelectorAll("#grade-chips .chip").forEach((c) => c.classList.toggle("active", c === chip));
-      refreshTracker();
-    });
-  });
-
-  $("search-input").addEventListener("input", (event) => {
-    state.query = event.target.value;
-    refreshTracker();
-  });
-
-  $("spoiler-toggle").addEventListener("change", (event) => {
-    state.settings.spoiler = event.target.checked;
-    saveSettings(state.settings);
-    refreshTracker();
-  });
-
-  $("earned-toggle").addEventListener("change", (event) => {
-    state.settings.hideEarned = event.target.checked;
-    saveSettings(state.settings);
-    refreshTracker();
-  });
-
-  /* Trophy list: checkbox toggles earned, row click opens the guide. */
-  $("trophy-list").addEventListener("click", (event) => {
-    const row = event.target.closest(".trophy-row");
-    if (!row) return;
-    const name = row.getAttribute("data-trophy");
-    if (event.target.matches('input[type="checkbox"]')) {
-      state.earned = toggleEarned(state.earned, name);
-      refreshTracker();
+    const isTracker = view === 'tracker';
+    $('tracker-layout').hidden = !isTracker;
+    viewEl.hidden = isTracker;
+    if (isTracker) {
+      renderTracker();
       return;
     }
-    selectTrophy(name);
-  });
-  $("trophy-list").addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    const row = event.target.closest(".trophy-row");
-    if (!row) return;
-    event.preventDefault();
-    selectTrophy(row.getAttribute("data-trophy"));
+    const goToTrophy = (id) => {
+      selectedId = id;
+      state.selectedId = id;
+      state.view = 'tracker';
+      saveState(state);
+      location.hash = '#tracker';
+      renderView();
+    };
+    if (view === 'roadmap') renderRoadmap(data, state, viewEl, goToTrophy);
+    if (view === 'missables') renderMissables(data, state, viewEl, goToTrophy);
+    if (view === 'disputes') renderDisputes(data, viewEl);
+    if (view === 'sources') renderSources(data, viewEl);
+    if (view === 'eggs') {
+      renderEggs(data, state, viewEl);
+      $('egg-kind').addEventListener('change', (e) => {
+        state.eggKind = e.target.value;
+        saveState(state);
+        renderView();
+      });
+      $('egg-status').addEventListener('change', (e) => {
+        state.eggStatus = e.target.value;
+        saveState(state);
+        renderView();
+      });
+    }
+  }
+
+  /** Switch view from nav or hash. */
+  function setView(view) {
+    state.view = VIEWS.includes(view) ? view : 'tracker';
+    saveState(state);
+    renderView();
+  }
+
+  // Filters.
+  filterForm.addEventListener('input', (e) => {
+    const t = e.target;
+    if (t.name === 'kind') filters.kind = t.value;
+    if (t.name === 'grade') filters.grade = t.value;
+    if (t.name === 'status') filters.status = t.value;
+    if (t.name === 'query') filters.query = t.value;
+    renderTracker();
   });
 
-  $("export-btn").addEventListener("click", () => {
-    const count = exportProgress(state.earned);
-    $("save-status").textContent = `Exported ${count} earned trophies to JSON.`;
+  // Checklist toggles (delegated: the list re-renders on every change).
+  listEl.addEventListener('change', (e) => {
+    const box = e.target.closest('[data-check]');
+    if (!box) return;
+    toggleEarned(state, box.getAttribute('data-check'));
+    renderTracker();
   });
-  $("import-btn").addEventListener("click", () => $("import-file").click());
-  $("import-file").addEventListener("change", async (event) => {
-    const file = event.target.files[0];
+
+  // Spoiler shield toggle.
+  const shield = $('spoiler-shield');
+  shield.checked = state.spoilerShield;
+  shield.addEventListener('change', () => {
+    state.spoilerShield = shield.checked;
+    saveState(state);
+    renderView();
+  });
+
+  // Export / import / reset.
+  $('export-btn').addEventListener('click', () => {
+    downloadFile('leonida-platinum-atlas-progress.json', exportState(state));
+  });
+  $('import-file').addEventListener('change', async (e) => {
+    const file = e.target.files?.[0];
     if (!file) return;
-    const text = await file.text();
-    const parsed = parseImportedProgress(text);
-    if (!parsed) {
-      $("save-status").textContent = "Import gagal: file bukan progress JSON yang valid.";
-      return;
+    try {
+      const imported = parseImport(await file.text());
+      state.earned = imported.earned.filter((id) => trophies.some((t) => t.id === id));
+      state.counts = imported.counts;
+      saveState(state);
+      renderView();
+      $('import-status').textContent = `Diimpor: ${state.earned.length} trophy didapat.`;
+    } catch (err) {
+      $('import-status').textContent = `Gagal impor: ${err.message}`;
     }
-    const known = new Set(state.data.trophies.map((t) => t.name));
-    const valid = new Set([...parsed].filter((name) => known.has(name)));
-    state.earned = importProgressSet(valid);
-    $("save-status").textContent = `Imported ${valid.size} earned trophies.`;
-    refreshTracker();
+    e.target.value = '';
   });
-  $("reset-btn").addEventListener("click", () => {
-    if (!window.confirm("Reset semua progres tracker?")) return;
-    state.earned = clearEarned();
-    $("save-status").textContent = "Progress direset.";
-    refreshTracker();
+  $('reset-btn').addEventListener('click', () => {
+    if (window.confirm('Hapus semua progres tracker? (Pengaturan spoiler tetap.)')) {
+      resetProgress(state);
+      renderView();
+    }
   });
+
+  // Nav tabs + hash routing (screenshots open views by hash: #roadmap, #disputes, #sources).
+  document.querySelectorAll('.nav-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      location.hash = `#${tab.dataset.view}`;
+    });
+  });
+  window.addEventListener('hashchange', () => setView(viewFromHash()));
+
+  setView(viewFromHash());
 }
 
-async function bootGuide() {
-  state.data = await loadGuideData();
-  state.earned = loadEarned();
-  state.settings = loadSettings();
-  $("spoiler-toggle").checked = state.settings.spoiler;
-  $("earned-toggle").checked = state.settings.hideEarned;
-  const audit = computeAudit(state.data);
-  renderHeaderStats(audit);
-  wireEvents();
-  applyShotMode();
-  if (!state.selectedName) {
-    state.selectedName = state.data.trophies[0].name;
+boot().catch((err) => {
+  const el = document.getElementById('load-error');
+  if (el) {
+    el.hidden = false;
+    el.textContent = `Gagal memuat data guide: ${err.message}. Pastikan app/data/*.json ada dan server statis berjalan.`;
   }
-  refreshTracker();
-}
-
-bootGuide().catch((error) => {
-  const strip = $("audit-strip");
-  if (strip) strip.textContent = `Gagal memuat data panduan: ${error.message}`;
-  console.error(error);
+  console.error(err);
 });
