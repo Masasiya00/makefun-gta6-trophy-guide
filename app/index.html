@@ -1,88 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide &amp; Tracker</title>
-<meta name="description" content="Offline guide and tracker for all 55 GTA VI PlayStation 5 trophies: checklist, 7-stage platinum roadmap, missables, glitch and farming panels, launch status, and cited guides.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<noscript><p class="noscript-note">This guide needs JavaScript to load its trophy data and save your checklist. The data files are plain JSON under app/data/ and work offline.</p></noscript>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1>LEONIDA PLATINUM ATLAS</h1>
-      <p class="subtitle">GTA VI trophy guide &amp; tracker — all 55 PS5 trophies, offline, with cited guides</p>
-      <p class="honesty">54 of 55 unlock methods confirmed by at least one trusted source. One trophy — Ten Pin — is still unverified and shown honestly as Unknown.</p>
-    </div>
-    <div class="progress-block" aria-live="polite">
-      <p class="progress-line"><span id="progress-text">0 / 55 earned (0%)</span></p>
-      <div class="progress-track"><div id="progress-bar" class="progress-fill" style="width:0%"></div></div>
-      <p class="progress-note">1 Platinum · 2 Gold · 6 Silver · 46 Bronze · 28 Hidden · 0 Online</p>
-    </div>
+<header class="top">
+  <div class="brand">
+    <h1>LEONIDA PLATINUM ATLAS</h1>
+    <p class="tagline">GTA VI trophy guide &amp; tracker — 55 trophies, cited guides, roadmap, spoiler guard. Fully offline.</p>
   </div>
-  <nav class="main-nav" aria-label="Guide sections">
-    <a href="#/" data-route="checklist">Checklist</a>
-    <a href="#/roadmap" data-route="roadmap">Roadmap</a>
-    <a href="#/missables" data-route="missables">Missables</a>
-    <a href="#/glitch" data-route="glitch">Glitch &amp; Farming</a>
-    <a href="#/status" data-route="status">Launch Status</a>
-    <a href="#/planner" data-route="planner">Next Up Planner</a>
-    <a href="#/settings" data-route="settings">Settings</a>
-  </nav>
-  <div id="filters" class="filter-bar">
-    <label class="filter-field">Search
-      <input id="search" type="search" placeholder="Search trophy name or description…" autocomplete="off">
-    </label>
-    <label class="filter-field">Kind
-      <select id="kind">
-        <option value="">All kinds</option>
-        <option value="story">Story</option>
-        <option value="collectible">Collectibles</option>
-        <option value="activity">Activities</option>
-        <option value="crime">Crime</option>
-      </select>
-    </label>
-    <label class="filter-field">Grade
-      <select id="grade">
-        <option value="">All grades</option>
-        <option value="Platinum">Platinum</option>
-        <option value="Gold">Gold</option>
-        <option value="Silver">Silver</option>
-        <option value="Bronze">Bronze</option>
-      </select>
-    </label>
-    <label class="filter-field">Status
-      <select id="status">
-        <option value="">All trophies</option>
-        <option value="earned">Earned</option>
-        <option value="unearned">Not earned</option>
-        <option value="missable">Missable</option>
-        <option value="hidden">Hidden</option>
-      </select>
-    </label>
-    <label class="filter-check">
-      <input id="spoiler-toggle" type="checkbox" checked>
-      Spoiler guard: hide story trophy names &amp; descriptions until earned
-    </label>
+  <div class="progress-box" id="progressBox">
+    <div class="big" id="progressBig">0 / 55 earned</div>
+    <div class="bar"><div class="fill" id="progressFill" style="width:0%"></div></div>
+    <div class="sub" id="progressSub">Platinum progress: 0%</div>
+    <div class="facts" id="headerFacts"></div>
   </div>
 </header>
-<div class="layout">
-  <main id="view" class="view" tabindex="-1"><p class="loading">Loading the 55-trophy checklist…</p></main>
-  <aside id="detail" class="detail" aria-label="Trophy detail"><p class="loading">Select a trophy to see its guide, steps and sources.</p></aside>
-</div>
-<footer class="site-footer">
-  <div class="footer-actions">
-    <button id="export-btn" type="button">Export progress</button>
-    <button id="import-btn" type="button">Import progress</button>
-    <input id="import-file" type="file" accept="application/json,.json" hidden>
-    <button id="reset-btn" type="button">Reset progress</button>
+
+<nav class="tabs" id="tabs" aria-label="Sections">
+  <button type="button" data-tab="checklist" class="active">Checklist</button>
+  <button type="button" data-tab="roadmap">Roadmap</button>
+  <button type="button" data-tab="missables">Missables</button>
+  <button type="button" data-tab="glitch">Glitch &amp; Farming</button>
+  <button type="button" data-tab="eggs">Easter Eggs, Bugs &amp; Weird</button>
+  <button type="button" data-tab="settings">Settings &amp; Save</button>
+</nav>
+
+<section class="panel" id="panel-checklist">
+  <div class="controls">
+    <label>Search <input id="q" type="search" placeholder="Trophy name or guide text…" autocomplete="off"></label>
+    <label>Kind
+      <select id="kind">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="stranger">Strangers</option>
+        <option value="crime">Crime</option>
+        <option value="activities">Activities</option>
+        <option value="collectibles">Collectibles</option>
+        <option value="misc">Misc</option>
+      </select>
+    </label>
+    <label>Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="status">
+        <option value="all">Earned + unearned</option>
+        <option value="earned">Earned only</option>
+        <option value="unearned">Unearned only</option>
+      </select>
+    </label>
+    <label class="chk"><input id="missableOnly" type="checkbox"> Missable only</label>
+    <label class="chk"><input id="hiddenOnly" type="checkbox"> Hidden only</label>
+    <label class="chk"><input id="spoiler" type="checkbox" checked> Spoiler guard (hide story trophies until earned)</label>
   </div>
-  <p>Sources: PowerPyx (trophy guide &amp; 100% checklist), Exophase, GameSpot, damnmodz, gamemapa, PushSquare, KeeNgamer, allblogthings, afleurdenet, vanotherlevel, dlcompare, cryptogames, gtavi-glitches, gtavibes, boostingfactory, gta6.house, insider-gaming, gamerblurb, ofzenandcomputing, Rockstar Games, Wikipedia. Every guide step in this app names its source beside it; no guide text is copied from another guide. Official trophy names and descriptions are shown as PlayStation publishes them.</p>
-  <p>Honesty note: 54 of 55 unlock methods are confirmed. Ten Pin is unverified (best lead: melee drive-by kick from a motorcycle). The Apollo Aggregates money glitch is disputed (2 sources for, 2 against) and labelled REPORTED. One non-story hidden slot is unidentified. The 25 Nov fix rumor is unverified. Research as of 21 Nov 2026, 00:30 WIB.</p>
-  <p>Unofficial fan guide. Not affiliated with Rockstar Games. No Rockstar logo, artwork, box art or game screenshots are used. Works fully offline; progress is stored only in your browser (localStorage).</p>
+  <p class="count-line" id="countLine"></p>
+  <div class="nextup" id="nextUp"></div>
+  <div class="layout">
+    <div class="list" id="trophyList" role="list"></div>
+    <aside class="detail" id="detail" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section class="panel hidden" id="panel-roadmap">
+  <h2>Roadmap to the platinum — 7 stages</h2>
+  <p class="lede">Story 60–80 hours (PowerPyx); reviewers report 50–60 hours for the story. Platinum estimates differ: about 200 hours (PowerPyx) vs about 300 hours (PushSquare). There is no mission replay and no New Game+ — save at the start and end of every chapter.</p>
+  <div class="roadmap-progress" id="roadmapProgress"></div>
+  <ol class="roadmap" id="roadmapList"></ol>
+  <h3>Trophy ↔ 100% checklist mapping</h3>
+  <div class="overlap" id="overlapBox"></div>
+</section>
+
+<section class="panel hidden" id="panel-missables">
+  <h2>Missables — chapter grid</h2>
+  <p class="lede">Only ONE trophy can be missed. Everything else can be finished in free roam after the story.</p>
+  <div class="miss-grid" id="missGrid"></div>
+  <h3>Save strategy</h3>
+  <div class="warn" id="saveStrategy"></div>
+  <h3>Warnings that protect your platinum</h3>
+  <div id="warningsBox"></div>
+</section>
+
+<section class="panel hidden" id="panel-glitch">
+  <h2>Glitch &amp; Farming</h2>
+  <p class="lede" id="glitchStatus"></p>
+  <div id="glitchList"></div>
+  <h3>Disagreement panels — both sides, honestly</h3>
+  <div id="disagreeList"></div>
+  <h3>Launch status — 20 Nov 2026</h3>
+  <ul class="launch" id="launchList"></ul>
+</section>
+
+<section class="panel hidden" id="panel-eggs">
+  <h2>Easter Eggs, Bugs &amp; Hal Aneh</h2>
+  <p class="lede">The game is 2 days old. Nothing here is officially confirmed by Rockstar. “There is a video of it” is not the same as “it is proven.” Status: <b>confirmed</b> = 2+ independent sources; <b>reported</b> = 1 source; <b>disputed</b> = conflicting sources or doubtful evidence.</p>
+  <div class="controls">
+    <label>Category
+      <select id="eggCat">
+        <option value="all">All categories</option>
+        <option value="easter-egg">Easter Eggs</option>
+        <option value="bug">Bugs</option>
+        <option value="weird">Hal Aneh</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="eggStatus">
+        <option value="all">All statuses</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="reported">Reported</option>
+        <option value="disputed">Disputed</option>
+      </select>
+    </label>
+    <label>Search <input id="eggQ" type="search" placeholder="Name, place, or reference…" autocomplete="off"></label>
+  </div>
+  <p class="count-line" id="eggCount"></p>
+  <div class="egg-list" id="eggList"></div>
+</section>
+
+<section class="panel hidden" id="panel-settings">
+  <h2>Settings &amp; Save</h2>
+  <p class="lede">Progress lives in this browser's localStorage. Export a JSON backup before clearing browser data — import it back any time.</p>
+  <div class="settings-grid">
+    <div>
+      <h3>Progress file</h3>
+      <p><button id="exportBtn" type="button">Export progress (JSON)</button></p>
+      <p><label class="import-label">Import progress <input id="importFile" type="file" accept="application/json"></label></p>
+      <p><button id="resetBtn" type="button">Reset all progress</button></p>
+      <p id="saveMsg" class="save-msg"></p>
+    </div>
+    <div>
+      <h3>Spoiler guard</h3>
+      <p><label class="chk"><input id="spoiler2" type="checkbox" checked> Hide story trophy names + descriptions until earned</label></p>
+      <p class="muted">With the guard on, the 12 story trophies show as “Hidden story trophy” until you tick them earned. The 4th screenshot of this guide shows the guard ON.</p>
+      <h3>Sources</h3>
+      <ul class="sources" id="sourcesList"></ul>
+    </div>
+  </div>
+  <p class="muted">Rarity: Exophase, 20 Nov 2026 — early player base, floor 0.01%; numbers move fast in launch week. Xbox total: 1,000G. 0 online trophies. 28 hidden trophies (12 story + 16 non-story; 1 non-story slot is still unidentified — see Catch Me If You Can / Challenging Tank).</p>
+</section>
+
+<footer>
+  <p>LEONIDA PLATINUM ATLAS — an unofficial fan guide. GTA VI, Grand Theft Auto and Rockstar are trademarks of their owners. No Rockstar logo, artwork, box art or game screenshots are used. Guide text is written in our own words; official trophy names and descriptions are shown as-is. Sources are linked next to each guide step and open only when clicked — this app makes no network requests.</p>
 </footer>
+
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
