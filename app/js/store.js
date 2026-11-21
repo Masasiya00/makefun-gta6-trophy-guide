@@ -1,164 +1,62 @@
-// store.js — the checklist's saved progress, kept in localStorage only.
-//
-// One key, one JSON object, nothing leaves the browser:
-//   { earned: { "<trophy name>": true, ... },
-//     counts: { "<trophy name>": <number done>, ... },
-//     notes:  { "<trophy name>": "<free text>", ... },
-//     spoiler: <true|false> }
-// Export writes that object to a downloaded file; import reads one back
-// after validating its shape, so a stray file can never corrupt the save.
+// Local progress store: earned trophies, per-trophy count trackers, spoiler setting.
+// One localStorage key, one JSON object, export/import as a file.
+const KEY = 'leonida-platinum-atlas-v1';
 
-export const STORE_KEY = "leonida-platinum-atlas-v1";
-
-/** A fresh, empty progress state (spoiler guard on, matching the page). */
-export function defaultState() {
-  return { earned: {}, counts: {}, notes: {}, spoiler: true };
+function blank() {
+  return { earned: [], counts: {}, spoiler: true, notes: {} };
 }
 
-function isPlainObject(value) {
-  return value !== null && typeof value === "object" && !Array.isArray(value);
-}
-
-/** Read the saved state, merging it over the defaults so old saves survive. */
 export function loadState() {
-  const state = defaultState();
-  let raw = null;
   try {
-    raw = localStorage.getItem(STORE_KEY);
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return blank();
+    const parsed = JSON.parse(raw);
+    return { ...blank(), ...parsed, earned: Array.isArray(parsed.earned) ? parsed.earned : [] };
   } catch {
-    return state;
+    return blank();
   }
-  if (!raw) return state;
-  let parsed = null;
-  try {
-    parsed = JSON.parse(raw);
-  } catch {
-    return state;
-  }
-  if (!isPlainObject(parsed)) return state;
-  for (const key of ["earned", "counts", "notes"]) {
-    if (isPlainObject(parsed[key])) state[key] = parsed[key];
-  }
-  if (typeof parsed.spoiler === "boolean") state.spoiler = parsed.spoiler;
+}
+
+export function saveState(state) {
+  localStorage.setItem(KEY, JSON.stringify(state));
+}
+
+export function isEarned(state, id) {
+  return state.earned.includes(id);
+}
+
+export function toggleEarned(state, id) {
+  const i = state.earned.indexOf(id);
+  if (i >= 0) state.earned.splice(i, 1);
+  else state.earned.push(id);
+  saveState(state);
   return state;
 }
 
-/** Persist the whole state object under the store key. */
-export function saveState(state) {
-  state.savedAt = new Date().toISOString();
-  try {
-    localStorage.setItem(STORE_KEY, JSON.stringify(state));
-  } catch {
-    // Storage full or blocked (private mode): progress just won't persist.
-  }
+export function getCount(state, id) {
+  return typeof state.counts[id] === 'number' ? state.counts[id] : 0;
 }
 
-/** Has this trophy been ticked earned? */
-export function isEarned(state, name) {
-  return Boolean(state.earned[name]);
-}
-
-/** How many trophies are ticked earned (platinum counts as one of the 55). */
-export function earnedTotal(state) {
-  return Object.keys(state.earned).filter((name) => state.earned[name]).length;
-}
-
-/** Flip one trophy's earned tick and save. Returns the new tick value. */
-export function toggleEarned(state, name) {
-  if (state.earned[name]) {
-    delete state.earned[name];
-  } else {
-    state.earned[name] = true;
-  }
-  saveState(state);
-  return Boolean(state.earned[name]);
-}
-
-/** Set a count trophy's progress (clamped to 0..total), then save. */
-export function setCount(state, name, value, total) {
-  let n = Math.floor(Number(value));
-  if (!Number.isFinite(n)) n = 0;
-  if (n < 0) n = 0;
-  if (typeof total === "number" && n > total) n = total;
-  if (n === 0) {
-    delete state.counts[name];
-  } else {
-    state.counts[name] = n;
-  }
+export function setCount(state, id, value) {
+  const n = Math.max(0, Math.floor(Number(value) || 0));
+  state.counts[id] = n;
   saveState(state);
   return n;
 }
 
-/** How far a count trophy has progressed (0 when never touched). */
-export function getCount(state, name) {
-  const n = state.counts[name];
-  return typeof n === "number" && n > 0 ? n : 0;
+export function exportFile(state) {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'leonida-platinum-atlas-progress.json';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
 
-/** Save a free-text note for a trophy (empty text clears it), then save. */
-export function setNote(state, name, text) {
-  const trimmed = String(text || "").trim();
-  if (trimmed === "") {
-    delete state.notes[name];
-  } else {
-    state.notes[name] = trimmed;
-  }
-  saveState(state);
-}
-
-/** Download the current progress as a JSON file. */
-export function exportProgress(state) {
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "leonida-platinum-atlas-progress.json";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-/**
- * Read progress back from a user-chosen file. Resolves with the validated
- * state (unknown fields and bad values are dropped, never trusted), or
- * rejects with a plain-language error when the file is not a progress file.
- */
-export function importProgress(file) {
-  return file.text().then((text) => {
-    let parsed = null;
-    try {
-      parsed = JSON.parse(text);
-    } catch {
-      throw new Error("That file is not valid JSON.");
-    }
-    if (!isPlainObject(parsed)) {
-      throw new Error("That file is not a LEONIDA PLATINUM ATLAS progress file.");
-    }
-    const state = defaultState();
-    for (const key of ["earned", "counts", "notes"]) {
-      if (!isPlainObject(parsed[key])) continue;
-      for (const [name, value] of Object.entries(parsed[key])) {
-        if (key === "earned" && value === true) state.earned[name] = true;
-        if (key === "counts" && typeof value === "number" && value > 0) {
-          state.counts[name] = Math.floor(value);
-        }
-        if (key === "notes" && typeof value === "string" && value.trim() !== "") {
-          state.notes[name] = value.trim();
-        }
-      }
-    }
-    if (typeof parsed.spoiler === "boolean") state.spoiler = parsed.spoiler;
-    return state;
-  });
-}
-
-/** Wipe the save entirely and return a fresh default state. */
-export function resetAll() {
-  try {
-    localStorage.removeItem(STORE_KEY);
-  } catch {
-    // Nothing to wipe.
-  }
-  return defaultState();
+export async function importFile(file) {
+  const parsed = JSON.parse(await file.text());
+  if (!parsed || !Array.isArray(parsed.earned)) throw new Error('Not a Leonida Platinum Atlas progress file.');
+  const next = { ...blank(), ...parsed };
+  saveState(next);
+  return next;
 }
