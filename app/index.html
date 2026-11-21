@@ -1,94 +1,102 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Platinum Atlas — GTA VI Trophy Guide &amp; Tracker</title>
-<meta name="description" content="Panduan + tracker offline untuk 55 trophy PlayStation 5 GTA VI: roadmap ke platinum, missables, langkah bersumber, dan checklist tersimpan di browser.">
+<title>GTA 6 Trophy Guide — Vice City Platinum Tracker</title>
+<meta name="description" content="Offline trophy guide and platinum tracker for Grand Theft Auto VI: all 55 trophies, cited steps, roadmap, missables, glitches and easter eggs.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="load-error" class="load-error" hidden></div>
-
-<header class="app-header">
-  <h1>LEONIDA <span>PLATINUM</span> ATLAS</h1>
-  <p class="tagline">Panduan &amp; tracker 55 trophy GTA VI — offline, bersumber, jujur soal yang belum terverifikasi.</p>
-  <p class="counts" id="header-counts">1 Platinum · 2 Gold · 6 Silver · 46 Bronze · 27 Hidden</p>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">VI</div>
+    <div>
+      <h1>GTA 6 Trophy Guide</h1>
+      <p class="subtitle">Vice City Platinum Tracker &middot; 55 trophies &middot; PS5 &middot; offline</p>
+    </div>
+  </div>
+  <div class="audit-mini" id="audit-mini" aria-live="polite"></div>
+  <div class="top-actions">
+    <button id="spoiler-toggle" class="btn btn-spoiler" type="button" aria-pressed="true">Spoiler shield: ON</button>
+    <button id="export-btn" class="btn" type="button">Export</button>
+    <label class="btn btn-import" for="import-file">Import</label>
+    <input id="import-file" type="file" accept="application/json,.json" hidden>
+  </div>
 </header>
 
-<section class="audit-strip" id="audit-strip" aria-label="Audit klaim guide"></section>
-
-<nav class="main-nav" aria-label="Panduan">
-  <button class="nav-tab active" data-view="tracker">Tracker</button>
-  <button class="nav-tab" data-view="roadmap">Roadmap</button>
-  <button class="nav-tab" data-view="missables">Missables</button>
-  <button class="nav-tab" data-view="disputes">Disputes<span class="badge" id="dispute-badge">0</span></button>
-  <button class="nav-tab" data-view="sources">Sources</button>
-  <button class="nav-tab" data-view="eggs">Easter Eggs</button>
-  <label class="nav-right shield-toggle">
-    <input type="checkbox" id="spoiler-shield" checked>
-    Spoiler shield — sembunyikan nama &amp; deskripsi trophy story yang belum didapat
-  </label>
+<nav class="pagenav" id="pagenav" aria-label="Guide pages">
+  <button data-page="guide" class="active" type="button">Guide</button>
+  <button data-page="roadmap" type="button">Roadmap</button>
+  <button data-page="missables" type="button">Missables</button>
+  <button data-page="glitch" type="button">Glitch &amp; Farming</button>
+  <button data-page="launch" type="button">Launch Status</button>
+  <button data-page="disputes" type="button">Disputes</button>
+  <button data-page="eggs" type="button">Easter Eggs</button>
+  <button data-page="sources" type="button">Sources</button>
+  <button data-page="settings" type="button">Settings</button>
 </nav>
 
-<main>
-  <div class="tracker-layout" id="tracker-layout">
-    <section class="pane list-pane" aria-label="Daftar trophy">
-      <div class="pane-head"><h2>Daftar Trophy</h2><span id="list-count">55/55 trophy</span></div>
-      <form class="filters" id="filters">
-        <label>Jenis
-          <select name="kind">
-            <option value="all">Semua jenis</option>
-            <option value="story">Story</option>
-            <option value="missable">Missable</option>
-            <option value="collectibles">Collectibles</option>
-            <option value="activities">Activities</option>
-            <option value="crime">Crime</option>
-            <option value="hidden">Hidden</option>
-          </select>
-        </label>
-        <label>Grade
-          <select name="grade">
-            <option value="all">Semua grade</option>
-            <option value="platinum">Platinum</option>
-            <option value="gold">Gold</option>
-            <option value="silver">Silver</option>
-            <option value="bronze">Bronze</option>
-          </select>
-        </label>
-        <label>Status
-          <select name="status">
-            <option value="all">Semua</option>
-            <option value="earned">Didapat</option>
-            <option value="unearned">Belum didapat</option>
-          </select>
-        </label>
-        <label>Cari
-          <input type="search" name="query" placeholder="Nama, deskripsi, panduan…">
-        </label>
-      </form>
-      <p class="pane-head"><span id="earned-count">0/55 didapat</span></p>
-      <ul class="trophy-list" id="trophy-list"></ul>
+<main class="layout">
+  <aside class="pane pane-left" id="pane-left" aria-label="Trophy list">
+    <div class="search-row">
+      <input id="search" type="search" placeholder="Search trophies…" autocomplete="off" aria-label="Search trophies">
+    </div>
+    <div class="filter-row">
+      <select id="filter-kind" aria-label="Filter by kind">
+        <option value="">All kinds</option>
+        <option value="story">Story</option>
+        <option value="missable">Missable</option>
+        <option value="collectibles">Collectibles</option>
+        <option value="activities">Activities</option>
+        <option value="crime">Crime</option>
+      </select>
+      <select id="filter-grade" aria-label="Filter by grade">
+        <option value="">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+      <select id="filter-status" aria-label="Filter by status">
+        <option value="">All status</option>
+        <option value="earned">Earned</option>
+        <option value="remaining">Remaining</option>
+        <option value="hidden">Hidden</option>
+        <option value="verified">Confirmed</option>
+        <option value="reported">Reported</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </div>
+    <div class="progress-block" id="progress-block"></div>
+    <ol class="trophy-list" id="trophy-list"></ol>
+    <p class="list-count" id="list-count"></p>
+  </aside>
+
+  <section class="pane pane-center" id="pane-center" aria-label="Detail">
+    <div id="center-content"></div>
+  </section>
+
+  <aside class="pane pane-right" id="pane-right" aria-label="Audit and planner">
+    <section class="card audit-card" id="audit-card" aria-label="Audit strip"></section>
+    <section class="card" id="roadmap-mini" aria-label="Roadmap summary"></section>
+    <section class="card" id="nextup-card" aria-label="Next Up planner"></section>
+    <section class="card io-card" id="io-card" aria-label="Export and import">
+      <h2>Progress backup</h2>
+      <p>Your checklist lives in this browser only. Export it before clearing data.</p>
+      <div class="io-row">
+        <button id="export-btn-2" class="btn" type="button">Export JSON</button>
+        <label class="btn" for="import-file-2">Import JSON</label>
+        <input id="import-file-2" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p class="io-status" id="io-status"></p>
     </section>
-
-    <section class="pane detail-pane" id="detail-pane" aria-label="Detail trophy"></section>
-
-    <aside class="rail" id="progress-rail" aria-label="Progress platinum"></aside>
-  </div>
-
-  <div class="view-pane" id="view-pane" hidden></div>
+  </aside>
 </main>
 
-<div class="toolbar">
-  <button class="btn primary" id="export-btn" type="button">Export progres (JSON)</button>
-  <label class="btn import-label" for="import-file">Import progres<input type="file" id="import-file" accept=".json,application/json" hidden></label>
-  <button class="btn danger" id="reset-btn" type="button">Reset progres</button>
-  <span class="import-status" id="import-status"></span>
-</div>
-
-<footer class="app-footer">
-  <p>Semua panduan ditulis dengan kata-kata sendiri untuk entry ini. Nama &amp; deskripsi trophy ditampilkan seperti yang diterbitkan PlayStation. Setiap langkah mencantumkan sumbernya — klik kode sumber untuk membuka halaman aslinya. App ini tidak mengambil data apa pun dari internet; semua file lokal di bawah app/.</p>
-  <p>Tidak ada logo, artwork, atau screenshot resmi Rockstar Games di sini. Tampilan ini orisinal.</p>
+<footer class="foot">
+  <p>Unofficial fan guide. No Rockstar artwork, logos or game screenshots. Every claim cites its sources; disputed items show both sides. Data loads from local JSON files only — no network requests.</p>
+  <p id="foot-audit"></p>
 </footer>
 
 <script type="module" src="js/main.js"></script>
