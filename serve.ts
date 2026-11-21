@@ -1,39 +1,48 @@
-// serve.ts — tiny static server for playtesting the guide locally.
-// Serves app/ at its root (http://localhost:8080). Node 22, stdlib only.
-
+// Leonida Platinum Atlas — local preview server (Round 7, written fresh).
+// Serves app/ at / and screenshots/ at /screenshots, static files only.
+// Run: node serve.ts [port]  (default 8080). Then open http://localhost:8080/
 import { createServer } from 'node:http';
 import { existsSync, readFileSync, statSync } from 'node:fs';
-import { extname, join, normalize } from 'node:path';
+import { join, extname, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const APP_DIR = join(fileURLToPath(new URL('.', import.meta.url)), 'app');
-const PORT = Number(process.env.PORT) || 8080;
+const ROOT = fileURLToPath(new URL('.', import.meta.url));
+const PORT = Number(process.argv[2] || process.env.PORT || 8080);
 
-const MIME: Record<string, string> = {
+const TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.mjs': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
-  '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
   '.svg': 'image/svg+xml',
 };
 
+function safePath(urlPath) {
+  const clean = decodeURIComponent(urlPath.split('?')[0].split('#')[0]);
+  const rel = normalize(clean).replace(/^(\.\.[/\\])+/, '').replace(/^[/\\]/, '');
+  if (rel === '') return join(ROOT, 'app', 'index.html');
+  if (rel.startsWith('screenshots/')) return join(ROOT, rel);
+  return join(ROOT, 'app', rel);
+}
+
 const server = createServer((req, res) => {
-  const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-  const rel = normalize(urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, ''));
-  const file = join(APP_DIR, rel);
-  if (!file.startsWith(APP_DIR) || !existsSync(file) || !statSync(file).isFile()) {
-    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
-    res.end('Not found: ' + urlPath + '\n');
-    return;
+  try {
+    const file = safePath(req.url || '/');
+    if (!existsSync(file) || !statSync(file).isFile()) {
+      res.writeHead(404, { 'content-type': 'text/plain' });
+      res.end('not found');
+      return;
+    }
+    res.writeHead(200, { 'content-type': TYPES[extname(file).toLowerCase()] || 'application/octet-stream' });
+    res.end(readFileSync(file));
+  } catch (err) {
+    res.writeHead(500, { 'content-type': 'text/plain' });
+    res.end('server error: ' + err.message);
   }
-  res.writeHead(200, { 'content-type': MIME[extname(file)] || 'application/octet-stream' });
-  res.end(readFileSync(file));
 });
 
-server.listen(PORT, () => {
-  console.log('LEONIDA PLATINUM ATLAS serving app/ at http://localhost:' + PORT);
-});
+server.listen(PORT, () => console.log('Leonida Platinum Atlas at http://localhost:' + PORT + '/'));
