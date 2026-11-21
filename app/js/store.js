@@ -1,135 +1,76 @@
-// store.js — earned-trophy checklist saved in localStorage, with
-// export-to-file and import-from-file so progress survives a browser wipe.
+// Leonida Platinum Atlas — tracker state (Round 7, written fresh).
+// localStorage only. Nothing leaves the browser.
+const KEY = 'leonida-platinum-atlas-v7';
 
-export const STORAGE_KEY = 'tla-progress-v2';
-export const EXPORT_FILENAME = 'leonida-platinum-atlas-progress.json';
-
-function readRaw() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object') return {};
-    return parsed;
-  } catch {
-    return {};
-  }
-}
-
-function writeRaw(state) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // Storage full or unavailable (private mode): progress stays in memory.
-  }
-}
-
-/** Create the progress store. `validIds` is the set of trophy names. */
-export function createStore(validIds) {
-  const known = new Set(validIds);
-  let earned = new Set();
-
-  function load() {
-    const raw = readRaw();
-    earned = new Set(
-      Object.keys(raw).filter((id) => known.has(id) && raw[id] === true),
-    );
-  }
-
-  load();
-
+export function defaultState() {
   return {
-    /** Is this trophy marked earned? */
-    isEarned(id) {
-      return earned.has(id);
-    },
-
-    /** Mark a trophy earned (true) or not earned (false). Persists. */
-    setEarned(id, value) {
-      if (!known.has(id)) return;
-      if (value) earned.add(id);
-      else earned.delete(id);
-      this.save();
-    },
-
-    /** Toggle a trophy's earned state. Returns the new state. */
-    toggle(id) {
-      const next = !earned.has(id);
-      this.setEarned(id, next);
-      return next;
-    },
-
-    /** All earned trophy ids, in the order the guide lists them. */
-    earnedIds() {
-      return [...known].filter((id) => earned.has(id));
-    },
-
-    /** { earned, total } over the whole list. */
-    totals() {
-      return { earned: earned.size, total: known.size };
-    },
-
-    /** { earned, total } per grade: platinum / gold / silver / bronze. */
-    byGrade(trophies) {
-      const out = {};
-      for (const t of trophies) {
-        const g = t.grade;
-        if (!out[g]) out[g] = { earned: 0, total: 0 };
-        out[g].total += 1;
-        if (earned.has(t.id)) out[g].earned += 1;
-      }
-      return out;
-    },
-
-    /** Persist the current set. */
-    save() {
-      const state = {};
-      for (const id of earned) state[id] = true;
-      writeRaw(state);
-    },
-
-    /** Serialisable snapshot for export. */
-    snapshot() {
-      return {
-        app: 'leonida-platinum-atlas',
-        version: 2,
-        exportedAt: new Date().toISOString(),
-        earned: this.earnedIds(),
-      };
-    },
-
-    /** Replace progress from a parsed export object. Returns count applied. */
-    restore(data) {
-      const list = Array.isArray(data) ? data : data && data.earned;
-      if (!Array.isArray(list)) return 0;
-      earned = new Set(list.filter((id) => known.has(id)));
-      this.save();
-      return earned.size;
-    },
-
-    /** Download the progress snapshot as a JSON file. */
-    exportToFile() {
-      const blob = new Blob([JSON.stringify(this.snapshot(), null, 2)], {
-        type: 'application/json',
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = EXPORT_FILENAME;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    },
-
-    /**
-     * Read progress back from a File picked in the import input.
-     * Resolves to the number of trophies restored, rejects on bad JSON.
-     */
-    async importFromFile(file) {
-      const text = await file.text();
-      const data = JSON.parse(text);
-      return this.restore(data);
-    },
+    earned: {},
+    counts: {},
+    spoiler: true,
+    view: 'checklist',
+    q: '',
+    kind: 'all',
+    grade: 'all',
+    verified: 'all',
+    missableOnly: false,
+    selected: null,
   };
+}
+
+export function loadState() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null) return defaultState();
+    return { ...defaultState(), ...parsed };
+  } catch {
+    return defaultState();
+  }
+}
+
+export function saveState(st) {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(st));
+  } catch {
+    // Storage full or blocked: the app still works for the session.
+  }
+}
+
+export function isEarned(st, name) {
+  return !!st.earned[name];
+}
+
+export function toggleEarned(st, name) {
+  if (st.earned[name]) delete st.earned[name];
+  else st.earned[name] = true;
+  saveState(st);
+  return st;
+}
+
+export function countOf(st, name) {
+  return st.counts[name] || 0;
+}
+
+export function setCount(st, name, n) {
+  n = Math.max(0, Math.floor(Number(n) || 0));
+  if (n === 0) delete st.counts[name];
+  else st.counts[name] = n;
+  saveState(st);
+  return st;
+}
+
+export function exportState(st) {
+  return JSON.stringify(
+    { app: 'leonida-platinum-atlas', version: 7, exportedAt: new Date().toISOString(), state: st },
+    null,
+    2,
+  );
+}
+
+export function importState(text) {
+  const parsed = JSON.parse(text);
+  const st = parsed.state || parsed;
+  if (typeof st !== 'object' || st === null || Array.isArray(st)) throw new Error('Not a Leonida Atlas export');
+  return { ...defaultState(), ...st };
 }
