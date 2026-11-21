@@ -1,129 +1,115 @@
-/* store.js — saved progress in localStorage, plus export / import. */
+// store.js — the tracker's saved state in localStorage.
+// One JSON object under one key: earned trophy ids, per-trophy counters,
+// the spoiler shield, the active view and the selected trophy.
+// Export writes the same object to a file; import reads it back.
 
-const PROGRESS_KEY = "leonida-platinum-atlas-progress-v1";
-const SETTINGS_KEY = "leonida-platinum-atlas-settings-v1";
+const STORAGE_KEY = 'leonida-platinum-atlas-v1';
 
-/* The earned set is a Set of trophy names. A demo override (used only by
-   ?shot= screenshots) keeps demo progress out of localStorage. */
-let demoEarned = null;
-
-export function setDemoEarned(names) {
-  demoEarned = new Set(names || []);
+/** Fresh default state. */
+export function defaultState() {
+  return {
+    earned: [],
+    counts: {},
+    spoilerShield: true,
+    view: 'tracker',
+    selectedId: null,
+    eggKind: 'all',
+    eggStatus: 'all',
+  };
 }
 
-export function isDemoMode() {
-  return demoEarned !== null;
-}
-
-export function loadEarned() {
-  if (demoEarned !== null) return new Set(demoEarned);
+/** Read the saved state, falling back to defaults on any problem. */
+export function loadState() {
+  const fresh = defaultState();
   try {
-    const raw = localStorage.getItem(PROGRESS_KEY);
-    if (!raw) return new Set();
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return fresh;
     const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(parsed.filter((name) => typeof name === "string"));
-  } catch {
-    return new Set();
-  }
-}
-
-export function saveEarned(earned) {
-  if (demoEarned !== null) {
-    demoEarned = new Set(earned);
-    return;
-  }
-  try {
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify([...earned].sort()));
-  } catch {
-    /* Storage full or blocked: progress still lives in memory this session. */
-  }
-}
-
-export function isEarned(earned, trophyName) {
-  return earned.has(trophyName);
-}
-
-export function toggleEarned(earned, trophyName) {
-  const next = new Set(earned);
-  if (next.has(trophyName)) next.delete(trophyName);
-  else next.add(trophyName);
-  saveEarned(next);
-  return next;
-}
-
-export function clearEarned() {
-  demoEarned = null;
-  try {
-    localStorage.removeItem(PROGRESS_KEY);
-  } catch {
-    /* ignore */
-  }
-  return new Set();
-}
-
-/* Settings: spoiler shield on/off, hide-earned on/off. */
-export function loadSettings() {
-  const defaults = { spoiler: false, hideEarned: false };
-  try {
-    const raw = localStorage.getItem(SETTINGS_KEY);
-    if (!raw) return defaults;
-    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return fresh;
     return {
-      spoiler: parsed.spoiler === true,
-      hideEarned: parsed.hideEarned === true,
+      ...fresh,
+      ...parsed,
+      earned: Array.isArray(parsed.earned) ? parsed.earned : [],
+      counts: parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {},
     };
   } catch {
-    return defaults;
+    return fresh;
   }
 }
 
-export function saveSettings(settings) {
+/** Persist the state. */
+export function saveState(state) {
   try {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
-    /* ignore */
+    // Storage full or blocked: the tracker still works for this session.
   }
 }
 
-/* Export the earned list as a downloadable JSON file. */
-export function exportProgress(earned) {
-  const payload = {
-    app: "LEONIDA PLATINUM ATLAS",
-    version: 1,
-    exported_at: new Date().toISOString(),
-    earned: [...earned].sort(),
+/** Is this trophy earned? */
+export function isEarned(state, id) {
+  return state.earned.includes(id);
+}
+
+/** Toggle a trophy's earned flag and persist. */
+export function toggleEarned(state, id) {
+  const i = state.earned.indexOf(id);
+  if (i >= 0) state.earned.splice(i, 1);
+  else state.earned.push(id);
+  saveState(state);
+  return state;
+}
+
+/** Set a trophy's manual counter (clamped to 0..total) and persist. */
+export function setCount(state, id, value, total) {
+  const n = Math.max(0, Math.min(total, Math.floor(Number(value) || 0)));
+  state.counts[id] = n;
+  saveState(state);
+  return n;
+}
+
+/** Read a trophy's manual counter (0 when untouched). */
+export function getCount(state, id) {
+  return state.counts[id] ?? 0;
+}
+
+/** Wipe all progress and counters, keep settings. */
+export function resetProgress(state) {
+  state.earned = [];
+  state.counts = {};
+  saveState(state);
+  return state;
+}
+
+/** Serialise the portable part of the state for export. */
+export function exportState(state) {
+  return JSON.stringify(
+    { app: 'leonida-platinum-atlas', version: 1, earned: state.earned, counts: state.counts },
+    null,
+    2,
+  );
+}
+
+/** Parse an imported file's text into earned/counts. Throws on bad shape. */
+export function parseImport(text) {
+  const parsed = JSON.parse(text);
+  if (!parsed || typeof parsed !== 'object') throw new Error('file is not a tracker export');
+  if (!Array.isArray(parsed.earned)) throw new Error('export has no earned list');
+  return {
+    earned: parsed.earned.filter((id) => typeof id === 'string'),
+    counts: parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {},
   };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+}
+
+/** Download a text file from the browser (used by export). */
+export function downloadFile(filename, text) {
+  const blob = new Blob([text], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = "leonida-platinum-atlas-progress.json";
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  return payload.earned.length;
-}
-
-/* Parse an imported file back into an earned set. Accepts our own export
-   shape ({earned: [...]}) or a bare array of trophy names. Returns null
-   when the file is not a shape we recognise. */
-export function parseImportedProgress(text) {
-  let parsed;
-  try {
-    parsed = JSON.parse(text);
-  } catch {
-    return null;
-  }
-  const names = Array.isArray(parsed) ? parsed : parsed.earned;
-  if (!Array.isArray(names)) return null;
-  const cleaned = names.filter((name) => typeof name === "string");
-  if (cleaned.length === 0 && names.length > 0) return null;
-  return new Set(cleaned);
-}
-
-export function importProgressSet(earned) {
-  saveEarned(earned);
-  return new Set(earned);
 }
