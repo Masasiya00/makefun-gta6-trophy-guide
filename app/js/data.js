@@ -1,106 +1,99 @@
-// data.js — loads the guide's own JSON files (local, relative fetches only)
-// and normalises them into one plain object the other modules consume.
-// No network beyond this server: every fetch is a relative 'data/...' path.
-
-export const SOURCE_NAMES = {
-  PP: 'PowerPyx',
-  EXO: 'Exophase',
-  GM: 'gamemapa',
-  DM: 'damnmodz',
-  VAL: 'vanotherlevel',
-  OF: 'ofzenandcomputing',
-  GS: 'GameSpot',
-};
-
-/** Turn a short source code from a step into its full display name. */
-export function sourceName(code) {
-  return SOURCE_NAMES[code] || code;
-}
-
-function normaliseTrophy(raw) {
-  const steps = Array.isArray(raw.steps) ? raw.steps : [];
-  return {
-    id: raw.name,
-    name: raw.name,
-    description: raw.description || '',
-    grade: (raw.grade || 'bronze').toLowerCase(),
-    hidden: raw.hidden === true,
-    kind: (raw.kind || 'activities').toLowerCase(),
-    missable: raw.missable === true,
-    roadmapStage: Number(raw.roadmap_stage) || 0,
-    guide: raw.guide || '',
-    steps: steps.map((s) => ({
-      text: s.text || '',
-      sources: Array.isArray(s.sources) ? s.sources.map(sourceName) : [],
-    })),
-    sources: Array.isArray(raw.sources) ? raw.sources : [],
-    verified: (raw.verified || 'unknown').toLowerCase(),
-    overlap100: raw.overlap100 === true,
-    counts: raw.counts || raw.counter || null,
-  };
-}
-
-function normalisePanels(raw) {
-  return {
-    roadmap: Array.isArray(raw.roadmap) ? raw.roadmap : [],
-    missables: Array.isArray(raw.missables) ? raw.missables : [],
-    glitch: raw.glitch || null,
-    launch: raw.launch || null,
-    disagreements: Array.isArray(raw.disagreements) ? raw.disagreements : [],
-    warnings: Array.isArray(raw.warnings) ? raw.warnings : [],
-  };
-}
-
-function normaliseEggs(raw) {
-  const items = Array.isArray(raw.items) ? raw.items : [];
-  return {
-    items: items.map((e) => ({
-      title: e.title || 'Untitled',
-      kind: (e.kind || 'egg').toLowerCase(),
-      status: (e.status || 'reported').toLowerCase(),
-      text: e.text || '',
-      sources: Array.isArray(e.sources) ? e.sources : [],
-    })),
-  };
-}
-
-async function loadJson(path) {
-  const res = await fetch(path);
-  if (!res.ok) throw new Error('Failed to load ' + path + ' (' + res.status + ')');
-  return res.json();
-}
-
-/**
- * Load all three data files and return { trophies, panels, eggs }.
- * trophies is an array of normalised trophy objects in file order.
- */
-export async function loadGuideData() {
-  const [trophyDoc, panelDoc, eggDoc] = await Promise.all([
-    loadJson('data/trophies.json'),
-    loadJson('data/panels.json'),
-    loadJson('data/easter-eggs.json'),
+// Leonida Platinum Atlas — data layer (Round 7, written fresh).
+// Loads the four JSON banks and derives the audit numbers the header
+// strip shows. Only relative fetches of local files; no network.
+export async function loadData() {
+  const [trophies, sources, panels, eggs] = await Promise.all([
+    fetch('./data/trophies.json').then((r) => r.json()),
+    fetch('./data/sources.json')
+      .then((r) => r.json())
+      .catch(() => ({ sources: [] })),
+    fetch('./data/panels.json').then((r) => r.json()),
+    fetch('./data/easter-eggs.json').then((r) => r.json()),
   ]);
-  const rawTrophies = Array.isArray(trophyDoc)
-    ? trophyDoc
-    : Array.isArray(trophyDoc.trophies)
-      ? trophyDoc.trophies
-      : [];
+  const byCode = new Map((sources.sources || []).map((s) => [s.code, s]));
+  const byName = new Map((trophies.trophies || []).map((t) => [t.name, t]));
   return {
-    trophies: rawTrophies.map(normaliseTrophy),
-    panels: normalisePanels(panelDoc || {}),
-    eggs: normaliseEggs(eggDoc || {}),
+    trophies: trophies.trophies || [],
+    sources: sources.sources || [],
+    panels: normalizePanels(panels),
+    eggs: eggs.items || [],
+    byCode,
+    byName,
   };
 }
 
-/** Total cited steps across all trophies (for the header stat). */
-export function countCitedSteps(trophies) {
-  return trophies.reduce((n, t) => n + t.steps.length, 0);
+function hasSrc(src) {
+  return Array.isArray(src) && src.length > 0;
 }
 
-/** How many steps cite two or more sources. */
-export function countMultiSourceSteps(trophies) {
-  return trophies.reduce(
-    (n, t) => n + t.steps.filter((s) => s.sources.length >= 2).length,
-    0,
-  );
+// Normalize the panels bank into the canonical shape this app renders.
+// Accepts the R7 schema (disputes / launch_status / farming) and tolerates
+// the older key spellings, so a bank that lands with either spelling still
+// renders instead of showing empty sections.
+function normalizePanels(p) {
+  const raw = p || {};
+  return {
+    roadmap: raw.roadmap || [],
+    missables: raw.missables || {},
+    glitch: raw.glitch || {},
+    launch_status: raw.launch_status || raw.launch || [],
+    disputes: raw.disputes || raw.disagreements || [],
+    warnings: raw.warnings || [],
+    farming: raw.farming || [],
+  };
+}
+
+// Every claim = one trophy step + one panel claim + one easter-egg item.
+// Cited = has >=1 source code; twoPlus = has >=2 source codes.
+export function auditStats(data) {
+  let total = 0;
+  let cited = 0;
+  let twoPlus = 0;
+  const count = (src) => {
+    total++;
+    if (hasSrc(src)) {
+      cited++;
+      if (src.length >= 2) twoPlus++;
+    }
+  };
+  for (const t of data.trophies) for (const s of t.steps || []) count(s.src);
+  const p = data.panels || {};
+  for (const stage of p.roadmap || []) for (const c of stage.claims || []) count(c.src);
+  for (const row of (p.missables || {}).grid || []) for (const it of row.items || []) count(it.src);
+  for (const c of (p.missables || {}).save_strategy || []) count(c.src);
+  for (const c of (p.glitch || {}).claims || []) count(c.src);
+  for (const c of (p.glitch || {}).pro || []) count(c.src);
+  for (const c of (p.glitch || {}).con || []) count(c.src);
+  for (const c of p.launch_status || []) count(c.src);
+  for (const d of p.disputes || []) {
+    for (const c of d.pro || []) count(c.src);
+    for (const c of d.con || []) count(c.src);
+  }
+  for (const c of p.warnings || []) count(c.src);
+  for (const c of p.farming || []) count(c.src);
+  for (const e of data.eggs || []) count(e.src);
+  const pages = data.sources.reduce((n, s) => n + (s.pages || []).length, 0);
+  const confirmed = data.trophies.filter((t) => t.verified === 'confirmed').length;
+  const unknown = data.trophies.filter((t) => t.verified === 'unknown').length;
+  return {
+    total,
+    cited,
+    twoPlus,
+    sources: data.sources.length,
+    pages,
+    confirmed,
+    unknown,
+    trophies: data.trophies.length,
+  };
+}
+
+export function sourceNames(src, byCode) {
+  return (src || []).map((c) => {
+    const s = byCode.get(c);
+    return s ? s.name : c;
+  });
+}
+
+export function sourceTitle(src, byCode) {
+  return sourceNames(src, byCode).join(', ');
 }
