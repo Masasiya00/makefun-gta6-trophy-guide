@@ -1,305 +1,271 @@
-/* views.js — render every view of the guide from the loaded data. */
+// views.js — every screen of the guide, rendered from the loaded data.
+// No figure on any screen is typed by hand: the audit strip, the progress
+// ring, the roadmap bars and the missable grid all count from the same data.
 
-import { sourceLabel } from "./data.js";
-import { isSpoilerMasked } from "./filters.js";
+import { auditStats, gradeLabel, overlapLabel, sourceByCode, verifiedLabel } from './data.js';
+import { displayDescription, displayName, gradeProgress, isSpoilerMasked, nextUp, sortTrophies } from './filters.js';
+import { getCount, isEarned } from './store.js';
 
-export function escapeHtml(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+/** Escape text for HTML so trophy names/descriptions can never break markup. */
+export function esc(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
-/* Small source chips under a claim: "Source: PowerPyx · Exophase",
-   each name a link to the source's page when the source has a URL. */
-export function renderSourceChips(claim, data) {
-  const codes = claim.src || [];
-  if (codes.length === 0) return `<span class="src-code">uncited</span>`;
-  const nameByCode = new Map(data.sources.map((s) => [s.code, s]));
-  return codes
+/** Source chips for one step: code badges that link to the source's URL. */
+export function sourceChips(sources, codes) {
+  return (codes ?? [])
     .map((code) => {
-      const source = nameByCode.get(code);
-      const label = source ? source.name : code;
-      if (source && source.url) {
-        return `<a class="src-code" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
-      }
-      return `<span class="src-code">${escapeHtml(label)}</span>`;
+      const src = sourceByCode(sources, code);
+      if (!src) return `<span class="src-chip" title="Sumber ${esc(code)}">${esc(code)}</span>`;
+      return `<a class="src-chip" href="${esc(src.url)}" target="_blank" rel="noopener" title="${esc(src.name)}">${esc(code)}</a>`;
     })
-    .join("");
+    .join('');
 }
 
-export function renderClaimList(claims, data) {
-  if (!claims || claims.length === 0) return "";
-  const items = claims
-    .map(
-      (claim) =>
-        `<li>${escapeHtml(claim.text)}<div class="step-src">Source: ${renderSourceChips(claim, data)}</div></li>`
-    )
-    .join("");
-  return `<ul class="claim-list">${items}</ul>`;
+/** One audit-strip cell: a big number and its label. */
+function auditCell(value, label) {
+  return `<div class="audit-cell"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`;
 }
 
-/* ---------- tracker: trophy list ---------- */
+/**
+ * The audit strip: the guide's key numbers, computed live from the data.
+ * "736/736 klaim bersumber (100%) · 681 klaim di 2+ situs · 61 sumber ·
+ *  72 halaman · 25 disputes · 55/55 trophy · 51/55 terkonfirmasi".
+ */
+export function renderAuditStrip(data, el) {
+  const s = auditStats(data);
+  const pct = s.claims ? Math.round((s.sourcedClaims / s.claims) * 100) : 0;
+  el.innerHTML =
+    auditCell(`${s.sourcedClaims}/${s.claims}`, `klaim bersumber (${pct}%)`) +
+    auditCell(`${s.multiSourceClaims}`, 'klaim di 2+ situs') +
+    auditCell(`${s.sourceCount}`, 'sumber') +
+    auditCell(`${s.pageCount}`, 'halaman dibaca') +
+    auditCell(`${s.disputeCount}`, 'disputes') +
+    auditCell(`${s.trophyTotal}/${s.trophyTotal}`, 'trophy') +
+    auditCell(`${s.confirmedTotal}/${s.trophyTotal}`, 'terkonfirmasi');
+}
 
-export function renderTrophyList(container, trophies, state) {
-  const { earned, spoiler, selectedName } = state;
-  if (trophies.length === 0) {
-    container.innerHTML = `<li class="list-empty">Tidak ada trophy yang cocok dengan filter ini.</li>`;
-    return;
-  }
-  container.innerHTML = trophies
-    .map((trophy) => {
-      const masked = isSpoilerMasked(trophy, { spoiler, earned });
-      const isEarned = earned.has(trophy.name);
-      const isSelected = trophy.name === selectedName;
-      const nameHtml = masked
-        ? `<span class="spoiler-bar" role="img" aria-label="Story trophy tersembunyi oleh spoiler shield"></span>`
-        : escapeHtml(trophy.name);
-      const descHtml = masked ? "" : `<div class="row-desc">${escapeHtml(trophy.description || "")}</div>`;
-      const tags = [
-        `<span class="tag grade-${escapeHtml(trophy.grade)}"><span class="grade-dot"></span>${escapeHtml(trophy.grade)}</span>`,
-        `<span class="tag kind-${escapeHtml(trophy.kind)}">${escapeHtml(trophy.kind)}</span>`,
-      ];
-      if (trophy.missable) tags.push(`<span class="tag missable">Missable</span>`);
-      if (trophy.hidden) tags.push(`<span class="tag">Hidden</span>`);
-      if (isEarned) tags.push(`<span class="tag earned-tag">Earned</span>`);
-      return `<li class="trophy-row grade-${escapeHtml(trophy.grade)}${isEarned ? " earned" : ""}${isSelected ? " selected" : ""}" data-trophy="${escapeHtml(trophy.name)}" role="button" tabindex="0" aria-label="${escapeHtml(trophy.name)}">
-        <input type="checkbox" data-earn="${escapeHtml(trophy.name)}" ${isEarned ? "checked" : ""} aria-label="Tandai ${escapeHtml(trophy.name)} sudah didapat">
-        <div class="row-main">
-          <div class="row-name">${nameHtml}${trophy.hidden && !masked ? ` <span class="hidden-tag">(hidden)</span>` : ""}</div>
-          ${descHtml}
-          <div class="row-meta">${tags.join("")}</div>
-        </div>
+/** The left trophy list: checkbox, grade dot, name, kind tags, count chip. */
+export function renderTrophyList(trophies, state, el, selectedId, onSelect) {
+  const rows = sortTrophies(trophies)
+    .map((t) => {
+      const earned = isEarned(state, t.id);
+      const masked = isSpoilerMasked(t, state);
+      const countHtml = t.counts
+        ? `<span class="count-chip">${getCount(state, t.id)}/${t.counts.total} ${esc(t.counts.target)}</span>`
+        : '';
+      const kinds = (t.kinds ?? []).map((k) => `<span class="kind-tag">${esc(k)}</span>`).join('');
+      return `<li class="trophy-row${earned ? ' earned' : ''}${t.id === selectedId ? ' selected' : ''}" data-id="${esc(t.id)}">
+        <label class="check"><input type="checkbox" data-check="${esc(t.id)}"${earned ? ' checked' : ''} aria-label="Tandai ${esc(masked ? 'trophy' : t.name)} didapat"><span></span></label>
+        <button class="row-main" data-open="${esc(t.id)}">
+          <span class="row-name"><i class="grade-dot grade-${esc(t.grade)}"></i>${esc(displayName(t, state))}</span>
+          <span class="row-sub">${esc(gradeLabel(t.grade))}${t.hidden ? ' · Hidden' : ''} · ${esc(verifiedLabel(t.verified))}</span>
+          <span class="row-tags">${kinds}${countHtml}</span>
+        </button>
       </li>`;
     })
-    .join("");
+    .join('');
+  el.innerHTML = rows || '<li class="empty">Tidak ada trophy yang cocok dengan filter ini.</li>';
+  el.querySelectorAll('[data-open]').forEach((btn) => {
+    btn.addEventListener('click', () => onSelect(btn.getAttribute('data-open')));
+  });
 }
 
-/* ---------- tracker: trophy detail ---------- */
-
-function renderMissableBox(trophy) {
-  const box = trophy.missable_box;
-  if (!box) return "";
-  const text = typeof box === "string" ? box : box.text || "";
-  const src = typeof box === "object" && box.src ? box.src : null;
-  const srcHtml = src ? `<div class="step-src">Source: ${src.map((c) => `<span class="src-code">${escapeHtml(c)}</span>`).join("")}</div>` : "";
-  return `<div class="missable-box"><h3>⚠ Missable — jangan lewatkan</h3><p>${escapeHtml(text)}</p>${srcHtml}</div>`;
-}
-
-function renderPointsOfNoReturn(trophy) {
-  const points = trophy.points_of_no_return;
-  if (!points || points.length === 0) return "";
-  const items = points.map((point) => `<li>${escapeHtml(typeof point === "string" ? point : point.text || "")}</li>`).join("");
-  return `<div class="pnr-box"><h3>Points of no return</h3><ul>${items}</ul></div>`;
-}
-
-export function renderTrophyDetail(container, trophy, data, state) {
+/** The centre detail pane: guide, numbered cited steps, sources, badges. */
+export function renderDetail(trophy, data, state, el, onCountChange) {
   if (!trophy) {
-    container.innerHTML = `<p class="empty-note">Pilih satu trophy di kiri untuk melihat panduan langkah demi langkah beserta sumbernya.</p>`;
+    el.innerHTML = '<div class="detail-empty"><h2>Pilih satu trophy</h2><p>Klik trophy di daftar kiri untuk melihat panduan lengkapnya — langkah demi langkah, masing-masing dengan sumbernya.</p></div>';
     return;
   }
-  const { earned, spoiler } = state;
-  const masked = isSpoilerMasked(trophy, { spoiler, earned });
-  const isEarned = earned.has(trophy.name);
-  const nameHtml = masked ? `<span class="spoiler-bar" role="img" aria-label="Nama story trophy tersembunyi"></span>` : escapeHtml(trophy.name);
-  const descHtml = masked
-    ? `<p class="detail-desc">Nama &amp; deskripsi disembunyikan spoiler shield sampai trophy ini didapat.</p>`
-    : `<p class="detail-desc">“${escapeHtml(trophy.description || "")}”</p>`;
-  const flags = [
-    `<span class="flag grade-${escapeHtml(trophy.grade)}">${escapeHtml(trophy.grade)}</span>`,
-    `<span class="flag">${escapeHtml(trophy.kind)}</span>`,
-    `<span class="flag stage">Roadmap stage ${trophy.roadmap_stage || "—"}</span>`,
-  ];
-  if (trophy.missable) flags.push(`<span class="flag missable">MISSABLE</span>`);
-  if (trophy.hidden) flags.push(`<span class="flag hidden">HIDDEN</span>`);
-  if (trophy.counts) flags.push(`<span class="flag count">Count: ${escapeHtml(String(trophy.counts))}</span>`);
-  if (isEarned) flags.push(`<span class="flag">✓ Earned</span>`);
-  const steps = (trophy.steps || [])
+  const masked = isSpoilerMasked(trophy, state);
+  const sources = data.sources.sources;
+  const steps = (trophy.steps ?? [])
     .map(
-      (step) =>
-        `<li>${escapeHtml(step.text)}<div class="step-src">Source: ${renderSourceChips(step, data)}</div></li>`
+      (step, i) =>
+        `<li><span class="step-num">${i + 1}</span><span class="step-text">${esc(step.text)}</span><span class="step-src">${sourceChips(sources, step.src)}</span></li>`,
     )
-    .join("");
-  const sourceNames = [...new Set((trophy.steps || []).flatMap((s) => s.src || []))]
-    .map((code) => sourceLabel(code, new Map(data.sources.map((s) => [s.code, s]))))
-    .join(", ");
-  container.innerHTML = `
-    <div class="detail-head"><h2>${nameHtml}</h2></div>
-    ${descHtml}
-    <div class="detail-flags">${flags.join("")}</div>
-    <div class="detail-guide"><p>${escapeHtml(trophy.guide || "")}</p></div>
-    ${renderMissableBox(trophy)}
-    ${renderPointsOfNoReturn(trophy)}
-    <ol class="steps">${steps}</ol>
-    <p class="detail-foot">Sources for this trophy: ${escapeHtml(sourceNames || "official trophy list")}. Panduan ditulis dengan kata-kata sendiri; tiap langkah mengutip sumbernya.</p>`;
+    .join('');
+  const countBlock = trophy.counts
+    ? `<div class="count-block"><label>Progress ${esc(trophy.counts.target)}:
+        <input type="number" min="0" max="${trophy.counts.total}" value="${getCount(state, trophy.id)}" data-count="${esc(trophy.id)}"> / ${trophy.counts.total}</label>
+        <span class="count-note">Simpan otomatis di browser ini.</span></div>`
+    : '';
+  el.innerHTML = `<article class="detail">
+    <header>
+      <span class="grade-badge grade-${esc(trophy.grade)}">${esc(gradeLabel(trophy.grade))}</span>
+      <span class="verified-badge verified-${esc(trophy.verified)}">${esc(verifiedLabel(trophy.verified))}</span>
+      ${trophy.hidden ? '<span class="hidden-badge">Hidden di PS5</span>' : ''}
+      <span class="overlap-badge">${esc(overlapLabel(trophy.overlap100))}</span>
+    </header>
+    <h2>${esc(displayName(trophy, state))}</h2>
+    <p class="official-desc">${esc(displayDescription(trophy, state))}</p>
+    <p class="guide-text">${masked ? 'Panduan disembunyikan spoiler shield.' : esc(trophy.guide)}</p>
+    ${countBlock}
+    ${steps ? `<h3>Langkah-langkah</h3><ol class="steps">${steps}</ol>` : '<p class="no-steps">Trophy ini otomatis — tidak ada langkah khusus.</p>'}
+    <p class="detail-foot">Tahap roadmap: ${trophy.stage ?? '—'} · ${esc((trophy.kinds ?? []).join(', '))}</p>
+  </article>`;
+  const input = el.querySelector('[data-count]');
+  // Blur first: the change callback re-renders this pane (innerHTML), and
+  // replacing the pane while its input still has focus throws in Chromium
+  // ("node to be removed is no longer a child … moved in a blur handler").
+  if (input) input.addEventListener('change', () => { input.blur(); onCountChange(trophy.id, input.value, trophy.counts.total); });
 }
 
-/* ---------- tracker: right rail ---------- */
-
-export function renderProgressPane(state, data) {
-  const { earned } = state;
-  const total = data.trophies.length;
-  const pct = total === 0 ? 0 : Math.round((earned.size / total) * 100);
-  const bigEarned = document.getElementById("big-earned");
-  if (bigEarned) bigEarned.textContent = String(earned.size);
-  const progressText = document.getElementById("progress-text");
-  if (progressText) progressText.textContent = `${earned.size} / ${total} earned`;
-  const progressPct = document.getElementById("progress-pct");
-  if (progressPct) progressPct.textContent = `${pct}%`;
-  const fill = document.getElementById("progress-fill");
-  if (fill) fill.style.width = `${pct}%`;
-  const bar = document.getElementById("progress-bar");
-  if (bar) {
-    bar.setAttribute("aria-valuenow", String(earned.size));
-    bar.setAttribute("aria-valuemax", String(total));
-  }
-  const breakdown = document.getElementById("grade-breakdown");
-  if (breakdown) {
-    const grades = ["platinum", "gold", "silver", "bronze"];
-    breakdown.innerHTML = grades
-      .map((grade) => {
-        const all = data.trophies.filter((t) => t.grade === grade);
-        const done = all.filter((t) => earned.has(t.name)).length;
-        return `<div class="grade-line"><span class="grade-name"><span class="grade-dot grade-${grade}"></span>${grade}</span><span>${done} / ${all.length}</span></div>`;
-      })
-      .join("");
-  }
-  const miniRoadmap = document.getElementById("mini-roadmap-list");
-  if (miniRoadmap) {
-    miniRoadmap.innerHTML = (data.panels.roadmap || [])
-      .map((stage) => {
-        const stageTrophies = data.trophies.filter((t) => t.roadmap_stage === stage.stage);
-        const done = stageTrophies.filter((t) => earned.has(t.name)).length;
-        const complete = stageTrophies.length > 0 && done === stageTrophies.length;
-        return `<li><span>Stage ${stage.stage} — ${escapeHtml(stage.title)}</span><span class="${complete ? "stage-done" : ""}">${done}/${stageTrophies.length}</span></li>`;
-      })
-      .join("");
-  }
+/** The right rail: progress ring, grade breakdown, Next Up planner. */
+export function renderProgress(trophies, state, el, onSelect) {
+  const total = trophies.length;
+  const earned = state.earned.length;
+  const pct = total ? Math.round((earned / total) * 100) : 0;
+  const circ = 2 * Math.PI * 52;
+  const gp = gradeProgress(trophies, state);
+  const grades = Object.entries(gp)
+    .map(([g, v]) => `<div class="grade-line"><span>${esc(gradeLabel(g))}</span><span>${v.earned}/${v.total}</span><div class="mini-bar"><i style="width:${v.total ? Math.round((v.earned / v.total) * 100) : 0}%"></i></div></div>`)
+    .join('');
+  const up = nextUp(trophies, state);
+  const upHtml = up
+    ? `<button class="next-up" data-open="${esc(up.id)}"><span class="next-label">Next Up — tahap ${up.stage ?? '—'}</span><strong>${esc(displayName(up, state))}</strong><span>${esc(displayDescription(up, state))}</span></button>`
+    : '<div class="next-up done"><strong>Platinum selesai!</strong><span>Semua 55 trophy didapat. Leonida Legend.</span></div>';
+  el.innerHTML = `<section class="progress-card">
+    <div class="ring-wrap">
+      <svg viewBox="0 0 120 120" class="ring" role="img" aria-label="${pct}% selesai">
+        <circle cx="60" cy="60" r="52" class="ring-bg"></circle>
+        <circle cx="60" cy="60" r="52" class="ring-fg" stroke-dasharray="${circ}" stroke-dashoffset="${circ - (circ * pct) / 100}"></circle>
+      </svg>
+      <div class="ring-text"><strong>${earned}/${total}</strong><span>${pct}%</span></div>
+    </div>
+    <div class="grade-lines">${grades}</div>
+    ${upHtml}
+  </section>`;
+  const btn = el.querySelector('[data-open]');
+  if (btn) btn.addEventListener('click', () => onSelect(btn.getAttribute('data-open')));
 }
 
-/* ---------- roadmap view ---------- */
-
-export function renderRoadmapView(container, data, state, onSelectTrophy) {
-  const { earned } = state;
-  const stages = (data.panels.roadmap || [])
+/** Roadmap view: 7 stages with trophies, time estimates and per-stage progress. */
+export function renderRoadmap(data, state, el, onSelect) {
+  const trophies = data.trophies.trophies;
+  const stages = (data.panels.roadmap ?? [])
     .map((stage) => {
-      const stageTrophies = data.trophies.filter((t) => t.roadmap_stage === stage.stage);
-      const chips = stageTrophies
-        .map(
-          (t) =>
-            `<button type="button" data-trophy-jump="${escapeHtml(t.name)}" class="${earned.has(t.name) ? "earned" : ""}">${escapeHtml(t.name)}${earned.has(t.name) ? " ✓" : ""}</button>`
-        )
-        .join("");
-      return `<div class="stage-card">
-        <h3>Stage ${stage.stage} — ${escapeHtml(stage.title)}</h3>
-        <p class="stage-meta">${escapeHtml(stage.time || "")} &middot; ${stageTrophies.length} trophies</p>
-        ${renderClaimList(stage.claims, data)}
-        <div class="stage-trophies">${chips}</div>
-      </div>`;
+      const inStage = trophies.filter((t) => t.stage === stage.stage);
+      const earned = inStage.filter((t) => state.earned.includes(t.id)).length;
+      const names = (stage.trophies ?? [])
+        .map((name) => {
+          const t = trophies.find((x) => x.name === name);
+          if (!t) return `<span class="stage-trophy">${esc(name)}</span>`;
+          const masked = isSpoilerMasked(t, state);
+          return `<button class="stage-trophy${state.earned.includes(t.id) ? ' earned' : ''}" data-open="${esc(t.id)}">${esc(masked ? '???' : name)}</button>`;
+        })
+        .join('');
+      return `<section class="stage-card">
+        <header><span class="stage-num">Tahap ${stage.stage}</span><h3>${esc(stage.title)}</h3><span class="stage-time">${esc(stage.time ?? '')}</span></header>
+        <p>${esc(stage.text)}</p>
+        <div class="stage-bar"><i style="width:${inStage.length ? Math.round((earned / inStage.length) * 100) : 0}%"></i><span>${earned}/${inStage.length} trophy</span></div>
+        <div class="stage-trophies">${names}</div>
+        <p class="stage-src">Sumber: ${sourceChips(data.sources.sources, stage.src)}</p>
+      </section>`;
     })
-    .join("");
-  const grid = (data.panels.missables.grid || [])
-    .map((row) => {
-      const items = (row.items || [])
-        .map(
-          (item) =>
-            `<li><strong>${escapeHtml(item.trophy)}</strong> — ${escapeHtml(item.text)} <span class="tag ${item.risk === "missable" ? "missable" : ""}">${escapeHtml(item.risk || "")}</span><div class="step-src">Source: ${renderSourceChips(item, data)}</div></li>`
-        )
-        .join("");
-      return `<div class="panel-card"><h3>${escapeHtml(row.chapter)}</h3><ul class="claim-list">${items}</ul></div>`;
-    })
-    .join("");
-  container.innerHTML = `<div class="page">
-    <h2>Roadmap to Platinum</h2>
-    <p class="page-intro">Tujuh tahap dari awal cerita sampai platinum "Vice Got a Price!". Dibangun dari deskripsi resmi trophy: chapter &amp; misi story, collectible dan jumlahnya, dalam urutan yang benar. Klik nama trophy untuk membuka panduannya.</p>
-    ${stages}
-    <h2>Missables by Chapter</h2>
-    <p class="page-intro">Satu trophy missable dan momen yang tidak bisa diulang — plus strategi save di bawahnya.</p>
-    ${grid}
-    <div class="panel-card"><h3>Save strategy</h3>${renderClaimList(data.panels.missables.save_strategy, data)}</div>
-    <div class="panel-card"><h3>Launch status</h3>${renderClaimList(data.panels.launch_status, data)}</div>
-  </div>`;
-  container.querySelectorAll("[data-trophy-jump]").forEach((button) => {
-    button.addEventListener("click", () => onSelectTrophy(button.getAttribute("data-trophy-jump")));
-  });
+    .join('');
+  el.innerHTML = `<h2>Roadmap ke Platinum</h2><p class="view-intro">Tujuh tahap, berurutan — dari pembuka sampai cleanup free-roam setelah tamat. Satu playthrough cukup; tidak ada New Game+.</p><div class="stage-grid">${stages}</div>`;
+  el.querySelectorAll('[data-open]').forEach((btn) => btn.addEventListener('click', () => onSelect(btn.getAttribute('data-open'))));
 }
 
-/* ---------- glitch & farming view ---------- */
-
-export function renderGlitchView(container, data) {
-  const glitch = data.panels.glitch;
-  const disputes = (data.panels.disputes || [])
-    .map((dispute) => {
-      const pro = renderClaimList(dispute.pro, data);
-      const con = renderClaimList(dispute.con, data);
-      return `<div class="panel-card dispute-card">
-        <h3>${escapeHtml(dispute.topic)}</h3>
-        <p class="verdict">Status: ${escapeHtml(dispute.status)}</p>
-        <h4>Yang mendukung</h4>${pro}
-        <h4>Yang meragukan</h4>${con}
-      </div>`;
+/** Missables view: chapter grid; only Positive Mental Attitude is red. */
+export function renderMissables(data, state, el, onSelect) {
+  const trophies = data.trophies.trophies;
+  const cards = (data.panels.missables ?? [])
+    .map((m) => {
+      const t = trophies.find((x) => x.name === m.trophy);
+      const high = m.risk === 'high';
+      return `<article class="miss-card ${high ? 'risk-high' : 'risk-low'}">
+        <header><span class="risk-badge">${high ? 'BISA KELEWAT' : 'AMAN SETELAH STORY'}</span><span class="miss-chapter">${esc(m.chapter)}</span></header>
+        <h3>${t ? `<button data-open="${esc(t.id)}">${esc(isSpoilerMasked(t, state) ? '???' : m.trophy)}</button>` : esc(m.trophy)}</h3>
+        <p>${esc(m.text)}</p>
+        <p class="miss-src">Sumber: ${sourceChips(data.sources.sources, m.src)}</p>
+      </article>`;
     })
-    .join("");
-  const warnings = (data.panels.warnings || [])
-    .map(
-      (warning) =>
-        `<div class="panel-card warning-card"><h3>⚠ Peringatan</h3><p>${escapeHtml(warning.text)}</p><div class="step-src">Source: ${renderSourceChips(warning, data)}</div></div>`
-    )
-    .join("");
-  container.innerHTML = `<div class="page">
-    <h2>Glitch &amp; Farming</h2>
-    <p class="page-intro">Glitch uang Apollo Aggregates masih berstatus <strong>${escapeHtml(glitch.status)}</strong> — diperdebatkan, belum terkonfirmasi. Halaman ini menunjukkan kedua sisi bukti, plus cara farming yang legal dan peringatan anti-phishing.</p>
-    <div class="panel-card dispute-card">
-      <h3>Apollo Aggregates money glitch — ${escapeHtml(glitch.status)}</h3>
-      ${renderClaimList(glitch.claims, data)}
-      <h4>Yang mendukung</h4>${renderClaimList(glitch.pro, data)}
-      <h4>Yang meragukan</h4>${renderClaimList(glitch.con, data)}
-      <p><strong>${escapeHtml(glitch.warning || "")}</strong></p>
-    </div>
-    <h2>Disputed Claims</h2>
-    ${disputes}
-    <h2>Farming — cara legal</h2>
-    <div class="panel-card">${renderClaimList(data.panels.farming, data)}</div>
-    <h2>Warnings</h2>
-    ${warnings}
-  </div>`;
+    .join('');
+  el.innerHTML = `<h2>Missables — yang bisa kelewat</h2>
+    <p class="view-intro">Hanya <strong>satu</strong> trophy yang berpotensi missable. Sisanya aman dikerjakan setelah tamat di free-roam.</p>
+    <div class="miss-grid">${cards}</div>
+    <section class="save-strategy"><h3>Strategi save (tanpa mission replay)</h3>
+    <p>Game ini tidak punya mission replay dan tidak ada New Game+. Simpan manual di awal &amp; akhir tiap chapter — 15 slot manual + 1 autosave. Putar slotnya: 10 save untuk chapter, sisanya untuk cleanup free-roam. Jangan pernah menimpa satu-satunya save chapter yang sedang berjalan.</p></section>`;
+  el.querySelectorAll('[data-open]').forEach((btn) => btn.addEventListener('click', () => onSelect(btn.getAttribute('data-open'))));
 }
 
-/* ---------- easter eggs view ---------- */
-
-export function renderEggsView(container, data, state) {
-  const filter = state.eggFilter || "all";
-  const counts = {
-    all: data.eggs.length,
-    egg: data.eggs.filter((e) => e.category === "egg").length,
-    bug: data.eggs.filter((e) => e.category === "bug").length,
-    oddity: data.eggs.filter((e) => e.category === "oddity").length,
-  };
-  const shown = filter === "all" ? data.eggs : data.eggs.filter((e) => e.category === filter);
-  const cards = shown
+/** Disputes view: every disagreement shown both ways, plus glitch & launch status. */
+export function renderDisputes(data, el) {
+  const disputes = (data.panels.disputes ?? [])
     .map(
-      (egg) => `<div class="egg-card">
-        <div class="egg-badges">
-          <span class="tag kind-${egg.category === "egg" ? "collectibles" : egg.category === "bug" ? "crime" : "activities"}">${escapeHtml(egg.category)}</span>
-          <span class="tag ${egg.status === "disputed" ? "missable" : ""}">${escapeHtml(egg.status)}</span>
-        </div>
-        <h3>${escapeHtml(egg.title)}</h3>
-        <p>${escapeHtml(egg.text)}</p>
-        <div class="step-src">Source: ${renderSourceChips(egg, data)}</div>
-      </div>`
+      (d) => `<article class="dispute-card">
+        <h3>${esc(d.title)}</h3>
+        <div class="dispute-sides"><div><strong>Pro</strong><p>${esc(d.pro)}</p></div><div><strong>Kontra</strong><p>${esc(d.con)}</p></div></div>
+        <p class="dispute-status">Status: <strong>${esc(d.status)}</strong> · Sumber: ${sourceChips(data.sources.sources, d.src)}</p>
+      </article>`,
     )
-    .join("");
-  container.innerHTML = `<div class="page">
-    <h2>Easter Eggs, Bugs &amp; Oddities</h2>
-    <p class="page-intro">${data.eggs.length} item di Leonida — telur paskah, bug, dan keanehan. Tiap item mengutip sumbernya; status "disputed" berarti klaimnya masih diperdebatkan.</p>
-    <div class="egg-filter-row" role="group" aria-label="Filter easter eggs">
-      ${["all", "egg", "bug", "oddity"].map((kind) => `<button type="button" class="chip ${filter === kind ? "active" : ""}" data-egg-filter="${kind}">${kind === "all" ? "All" : kind} (${counts[kind]})</button>`).join("")}
-    </div>
-    <div class="egg-grid">${cards}</div>
-  </div>`;
-  container.querySelectorAll("[data-egg-filter]").forEach((button) => {
-    button.addEventListener("click", () => state.onEggFilter(button.getAttribute("data-egg-filter")));
+    .join('');
+  const g = data.panels.glitch ?? {};
+  const glitchSteps = (g.steps ?? []).map((s) => `<li>${esc(s.text)} <span class="step-src">${sourceChips(data.sources.sources, s.src)}</span></li>`).join('');
+  const alternatives = (g.alternatives ?? []).map((a) => `<li>${esc(a.text)} <span class="step-src">${sourceChips(data.sources.sources, a.src)}</span></li>`).join('');
+  const launch = (data.panels.launch ?? []).map((l) => `<li>${esc(l.text)} <span class="step-src">${sourceChips(data.sources.sources, l.src)}</span></li>`).join('');
+  const warnings = (data.panels.warnings ?? []).map((w) => `<li>${esc(w.text)} <span class="step-src">${sourceChips(data.sources.sources, w.src)}</span></li>`).join('');
+  const farming = (data.panels.farming ?? []).map((f) => `<li>${esc(f.text)} <span class="step-src">${sourceChips(data.sources.sources, f.src)}</span></li>`).join('');
+  el.innerHTML = `<h2>Disputes — sumber yang bertentangan</h2>
+    <p class="view-intro">Sumber tidak selalu sepakat. Setiap perselisihan ditampilkan dua sisi, dengan status kejujurannya — bukan dipilih yang enak dibaca.</p>
+    <div class="dispute-grid">${disputes}</div>
+    <section class="panel-block"><h3>${esc(g.title ?? 'Glitch & Farming')}</h3>
+      <p class="glitch-status">Status: <strong>${esc(g.status ?? '')}</strong></p>
+      ${glitchSteps ? `<ol class="steps">${glitchSteps}</ol>` : ''}
+      ${g.warning ? `<p class="warning">${esc(g.warning)}</p>` : ''}
+      ${alternatives ? `<h4>Cara legit sebagai alternatif</h4><ul class="plain-list">${alternatives}</ul>` : ''}
+    </section>
+    <section class="panel-block"><h3>Status launch &amp; patch day-one</h3><ul class="plain-list">${launch}</ul></section>
+    <section class="panel-block"><h3>Peringatan — baca sebelum main</h3><ul class="plain-list">${warnings}</ul></section>
+    <section class="panel-block"><h3>Farming legal (bukan glitch)</h3><ul class="plain-list">${farming}</ul></section>`;
+}
+
+/** Sources view: the full source matrix with page counts and links. */
+export function renderSources(data, el) {
+  const rows = data.sources.sources
+    .map(
+      (s) => `<tr><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></td>
+        <td><code>${esc(s.code)}</code></td><td>${s.pages?.length ?? 0} halaman</td>
+        <td>${(s.pages ?? []).slice(0, 3).map((p) => esc(p)).join(' · ')}${(s.pages?.length ?? 0) > 3 ? ' …' : ''}</td></tr>`,
+    )
+    .join('');
+  el.innerHTML = `<h2>Sumber — matrix</h2>
+    <p class="view-intro">Setiap klaim di guide ini menunjuk ke salah satu sumber di bawah. App ini tidak pernah mengambil (fetch) apa pun dari sumber-sumber ini — tautan hanya terbuka kalau pembaca mengkliknya.</p>
+    <table class="source-table"><thead><tr><th>Sumber</th><th>Kode</th><th>Halaman</th><th>Contoh halaman dibaca</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+/** Easter Eggs view: 86 cards with kind/status filters. */
+export function renderEggs(data, state, el) {
+  const items = (data.eggs.items ?? []).filter((item) => {
+    if (state.eggKind !== 'all' && item.kind !== state.eggKind) return false;
+    if (state.eggStatus !== 'all' && item.status !== state.eggStatus) return false;
+    return true;
   });
+  const cards = items
+    .map(
+      (item) => `<article class="egg-card">
+        <header><span class="egg-kind kind-${esc(item.kind)}">${esc(item.kind)}</span><span class="egg-status status-${esc(item.status)}">${esc(item.status)}</span></header>
+        <h3>${esc(item.name)}</h3>
+        <p class="egg-where">${esc(item.where)}</p>
+        <p>${esc(item.text)}</p>
+        <p class="egg-src">Sumber: ${sourceChips(data.sources.sources, item.src)}</p>
+      </article>`,
+    )
+    .join('');
+  el.innerHTML = `<h2>Easter Eggs, Bug &amp; Keanehan</h2>
+    <p class="view-intro">${data.eggs.items?.length ?? 0} temuan di Leonida — telur paskah, bug, dan hal aneh. Difilter di bawah; statusnya jujur: confirmed, reported, atau disputed.</p>
+    <div class="egg-filters">
+      <label>Jenis <select id="egg-kind"><option value="all">Semua</option><option value="egg">Easter egg</option><option value="bug">Bug</option><option value="oddity">Keanehan</option></select></label>
+      <label>Status <select id="egg-status"><option value="all">Semua</option><option value="confirmed">Confirmed</option><option value="reported">Reported</option><option value="disputed">Disputed</option></select></label>
+    </div>
+    <p class="egg-count">${items.length} ditampilkan</p>
+    <div class="egg-grid">${cards || '<p class="empty">Tidak ada yang cocok dengan filter ini.</p>'}</div>`;
+  el.querySelector('#egg-kind').value = state.eggKind;
+  el.querySelector('#egg-status').value = state.eggStatus;
 }
