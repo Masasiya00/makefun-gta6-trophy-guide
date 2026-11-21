@@ -1,92 +1,46 @@
-// filters.js — filtering, searching and spoiler masking for the trophy list.
-// The spoiler shield masks the name and description of every un-earned story
-// trophy, in every view, until it is earned. Masking happens here, in one
-// place, so no view can leak a story trophy's name by accident.
+// filters.js — pure filtering of the trophy list. No DOM here, so the
+// same logic drives the list, the counts and the Next Up suggestions.
 
-/** The 20 story trophies are the ones whose kinds include "story". */
-export function isStoryTrophy(trophy) {
-  return (trophy.kinds ?? []).includes('story');
-}
-
-/** Is this trophy's name/description hidden by the spoiler shield right now? */
-export function isSpoilerMasked(trophy, state) {
-  return state.spoilerShield && isStoryTrophy(trophy) && !state.earned.includes(trophy.id);
-}
-
-/** Display name: "???" while masked, the official name otherwise. */
-export function displayName(trophy, state) {
-  return isSpoilerMasked(trophy, state) ? '???' : trophy.name;
-}
-
-/** Display description: a spoiler note while masked, the official text otherwise. */
-export function displayDescription(trophy, state) {
-  return isSpoilerMasked(trophy, state)
-    ? 'Nama & deskripsi disembunyikan spoiler shield — dapatkan trophy ini dulu, atau matikan shield.'
-    : trophy.description;
-}
-
-/**
- * Filter the trophy list. opts: { kind, grade, status, query }.
- * kind: 'all' | 'story' | 'missable' | 'collectibles' | 'activities' | 'crime' | 'hidden'
- * grade: 'all' | 'platinum' | 'gold' | 'silver' | 'bronze'
- * status: 'all' | 'earned' | 'unearned'
- * query: free text matched against name + description + guide.
- */
-export function applyFilters(trophies, state, opts) {
-  const q = (opts.query ?? '').trim().toLowerCase();
+export function applyFilters(trophies, state) {
+  const f = state.filters;
+  const q = (f.query || '').trim().toLowerCase();
   return trophies.filter((t) => {
-    if (opts.kind !== 'all') {
-      if (opts.kind === 'hidden') {
-        if (!t.hidden) return false;
-      } else if (!(t.kinds ?? []).includes(opts.kind)) {
-        return false;
-      }
-    }
-    if (opts.grade !== 'all' && t.grade !== opts.grade) return false;
-    const earned = state.earned.includes(t.id);
-    if (opts.status === 'earned' && !earned) return false;
-    if (opts.status === 'unearned' && earned) return false;
+    if (f.kind && t.kind !== f.kind) return false;
+    if (f.grade && t.grade !== f.grade) return false;
+    if (f.status === 'earned' && !state.earned[t.name]) return false;
+    if (f.status === 'remaining' && state.earned[t.name]) return false;
+    if (f.status === 'hidden' && !t.hidden) return false;
+    if (f.status === 'verified' && t.verified !== 'confirmed') return false;
+    if (f.status === 'reported' && t.verified !== 'reported') return false;
+    if (f.status === 'unknown' && t.verified !== 'unknown') return false;
     if (q) {
-      const hay = `${t.name} ${t.description} ${t.guide}`.toLowerCase();
+      const hay = `${t.name} ${t.description} ${t.kind} ${t.grade}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
   });
 }
 
-/** Sort: platinum first, then gold, silver, bronze; within a grade, by stage then name. */
-export function sortTrophies(trophies) {
-  const rank = { platinum: 0, gold: 1, silver: 2, bronze: 3 };
-  return [...trophies].sort(
-    (a, b) => rank[a.grade] - rank[b.grade] || (a.stage ?? 99) - (b.stage ?? 99) || a.name.localeCompare(b.name),
-  );
-}
-
-/** Count earned trophies per grade, for the progress breakdown. */
-export function gradeProgress(trophies, state) {
-  const out = {};
-  for (const t of trophies) {
-    out[t.grade] = out[t.grade] ?? { total: 0, earned: 0 };
-    out[t.grade].total++;
-    if (state.earned.includes(t.id)) out[t.grade].earned++;
-  }
+export function gradeCounts(trophies) {
+  const out = { platinum: 0, gold: 0, silver: 0, bronze: 0 };
+  for (const t of trophies) if (out[t.grade] !== undefined) out[t.grade]++;
   return out;
 }
 
-/** The next trophy to chase: lowest roadmap stage first, then count progress, then grade. */
-export function nextUp(trophies, state) {
-  const remaining = trophies.filter((t) => !state.earned.includes(t.id));
-  if (remaining.length === 0) return null;
-  const rank = { platinum: 3, gold: 2, silver: 1, bronze: 0 };
-  const scored = remaining.map((t) => {
-    let score = (t.stage ?? 99) * 100;
-    if (t.counts) {
-      const have = state.counts[t.id] ?? 0;
-      score -= Math.round((have / t.counts.total) * 40);
-    }
-    score += rank[t.grade] ?? 0;
-    return { trophy: t, score };
+export function kindCounts(trophies) {
+  const out = {};
+  for (const t of trophies) out[t.kind] = (out[t.kind] || 0) + 1;
+  return out;
+}
+
+// Suggest the next trophies to chase: remaining, earliest roadmap stage
+// first, missables before anything else in the same stage.
+export function suggestNextUp(trophies, state, limit = 5) {
+  const remaining = trophies.filter((t) => !state.earned[t.name]);
+  remaining.sort((a, b) => {
+    if (a.missable !== b.missable) return a.missable ? -1 : 1;
+    if (a.roadmap_stage !== b.roadmap_stage) return a.roadmap_stage - b.roadmap_stage;
+    return a.name.localeCompare(b.name);
   });
-  scored.sort((a, b) => a.score - b.score);
-  return scored[0].trophy;
+  return remaining.slice(0, limit);
 }
