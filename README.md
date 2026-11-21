@@ -4,10 +4,10 @@
 
 # LEONIDA PLATINUM ATLAS — GTA VI Trophy Guide & Tracker: 703/703 claims cited (100%), 696 on 2+ sites, 59 sources, 12 disputes, audit strip, spoiler shield, export/import
 
-An offline guide and tracker for all **55 PlayStation 5 trophies** of Grand Theft Auto VI:
-1 platinum, 2 gold, 6 silver, 46 bronze. Every trophy shows its official name, description
-and grade exactly as PlayStation publishes them, plus a step-by-step guide written in our own
-words that cites its sources on every step. 54 of 55 unlock methods are confirmed; one
+An offline guide and tracker covering all **55 PlayStation 5 trophies** of Grand Theft Auto VI:
+1 platinum, 2 gold, 6 silver, 46 bronze. Each trophy displays its official name, description
+and grade exactly as PlayStation lists them, alongside a step-by-step guide written in our own
+words with a source cited on every step. 54 of 55 unlock methods are confirmed; one
 (Ten Pin) is honestly marked unknown, with its best lead shown instead of a made-up answer.
 
 ## What it does
@@ -17,11 +17,11 @@ words that cites its sources on every step. 54 of 55 unlock methods are confirme
   and a **Next Up** list in roadmap order.
 - **Filters** — by kind (Story, Missable, Collectibles, Activities, Crime, Hidden), by grade,
   by earned/unearned, and free-text search.
-- **Spoiler shield** — masks the names and descriptions of story trophies until they are
+- **Spoiler shield** — hides the names and descriptions of story trophies until they are
   earned (on by default).
 - **Roadmap to Platinum** — 7 stages from the first story chapter to the platinum, built from
   the official trophy descriptions, with the one missable trophy flagged per chapter and a
-  save strategy (no mission replay exists, so chapter saves are the only safety net).
+  save strategy (there is no mission replay, so chapter saves are the only safety net).
 - **Cited guidance** — 703 of 703 claims cite a source (100%), 696 cite two or more sites,
   across 59 sources and 70 pages. Every guide step shows its source names, and the header
   carries a live **audit strip** computed from the data files.
@@ -59,7 +59,7 @@ into the output directory and writes `dossier.json` via the kit's `vendor/makefu
 
 ## Sources
 
-All guide steps, panel claims and easter eggs cite their sources by name, with links in the
+Every guide step, panel claim and easter egg cites its sources by name, with links in the
 app's Sources page: PowerPyx, Exophase, GameSpot, damnmodz, gamemapa, PushSquare, KeeNgamer,
 and 52 more. Trophy names and descriptions are the official ones; all guide text is our own
 writing. No Rockstar logo, artwork, box art, or game screenshots are used anywhere.
